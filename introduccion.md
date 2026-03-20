@@ -41,7 +41,7 @@ Sábados: Si el paciente requiere un sábado, Valeria verifica si el Dr. Molina 
 Tolerancia: Si un paciente llega tarde, el sistema debe contemplar un margen de 10 minutos antes de que el médico decida si lo atiende o lo reprograma
 .
 Postcondiciones: El turno queda registrado sin tachones y se dispara una notificación automática por WhatsApp al paciente
-.
+
 Caso de Uso 3: Gestión de Sobreturnos (Manual)
 Actores: Dr. Molina (Actor principal), Valeria (Actor secundario)
 .
@@ -56,7 +56,7 @@ Valeria registra al paciente en el sistema como un "sobreturno"
 Flujo Alternativo: El Dr. Molina decide no aceptar el sobreturno según la carga de trabajo que tenga ese día específico
 .
 Postcondiciones: El paciente queda registrado en la agenda del día, aunque el sistema no lo asigne automáticamente para evitar el caos
-.
+
 Caso de Uso 4: Bloqueo de Agenda por Inactividad
 Actores: Valeria
 .
@@ -68,7 +68,7 @@ Selecciona el rango de fechas correspondientes a vacaciones, feriados o eventos 
 .
 El sistema marca el periodo como no disponible para la toma de turnos.
 Postcondiciones: Se previene que Valeria dé turnos por error en días donde el consultorio estará cerrado
-.
+
 Caso de Uso 5: Reprogramación o Cancelación de Cita
 Actores: Valeria
 .
