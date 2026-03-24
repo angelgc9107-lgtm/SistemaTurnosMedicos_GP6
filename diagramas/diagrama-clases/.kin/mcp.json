@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "excalidraw": {
+      "transport": {
+        "type": "http",
+        "url": "https://mcp.excalidraw.com/mcp"
+      }
+    }
+  }
+}
