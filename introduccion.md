@@ -3,7 +3,8 @@ Actores: Secretaria (Principal), Médico (Secundario para autorizaciones)
 .
 Descripción: Valeria selecciona fecha, hora y tipo de consulta (Control 15 min / Primera vez 30 min)
 . El sistema valida que no haya superposiciones
- y aplica restricciones: lunes sin procedimientos, jueves tarde cerrado y viernes tarde sin "Primera vez"
+ y aplica restricciones: lunes sin procedimientos, jueves tarde cerrado y Viernes tarde: Bloqueo estricto de turnos tipo "Primera vez"
+. El doctor prefiere no recibirlos a última hora
 .
 Flujo Alternativo: Si el horario está ocupado, el médico puede autorizar manualmente un sobreturno (máximo 2 por día)
 .
