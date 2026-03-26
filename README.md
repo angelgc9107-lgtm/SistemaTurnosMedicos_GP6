@@ -15,9 +15,9 @@ digitalizar la gestión de sus turnos.
 | Nombre y Apellido | Matrícula | Usuario de GitHub |
 
 | Claudia Nuñez | 131743 | @claudiapnunez |
-| Santiago Ferreyra | XXXXX | @ferreyrasantiagojoaquin-lab |
-| (nombre) | XXXXX | @angelgc9107-lgtm |
-| (nombre) | XXXXX | @usuario |
+| Santiago Ferreyra | 161304  | @ferreyrasantiagojoaquin-lab |
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm |
+| Thiago Piastrellini | 158097 | @Piastrellini |
 
 ## Diagramas y Diseños
 
