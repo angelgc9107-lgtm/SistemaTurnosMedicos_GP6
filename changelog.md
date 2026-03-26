@@ -23,9 +23,6 @@ PR: [#14][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pu
 feature/modelador-casos-uso-update-use-case-1 - Los caso de uso presentes, PR a develop y el Issue vinculado
   PR: [#10][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10)] - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
 
-feature/diseniador-clases-add-boceto-inicial - Agregado del archivo .puml
-  PR: [#15][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15)] @Piastrellini (Diseñador de clases iniciales)
-
 ### Fixed
 feature/fix-changelog.md - Correción a los archivos changelog.md & README.md
   PR: [#17][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18)] - @angelgc9107-lgtm (Analista de requerimientos)
