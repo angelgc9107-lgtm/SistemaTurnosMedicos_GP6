@@ -11,11 +11,11 @@ Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/23
 ### Changed
 
 feature/modelado-diagramas-refactor - Corrección de la estructura de diagramas y estandarización de nombres de carpetas.
-PR: #21 - @Piastrellini
+PR: #21 - @Piastrellini (Diseñador de clases iniciales) 
 Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21
 
 feature/casos-de-uso-update-estructura - Modificación de las estructuras de los casos de uso según requerimientos solicitados.
-PR: #25 - @angelgc9107-lgtm
+PR: #25 - @angelgc9107-lgtm (Analista de requerimientos) 
 Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/25
 
 ### Fixed
@@ -33,11 +33,11 @@ Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/23
 ### Changed
 
 feature/modelado-diagramas-refactor - Corrección de la estructura de diagramas y estandarización de nombres de carpetas.
-PR: #21 - @Piastrellini
+PR: #21 - @Piastrellini (Diseñador de clases iniciales)
 Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21
 
 feature/casos-de-uso-update-estructura - Modificación de las estructuras de los casos de uso según requerimientos solicitados.
-PR: #25 - @angelgc9107-lgtm
+PR: #25 - @angelgc9107-lgtm (Analista de requerimientos) 
 Link: https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/25
 
 ### Fixed
