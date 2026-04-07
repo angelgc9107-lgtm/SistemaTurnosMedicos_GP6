@@ -60,3 +60,4 @@ RNF5: El sistema debe guardar el historial de los cambios realizados a los turno
 
 ## Boceto inicial del diseño de clases
 
+![Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)
