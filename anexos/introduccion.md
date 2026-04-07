@@ -6,4 +6,3 @@
 
 ## Boceto inicial del diseño de clases
 
-Completar por el Diseñador de Clases Iniciales
