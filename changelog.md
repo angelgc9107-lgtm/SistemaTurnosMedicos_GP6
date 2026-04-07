@@ -33,16 +33,6 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 
   PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
 
-- [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
-
-  PR: [#35](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/35) - @landox1 (Documentador y coordinador de archivos)
-
-- [feature/doc-coord-repo-update-readme-md] Correccion de archivo anexo
-
-  PR: [#36](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/36) - @landox1 (Documentador y coordinador de archivos)
-
-  
-
 
 ## [Release]
 
@@ -79,3 +69,11 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
 
   PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
+
+- [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
+
+  PR: [#35](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/35) - @landox1 (Documentador y coordinador de archivos)
+
+- [feature/doc-coord-repo-update-readme-md] Correccion de archivo anexo
+
+  PR: [#36](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/36) - @landox1 (Documentador y coordinador de archivos)
