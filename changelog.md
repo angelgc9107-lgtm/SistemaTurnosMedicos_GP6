@@ -5,54 +5,67 @@
 ## [Unreleased]
 
 ### Added
-feature/modelador-casos-uso-update-use-case-1 - Documentación de 5 casos de uso completos en introduccion.md
-  PR: [#2][[link]https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/2] - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
-  
-feature/doc-coord-repo-update-readme-md -  Creación de estructura del repositorio, README.md, changelog.md, anexos.md e introducción a POO
-  PR: [#4][[link]https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/4)] - @claudiapnunez (Documentador y Coordinador)
+- [feature/modelador-casos-uso-update-use-case-1] - Documentación de 5 casos de uso completos en introduccion.md
 
-feature/diseniador-clases-add-boceto-inicial - Exportación de documentación y organización de archivos en la carpeta diagramas/01-diagrama-clases/
-  PR: [#12][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12)] @Piastrellini (Diseñador de clases iniciales)
+  PR: [#2](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/2) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
   
-  PR: [#15][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15)] @Piastrellini (Diseñador de clases iniciales)
+- [feature/doc-coord-repo-update-readme-md] -  Creación de estructura del repositorio, README.md, changelog.md, anexos.md e introducción a POO
 
-feature/analista-requerimentos-add-introduccion-md - Documentación de los requerimientos funcionales y no funcionales, archivo instrucciones.md
-PR: [#14][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14)] @angelgc9107-lgtm (Analista de requerimientos)
+  PR: [#4](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/4) - @claudiapnunez (Documentador y Coordinador)
+
+- [feature/diseniador-clases-add-boceto-inicial] - Exportación de documentación y organización de archivos en la carpeta diagramas/01-diagrama-clases/
+
+  PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12)- @Piastrellini (Diseñador de clases iniciales)
+  
+  PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) @Piastrellini (Diseñador de clases iniciales)
+
+- [feature/analista-requerimentos-add-introduccion-md] - Documentación de los requerimientos funcionales y no funcionales, archivo instrucciones.md
+
+PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) - @angelgc9107-lgtm (Analista de requerimientos)
 
 ### Changed
-feature/modelador-casos-uso-update-use-case-1 - Los caso de uso presentes, PR a develop y el Issue vinculado
-  PR: [#10][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10)] - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
+- [feature/modelador-casos-uso-update-use-case-1] - Los caso de uso presentes, PR a develop y el Issue vinculado
+
+  PR: [#10](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
 
 ### Fixed
-feature/fix-changelog.md - Correción a los archivos changelog.md & README.md
-  PR: [#17][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18)] - @angelgc9107-lgtm (Analista de requerimientos)
+- [feature/fix-changelog.md]- Correción a los archivos changelog.md & README.md
+
+  PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
 
 
 ## [Release]
 
 
 ### Added
-feature/modelador-casos-uso-update-use-case-1 - Documentación de 5 casos de uso completos en introduccion.md
-  PR: [#2][[link]https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/2] - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
-  
-feature/doc-coord-repo-update-readme-md -  Creación de estructura del repositorio, README.md, changelog.md, anexos.md e introducción a POO
-  PR: [#4][[link]https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/4)] - @claudiapnunez (Documentador y Coordinador)
+- [feature/modelador-casos-uso-update-use-case-1] - Documentación de 5 casos de uso completos en introduccion.md
 
-feature/diseniador-clases-add-boceto-inicial - Exportación de documentación y organización de archivos en la carpeta diagramas/01-diagrama-clases/
-  PR: [#12][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12)] @Piastrellini (Diseñador de clases iniciales)
+  PR: [#2](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/2) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
   
-  PR: [#15][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15)] @Piastrellini (Diseñador de clases iniciales)
+- [feature/doc-coord-repo-update-readme-md] -  Creación de estructura del repositorio, README.md, changelog.md, anexos.md e introducción a POO
 
-feature/analista-requerimentos-add-introduccion-md - Documentación de los requerimientos funcionales y no funcionales, archivo instrucciones.md
-PR: [#14][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14)] @angelgc9107-lgtm (Analista de requerimientos)
+  PR: [#4](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/4) - @claudiapnunez (Documentador y Coordinador)
+
+- [feature/diseniador-clases-add-boceto-inicial] - Exportación de documentación y organización de archivos en la carpeta diagramas/01-diagrama-clases/
+
+  PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12) - @Piastrellini (Diseñador de clases iniciales)
+  
+  PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (Diseñador de clases iniciales)
+
+- [feature/analista-requerimentos-add-introduccion-md] - Documentación de los requerimientos funcionales y no funcionales, archivo instrucciones.md
+
+  PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) - @angelgc9107-lgtm (Analista de requerimientos)
 
 ### Changed
-feature/modelador-casos-uso-update-use-case-1 - Los caso de uso presentes, PR a develop y el Issue vinculado
-  PR: [#10][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10)] - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
+- [feature/modelador-casos-uso-update-use-case-1] - Los caso de uso presentes, PR a develop y el Issue vinculado
 
-feature/diseniador-clases-add-boceto-inicial - Agregado del archivo .puml
-  PR: [#15][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15)] @Piastrellini (Diseñador de clases iniciales)
+  PR: [#10](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
+
+- [feature/diseniador-clases-add-boceto-inicial] - Agregado del archivo .puml
+
+  PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (Diseñador de clases iniciales)
 
 ### Fixed
-feature/fix-changelog.md - Correción a los archivos changelog.md & README.md
-  PR: [#17][[link](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18)] - @angelgc9107-lgtm (Analista de requerimientos)
+- [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
+
+  PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
