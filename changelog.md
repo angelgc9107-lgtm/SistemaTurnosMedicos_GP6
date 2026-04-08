@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Actividad Obligatoria N°1] - 2026-03-26
+## [Actividad Obligatoria N°1] - 2026-04-07
 
 ## [Unreleased]
 
@@ -13,6 +14,7 @@
 
   PR: [#4](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/4) - @claudiapnunez (Documentador y Coordinador)
 
+  
 - [feature/diseniador-clases-add-boceto-inicial] - Exportación de documentación y organización de archivos en la carpeta diagramas/01-diagrama-clases/
 
   PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12)- @Piastrellini (Diseñador de clases iniciales)
@@ -33,6 +35,9 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 
   PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
 
+### Changed
+
+### Fixed
 
 ## [Release]
 
@@ -60,6 +65,7 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 - [feature/modelador-casos-uso-update-use-case-1] - Los caso de uso presentes, PR a develop y el Issue vinculado
 
   PR: [#10](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
+### Changed
 
 - [feature/diseniador-clases-add-boceto-inicial] - Agregado del archivo .puml
 
