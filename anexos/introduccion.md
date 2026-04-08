@@ -192,3 +192,4 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 - El usuario puede visualizar los turnos asignados en el calendario.
 
 ## Boceto inicial del diseño de clases
+![Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)
