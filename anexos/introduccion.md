@@ -58,20 +58,8 @@ RNF5: El sistema debe guardar el historial de los cambios realizados a los turno
 
 ## Casos de uso
 
-1. Agendar Turno
-Actores: Secretaria (Principal), Médico (Secundario para autorizaciones)
-.
-Descripción: Valeria selecciona fecha, hora y tipo de consulta (Control 15 min / Primera vez 30 min)
-. El sistema valida que no haya superposiciones
- y aplica restricciones: lunes sin procedimientos, jueves tarde cerrado y Viernes tarde: Bloqueo estricto de turnos tipo "Primera vez"
-. El doctor prefiere no recibirlos a última hora
-.
-Flujo Alternativo: Si el horario está ocupado, el médico puede autorizar manualmente un sobreturno (máximo 2 por día)
-.
-2. Registrar Check-in (Llegada del Paciente)
 ##  1. Agendar Turno
 Actor: Secretaria (Principal)
-
 
 Descripción: El sistema debe permitir a la recepcionista agendar un turno a un paciente con un Médico, validando que el horario esté disponible y respetando las restricciones impuestas en el sistema (Horarios bloqueados a pedido del Médico, duración del tipo de turno asignado).
 
@@ -102,7 +90,6 @@ Descripción: El sistema debe permitir a la recepcionista agendar un turno a un 
 ## 2. Registrar Check-in (Llegada del Paciente)
 Actores: Secretaria, Médico.
 
-
 Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en la agenda y marca su estado como "Presente" o "En sala de espera" para informar al Médico que el paciente se encuentra esperando en la sala de espera. El sistema registra el horario real en que el turno pasó del estado pendiente a presente o en sala.
 
 ### Flujo de eventos:
@@ -123,7 +110,6 @@ Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en l
 ## Postcondiciones:
 
 - La agenda debe cambiar el estado del turno de "Pendiente" a "presente o en sala de espera"
-
 
 ## 3. Reprogramar Turno
 Actor: Secretaria
@@ -157,7 +143,6 @@ Descripción: La recepcionista selecciona un turno existente para reprogramarlo 
 ## 4. Bloquear días y horarios en calendario
 Actores: Secretaria, Médico
 
-
 Descripción: Recepcionista marca rangos de fechas (vacaciones, feriados o días de guardia del doctor) como no disponibles, En el calendario reflejará estos cambios impidiendo la asignación de turnos en esos bloques.
 
 ### Flujo de eventos:
@@ -179,17 +164,9 @@ Descripción: Recepcionista marca rangos de fechas (vacaciones, feriados o días
 - En el calendario se tiene que bloquear las fechas y horarios que la recepcionista marcó como no disponible.
 - En el calendario tiene que verse el motivo por el cual esos horarios no están disponibles.
 
-.
+
 ## 5. Visualizar Agenda (Diaria/Semanal)
-Actores: Secretaria, Médico
-.
-Descripción: El sistema permite ver los turnos organizados por día o semana en una interfaz clara y sin "tachones"
-.
-Resultado: Facilita la organización del consultorio y permite al Dr. Molina consultar su carga de trabajo desde el sistema
-
-## Boceto inicial del diseño de clases
-
-
+Actores: Secretaria, Médico.
 
 Descripción: La agenda permite ver los turnos de forma clara y organizada en un calendario que puede visualizarse por día o semana.
 
@@ -214,3 +191,4 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 
 - El usuario puede visualizar los turnos asignados en el calendario.
 
+## Boceto inicial del diseño de clases
