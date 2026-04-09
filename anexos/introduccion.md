@@ -46,15 +46,17 @@ RF5: El sistema debe permitir bloquear la agenda por vacaciones o ausencias.
 
 ### Requisitos no funcionales
 
-RNF1: Un usuario administrativo sin experiencia previa debe poder agendar el turno después de tener una breve capacitación.
+RNF1: RNF1: Integridad Horaria (No-superposición): El sistema debe garantizar como regla de integridad absoluta que no existan dos turnos ocupando el mismo bloque temporal en la agenda de un profesional .La única excepción permitida es el sobreturno, el cual debe ser una rotura controlada de esta regla bajo decisión manual del médico.
 
-RNF2: El sistema debe tener la capacidad para soportar el aumento de usuarios en un 50 %.
+RNF2: Trazabilidad Total de Cambios: Toda creación, reprogramación o cancelación de un turno debe generar automáticamente un registro inmutable de auditoría
+. Este registro debe capturar qué se cambió y quién lo hizo, con el fin de resolver disputas frecuentes donde los pacientes alegan no haber sido informados.
 
-RNF3: El sistema debe ser funcional y estar disponible para entregar el MVP a principios de julio
+RNF3: Extensibilidad del Modelo de Dominio: Aunque el MVP arranca con un solo médico y un consultorio, la arquitectura debe permitir la adición de múltiples profesionales y salas físicas sin requerir cambios en el núcleo del sistema. El diseño debe evitar "parches" técnicos y estar preparado para el crecimiento previsto.
 
-RNF4: El sistema debe permitir que solo la agenda tenga un control de los turnos.
+RNF4: Control de Acceso por Roles: El sistema debe implementar una separación clara de responsabilidades: la Secretaria tiene permisos operativos (agendar, cobrar, check-in), mientras que el Profesional es el único con autoridad para configurar sus reglas de disponibilidad, autorizar excepciones (sobreturnos) y decidir sobre la atención de los sábados.
 
-RNF5: El sistema debe guardar el historial de los cambios realizados a los turnos.
+RNF5: Encapsulamiento de Reglas (Integridad del MVP): Solo el objeto Agenda debe tener el control y la capacidad de manipular la colección de turnos
+. Se debe impedir que cualquier otro componente del sistema altere los estados de los horarios sin pasar por las validaciones de las reglas de negocio.
 
 ## Casos de uso
 
