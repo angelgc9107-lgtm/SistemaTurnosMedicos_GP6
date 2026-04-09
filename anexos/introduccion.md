@@ -46,7 +46,7 @@ RF5: El sistema debe permitir bloquear la agenda por vacaciones o ausencias.
 
 ### Requisitos no funcionales
 
-RNF1: RNF1: Integridad Horaria (No-superposición): El sistema debe garantizar como regla de integridad absoluta que no existan dos turnos ocupando el mismo bloque temporal en la agenda de un profesional .La única excepción permitida es el sobreturno, el cual debe ser una rotura controlada de esta regla bajo decisión manual del médico.
+RNF1: Integridad Horaria (No-superposición): El sistema debe garantizar como regla de integridad absoluta que no existan dos turnos ocupando el mismo bloque temporal en la agenda de un profesional .La única excepción permitida es el sobreturno, el cual debe ser una rotura controlada de esta regla bajo decisión manual del médico.
 
 RNF2: Trazabilidad Total de Cambios: Toda creación, reprogramación o cancelación de un turno debe generar automáticamente un registro inmutable de auditoría
 . Este registro debe capturar qué se cambió y quién lo hizo, con el fin de resolver disputas frecuentes donde los pacientes alegan no haber sido informados.
