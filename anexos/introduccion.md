@@ -34,29 +34,33 @@ cita médica mostrando solo fecha, hora, paciente y tipo de consulta.
 
 ### Requisitos funcionales
 
-RF1: El sistema debe permitir registrar nuevos turnos médicos.
+- RF1: Gestión de Agenda: El sistema debe generar turnos en un calendario semanal con opción de vista diaria
 
-RF2: El sistema debe mostrar los turnos disponibles según el horario configurado.
+- RF2: Tipos de Turno: Se deben diferenciar turnos de "Primera vez" (30 min) y "Control" (15 min), con posibilidad de extensión
 
-RF3: El sistema debe permitir cancelar o reprogramar turnos existentes.
+- RF3: Validación de Conflictos: Bloquear horarios ya asignados para evitar solapamientos, permitiendo excepciones solo como sobreturnos autorizados
 
-RF4: El sistema debe enviar notificaciones automáticas al paciente por WhatsApp.
+- RF4: Roles y Privilegios: Definir perfiles para Secretaria (gestión), Paciente (consulta/cancelación) y Médico (autorización de sobreturnos y agenda)
 
-RF5: El sistema debe permitir bloquear la agenda por vacaciones o ausencias.
+- RF5: Restricciones Específicas: No permitir procedimientos los lunes ni turnos de "Primera vez" los viernes por la tarde
 
-### Requisitos no funcionales
+- RF6: Horarios Definidos: Lunes a viernes de 9-13 y 15-19 (excepto jueves tarde), y sábados ocasionales según defina el médico
 
-RNF1: Integridad Horaria (No-superposición): El sistema debe garantizar como regla de integridad absoluta que no existan dos turnos ocupando el mismo bloque temporal en la agenda de un profesional .La única excepción permitida es el sobreturno, el cual debe ser una rotura controlada de esta regla bajo decisión manual del médico.
+- RF7: Notificaciones: Envío de recordatorios por WhatsApp 24 horas antes y a las 8:00 AM del día del turno
 
-RNF2: Trazabilidad Total de Cambios: Toda creación, reprogramación o cancelación de un turno debe generar automáticamente un registro inmutable de auditoría
-. Este registro debe capturar qué se cambió y quién lo hizo, con el fin de resolver disputas frecuentes donde los pacientes alegan no haber sido informados.
+- RF8: Registro de Presencia: Incorporar un estado de "check-in" para marcar la llegada del paciente a la sala de espera
 
-RNF3: Extensibilidad del Modelo de Dominio: Aunque el MVP arranca con un solo médico y un consultorio, la arquitectura debe permitir la adición de múltiples profesionales y salas físicas sin requerir cambios en el núcleo del sistema. El diseño debe evitar "parches" técnicos y estar preparado para el crecimiento previsto.
+### Requisitos No Funcionales 
 
-RNF4: Control de Acceso por Roles: El sistema debe implementar una separación clara de responsabilidades: la Secretaria tiene permisos operativos (agendar, cobrar, check-in), mientras que el Profesional es el único con autoridad para configurar sus reglas de disponibilidad, autorizar excepciones (sobreturnos) y decidir sobre la atención de los sábados.
+- RNF1: Usabilidad: El personal administrativo debe poder operar el sistema tras una breve capacitación
 
-RNF5: Encapsulamiento de Reglas (Integridad del MVP): Solo el objeto Agenda debe tener el control y la capacidad de manipular la colección de turnos
-. Se debe impedir que cualquier otro componente del sistema altere los estados de los horarios sin pasar por las validaciones de las reglas de negocio.
+- RNF2: Escalabilidad: Capacidad para soportar un incremento del 50% en la base de usuarios
+
+- RNF3: Disponibilidad del MVP: El sistema debe estar funcional para entregarse a principios de julio
+
+- RNF4: Integridad de Datos: Es obligatorio mantener un historial de todos los cambios realizados en los turnos
+
+- RNF5: Control Centralizado: La agenda debe ser el único componente que controle la gestión de los turnos
 
 ## Casos de uso
 
