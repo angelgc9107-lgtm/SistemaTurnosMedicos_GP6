@@ -14,7 +14,7 @@ digitalizar la gestión de sus turnos.
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub |
 |:-----| -----: | ------: |
-| Luciano Barrionuevo | | @LuchoBarrionuevo13|
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13|
 | Alan Diaz | 152841 | @alandox1|
 | Angel Cuarteron | 159438 | @angelgc9107-lgtm |
 | Thiago Piastrellini | 158097 | @Piastrellini |
