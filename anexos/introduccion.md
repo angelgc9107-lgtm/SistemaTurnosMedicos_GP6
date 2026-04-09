@@ -1,58 +1,358 @@
-# Introducción al Diseño Orientado a Objetos
+\# Introducción al Diseño Orientado a Objetos
 
-## Descripción del paradigma orientado a objetos
 
-El paradigma orientado a objetos (POO) es un modelo de programación 
-que organiza el software en objetos, los cuales combinan datos 
-(atributos) y comportamiento (métodos). Es importante porque permite 
-modelar problemas del mundo real de forma natural, facilita la 
-reutilización de código y hace que los sistemas sean más fáciles de 
-mantener y escalar.
 
-## Los cuatro fundamentos de POO
+\## Descripción del paradigma orientado a objetos
 
-### 1. Encapsulamiento
-Consiste en ocultar los datos internos de un objeto y exponer solo 
-lo necesario. En nuestro sistema, el Turno oculta su lógica interna 
-y solo permite modificarlo a través de métodos como confirmar() o 
-cancelar().
 
-### 2. Herencia
-Permite que una clase herede atributos y métodos de otra. En nuestro 
-sistema, podríamos tener una clase base Persona de la cual heredan 
-Paciente y Medico, compartiendo atributos como nombre y telefono.
 
-### 3. Polimorfismo
-Permite que objetos de distintas clases respondan al mismo mensaje 
-de formas diferentes. Por ejemplo, tanto Paciente como Medico 
-podrían tener un método notificar() que funciona distinto para 
-cada uno.
+El paradigma orientado a objetos (POO) es un modelo de programación que organiza el software en objetos, los cuales combinan datos (atributos) y comportamiento (métodos). Es importante porque permite modelar problemas del mundo real de forma natural, facilita la reutilización de código y hace que los sistemas sean más fáciles de mantener y escalar.
 
-### 4. Abstracción
-Consiste en modelar solo las características relevantes de un objeto. 
-En nuestro sistema, la clase Turno abstrae la complejidad de una 
-cita médica mostrando solo fecha, hora, paciente y tipo de consulta.
 
-## Requisitos iniciales del sistema
 
-### Requisitos Funcionales
-- RF1: El sistema debe permitir registrar nuevos turnos médicos.
-- RF2: El sistema debe mostrar los turnos disponibles según el horario configurado.
-- RF3: El sistema debe permitir cancelar o reprogramar turnos existentes.
-- RF4: El sistema debe enviar notificaciones automáticas al paciente por WhatsApp.
-- RF5: El sistema debe permitir bloquear la agenda por vacaciones o ausencias.
+\## Los cuatro fundamentos de POO
 
-### Requisitos No Funcionales
-- RNF1: El sistema debe ser accesible desde cualquier navegador web.
-- RNF2: El sistema debe responder en menos de 3 segundos.
-- RNF3: El sistema debe estar disponible al menos el 99% del tiempo.
-- RNF4: Los datos de los pacientes deben estar protegidos.
-- RNF5: El sistema debe ser fácil de usar para personal sin conocimientos técnicos.
 
-## Casos de uso
 
-Completar por el Modelador de Casos de Uso
+\### 1. Encapsulamiento
 
-## Boceto inicial del diseño de clases
+Consiste en ocultar los datos internos de un objeto y exponer solo lo necesario. En nuestro sistema, el Turno oculta su lógica interna y solo permite modificarlo a través de métodos como confirmar() o cancelar().
 
-Completar por el Diseñador de Clases Iniciales
+
+
+\### 2. Herencia
+
+Permite que una clase herede atributos y métodos de otra. En nuestro sistema, podríamos tener una clase base Persona de la cual heredan Paciente y Medico, compartiendo atributos como nombre y telefono.
+
+
+
+\### 3. Polimorfismo
+
+Permite que objetos de distintas clases respondan al mismo mensaje de formas diferentes. Por ejemplo, tanto Paciente como Medico podrían tener un método notificar() que funciona distinto para cada uno.
+
+
+
+\### 4. Abstracción
+
+Consiste en modelar solo las características relevantes de un objeto. En nuestro sistema, la clase Turno abstrae la complejidad de una cita médica mostrando solo fecha, hora, paciente y tipo de consulta.
+
+
+
+\## Requisitos iniciales del sistema
+
+
+
+\[Notebook LM - Material de ayuda para revisar los casos de uso y los diseños de clase](https://notebooklm.google.com/notebook/ae349fb5-874b-428f-9bb0-5822e5c8be15?authuser=1\&pageId=none)
+
+
+
+\### Requisitos funcionales
+
+
+
+RF1: El sistema debe permitir registrar nuevos turnos médicos.
+
+
+
+RF2: El sistema debe mostrar los turnos disponibles según el horario configurado.
+
+
+
+RF3: El sistema debe permitir cancelar o reprogramar turnos existentes.
+
+
+
+RF4: El sistema debe enviar notificaciones automáticas al paciente por WhatsApp.
+
+
+
+RF5: El sistema debe permitir bloquear la agenda por vacaciones o ausencias.
+
+
+
+\### Requisitos no funcionales
+
+
+
+RNF1: Un usuario administrativo sin experiencia previa debe poder agendar el turno después de tener una breve capacitación.
+
+
+
+RNF2: El sistema debe tener la capacidad para soportar el aumento de usuarios en un 50 %.
+
+
+
+RNF3: El sistema debe ser funcional y estar disponible para entregar el MVP a principios de julio
+
+
+
+RNF4: El sistema debe permitir que solo la agenda tenga un control de los turnos.
+
+
+
+RNF5: El sistema debe guardar el historial de los cambios realizados a los turnos.
+
+
+
+\## Casos de uso
+
+
+
+\## 1. Agendar Turno
+
+Actor: Secretaria (Principal)
+
+
+
+Descripción: El sistema debe permitir a la recepcionista agendar un turno a un paciente con un Médico, validando que el horario esté disponible y respetando las restricciones impuestas en el sistema (Horarios bloqueados a pedido del Médico, duración del tipo de turno asignado).
+
+
+
+\### Flujo de eventos:
+
+\- La recepcionista selecciona la opción Nuevo turno en la agenda que controla el calendario.
+
+\- Ingresar los datos del paciente que solicita el turno (Apellido \& Nombre - Sexo - Edad - DNI)
+
+\- Se selecciona el tipo de consulta y el Médico (En un principio solo tendrán un usuario tipo Médico)
+
+\- El sistema mostrará el calendario semanal
+
+\- La recepcionista deberá seleccionar un día para mostrar los horarios disponibles para ese día, bloqueando los horarios que no estén disponibles (Disponibilidad del Médico - Horarios con turnos ya asignados)
+
+\- La recepcionista elegirá un horario disponible y seleccionará el tipo de turno que se agenda.
+
+\- La recepcionista confirmará el turno.
+
+\- Una vez que se confirme el turno, el calendario bloqueará en la fecha elegida el horario que consumirá el turno (varía por tipo de turno) pasando a no estar disponible ese horario, evitando superposiciones de turnos.
+
+\- El sistema confirmará que el turno se agendó de forma correcta y enviará una notificación al paciente por WhatsApp informando el día y horario del turno.
+
+
+
+\### Precondiciones:
+
+
+
+\- El usuario de la recepcionista debe estar validado para poder agendar los turnos en el calendario.
+
+\- El Usuario de Médico debe estar registrado en el sistema.
+
+\- Los horarios deben estar bien definidos para generar los turnos.
+
+
+
+\### Postcondiciones:
+
+\- El turno se guardará en la base relacionado al usuario Médico seleccionado.
+
+\- El turno asignado tendrá el estado de "Pendiente".
+
+\- En la agenda el horario de los turnos agendados se bloqueará para no estar disponible para otro turnos.
+
+\- Al momento en que se genere el turno se informará el día y horario del turno creado al paciente vía WhatsApp.
+
+\- Se generará una tarea para enviar un recordatorio al paciente vía WhatsApp en dos ocasiones, una vez 24 horas antes del turno y otra vez a las 8:00 A.M. del mismo día en que tienen el turno asignado.
+
+
+
+\## 2. Registrar Check-in (Llegada del Paciente)
+
+Actores: Secretaria, Médico.
+
+
+
+Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en la agenda y marca su estado como "Presente" o "En sala de espera" para informar al Médico que el paciente se encuentra esperando en la sala de espera. El sistema registra el horario real en que el turno pasó del estado pendiente a presente o en sala.
+
+
+
+\### Flujo de eventos:
+
+
+
+\- El paciente se presenta en la recepción del consultorio.
+
+\- La recepcionista busca el turno del paciente en la agenda.
+
+\- La recepcionista selecciona el turno y lo marca para pasarlo al estado de "Presente" o "En sala de espera".
+
+\- En el sistema se guarda el horario real en que se presentó el paciente en recepción.
+
+\- El sistema cambia el estado del turno.
+
+\- El Médico puede ver que el paciente ya se encuentra en la sala esperando por la interfaz del calendario.
+
+
+
+\### Precondiciones:
+
+
+
+\- El turno debe estar asignado en el calendario en la fecha y horario correcto.
+
+\- La recepcionista debe estar validada en el sistema para poder visualizar el calendario semanal o diario.
+
+\- El Médico debe estar validado en el sistema para poder visualizar el calendario semanal o diario.
+
+
+
+\### Postcondiciones:
+
+
+
+\- La agenda debe cambiar el estado del turno de "Pendiente" a "presente o en sala de espera"
+
+
+
+\## 3. Reprogramar Turno
+
+Actor: Secretaria
+
+
+
+Descripción: La recepcionista selecciona un turno existente para reprogramarlo a otro horario disponible, el sistema debe guardar el historial de estos cambios y enviar una notificación por WhatsApp al paciente para informarle de la modificación.
+
+
+
+\### Flujo de eventos:
+
+&#x20;
+
+\- El paciente solicita que reprogramen un turno cargado en la agenda.
+
+\- La recepcionista busca en la agenda el turno con los datos del paciente.
+
+\- La recepcionista selecciona el turno que el paciente desea reprogramar.
+
+\- La recepcionista elije la opción "Reprogramar".
+
+\- La recepcionista tiene que elegir en el calendario un día y horario que estén disponibles para reprogramar un turno.
+
+\- La recepcionista confirma la reprogramación del turno.
+
+\- En la agenda se libera el horario que ocupaba el turno antes de la reprogramación y pasa a estar disponible nuevamente. El horario donde se reprograma el turno pasa a estar bloqueado.
+
+\- El sistema envía una notificación vía WhatsApp al paciente con los nuevos horarios del turno.
+
+
+
+\### Precondiciones:
+
+
+
+\- El turno debe estar asignado en el calendario.
+
+\- El día y horario deben estar disponibles para poder reprogramar un turno.
+
+\- La recepcionista debe estar validada en el sistema para poder reprogramar el turno.
+
+
+
+\### Postcondiciones:
+
+
+
+\- En el calendario se tiene que visualizar el nuevo horario y día que ocupa el turno reprogramado.
+
+\- En el calendario se tiene que liberar el día y horario que tenía el turno antes de reprogramarlo.
+
+\- El sistema debe notificar el nuevo día y horario al paciente vía WhatsApp.
+
+
+
+\## 4. Bloquear días y horarios en calendario
+
+Actores: Secretaria, Médico
+
+
+
+Descripción: Recepcionista marca rangos de fechas (vacaciones, feriados o días de guardia del doctor) como no disponibles, En el calendario reflejará estos cambios impidiendo la asignación de turnos en esos bloques.
+
+
+
+\### Flujo de eventos:
+
+&#x20;
+
+\- El médico indicará a la recepcionista los horarios y fechas que debe seleccionar como no disponible, indicando el motivo (vacaciones, feriado, horarios no disponibles por diferente actividad)
+
+\- El usuario recepcionista ingresa al calendario y selecciona un rango de fechas y horarios.
+
+\- La recepcionista ingresa un motivo u observación.
+
+\- La recepcionista marcará ese rango de días y horarios como no disponible.
+
+\- En el calendario se reflejará esos horarios como no disponibles para asignar un turno.
+
+
+
+\### Precondiciones:
+
+
+
+\- La recepcionista debe estar validada para agregar fechas y horarios como no disponible por vacaciones, feriado, otras actividades.
+
+\- El médico debe estar validado en el sistema.
+
+
+
+\### Postcondiciones:
+
+
+
+\- En el calendario se tiene que bloquear las fechas y horarios que la recepcionista marcó como no disponible.
+
+\- En el calendario tiene que verse el motivo por el cual esos horarios no están disponibles.
+
+
+
+\## 5. Visualizar Agenda (Diaria/Semanal)
+
+Actores: Secretaria, Médico.
+
+
+
+Descripción: La agenda permite ver los turnos de forma clara y organizada en un calendario que puede visualizarse por día o semana.
+
+
+
+\### Flujo de eventos:
+
+&#x20;
+
+\- El usuario recepcionista o médico ingresa a la sección "Agenda" desde el menú principal.
+
+\- El sistema presenta por defecto la vista diaria correspondiente al día actual.
+
+\- El usuario puede elegir entre las vistas "Día", "Semana" según lo requiera.
+
+\- Según lo seleccionado el calendario muestra el horario en los bloques, se tiene que ver si el horario está asignado un turno con los datos del paciente y en caso de que esté bloqueado el horario por otro motivo tiene que mostrarlo.
+
+\- Se utilizan estados para representar los turnos (pendiente- presente en sala)
+
+\- El usuario puede retroceder para elegir otro día o ver el calendario de forma semanal.
+
+
+
+\### Precondiciones:
+
+
+
+\- El usuario recepcionista o médico debe estar validado en el sistema para poder visualizar la agenda.
+
+\- Las fechas y horarios deben estar bien definidos para que se pueda visualizar.
+
+
+
+\### Postcondiciones:
+
+
+
+\- El usuario puede visualizar los turnos asignados en el calendario.
+
+
+
+\## Boceto inicial del diseño de clases
+
+!\[Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)
+
