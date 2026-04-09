@@ -2,7 +2,7 @@
 
 - **Materia:** Diseño Orientado a Objetos
 - **Carrera:** Tec. en Programación de Sistemas
-- **Grupo:** Grupo N° 6
+- **Grupo:** Grupo N° 2
 
 ## Introducción
 
