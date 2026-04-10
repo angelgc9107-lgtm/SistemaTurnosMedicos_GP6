@@ -96,6 +96,10 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 
 - feature/Piastrellini-pach-1 - Actualizar changelog 2026-04-06
 
-  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseñador de clases inciales) 
+  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseñador de clases inciales)
+
+  - [feature/doc-coord-repo-update-readme-md] Correccion de archivo y actualizacion de changelog
+
+  PR: [#41](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/41) - @alandox1 (Documentador y coordinador de archivos)
   
   
