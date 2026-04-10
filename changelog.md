@@ -92,10 +92,10 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 
 - feature/diseniador-clases-add-boceto-inicial - Corrección de estructura de diagramas y nombre de carpetas
 
-  PR: [#21](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21) - @Piastrellini (diseniador de clases iniciales)
+  PR: [#21](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21) - @Piastrellini (diseñador de clases iniciales)
 
 - feature/Piastrellini-pach-1 - Actualizar changelog 2026-04-06
 
-  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseniador de clases inciales) 
+  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseñador de clases inciales) 
   
   
