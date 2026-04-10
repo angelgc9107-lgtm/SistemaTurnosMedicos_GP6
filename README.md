@@ -2,7 +2,7 @@
 
 - **Materia:** Diseño Orientado a Objetos
 - **Carrera:** Tec. en Programación de Sistemas
-- **Grupo:** Grupo N° 6
+- **Grupo:** Grupo N° 2
 
 ## Introducción
 
@@ -13,9 +13,9 @@ digitalizar la gestión de sus turnos.
 ## Integrantes
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub |
-
-| Claudia Nuñez | 131743 | @claudiapnunez |
-| Santiago Ferreyra | 161304  | @ferreyrasantiagojoaquin-lab |
+|:-----| -----: | ------: |
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13|
+| Alan Diaz | 152841 | @alandox1|
 | Angel Cuarteron | 159438 | @angelgc9107-lgtm |
 | Thiago Piastrellini | 158097 | @Piastrellini |
 
