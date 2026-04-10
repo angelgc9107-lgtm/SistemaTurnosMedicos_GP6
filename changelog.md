@@ -39,6 +39,12 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 - feature/analista-requerimentos-add-introduccion-md - Correción a los archivos changelog.md & estructura de archivo introducción.md
    PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
 
+- feature/diseniador-clases-add-boceto-inicial - Corrección de estructura de diagramas y nombre de carpetas
+  PR: [#21](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21) - @Piastrellini (diseniador de clases iniciales)
+
+- feature/Piastrellini-pach-1 - Actualizar changelog 2026-04-06
+  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseniador de clases inciales) 
+
 
 ## [Release]
 
