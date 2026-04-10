@@ -75,6 +75,7 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
 - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
 
   PR: [#17](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
+  PR: [#20](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/20). - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
 
@@ -88,4 +89,7 @@ PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) 
   PR: [#34](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/34) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - feature/analista-requerimentos-add-introduccion-md - Correción a los archivos changelog.md & estructura de archivo introducción.md
-   PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
+  PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
+
+  
+  
