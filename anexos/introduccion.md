@@ -9,8 +9,7 @@ El paradigma orientado a objetos (POO) es un modelo de programación que organiz
 ### 1. Encapsulamiento
 Consiste en ocultar los datos internos de un objeto y exponer solo 
 lo necesario. En nuestro sistema, el Turno oculta su lógica interna 
-y solo permite modificarlo a través de métodos como confirmar() o 
-cancelar().
+y solo permite modificarlo con confirmar o cancelarlo.
 
 ### 2. Herencia
 Permite que una clase herede atributos y métodos de otra. En nuestro 
@@ -20,7 +19,7 @@ Paciente y Medico, compartiendo atributos como nombre y telefono.
 ### 3. Polimorfismo
 Permite que objetos de distintas clases respondan al mismo mensaje 
 de formas diferentes. Por ejemplo, tanto Paciente como Medico 
-podrían tener un método notificar() que funciona distinto para 
+se les notifica de forma distanta para 
 cada uno.
 
 ### 4. Abstracción
