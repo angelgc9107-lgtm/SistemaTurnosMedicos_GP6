@@ -67,6 +67,6 @@
   PR: [#41](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/41) - @alandox1 (Documentador y coordinador de archivos)
 
 - [fix/correccion-Actividad-1] - Correción a los archivos changelog.md & lenguaje en introducción al POO archivo introduccion.md
-  PR: [#49](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/34) - @angelgc9107-lgtm (Analista de requerimientos)
+  PR: [#49](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/49) - @angelgc9107-lgtm (Analista de requerimientos)
   
   
