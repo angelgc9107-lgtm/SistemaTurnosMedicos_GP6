@@ -7,9 +7,9 @@ El paradigma orientado a objetos (POO) es un modelo de programación que organiz
 ## Los cuatro fundamentos de POO
 
 ### 1. Encapsulamiento
-Consiste en ocultar los datos internos de un objeto y exponer solo 
-lo necesario. En nuestro sistema, el Turno oculta su lógica interna 
-y solo permite modificarlo con confirmar o cancelarlo.
+Se trata de no mostrar todo lo que pasa por dentro, sino solo lo necesario.
+En nuestro sistema, el Turno funciona de manera cerrada, es decir que no se puede modificar 
+directamente, sino que solo se puede cambiar usando opciones claras como confirmar o cancelar.
 
 ### 2. Herencia
 Permite que una clase herede atributos y métodos de otra. En nuestro 
@@ -18,9 +18,9 @@ Paciente y Medico, compartiendo atributos como nombre y telefono.
 
 ### 3. Polimorfismo
 Permite que objetos de distintas clases respondan al mismo mensaje 
-de formas diferentes. Por ejemplo, tanto Paciente como Medico 
-se les notifica de forma distanta para 
-cada uno.
+de formas diferentes. Por ejemplo, tanto el Paciente como 
+el Médico pueden tener una forma de ser notificados, pero 
+cada uno recibe esa notificación de una manera diferente.
 
 ### 4. Abstracción
 Consiste en modelar solo las características relevantes de un objeto. 
