@@ -7,23 +7,28 @@ El paradigma orientado a objetos (POO) es un modelo de programación que organiz
 ## Los cuatro fundamentos de POO
 
 ### 1. Encapsulamiento
-Es la técnica de ocultar el estado interno y los datos de un objeto.
-Ejemplo: En nuestro sistema la clase Turno, los atributos no se modifican directamente desde afuera, sino que se utilizan métodos como confirmar o cancelar para alterar su estado.
+Ocultamiento del estado interno y datos de un objeto, exponiendo solo la interfaz necesaria.
+
+Ejemplo:
+En la clase Turno, los atributos como estado y fecha no se acceden directamente. Se utilizan métodos como confirmar y cancelar para modificar su estado, garantizando que el turno no pueda quedar en estados inválidos.
 
 ### 2. Herencia
-Es un mecanismo que permite crear nuevas clases basadas en clases existentes heredando sus atributos.
-Ejemplo: En nuestro sistema, tenemos una clase Persona de la cual la clase Paciente y Medico heredan
-los atributos como DNI, nombre y teléfono.
+Mecanismo que permite que una clase derivada herede atributos y métodos de una clase base.
+
+Ejemplo:
+La clase Persona define atributos comunes (DNI, nombre, teléfono). Las clases Paciente y Médico heredan de Persona y extienden su funcionalidad con atributos específicos, (Médico agrega el atributo de especialidad)
 
 ### 3. Polimorfismo
-Es la capacidad de diferentes objetos de responder a un mismo mensaje de una manera especifica según su tipo.
-Ejemplo: En nuestro sistema, tanto el Paciente como el Médico se implementa un método para ser notificados, sin embargo el paciente será notificado por Whatsapp mientras que el Medico lo será por la interface de la agenda.
+Capacidad de objetos de diferentes tipos de responder al mismo mensaje con comportamientos específicos según su clase.
+
+Ejemplo:
+Tanto Paciente como Médico implementado el método de notificar, pero de formas distintas. al Paciente se le envía un mensaje por WhatsApp; y en el caso del Médico se actualiza su interfaz de agenda con alertas. El mismo mensaje produce resultados diferentes según el tipo de objeto.
 
 ### 4. Abstracción
-Es el proceso de identificar y modelar únicamente las características esenciales de un objeto para un contexto
-determinado, ignorando los detalles irrelevantes de su implementación.
-Ejemplo: En nuestro sistema, la clase Turno abstrae toda la complejidad de una cita médica real, enfocándose únicamente
-en datos críticos para el sistema como la fecha, hora, el paciente asociado y el tipo de consulta.
+Proceso de simplificar un sistema complejo modelando solo sus características esenciales e ignorando detalles de implementación innecesarios.
+
+Ejemplo:
+La clase Turno abstrae una cita médica real. En lugar de modelar cada detalle de la clínica, enfoca solo los atributos críticos: fecha, hora, paciente, médico y tipo (primera vez o control). Oculta detalles como localización de la sala, historial de cancelaciones previas.
 
 
 ## Requisitos iniciales del sistema
