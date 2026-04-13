@@ -17,7 +17,7 @@ los atributos como DNI, nombre y teléfono.
 
 ### 3. Polimorfismo
 Es la capacidad de diferentes objetos de responder a un mismo mensaje de una manera especifica según su tipo.
-Ejemplo: En nuestro sistema, tanto el Paciente como el Médico se implementa un método para ser notificados, sin embargo al paciente será notificado por Whatsapp mientras que el Medico lo será por la interface del calendario.
+Ejemplo: En nuestro sistema, tanto el Paciente como el Médico se implementa un método para ser notificados, sin embargo el paciente será notificado por Whatsapp mientras que el Medico lo será por la interface del calendario.
 
 ### 4. Abstracción
 Es el proceso de identificar y modelar únicamente las características esenciales de un objeto para un contexto
