@@ -37,6 +37,7 @@
  - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
    
   PR: [#18](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
+  
   PR: [#20](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/20). - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
