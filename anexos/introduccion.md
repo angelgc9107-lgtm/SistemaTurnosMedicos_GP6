@@ -7,25 +7,23 @@ El paradigma orientado a objetos (POO) es un modelo de programación que organiz
 ## Los cuatro fundamentos de POO
 
 ### 1. Encapsulamiento
-Se trata de no mostrar todo lo que pasa por dentro, sino solo lo necesario.
-En nuestro sistema, el Turno funciona de manera cerrada, es decir que no se puede modificar 
-directamente, sino que solo se puede cambiar usando opciones claras como confirmar o cancelar.
+Es la técnica de ocultar el estado interno y los datos de un objeto.
+Ejemplo: En nuestro sistema la clase Turno, los atributos no se modifican directamente desde afuera, sino que se utilizan métodos como confirmar o cancelar para alterar su estado.
 
 ### 2. Herencia
-Permite que una clase herede atributos y métodos de otra. En nuestro 
-sistema, podríamos tener una clase base Persona de la cual heredan 
-Paciente y Medico, compartiendo atributos como nombre y telefono.
+Es un mecanismo que permite crear nuevas clases basadas en clases existentes heredando sus atributos.
+Ejemplo: En nuestro sistema, tenemos una clase Persona de la cual la clase Paciente y Medico heredan
+los atributos como DNI, nombre y teléfono.
 
 ### 3. Polimorfismo
-Permite que objetos de distintas clases respondan al mismo mensaje 
-de formas diferentes. Por ejemplo, tanto el Paciente como 
-el Médico pueden tener una forma de ser notificados, pero 
-cada uno recibe esa notificación de una manera diferente.
+Es la capacidad de diferentes objetos de responder a un mismo mensaje de una manera especifica según su tipo.
+Ejemplo: En nuestro sistema, tanto el Paciente como el Médico se implementa un método para ser notificados, sin embargo al paciente será notificado por Whatsapp mientras que el Medico lo será por la interface del calendario.
 
 ### 4. Abstracción
-Consiste en modelar solo las características relevantes de un objeto. 
-En nuestro sistema, la clase Turno abstrae la complejidad de una 
-cita médica mostrando solo fecha, hora, paciente y tipo de consulta.
+Es el proceso de identificar y modelar únicamente las características esenciales de un objeto para un contexto
+determinado, ignorando los detalles irrelevantes de su implementación.
+Ejemplo: En nuestro sistema, la clase Turno abstrae toda la complejidad de una cita médica real, enfocándose únicamente
+en datos críticos para el sistema como la fecha, hora, el paciente asociado y el tipo de consulta.
 
 
 ## Requisitos iniciales del sistema
