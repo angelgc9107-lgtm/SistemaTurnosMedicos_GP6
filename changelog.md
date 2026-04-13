@@ -33,8 +33,9 @@
 - [feature/diseniador-clases-add-boceto-inicial] - Agregado del archivo .puml
 
   PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (Diseñador de clases iniciales)
-  - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
-
+  
+ - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
+   
   PR: [#18](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/18) - @angelgc9107-lgtm (Analista de requerimientos)
   PR: [#20](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/20). - @angelgc9107-lgtm (Analista de requerimientos)
 
@@ -66,8 +67,12 @@
 
 ### Fixed
 
-
 - [fix/correccion-Actividad-1] - Correción a los archivos changelog.md & lenguaje en introducción al POO archivo introduccion.md
   PR: [#49](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/49) - @angelgc9107-lgtm (Analista de requerimientos)
+  
+- [fix/correccion-Actividad-1] - Correción a los archivos changelog.md, introducción al POO & README.md
+  PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
+
+  
   
   
