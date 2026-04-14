@@ -74,6 +74,9 @@
 - [fix/correccion-Actividad-1] - Correción a los archivos changelog.md, introducción al POO & README.md
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
+- [fix/correccion-Actividad-1] - Auditoría de requisitos y casos de uso realizada.
+  PR: [] @luchobarrionuevo13 (Analista de requerimientos - modelador casos de uso)
+
   
   
   
