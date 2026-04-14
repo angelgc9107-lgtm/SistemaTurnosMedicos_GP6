@@ -68,6 +68,9 @@
 
 ### Fixed
 
+  - [fix/correccion-Actividad-1] - Entrega de Correciond de actividad n°1,correcion de formato de carpetas
+  PR: [#47](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/47) - @alandox1 (Documentador y coordinador de repositorio)
+
 - [fix/correccion-Actividad-1] - Correción a los archivos changelog.md & lenguaje en introducción al POO archivo introduccion.md
   PR: [#49](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/49) - @angelgc9107-lgtm (Analista de requerimientos)
   
