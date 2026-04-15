@@ -75,7 +75,10 @@
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/correccion-Actividad-1] - Auditoría de requisitos y casos de uso realizada.
-  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Analista de requerimientos - modelador casos de uso)
+  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Analista de requerimientos)
+
+- [fix/reorganizar-changelog-fixed-changed] - Reorganización y agregado de PR
+  PR: [#62](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/62) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
