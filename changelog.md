@@ -25,13 +25,9 @@
 
   PR: [#14](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/14) - @angelgc9107-lgtm (Analista de requerimientos)
 
-- [feature/espec-escenarios-casos-uso-add-escenario-1] - Implementación de 5 escenarios de casos de uso (Ruta Principal) para: Agendar turno, Registrar check-in, Reprogramar turno, Bloquear días y horarios y Visualizar agenda
+- [feature/espec-escenarios-casos-uso-add-escenario-1] - Implementación de 5 escenarios de casos de uso (Ruta Principal) para: Agendar turno, Registrar check-in, Reprogramar turno, Bloquear días y horarios y Visualizar agenda. Documentación del uso de IA
 
-  PR: [#]() - @Piastrellini (Especialista en Escenarios de Casos de Uso)
-
-- [feature/espec-escenarios-casos-uso-add-escenario-1] -  Documentación del uso de Copilot Agent Mode y ajustes manuales en ia/a2/especialista-escenarios.md 
-
-  PR: [#]() - @Piastrellini (Especialista en Escenarios de Casos de Uso)
+  PR: [#54](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/issues/54) - @Piastrellini (Especialista en Escenarios de Casos de Uso)
 
 - Creación del índice de escenarios en diagramas/03-escenarios-casos-de-uso/escenarios_de_casos_de_uso.md
   PR: [#]() - @Piastrellini (Especialista en Escenarios de Casos de Uso)
