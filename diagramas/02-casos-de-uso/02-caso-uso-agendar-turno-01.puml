@@ -1,0 +1,57 @@
+@startuml CU1 - Agendar Turno
+
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+skinparam usecase {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+}
+
+title CU1 - Agendar Turno
+
+actor "Secretaria" as SEC
+actor "Paciente" as PAC
+actor "Sistema WhatsApp" as WA <<system>>
+
+rectangle "Sistema de Turnos Médicos" {
+
+    usecase "Agendar Turno" as CU1
+
+    usecase "Registrar datos\ndel paciente" as CU1_1
+    usecase "Validar disponibilidad\ndel horario" as CU1_2
+    usecase "Seleccionar tipo\nde turno" as CU1_3
+    usecase "Bloquear horario\nen agenda" as CU1_4
+    usecase "Enviar confirmación\npor WhatsApp" as CU1_5
+    usecase "Programar recordatorios\npor WhatsApp" as CU1_6
+    usecase "Agendar como\nsobreturno" as CU1_EXT
+
+    CU1 ..> CU1_1   : <<include>>
+    CU1 ..> CU1_2   : <<include>>
+    CU1 ..> CU1_3   : <<include>>
+    CU1 ..> CU1_4   : <<include>>
+    CU1 ..> CU1_5   : <<include>>
+    CU1 ..> CU1_6   : <<include>>
+    CU1_EXT ..> CU1 : <<extend>>\n[sin horario disponible]
+
+}
+
+SEC --> CU1
+SEC --> CU1_EXT
+PAC --> CU1 : solicita turno
+CU1_5 --> WA
+CU1_6 --> WA
+WA --> PAC
+
+note bottom of CU1_6
+  Recordatorio 1: 24 horas antes
+  Recordatorio 2: 8:00 AM del día del turno
+end note
+
+note right of CU1_3
+  Primera vez: 30 min
+  Control: 15 min
+end note
+
+@enduml
