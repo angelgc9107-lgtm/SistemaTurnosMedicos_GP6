@@ -75,7 +75,7 @@
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/correccion-Actividad-1] - Auditoría de requisitos y casos de uso realizada.
-  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Modelador de casos de uso)
+  PR: [#58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) - @luchobarrionuevo13 (Modelador de casos de uso)
   
 - [fix/changelog-commits-retroactivos] - Agregar commits retroactivos en release actividad obligatoria N°1
   PR: [#60](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/60) @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
