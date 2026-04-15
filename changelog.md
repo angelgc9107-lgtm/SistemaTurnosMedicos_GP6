@@ -69,16 +69,19 @@
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/correccion-Actividad-1] - AuditorÃ­a de requisitos y casos de uso realizada.
-  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Modelador de casos de uso)
+  PR: [#58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) - @luchobarrionuevo13 (Modelador de casos de uso)
   
 - [fix/changelog-commits-retroactivos] - Agregar commits retroactivos en release actividad obligatoria NÂ°1
-  PR: [#60](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/60) @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
+  PR: [#60](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/60) - @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
   
 - [fix/reorganizar-changelog-fixed-changed] - ReorganizaciÃ³n y agregado de PR
   PR: [#62](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/62) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/corregir-Piastrellini-patch-1] Corrección de branch Piastrellini-pach-1
    PR: [#71](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/71) - @Piastrellini (Especialista en Escenarios de Casos de Uso)
+
+- [fix/correccion-Actividad-1] - AuditorÃ­a de requisitos y casos de uso realizada.
+  PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) - @luchobarrionuevo13 (Modelador de casos de uso)
 
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
