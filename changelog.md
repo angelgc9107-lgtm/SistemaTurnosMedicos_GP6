@@ -83,6 +83,9 @@
 - [fix/reorganizar-changelog-fixed-changed] - Reorganización y agregado de PR
   PR: [#62](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/62) - @angelgc9107-lgtm (Analista de requerimientos)
 
+- [fix/correjir-Piastrellini-patch-1] Corrección de branch Piastrellini-pach-1
+   PR:[#]()
+
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
 
@@ -144,6 +147,7 @@
 
 - [release/actividad-obligatoria-1] Corrección de sección POO en introduccion.md
   Commit: [ac9609d](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/ac9609d) — @angelgc9107-lgtm (Analista de Requerimientos)
+
 
 
 
