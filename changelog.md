@@ -75,11 +75,10 @@
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/correccion-Actividad-1] - Auditoría de requisitos y casos de uso realizada.
-  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Analista de requerimientos - modelador casos de uso)
+  PR: [#58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Analista de requerimientos - modelador casos de uso)
 
  - [fix/changelog-commits-retroactivos] - Agregar commits retroactivos en release actividad obligatoria N°1
-  PR: []() @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
-
+  PR: [#60](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/60) @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
 
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
@@ -94,16 +93,7 @@
   Commit: [4e4aa01](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/4e4aa01) — @angelgc9107-lgtm (Analista de Requerimientos)
 
 - [release/actividad-obligatoria-1] Corrección de README.md
-  Commit: [213ecb6](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/213ecb6) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
-
-- [release/actividad-obligatoria-1] Corrección de README.md
   Commit: [115bba9](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/115bba9) — @angelgc9107-lgtm (Analista de Requerimientos)
-
-- [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
-  Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
-
-- [release/actividad-obligatoria-1] Actualización de introduccion.md
-  Commit: [8e9e203](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/8e9e203) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
 
 - [release/actividad-obligatoria-1] Agregado de PR al changelog
   Commit: [bd71cb9](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/bd71cb9) — @angelgc9107-lgtm (Analista de Requerimientos)
