@@ -40,20 +40,6 @@
 - [feature/fix-changelog.md] - Correción a los archivos changelog.md & README.md
    PR: [#20](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/20). - @angelgc9107-lgtm (Analista de requerimientos)
 
-- [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
-
-  PR: [#35](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/35) - @alandox1 (Documentador y coordinador de archivos)
-
-- [feature/doc-coord-repo-update-readme-md] Correccion de archivo anexo
-
-  PR: [#36](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/36) - @alandox1 (Documentador y coordinador de archivos)
-  
-- [feature/modelador-casos-uso-update-use-case-1] - Correción a los archivos changelog.md & estructura de archivo introducción.md
-  PR: [#34](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/34) - @angelgc9107-lgtm (Analista de requerimientos)
-
-- [feature/analista-requerimentos-add-introduccion-md] - Correción a los archivos changelog.md & estructura de archivo introducción.md
-  PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
-
 - [feature/diseniador-clases-add-boceto-inicial] - Corrección de estructura de diagramas y nombre de carpetas
 
   PR: [#21](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/21) - @Piastrellini (diseñador de clases iniciales)
@@ -62,11 +48,25 @@
 
   PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseñador de clases inciales)
 
-- [feature/doc-coord-repo-update-readme-md] Correccion de archivo y actualizacion de changelog
+### Fixed
 
+- [feature/analista-requerimentos-add-introduccion-md] - Correción a los archivos changelog.md & estructura de archivo introducción.md
+  PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
+
+- [feature/modelador-casos-uso-update-use-case-1] - Correción a los archivos changelog.md & estructura de archivo introducción.md
+  PR: [#34](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/34) - @angelgc9107-lgtm (Analista de requerimientos)
+
+- [feature/doc-coord-repo-update-readme-md] Correccion de carpetas del repositorio
+  PR: [#35](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/35) - @alandox1 (Documentador y coordinador de archivos)
+
+- [feature/doc-coord-repo-update-readme-md] Correccion de archivo anexo
+  PR: [#36](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/36) - @alandox1 (Documentador y coordinador de archivos)
+
+- [feature/doc-coord-repo-update-readme-md] Correccion de archivo y actualizacion de changelog
   PR: [#41](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/41) - @alandox1 (Documentador y coordinador de archivos)
 
-### Fixed
+- [fix/correccion-Actividad-1] - Correccion de la actividad N° 1
+  PR: [#47](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/47) - @alandox1 (Documentador y coordinador de archivos)
 
 - [fix/correccion-Actividad-1] - Correción a los archivos changelog.md & lenguaje en introducción al POO archivo introduccion.md
   PR: [#49](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/49) - @angelgc9107-lgtm (Analista de requerimientos)
@@ -75,10 +75,13 @@
   PR: [#51](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/51) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [fix/correccion-Actividad-1] - Auditoría de requisitos y casos de uso realizada.
-  PR: [#58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Analista de requerimientos - modelador casos de uso)
-
- - [fix/changelog-commits-retroactivos] - Agregar commits retroactivos en release actividad obligatoria N°1
+  PR: [58](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/58) -@luchobarrionuevo13 (Modelador de casos de uso)
+  
+- [fix/changelog-commits-retroactivos] - Agregar commits retroactivos en release actividad obligatoria N°1
   PR: [#60](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/60) @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
+  
+- [fix/reorganizar-changelog-fixed-changed] - Reorganización y agregado de PR
+  PR: [#62](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/62) - @angelgc9107-lgtm (Analista de requerimientos)
 
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
@@ -141,6 +144,8 @@
 
 - [release/actividad-obligatoria-1] Corrección de sección POO en introduccion.md
   Commit: [ac9609d](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/ac9609d) — @angelgc9107-lgtm (Analista de Requerimientos)
+
+
 
   
   
