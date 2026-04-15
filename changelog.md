@@ -80,6 +80,9 @@
 - [fix/corregir-Piastrellini-patch-1] Corrección de branch Piastrellini-pach-1
    PR: [#71](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/71) - @Piastrellini (Especialista en Escenarios de Casos de Uso)
 
+- [fix/correccion-Actividad-1] - AuditorÃ­a de requisitos y casos de uso realizada.
+  PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) - @luchobarrionuevo13 (Modelador de casos de uso)
+
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
 - [fix/changelog-categorizacion] - categorizaciÃ³n correcta de las PR en changelog.md
