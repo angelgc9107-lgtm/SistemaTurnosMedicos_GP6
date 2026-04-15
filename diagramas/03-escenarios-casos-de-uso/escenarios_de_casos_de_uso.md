@@ -1,5 +1,15 @@
 # Escenarios de Casos de Uso
 
+# Indice
+
+En esta sección se detallan los flujos de interacción para los casos de uso principales del sistema de gestión de turnos médicos, enfocándose en la ruta principal de éxito.
+
+- [Caso de Uso 1 - Agendar turno - Ruta Principal](03-nombre-caso-uso-escenario-01.md)
+- [Caso de Uso 2 - Registrar check-in - Ruta Principal](03-nombre-caso-uso-escenario-02.md)
+- [Caso de Uso 3 - Reprogramar turno - Ruta Principal](03-nombre-caso-uso-escenario-03.md)
+- [Caso de Uso 4 - Bloquear días y horarios en calendario - Ruta Principal](03-nombre-caso-uso-escenario-04.md)
+- [Caso de Uso 5 - Visualizar agenda (diaria/semanal) - Ruta Principal](03-nombre-caso-uso-escenario-05.md)
+
 ## Casos de uso documentados
 
 1. Agendar turno
@@ -42,13 +52,3 @@
 | **Aspectos sobresalientes:** | ¿se debe controlar el numero de intentos de registro?¿El usuario puede cambiar la clave?¿La tarjeta, QR se genera en el momento?¿El socio ahora tiene usuario y contraseña en el sistema? |
 | **Prioridad:** | Tiempo (Alta - Media -Baja) |
 | **Riesgo:** | Tiempo - Costo (Alto - Medio -Bajo) |
-
-# Indice Escenarios de Casos de Uso
-
-En esta sección se detallan los flujos de interacción para los casos de uso principales del sistema de gestión de turnos médicos, enfocándose en la ruta principal de éxito.
-
-- [Caso de Uso 1 - Agendar turno - Ruta Principal](03-nombre-caso-uso-escenario-01.md)
-- [Caso de Uso 2 - Registrar check-in - Ruta Principal](03-nombre-caso-uso-escenario-02.md)
-- [Caso de Uso 3 - Reprogramar turno - Ruta Principal](03-nombre-caso-uso-escenario-03.md)
-- [Caso de Uso 4 - Bloquear días y horarios en calendario - Ruta Principal](03-nombre-caso-uso-escenario-04.md)
-- [Caso de Uso 5 - Visualizar agenda (diaria/semanal) - Ruta Principal](03-nombre-caso-uso-escenario-05.md)
