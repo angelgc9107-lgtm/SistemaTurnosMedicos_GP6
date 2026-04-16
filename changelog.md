@@ -17,9 +17,9 @@
 - [feature/modelador-casos-uso-update-use-case-1] - Los caso de uso presentes, PR a develop y el Issue vinculado
   PR: [#10](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/10) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
 
-- [feature/diseniador-clases-add-boceto-inicial] - Exportacion de documentacion y organizaciÃ³n de archivos en la carpeta diagramas/01-diagrama-clases/
+- [feature/diseniador-clases-add-boceto-inicial] - Exportacion de documentacion y organizacion de archivos en la carpeta diagramas/01-diagrama-clases/
 
-  PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12) - @Piastrellini (DiseÃ±ador de clases iniciales)
+  PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12) - @Piastrellini (Disenador de clases iniciales)
   
   PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (Disenador de clases iniciales)
 
@@ -41,7 +41,7 @@
 
 - [feature/Piastrellini-pach-1] - Actualizar changelog 2026-04-06
 
-  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (diseÃ±ador de clases inciales)
+  PR: [#28](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/28) - @Piastrellini (disenador de clases iniciales)
 
 - [feature/analista-requerimentos-add-introduccion-md] - Correcion a los archivos changelog.md & estructura de archivo introduccion.md
   PR: [#31](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/31) - @angelgc9107-lgtm (Analista de requerimientos)
@@ -124,9 +124,9 @@
   Commit: [12b2d21](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/12b2d21) - @angelgc9107-lgtm (Analista de Requerimientos)
 
 - [release/actividad-obligatoria-1] Actualizacion y correccion de formato en changelog
-  Commit: [97574bb](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/97574bb) - @Piastrellini (DiseÃ±ador de Clases Iniciales)
-  Commit: [9ce9f63](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/9ce9f63) - @Piastrellini (DiseÃ±ador de Clases Iniciales)
-  Commit: [8ef154a](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/8ef154a) - @Piastrellini (DiseÃ±ador de Clases Iniciales)
+  Commit: [97574bb](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/97574bb) - @Piastrellini (Disenador de Clases Iniciales)
+  Commit: [9ce9f63](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/9ce9f63) - @Piastrellini (Disenador de Clases Iniciales)
+  Commit: [8ef154a](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/8ef154a) - @Piastrellini (Disenador de Clases Iniciales)
 
 - [release/actividad-obligatoria-1] Actualizacion de changelog
   Commit: [883416b](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/883416b) - @alandox1 (Documentador y Coordinador)
