@@ -1,2 +1,2 @@
 ## Herramientas Agile
-- [Tarjeta CRC]()
+- Tarjeta CRC _(pendiente)_
