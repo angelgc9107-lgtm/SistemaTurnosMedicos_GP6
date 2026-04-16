@@ -22,7 +22,6 @@
   PR: [#12](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/12) - @Piastrellini (DiseÃ±ador de clases iniciales)
   
   PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (DiseÃ±ador de clases iniciales)
-  PR: [#15](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/15) - @Piastrellini (DiseÃ±ador de clases iniciales)
 
 - [feature/analista-requerimentos-add-introduccion-md] - DocumentaciÃ³n de los requerimientos funcionales y no funcionales, archivo instrucciones.md
 
@@ -77,19 +76,20 @@
 - [fix/reorganizar-changelog-fixed-changed] - ReorganizaciÃ³n y agregado de PR
   PR: [#62](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/62) - @angelgc9107-lgtm (Analista de requerimientos)
 
+- [fix/changelog-categorizacion] - categorizaciÃ³n correcta de las PR en changelog.md
+  PR: [#69](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/69) - @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
+
 - [fix/corregir-Piastrellini-patch-1] Corrección de branch Piastrellini-pach-1
    PR: [#71](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/71) - @Piastrellini (Especialista en Escenarios de Casos de Uso)
 
 - [fix/correccion-Actividad-1] - AuditorÃ­a de requisitos y casos de uso realizada.
   PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) - @luchobarrionuevo13 (Modelador de casos de uso)
 
+- [fix/changelog-remover-duplicados] - Eliminacion de duplicados en changelog
+  PR: [#75](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/75) - @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
+
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
-- [fix/changelog-categorizacion] - categorizaciÃ³n correcta de las PR en changelog.md
-  PR: [#69](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/69) - @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
-
-- [release/actividad-obligatoria-1] CorrecciÃ³n de requisitos no funcionales en introduccion.md
-  Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) â€” @LuchoBarrionuevo13 (Modelador de Casos de Uso)
 
 - [release/actividad-obligatoria-1] ActualizaciÃ³n de introduccion.md
   Commit: [8e9e203](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/8e9e203) â€” @LuchoBarrionuevo13 (Modelador de Casos de Uso)
