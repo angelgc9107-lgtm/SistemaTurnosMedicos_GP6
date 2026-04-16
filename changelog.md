@@ -85,6 +85,9 @@
 - [fix/correccion-Actividad-1] - AuditorÃ­a de requisitos y casos de uso realizada.
   PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) - @luchobarrionuevo13 (Modelador de casos de uso)
 
+- [fix/changelog-remover-duplicados] - Eliminacion de duplicados en changelog
+  PR: [#75](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/75) - @angelgc9107-lgtm (Analista de requerimientos/Modelador de diagramas de casos de uso)
+
 - [release/actividad-obligatoria-1] Corrección de requisitos no funcionales en introduccion.md
   Commit: [313a293](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/313a293) — @LuchoBarrionuevo13 (Modelador de Casos de Uso)
 
