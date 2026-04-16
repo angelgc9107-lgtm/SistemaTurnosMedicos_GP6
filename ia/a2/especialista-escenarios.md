@@ -10,6 +10,6 @@ prioridad y riesgo) para cada caso de uso.
 
 ## Ajustes realizados
 - Se migraron las listas con guiones a tablas Markdown (plantilla oficial).
-- Se actualizo de genérico a Sistema de Gestion de Turnos Medicos - [subsistema]
-- se completaron los 5 subcampos: Precondiciones, Poscondiciones, Suposiciones, Reunir requerimientos y Aspectos sobresalientes.
+- Se actualizo de genérico a Sistema de Gestion de Turnos Medicos. 
+- Se corrigieron y completaron los 5 subcampos: Precondiciones, Poscondiciones, Suposiciones, Reunir requerimientos y Aspectos sobresalientes.
 - Cada paso y cada condición referencia el RF/RNF correspondiente de introduccion.md.
