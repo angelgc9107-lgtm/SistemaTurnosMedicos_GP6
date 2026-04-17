@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## [Unreleased]
+## [Unreleased] - Actividad Obligatoria N°2
 - [feature/documentador-y-coordinador-2] - Creacion de formato de carpetas,junto con correciones de changelog,nomeclatura y rutas
   PR: [#78](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/78) - @alandox1 (Documentador y coordinador de archivos)
 
