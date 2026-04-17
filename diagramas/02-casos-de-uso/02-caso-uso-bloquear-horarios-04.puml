@@ -36,7 +36,7 @@ rectangle "Sistema de Turnos Médicos" {
 
 }
 
-MED ..> CU4     : <<extend>>\n[indica fechas\na bloquear]
+MED --> CU4
 SEC --> CU4
 SEC --> CU4_EXT1
 SEC --> CU4_EXT2

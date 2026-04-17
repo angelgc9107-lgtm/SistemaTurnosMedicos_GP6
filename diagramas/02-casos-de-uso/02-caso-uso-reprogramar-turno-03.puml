@@ -35,7 +35,7 @@ rectangle "Sistema de Turnos Médicos" {
 
 }
 
-PAC ..> CU3     : -->\n[solicita reprogramación]
+PAC --> CU3
 SEC --> CU3
 CU3_6 --> WA
 
