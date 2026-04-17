@@ -4,6 +4,9 @@
 ### Added
 - [feature/documentador-y-coordinador-2] - Creacion de formato de carpetas,junto con correciones de changelog,nomeclatura y rutas
   PR: [#78](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/78) - @alandox1 (Documentador y coordinador de archivos)
+  
+  - [feature/modelador-diag-casos-uso-update-use-case-1] Se creo la branch en referencia con los archivos solicitados
+  PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
 
