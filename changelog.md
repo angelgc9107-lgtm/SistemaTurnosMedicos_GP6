@@ -7,8 +7,9 @@
 
 ### Added
 
-- [#81][feature/diseniador-tarjetas-crc-add-tarjeta-clase-1] Tarjetas CRC creadas en herramientas-agile/ con índice y documentación de IA.
-PR:  - @luchobarrionuevo13 (Diseñador de Tarjetas CRC) número: #52
+- [develop] - Rama de diseniador-tarjetas-crc-add-tarjeta-clase-1 completa.
+PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) - @luchobarrionuevo13 (Diseñador tarjetas crc).
+
 
 ### Changed
 
