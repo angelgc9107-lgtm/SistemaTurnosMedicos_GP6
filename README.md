@@ -22,4 +22,3 @@ digitalizar la gestión de sus turnos.
 ## Diagramas y Diseños
 
 - [Anexos](anexos/anexos.md)
-
