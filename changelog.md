@@ -7,7 +7,7 @@
 
 ### Added
 
-- [feature/diseniador-tarjetas-crc-add-tarjeta-clase-1] Tarjetas CRC creadas en herramientas-agile/ con índice y documentación de IA.
+- [#81][feature/diseniador-tarjetas-crc-add-tarjeta-clase-1] Tarjetas CRC creadas en herramientas-agile/ con índice y documentación de IA.
 PR:  - @luchobarrionuevo13 (Diseñador de Tarjetas CRC) número: #52
 
 ### Changed
