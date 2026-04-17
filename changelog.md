@@ -10,6 +10,8 @@ PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) 
 
 ### Added
 
+- [develop] - Rama de feature/espec-escenarios-casos-uso-add-escenario-1 completa.
+PR: [#67](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/67) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
 - [develop] - Rama de diseniador-tarjetas-crc-add-tarjeta-clase-1 completa.
 PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) - @luchobarrionuevo13 (Diseñador tarjetas crc).
 
@@ -17,6 +19,15 @@ PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) 
 ### Changed
 
 ### Fixed
+
+- [feature/espec-escenarios-casos-uso-add-escenario-1] Conflictos resueltos
+  Commit: [34fd62b](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/34fd62bc7803b881a3e9f386eb889df5d45f63a5) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
+
+- [feature/espec-escenarios-casos-uso-add-escenario-1] Resolver conflictos 
+  Commit: [b7c1ade](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/b7c1ade1ddeb9f8a502f7b94e6b86e596ba29ef0) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
+
+- [feature/espec-escenarios-casos-uso-add-escenario-1] Actualizar changelog.md
+  Commit: [9cdcfcf](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/9cdcfcf85dff1957ff9bd9c29513d9250cb61284) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
 
 - [diseniador-tarjetas-crc-add-tarjeta-clase-1] tarjetas crc a2 + documentacion + changelog
   Commit: [eeefac3](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/eeefac3) - @luchobarrionuevo13(diseñador tarjetas crc)

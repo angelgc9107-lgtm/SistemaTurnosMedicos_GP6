@@ -12,15 +12,13 @@ digitalizar la gestión de sus turnos.
 
 ## Integrantes
 
-| Nombre y Apellido | Matrícula | Usuario de GitHub | Rol |
-|-----| ----- | ------ | ------ |
-| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Modelador de Casos de Uso|
-| Alan Diaz | 152841 | @alandox1| Documentador y Coordinador|
-| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Analista de Requerimientos|
-| Thiago Piastrellini | 158097 | @Piastrellini | Diseñador de Clases Iniciales|
+| Nombre y Apellido | Matrícula | Usuario de GitHub |
+|:-----| -----: | ------: |
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13|
+| Alan Diaz | 152841 | @alandox1|
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm |
+| Thiago Piastrellini | 158097 | @Piastrellini |
 
 ## Diagramas y Diseños
 
 - [Anexos](anexos/anexos.md)
-- [Diagramas UML](diagramas/diagramasUML.md)
-- [Herramientas Agile](herramientas-agile/herramientas_agile.md)
