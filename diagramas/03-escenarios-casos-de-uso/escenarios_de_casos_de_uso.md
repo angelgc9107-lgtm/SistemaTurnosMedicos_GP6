@@ -52,4 +52,3 @@ En esta sección se detallan los flujos de interacción para los casos de uso pr
 | **Aspectos sobresalientes:** | ¿se debe controlar el numero de intentos de registro?¿El usuario puede cambiar la clave?¿La tarjeta, QR se genera en el momento?¿El socio ahora tiene usuario y contraseña en el sistema? |
 | **Prioridad:** | Tiempo (Alta - Media -Baja) |
 | **Riesgo:** | Tiempo - Costo (Alto - Medio -Bajo) |
-
