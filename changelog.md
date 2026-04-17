@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## [Unreleased Actividad Obligatoria N°2]
+
+### Added
+- [feature/modelador-diag-casos-uso-update-use-case-1] Se creo la branch en referencia con los archivos solicitados
+PR: []() @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
+
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
 
 ### Added
@@ -146,10 +152,4 @@
 
 - [release/actividad-obligatoria-1] Correccion de seccion POO en introduccion.md
   Commit: [ac9609d](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/ac9609d) - @angelgc9107-lgtm (Analista de Requerimientos)
-
-## [Unrelease Actividad Obligatoria N°2]
-
-### Added
-- [feature/modelador-diag-casos-uso-update-use-case-1] Se creo la branch en referencia con los archivos solicitados
-PR: []() @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
