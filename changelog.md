@@ -1,4 +1,4 @@
-﻿# Changelog
+﻿﻿# Changelog
 
 ## [Unreleased]
 
@@ -6,6 +6,47 @@
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
 
 ### Added
+
+- [develop] - Rama de diseniador-tarjetas-crc-add-tarjeta-clase-1 completa.
+PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) - @luchobarrionuevo13 (Diseñador tarjetas crc).
+
+
+### Changed
+
+### Fixed
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] tarjetas crc a2 + documentacion + changelog
+  Commit: [eeefac3](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/eeefac3) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] archivos no necesarios para la tarea crc
+  Commit: [8a6749b](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/8a6749b) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] actualice changelog a2
+  Commit: [3cb5c2a](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/3cb5c2a) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] actualice changelog
+  Commit: [cd908b2](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/cd908b2) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] conflictos resueltos e intregracion con desarrollar
+  Commit: [410e0e6](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/410e0e6) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] restaure archivos de diagrama y anexos eliminados por error
+  Commit: [e8b2d8e](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/e8b2d8e) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] actualice changelog
+  Commit: [95b4402](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/95b4402) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+- [diseniador-tarjetas-crc-add-tarjeta-clase-1] actualice changelog
+  Commit: [7393634](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/commit/7393634) - @luchobarrionuevo13(diseñador tarjetas crc)
+
+  
+## [Release]
+
+### Added
+
+### Changed
+
+### Fixed
 - [feature/modelador-casos-uso-update-use-case-1] - Documentacion de 5 casos de uso completos en introduccion.md
 
   PR: [#2](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/2) - @ferreyrasantiagojoaquin-lab (Modelador de casos de uso)
