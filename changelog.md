@@ -11,12 +11,18 @@
 - [feature/diseniador-tarjetas-crc-add-tarjeta-clase-1] - Tarjetas CRC completas
   PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) - @LuchoBarrionuevo13 (Diseñador de Tarjetas CRC)
 
-### Fixed
+  - [feature/documentador-y-coordinador-2] - Registrar uso de Ia en la carpeta correspondida
+  PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
+
+### Changed
+
 - [feature/modelador-diag-casos-uso-update-use-case-1] - Corrección a diagramas de casos de uso
   PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) - @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
-- [fix/changelog] - Registrar uso de Ia en la carpeta correspondida
-  PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
+
+### Fixed
+  - [fix/changelog] - Reestructurar changelog segun estandares
+  PR: [#85](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/85) - @alandox1 (Documentador y coordinador de archivos)
 
 ---
 
