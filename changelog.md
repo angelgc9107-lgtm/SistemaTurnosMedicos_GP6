@@ -11,7 +11,7 @@
 - [feature/diseniador-tarjetas-crc-add-tarjeta-clase-1] - Tarjetas CRC completas
   PR: [#81](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/81) - @LuchoBarrionuevo13 (Diseñador de Tarjetas CRC)
 
-  - [feature/documentador-y-coordinador-2] - Registrar uso de Ia en la carpeta correspondida
+- [feature/documentador-y-coordinador-2] - Registrar uso de Ia en la carpeta correspondida
   PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
 
 ### Changed
