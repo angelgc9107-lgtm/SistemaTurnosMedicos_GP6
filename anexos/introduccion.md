@@ -200,5 +200,29 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 
 - El usuario puede visualizar los turnos asignados en el calendario.
 
+## 6. Cancelar turno
+Actores: Secretaria, Paciente
+
+Descripción: El sistema debe permitir a la recepcionista cancelar el turno de un pacinte con un Médico a petición del paciente, el horario bloqueado pasara a estar disponible en el calendario.
+
+### Flujo de eventos:
+ 
+- El paciente solicita al usuario secretaria que cancelen su turno cargado en la agenda.
+ - La recepcionista busca en la agenda el turno con los datos del paciente.
+ - La recepcionista selecciona el turno que el paciente desea cancelar.
+ - La recepcionista elije la opción "cancelar turno".
+ - La recepcionista confirma la cancelación del turno.
+ - El sistema libera el horario del turno cancelado.
+ - En la agenda se libera el horario que ocupaba el turno antes de la cancelación y pasa a estar disponible nuevamente.
+ - El sistema envía una notificación vía WhatsApp al paciente por la cancelación del turno.
+ 
+ ## Precondiciones:
+ - El usuario recepcionista debe estar validado en el sistema para poder cancelar turnos en la agenda.
+ - El turno debe estar asignado en el calendario.
+
+ ## Postcondiciones:
+ - En el calendario se tiene que liberar el día y horario que tenía el turno antes de cancelarlo.
+ - El sistema debe notificar de la cancelación del turno al paciente vía WhatssApp.
+
 ## Boceto inicial del diseño de clases
 ![Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)
