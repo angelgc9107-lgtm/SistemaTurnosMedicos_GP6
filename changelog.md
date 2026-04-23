@@ -9,9 +9,6 @@
 - [feature/modelador-diag-casos-uso-update-use-case-1] - Se creó la branch en referencia con los archivos solicitados
   PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) - @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
-- [fix/changelog] - Registrar uso de Ia en la carpeta correspondida
-  PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
-
 ---
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
@@ -26,6 +23,9 @@
 ### Fixed
 - [feature/modelador-diag-casos-uso-update-use-case-1] - Correción a diagramas de casos de uso
   PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) - @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
+
+- [fix/changelog] - Registrar uso de Ia en la carpeta correspondida
+  PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
 
 ---
 
@@ -107,4 +107,4 @@
 - [fix/changelog-remover-duplicados] - Eliminación de duplicados en changelog
   PR: [#75](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/75) - @angelgc9107-lgtm (Analista de requerimientos)
 
-  
+
