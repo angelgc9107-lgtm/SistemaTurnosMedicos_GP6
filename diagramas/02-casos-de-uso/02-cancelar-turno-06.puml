@@ -44,10 +44,11 @@ note bottom of CU6_4
 end note
 
 note right of CU6
-  Precondición: la recepcionista debe
-  estar validada en el sistema.
-  El turno debe estar asignado
-  en el calendario.
+  Precondiciones: 
+  - La recepcionista debe
+    estar validada en el sistema.
+  - El turno debe estar asignado
+    en el calendario.
 end note
 
 @enduml

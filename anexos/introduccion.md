@@ -147,7 +147,7 @@ Descripción: La recepcionista selecciona un turno existente para reprogramarlo 
 
 - En el calendario se tiene que visualizar el nuevo horario y día que ocupa el turno reprogramado.
 - En el calendario se tiene que liberar el día y horario que tenía el turno antes de reprogramarlo.
-- El sistema debe notificar el nuevo día y horario al paciente vía WhatssApp.
+- El sistema debe notificar el nuevo día y horario al paciente vía WhatsApp.
 
 ## 4. Bloquear días y horarios en calendario
 Actores: Secretaria, Médico
@@ -203,7 +203,7 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 ## 6. Cancelar turno
 Actores: Secretaria, Paciente
 
-Descripción: El sistema debe permitir a la recepcionista cancelar el turno de un pacinte con un Médico a petición del paciente, el horario bloqueado pasara a estar disponible en el calendario.
+Descripción: El sistema debe permitir a la recepcionista cancelar el turno de un paciente con un Médico a petición del paciente, el horario bloqueado pasara a estar disponible en el calendario.
 
 ### Flujo de eventos:
  
@@ -222,7 +222,7 @@ Descripción: El sistema debe permitir a la recepcionista cancelar el turno de u
 
  ## Postcondiciones:
  - En el calendario se tiene que liberar el día y horario que tenía el turno antes de cancelarlo.
- - El sistema debe notificar de la cancelación del turno al paciente vía WhatssApp.
+ - El sistema debe notificar de la cancelación del turno al paciente vía WhatsApp.
 
 ## Boceto inicial del diseño de clases
 ![Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)
