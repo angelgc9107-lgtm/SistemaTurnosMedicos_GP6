@@ -2,12 +2,6 @@
 
 ## Casos de uso documentados
 
-1. Agendar turno
-2. Registrar check-in
-3. Reprogramar turno
-4. Bloquear dias/horarios
-5. Visualizar agenda
-
 - [CU-01 - Agendar turno - Ruta Principal](03-agendar-turno-flujo-principal.md)
 - [CU-02 - Registrar check-in - Ruta Principal](03-registrar-checkin-flujo-principal.md)
 - [CU-03 - Reprogramar turno - Ruta Principal](03-reprogramar-turno-flujo-principal.md)
