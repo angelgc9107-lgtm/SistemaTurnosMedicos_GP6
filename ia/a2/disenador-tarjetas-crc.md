@@ -1,9 +1,9 @@
 # Uso de Copilot Agent Mode - Diseñador de Tarjetas CRC
 
-## Prompt utilizado
-```
-Se solicitó a Copilot analizar los archivos anexos/introduccion.md y el diagrama de clases en Excalidraw para identificar las clases principales del sistema y generar tarjetas CRC incluyendo nombre, superclase, responsabilidades, colaboraciones, pensamiento del objeto y propiedades.
-```
+- **Prompt usado:**
+  ```
+  Se solicitó a Copilot analizar los archivos anexos/introduccion.md y el diagrama de clases en Excalidraw para identificar las clases principales del sistema y generar tarjetas CRC incluyendo nombre, superclase, responsabilidades, colaboraciones, pensamiento del objeto y propiedades.
+  ```
 
 ## Archivos utilizados como contexto
 - anexos/introduccion.md
