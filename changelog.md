@@ -14,6 +14,7 @@
 - [feature/documentador-y-coordinador-2] - Registrar uso de Ia en la carpeta correspondida
   PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) - @alandox1 (Documentador y coordinador de archivos)
 
+
 ### Changed
 
 - [feature/modelador-diag-casos-uso-update-use-case-1] - Corrección a diagramas de casos de uso
@@ -26,6 +27,9 @@
 
   - [fix/changelog] - Correcciones de tarjetas CRC
   PR: [#87](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/87) - @luchobarrionuevo13 (Diseñador de tarjetas CRC)
+  
+  - [fix/diag-casos-de-uso] - Corrección de los diagramas de casos de uso
+  PR: [#89](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/89) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
 ---
 
