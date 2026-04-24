@@ -25,6 +25,9 @@
   - [fix/changelog] - Reestructurar changelog segun estandares
   PR: [#85](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/85) - @alandox1 (Documentador y coordinador de archivos)
 
+  - [fix/changelog] - Correcciones de tarjetas CRC
+  PR: [#87](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/87) - @luchobarrionuevo13 (Diseñador de tarjetas CRC)
+  
   - [fix/diag-casos-de-uso] - Corrección de los diagramas de casos de uso
   PR: [#89](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/89) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
