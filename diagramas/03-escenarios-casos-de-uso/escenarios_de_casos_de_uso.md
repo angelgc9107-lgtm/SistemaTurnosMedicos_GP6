@@ -1,5 +1,4 @@
-# Escenarios de Casos de Uso
-
+# Escenarios Casos de Uso
 - [CU-01 - Agendar turno - Ruta Principal](03-agendar-turno-flujo-principal.md)
 - [CU-02 - Registrar check-in - Ruta Principal](03-registrar-checkin-flujo-principal.md)
 - [CU-03 - Reprogramar turno - Ruta Principal](03-reprogramar-turno-flujo-principal.md)
