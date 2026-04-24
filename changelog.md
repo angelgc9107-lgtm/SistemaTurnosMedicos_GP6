@@ -1,4 +1,4 @@
-﻿﻿# Changelog
+﻿# Changelog
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
