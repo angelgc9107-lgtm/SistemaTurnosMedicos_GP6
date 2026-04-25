@@ -4,8 +4,10 @@
 | **Area:** | Sistema de Gestion de Turnos Medicos - Recepcion y Sala de Espera | | |
 | **Actor(es):** | Secretaria (principal), Medico | | |
 | **Descripcion:** | Permite a la secretaria registrar la llegada fisica del paciente al consultorio, cambiando el estado del turno a "Presente" o "En sala de espera" y registrando el horario real de presentacion, de modo que el medico pueda visualizar quien se encuentra esperando. | | |
-| **Activar Evento:** | El paciente se presenta fisicamente en la recepcion del consultorio. | | |
-| **Tipo de senal:** | [x] Externa | [ ] Temporal | [ ] |
+
+| **Activar Evento:** | El paciente se presenta físicamente en la recepción del consultorio. | **Identificadores e iniciadores de caso de uso** |
+|---|---|---|
+| **Tipo de señal:** | [x] Externa | [ ] Temporal |
 
 | **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|

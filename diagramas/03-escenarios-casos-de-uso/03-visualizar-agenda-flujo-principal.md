@@ -4,8 +4,10 @@
 | **Area:** | Sistema de Gestion de Turnos Medicos - Consulta Operativa | | |
 | **Actor(es):** | Secretaria (principal), Medico (principal) | | |
 | **Descripcion:** | Permite a la secretaria y al medico consultar la agenda de turnos de forma organizada en un calendario con vistas diaria o semanal, visualizando los estados de cada turno (Pendiente, Presente en sala) y los horarios bloqueados con su motivo. | | |
-| **Activar Evento:** | El usuario (secretaria o medico) ingresa a la seccion "Agenda" desde el menu principal del sistema. | | |
-| **Tipo de senal:** | [x] Externa | [ ] Temporal | [ ] |
+
+| **Activar Evento:** | El usuario (secretaria o médico) ingresa a la sección "Agenda" desde el menú principal del sistema. | **Identificadores e iniciadores de caso de uso** |
+|---|---|---|
+| **Tipo de señal:** | [x] Externa | [ ] Temporal |
 
 | **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|
