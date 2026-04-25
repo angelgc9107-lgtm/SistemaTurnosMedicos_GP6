@@ -8,4 +8,4 @@
 | Atender turnos | Turno | Sé qué pacientes debo atender | apellido |
 | Gestionar agenda | Agenda | Puedo organizar mis turnos | matricula |
 | | | | especialidad |
-| Autorizar sobreturno | Agenda, Recepcionista | Solo yo decido si se agrega un turno extra; sin mi autorización no se agrega | |
+| Autorizar sobreturno | Agenda, Secretaria | Solo yo decido si se agrega un turno extra; sin mi autorización no se agrega | |
