@@ -29,6 +29,8 @@
 
 - [fix/changelog-correcciones]  Agregar PR al changelog. PR: [#101](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/101) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
+- [fix/changelog-casos-de-uso]  Correcciones solicitadas en gral. PR: [#103](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/103) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
+
 ---
 
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
