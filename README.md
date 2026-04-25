@@ -14,11 +14,13 @@ digitalizar la gestión de sus turnos.
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub | Rol |
 |-----| ----- | ------ | ------ |
-| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Modelador de Casos de Uso|
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Diseñador de tarjetas crc|
 | Alan Diaz | 152841 | @alandox1| Documentador y Coordinador|
-| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Analista de Requerimientos|
-| Thiago Piastrellini | 158097 | @Piastrellini | Diseñador de Clases Iniciales|
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Modelador de diagramas de casos de uso|
+| Thiago Piastrellini | 158097 | @Piastrellini | Especialista en Escenarios de Casos de Uso|
 
 ## Diagramas y Diseños
 
 - [Anexos](anexos/anexos.md)
+- [Diagramas UML](diagramas/diagramasUML.md)
+- [Herramientas Agile](herramientas-agile/herramientas_agile.md)
