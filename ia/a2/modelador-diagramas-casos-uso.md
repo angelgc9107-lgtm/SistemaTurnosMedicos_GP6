@@ -14,6 +14,7 @@ Se utilizó Copilot para la creación y corrección de los archivos puml de los 
  - 9 en el archivo 02-reprogramar-turno-03.puml necesito que hagas que system sea el que le informa a paciente.
  - 10 En el CU4 Se debe quitar los exted de bloquear días y horarios por el motivo que estos no son un derivado sino un motivo del bloqueo.
  - 11 En el CU5 agregar "extend" a "ver horarios bloqueados" por ser un derivado de visualizar agenda.
+ - 12 Se pidio agregar que haga un include con "guardar historial del cambio" al CU6.
 
 
  ```
@@ -33,6 +34,7 @@ El Sistema WhatsApp envía la notificación al Paciente (WA --> PAC)
 - CU3 Se agrego una linea para representar que la notificación al paciente se le es enviada por whatsApp
 - CU4 Se removio los "extend" por no ser un derivado del caso "Bloquear horarios y días" sino motivmos del mismo.
 - CU5 Agregar al actor "Médico" que interactue con "Visualizar Agenda"
+- CU6 Agregar que guarde el historial del cambio cuando hacen una cancelación.
 
 ## Interacciones
 

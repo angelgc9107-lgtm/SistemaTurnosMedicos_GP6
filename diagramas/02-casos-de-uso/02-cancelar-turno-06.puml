@@ -23,12 +23,14 @@ rectangle "Sistema de Turnos Médicos" {
     usecase "Confirmar\ncancelación" as CU6_3
     usecase "Liberar horario\nen agenda" as CU6_4
     usecase "Enviar notificación\npor WhatsApp" as CU6_5
+    usecase "Guardar historial\ndel cambio" as CU6_6
 
     CU6 ..> CU6_1 : <<include>>
     CU6 ..> CU6_2 : <<include>>
     CU6 ..> CU6_3 : <<include>>
     CU6 ..> CU6_4 : <<include>>
     CU6 ..> CU6_5 : <<include>>
+    CU6 ..> CU6_6 : <<include>>
 
 }
 
@@ -40,6 +42,12 @@ WA --> PAC
 note bottom of CU6_4
   El horario liberado pasa a estar
   disponible nuevamente en la agenda
+end note
+
+note bottom of CU6_6
+  RNF4: Se debe mantener
+  historial de todos los
+  cambios realizados
 end note
 
 note right of CU6
