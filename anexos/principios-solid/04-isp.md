@@ -10,8 +10,8 @@ En el diseño inicial, existía una interfaz genérica `IGestorConsultorio` que 
 Una **interfaz** es un contrato de servicios que especifica un aspecto de la funcionalidad de una clase mediante firmas de métodos, pero sin proveer su implementación ni campos de datos [28, 29].
 
 ## Estructura de Clases
-![Diagrama ISP](../../diagramas/01-diagrama-clases/01-solid-04-isp.png)
-*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/01-solid-04-isp.puml)*
+![Diagrama ISP](../../diagramas/01-diagrama-clases/04-isp.png)
+*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/04-isp.puml)*
 
 ## Justificación Técnica
 Se segregó la interfaz original en `IAtencionMedica` e `IGestionTurnos`. Esto permite que la clase `Medico` y la clase `Recepcionista` dependan únicamente de los métodos que les competen. La solución elimina dependencias hacia operaciones no utilizadas, facilitando el mantenimiento y permitiendo que cambios en los procesos de cobro no afecten la interfaz que utiliza el médico [30, 31].

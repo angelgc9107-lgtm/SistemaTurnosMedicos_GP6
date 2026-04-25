@@ -10,8 +10,8 @@ Se detectó un problema potencial en el procesamiento de turnos cancelados. Si u
 Para cumplir con LSP, la herencia se gestiona bajo un **diseño por contrato**: las subclases no pueden fortalecer las precondiciones (pedir más que el padre) ni debilitar las postcondiciones (entregar menos que el padre) de los métodos heredados [20, 22].
 
 ## Estructura de Clases
-![Diagrama LSP](../../diagramas/01-diagrama-clases/01-solid-03-lsp.png)
-*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/01-solid-03-lsp.puml)*
+![Diagrama LSP](../../diagramas/01-diagrama-clases/03-lsp.png)
+*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/03-lsp.puml)*
 
 ## Justificación Técnica
 El diseño asegura que cualquier especialización de `Turno` respete el contrato de los métodos `confirmar()` y `cancelar()`. Al garantizar que la `Agenda` pueda tratar a todos los turnos de manera uniforme bajo la interfaz de la superclase, logramos una arquitectura con **partes intercambiables** y comportamiento predecible [19, 23].

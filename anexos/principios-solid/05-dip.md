@@ -11,8 +11,8 @@ Se identificó que la clase de alto nivel **Recepcionista** dependía directamen
 - **Interfaz:** Un conjunto de operaciones que definen un comportamiento específico que una clase debe realizar [28].
 
 ## Estructura de Clases
-![Diagrama DIP](../../diagramas/01-diagrama-clases/01-solid-05-dip.png)
-*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/01-solid-05-dip.puml)*
+![Diagrama DIP](../../diagramas/01-diagrama-clases/05-dip.png)
+*[Ver diagrama en detalle](../../diagramas/01-diagrama-clases/05-dip.puml)*
 
 ## Justificación Técnica
 Introdujimos la interfaz `Notificador` y el contrato `GestorCitas`. Mediante la **inyección de dependencias** por constructor, la Agenda recibe cualquier objeto que cumpla con el contrato de notificación. Esto transforma a los servicios externos en simples **complementos (plugins)**, permitiendo que el sistema sea flexible y permitiendo el uso de "Mocks" para realizar pruebas unitarias aisladas de la infraestructura real.
