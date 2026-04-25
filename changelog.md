@@ -31,6 +31,12 @@
   - [fix/diag-casos-de-uso] - Corrección de los diagramas de casos de uso
   PR: [#89](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/89) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
+  - [fix/corrección-escarios-casos-de-uso] - Corrección completa de archivo escenarios_de_casos_de_uso.md
+  PR: [#91](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/91) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
+
+  - [fix/changelog-diag] - Corrección al formato archivo a2
+  PR: [#94](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/94) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
+
 ---
 
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
