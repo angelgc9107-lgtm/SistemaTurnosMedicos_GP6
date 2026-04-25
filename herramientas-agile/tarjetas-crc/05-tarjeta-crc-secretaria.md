@@ -1,6 +1,6 @@
 |  |  |  |  |
 |---|---|---|---|
-| **Nombre de la Clase:** | Recepcionista | | |
+| **Nombre de la Clase:** | Secretaria | | |
 | **Superclase:** | Persona | | |
 | **Subclase:** | | | |
 | **Responsabilidades** | **Colaboradores** | **Pensamiento del objeto** | **Propiedad** |
