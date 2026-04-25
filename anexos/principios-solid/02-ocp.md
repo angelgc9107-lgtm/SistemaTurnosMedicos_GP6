@@ -43,7 +43,7 @@ Esto permite que cada tipo tenga su propio comportamiento sin modificar la clase
 
 ## Estructura de Clases
 
-![Diagrama UML - OCP](/SistemaTurnosMedicos_GP6/diagramas/01-diagrama-clases/01-solid-02-ocp.png)
+![Diagrama UML - OCP](/diagramas/01-diagrama-clases/01-solid-02-ocp.png)
 
 
 
