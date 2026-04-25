@@ -35,7 +35,7 @@
   PR: [#91](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/91) - @Piastrellini (Especialista en Escenarios De Casos de Uso)
 
   - [fix/changelog-diag] - Corrección al formato archivo a2
-  PR: [#93](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/93) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
+  PR: [#94](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/94) - @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
 ---
 
