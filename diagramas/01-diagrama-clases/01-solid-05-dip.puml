@@ -1,46 +1,55 @@
 @startuml 01-solid-05-dip
 
 skinparam classAttributeIconSize 0
-title Principio de Inversión de Dependencias (DIP) - Sistema de Turnos
+title Principio de Inversión de Dependencias (DIP) - Basado en Tarjetas CRC
 
-' --- Abstracciones (Interfaces) ---
-interface IGestorTurnos {
-    + agendarTurno(turno: Turno)
+interface IGestorCitas {
+    + registrarTurno(t: Turno)
     + cancelarTurno(id: int)
 }
 
 interface INotificador {
-    + enviarNotificacion(mensaje: String, destino: String)
+    + enviarRecordatorio(p: Paciente, mensaje: String)
 }
 
-' --- Clases de Alto Nivel ---
-class Secretaria {
-    - gestor: IGestorTurnos
-    + Secretaria(gestor: IGestorTurnos)
-    + procesarSolicitudTurno()
+
+class Recepcionista {
+    - gestor: IGestorCitas
+    + Recepcionista(gestor: IGestorCitas)
+    + gestionarSolicitudPaciente()
 }
 
 class Agenda {
     - notificador: INotificador
+    - turnos: List<Turno>
     + Agenda(notificador: INotificador)
-    + confirmarCita()
+    + procesarCita()
 }
 
-' --- Clases de Bajo Nivel (Detalles) ---
+class Turno {
+    - id: int
+    - fecha: Date
+}
+
+class Paciente {
+    - nombre: String
+    - contacto: String
+}
+
 class NotificadorWhatsApp {
-    + enviarNotificacion(mensaje: String, destino: String)
+    + enviarRecordatorio(p: Paciente, mensaje: String)
 }
 
-' --- Relaciones de Inversión ---
-Secretaria --> IGestorTurnos : "depende de"
-Agenda ..|> IGestorTurnos : "implementa"
-Agenda --> INotificador : "depende de"
+Recepcionista --> IGestorCitas : "usa"
+Agenda ..|> IGestorCitas : "realiza"
+Agenda --> INotificador : "usa"
+Agenda "1" *-- "*" Turno : "contiene"
 NotificadorWhatsApp ..|> INotificador : "implementa"
+Turno --> Paciente : "asignado a"
 
-note right of Agenda
+note bottom of Agenda
   Inyección de Dependencias:
-  Agenda no crea el Notificador,
-  lo recibe por constructor.
+  Agenda recibe el Notificador por constructor.
 end note
 
 @enduml
