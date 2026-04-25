@@ -44,7 +44,7 @@ end note
 
 note right of CU6
   Precondiciones: 
-  - La recepcionista debe
+  - La secretaria debe
     estar validada en el sistema.
   - El turno debe estar asignado
     en el calendario.
