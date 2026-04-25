@@ -1,6 +1,7 @@
 # Uso de Copilot Agent Mode - Documentador y Coodinador
 
 ## Prompt utilizado
+```
 Actúa como un Senior Software Engineer realizando una code review profesional de la Pull Request.
 
 INSTRUCCIONES IMPORTANTES:
@@ -52,6 +53,7 @@ REQUEST CHANGES
 COMMENT ONLY
 
 ⚠️ Nota importante: Si seleccionas "COMMENT ONLY", no completes la sección "DECISIÓN DEL REVISOR HUMANO". Debes quedar vía para edición manual en el Pull Request en la sección correspondiente. Publica comentarios directamente en el código si lo consideras necesario.
+```
 ## Archivos utilizados como contexto
 - Pull requests
 
