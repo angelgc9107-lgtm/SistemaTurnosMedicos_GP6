@@ -1,7 +1,6 @@
 @startuml CU5 - Visualizar Agenda
 
 left to right direction
-skinparam actorStyle awesome
 skinparam packageStyle rectangle
 skinparam usecase {
     BackgroundColor #F5F3FF
