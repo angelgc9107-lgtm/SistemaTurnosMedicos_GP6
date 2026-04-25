@@ -1,7 +1,10 @@
 # Principio de Segregación de Interfaces (ISP) en el sistema de turnos médicos
+---
 
 ## Propósito y Tipo del Principio SOLID
 El principio de Segregación de Interfaces (ISP) establece que "ningún cliente debe verse obligado a depender de métodos que no usa". En SOLID, ISP es un principio de diseño que busca dividir contratos grandes en interfaces más pequeñas y cohesivas, de modo que cada clase implemente solo las operaciones necesarias para su rol.
+
+---
 
 ## Motivación con ejemplo del proyecto
 En el sistema de turnos médicos actual, las entidades del dominio realizan actividades claramente diferenciadas:
@@ -10,6 +13,8 @@ En el sistema de turnos médicos actual, las entidades del dominio realizan acti
 - `Agenda`: controla la disponibilidad de horarios y los turnos existentes.
 
 Una interfaz única que contenga todos estos métodos sería demasiado amplia y obligaría a clases como `Medico` y `Agenda` a depender de operaciones que no usan, generando acoplamientos innecesarios.
+
+---
 
 ## Explicación de Interfaces
 Para respetar ISP en este dominio, se proponen las siguientes interfaces específicas:
@@ -37,6 +42,8 @@ Para respetar ISP en este dominio, se proponen las siguientes interfaces especí
 
 Estas interfaces son coherentes con el dominio del sistema y no son genéricas ni artificiales.
 
+---
+
 ## Estructura de Clases con referencia al diagrama
 El diagrama ISP muestra cómo se distribuyen las responsabilidades:
 
@@ -54,6 +61,8 @@ Otras relaciones relevantes:
 - `Paciente` es cliente de `IRegistroDeTurnos` al solicitar y cancelar turnos.
 - `Turno` ferente el ciclo de vida de la cita y colabora con `Paciente`, `Medico`, `Agenda` y `LlegadaPaciente`.
 
+---
+
 ## Estructura de Clases y Diagrama UML
 A continuación se muestra cómo se han diseñado las interfaces segregadas y cómo las clases existentes implementan cada contrato en el dominio de turnos médicos.
 
@@ -61,6 +70,8 @@ A continuación se muestra cómo se han diseñado las interfaces segregadas y c�
 
 - Archivo PlantUML: `diagramas/01-diagrama-clases/01-solid-04-isp.puml`
 - Imagen del diagrama: `diagramas/01-diagrama-clases/01-solid-04-isp.png`
+
+---
 
 ## Justificación Técnica
 ### 1. Interfaces semánticas y específicas del dominio
