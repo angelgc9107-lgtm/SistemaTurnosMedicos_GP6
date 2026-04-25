@@ -40,7 +40,7 @@
   PR: [#97](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/97) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
   - [fix/changelog-correcciones]  Agregar PR al changelog.
-  PR: [#100](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/100) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
+  PR: [#101](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/101) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
 ---
 
