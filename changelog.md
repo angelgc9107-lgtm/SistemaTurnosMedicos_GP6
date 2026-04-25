@@ -1,5 +1,13 @@
 ﻿﻿# Changelog
 
+## [Unreleased] - Primer Parcial
+### Added 
+- [feature/esp-dip-add-anexo-dip] - Anexo Técnico DIP: Creación del documento anexos/principios-solid/05-dip.md detallando el propósito, motivación y justificación técnica del Principio de Inversión de Dependencias aplicado al Sistema de Turnos.
+Diagrama UML de DIP: Incorporación del código fuente 01-solid-05-dip.puml e imagen .png en la carpeta diagramas/01-diagrama-clases/, reflejando la inversión de dependencias y la inyección por constructor.
+Documentación de IA: Registro del proceso de asistencia con Copilot Agent Mode y revisión crítica en ia/primer-parcial/especialista-dip.md.
+Estructura SOLID: Actualización del índice central anexos/principios-solid/principios_solid.md para incluir el acceso al nuevo anexo de DIP.
+  PR: [# ]() @Piastrellini (ESPECIALISTA EN PRINCIPIOS DE EXTENSIÓN (OCP + LSP)
+
 ## [Unreleased] - Actividad Obligatoria N°2
 ### Added
 - [feature/documentador-y-coordinador-2] - Creacion de formato de carpetas,junto con correciones de changelog,nomeclatura y rutas
