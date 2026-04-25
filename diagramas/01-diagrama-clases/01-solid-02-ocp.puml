@@ -1,0 +1,17 @@
+@startuml
+
+abstract class Turno {
+  - fecha
+  - hora
+  + calcularDuracion()
+}
+
+class TurnoConsulta
+class TurnoUrgencia
+class TurnoControl
+
+Turno <|-- TurnoConsulta
+Turno <|-- TurnoUrgencia
+Turno <|-- TurnoControl
+
+@enduml
