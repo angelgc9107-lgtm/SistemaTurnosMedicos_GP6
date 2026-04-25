@@ -8,3 +8,4 @@
 | Confirmar turno | Medico | Sé si el turno está activo | hora |
 | Cancelar turno | Paciente | Puedo cambiar mi estado | estado |
 | Reprogramar turno | Agenda | Puedo modificar fecha y hora | |
+| | | | tipoConsulta |

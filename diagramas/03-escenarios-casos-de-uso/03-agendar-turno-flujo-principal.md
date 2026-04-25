@@ -3,9 +3,11 @@
 | **Nombre del caso de uso:** | Agendar turno | **ID Unica:** | CU-01 |
 | **Area:** | Sistema de Gestion de Turnos Medicos - Agenda | | |
 | **Actor(es):** | Secretaria (principal), Medico | | |
-| **Descripcion:** | Permite a la secretaria registrar un turno para un paciente con un medico, validando disponibilidad segun horarios definidos (RF6), tipo de turno (RF2) y restricciones especificas (RF5), y notificando la confirmacion por WhatsApp (RF7). | | |
-| **Activar Evento:** | El paciente solicita un turno presencialmente en la recepcion del consultorio. | | |
-| **Tipo de senal:** | [x] Externa | [ ] Temporal | [ ] |
+| **Descripcion:** | Permite a la secretaria registrar un turno para un paciente con un medico, validando disponibilidad segun horarios definidos (RF6), tipo de turno (RF2) y restricciones especificas (RF5), y notificando la confirmacion por WhatsApp (RF7). |
+
+| **Activar Evento:** | El paciente solicita un turno presencialmente en la recepción del consultorio. | **Identificadores e iniciadores de caso de uso** |
+|---|---|---|
+| **Tipo de señal:** | [x] Externa | [ ] Temporal |
 
 | **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|

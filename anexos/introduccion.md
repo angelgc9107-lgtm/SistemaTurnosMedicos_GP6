@@ -70,22 +70,22 @@ La clase Turno abstrae una cita médica real. En lugar de modelar cada detalle d
 ##  1. Agendar Turno
 Actor: Secretaria (Principal)
 
-Descripción: El sistema debe permitir a la recepcionista agendar un turno a un paciente con un Médico, validando que el horario esté disponible y respetando las restricciones impuestas en el sistema (Horarios bloqueados a pedido del Médico, duración del tipo de turno asignado).
+Descripción: El sistema debe permitir a la secretaria agendar un turno a un paciente con un Médico, validando que el horario esté disponible y respetando las restricciones impuestas en el sistema (Horarios bloqueados a pedido del Médico, duración del tipo de turno asignado).
 
 #### Flujo de eventos:
-- La recepcionista selecciona la opción Nuevo turno en la agenda que controla el calendario.
+- La secretaria selecciona la opción Nuevo turno en la agenda que controla el calendario.
 - Ingresar los datos del paciente que solicita el turno (Apellido & Nombre - Sexo - Edad - DNI)
 - Se selecciona el tipo de consulta y el Médico (En un principio solo tendrán un usuario tipo Médico)
 - El sistema mostrará el calendario semanal
-- La recepcionista deberá seleccionar un día para mostrar los horarios disponibles para ese día, bloqueando los horarios que no estén disponibles (Disponibilidad del Médico - Horarios con turnos ya asignados)
-- La recepcionista elegirá un horario disponible y seleccionará el tipo de turno que se agenda.
-- La recepcionista confirmará el turno.
+- La secretaria deberá seleccionar un día para mostrar los horarios disponibles para ese día, bloqueando los horarios que no estén disponibles (Disponibilidad del Médico - Horarios con turnos ya asignados)
+- La secretaria elegirá un horario disponible y seleccionará el tipo de turno que se agenda.
+- La secretaria confirmará el turno.
 - Una vez que se confirme el turno, el calendario bloqueará en la fecha elegida el horario que consumirá el turno (varía por tipo de turno) pasando a no estar disponible ese horario, evitando superposiciones de turnos.
 - El sistema confirmará que el turno se agendó de forma correcta y enviará una notificación al paciente por WhatsApp informando el día y horario del turno.
 
 ## Precondiciones:
 
-- El usuario de la recepcionista debe estar validado para poder agendar los turnos en el calendario.
+- El usuario de la secretaria debe estar validado para poder agendar los turnos en el calendario.
 - El Usuario de Médico debe estar registrado en el sistema.
 - Los horarios deben estar bien definidos para generar los turnos.
 
@@ -104,8 +104,8 @@ Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en l
 ### Flujo de eventos:
 
 - El paciente se presenta en la recepción del consultorio.
-- La recepcionista busca el turno del paciente en la agenda.
-- La recepcionista selecciona el turno y lo marca para pasarlo al estado de "Presente" o "En sala de espera".
+- La secretaria busca el turno del paciente en la agenda.
+- La secretaria selecciona el turno y lo marca para pasarlo al estado de "Presente" o "En sala de espera".
 - En el sistema se guarda el horario real en que se presentó el paciente en recepción.
 - El sistema cambia el estado del turno.
 - El Médico puede ver que el paciente ya se encuentra en la sala esperando por la interfaz del calendario.
@@ -113,7 +113,7 @@ Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en l
 ## Precondiciones:
 
 - El turno debe estar asignado en el calendario en la fecha y horario correcto.
-- La recepcionista debe estar validada en el sistema para poder visualizar el calendario semanal o diario.
+- La secretaria debe estar validada en el sistema para poder visualizar el calendario semanal o diario.
 - El Médico debe estar validado en el sistema para poder visualizar el calendario semanal o diario.
 
 ## Postcondiciones:
@@ -123,16 +123,16 @@ Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en l
 ## 3. Reprogramar Turno
 Actor: Secretaria
 
-Descripción: La recepcionista selecciona un turno existente para reprogramarlo a otro horario disponible, el sistema debe guardar el historial de estos cambios y enviar una notificación por WhatsApp al paciente para informarle de la modificación.
+Descripción: La secretaria selecciona un turno existente para reprogramarlo a otro horario disponible, el sistema debe guardar el historial de estos cambios y enviar una notificación por WhatsApp al paciente para informarle de la modificación.
 
 ### Flujo de eventos:
  
  - El paciente solicita que reprogramen un turno cargado en la agenda.
- - La recepcionista busca en la agenda el turno con los datos del paciente.
- - La recepcionista selecciona el turno que el paciente desea reprogramar.
- - La recepcionista elije la opción "Reprogramar".
- - La recepcionista tiene que elegir en el calendario un día y horario que estén disponibles para reprogramar un turno.
- - La recepcionista confirma la reprogramación del turno.
+ - La secretaria busca en la agenda el turno con los datos del paciente.
+ - La secretaria selecciona el turno que el paciente desea reprogramar.
+ - La secretaria elije la opción "Reprogramar".
+ - La secretaria tiene que elegir en el calendario un día y horario que estén disponibles para reprogramar un turno.
+ - La secretaria confirma la reprogramación del turno.
  - En la agenda se libera el horario que ocupaba el turno antes de la reprogramación y pasa a estar disponible nuevamente. El horario donde se reprograma el turno pasa a estar bloqueado.
  - El sistema envía una notificación vía WhatsApp al paciente con los nuevos horarios del turno.
 
@@ -140,37 +140,37 @@ Descripción: La recepcionista selecciona un turno existente para reprogramarlo 
 
 - El turno debe estar asignado en el calendario.
 - El día y horario deben estar disponibles para poder reprogramar un turno.
-- La recepcionista debe estar validada en el sistema para poder reprogramar el turno.
+- La secretaria debe estar validada en el sistema para poder reprogramar el turno.
 
 
 ## Postcondiciones:
 
 - En el calendario se tiene que visualizar el nuevo horario y día que ocupa el turno reprogramado.
 - En el calendario se tiene que liberar el día y horario que tenía el turno antes de reprogramarlo.
-- El sistema debe notificar el nuevo día y horario al paciente vía WhatssApp.
+- El sistema debe notificar el nuevo día y horario al paciente vía WhatsApp.
 
 ## 4. Bloquear días y horarios en calendario
 Actores: Secretaria, Médico
 
-Descripción: Recepcionista marca rangos de fechas (vacaciones, feriados o días de guardia del doctor) como no disponibles, En el calendario reflejará estos cambios impidiendo la asignación de turnos en esos bloques.
+Descripción: secretaria marca rangos de fechas (vacaciones, feriados o días de guardia del doctor) como no disponibles, En el calendario reflejará estos cambios impidiendo la asignación de turnos en esos bloques.
 
 ### Flujo de eventos:
  
- - El médico indicará a la recepcionista los horarios y fechas que debe seleccionar como no disponible, indicando el motivo (vacaciones, feriado, horarios no disponibles por diferente actividad)
- - El usuario recepcionista ingresa al calendario y selecciona un rango de fechas y horarios.
- - La recepcionista ingresa un motivo u observación.
- - La recepcionista marcará ese rango de días y horarios como no disponible.
+ - El médico indicará a la secretaria los horarios y fechas que debe seleccionar como no disponible, indicando el motivo (vacaciones, feriado, horarios no disponibles por diferente actividad)
+ - El usuario secretaria ingresa al calendario y selecciona un rango de fechas y horarios.
+ - La secretaria ingresa un motivo u observación.
+ - La secretaria marcará ese rango de días y horarios como no disponible.
  - En el calendario se reflejará esos horarios como no disponibles para asignar un turno.
 
  ## Precondiciones:
 
-- La recepcionista debe estar validada para agregar fechas y horarios como no disponible por vacaciones, feriado, otras actividades.
+- La secretaria debe estar validada para agregar fechas y horarios como no disponible por vacaciones, feriado, otras actividades.
 - El médico debe estar validado en el sistema.
 
 
 ## Postcondiciones:
 
-- En el calendario se tiene que bloquear las fechas y horarios que la recepcionista marcó como no disponible.
+- En el calendario se tiene que bloquear las fechas y horarios que la secretaria marcó como no disponible.
 - En el calendario tiene que verse el motivo por el cual esos horarios no están disponibles.
 
 
@@ -181,7 +181,7 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 
 ### Flujo de eventos:
  
- - El usuario recepcionista o médico ingresa a la sección "Agenda" desde el menú principal.
+ - El usuario secretaria o médico ingresa a la sección "Agenda" desde el menú principal.
 
  - El sistema presenta por defecto la vista diaria correspondiente al día actual.
 
@@ -192,13 +192,37 @@ Descripción: La agenda permite ver los turnos de forma clara y organizada en un
 
  ## Precondiciones:
 
- - El usuario recepcionista o médico debe estar validado en el sistema para poder visualizar la agenda.
+ - El usuario secretaria o médico debe estar validado en el sistema para poder visualizar la agenda.
  - Las fechas y horarios deben estar bien definidos para que se pueda visualizar.
 
 
 ## Postcondiciones:
 
 - El usuario puede visualizar los turnos asignados en el calendario.
+
+## 6. Cancelar turno
+Actores: Secretaria, Paciente
+
+Descripción: El sistema debe permitir a la secretaria cancelar el turno de un paciente con un Médico a petición del paciente, el horario bloqueado pasara a estar disponible en el calendario.
+
+### Flujo de eventos:
+ 
+- El paciente solicita al usuario secretaria que cancelen su turno cargado en la agenda.
+ - La secretaria busca en la agenda el turno con los datos del paciente.
+ - La secretaria selecciona el turno que el paciente desea cancelar.
+ - La secretaria elije la opción "cancelar turno".
+ - La secretaria confirma la cancelación del turno.
+ - El sistema libera el horario del turno cancelado.
+ - En la agenda se libera el horario que ocupaba el turno antes de la cancelación y pasa a estar disponible nuevamente.
+ - El sistema envía una notificación vía WhatsApp al paciente por la cancelación del turno.
+ 
+ ## Precondiciones:
+ - El usuario secretaria debe estar validado en el sistema para poder cancelar turnos en la agenda.
+ - El turno debe estar asignado en el calendario.
+
+ ## Postcondiciones:
+ - En el calendario se tiene que liberar el día y horario que tenía el turno antes de cancelarlo.
+ - El sistema debe notificar de la cancelación del turno al paciente vía WhatsApp.
 
 ## Boceto inicial del diseño de clases
 ![Boceto inicial](/diagramas/01-diagrama-clases/01-boceto-inicial.png)

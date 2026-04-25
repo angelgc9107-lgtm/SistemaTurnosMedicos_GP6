@@ -4,8 +4,10 @@
 | **Area:** | Sistema de Gestion de Turnos Medicos - Configuracion de Disponibilidad | | |
 | **Actor(es):** | Secretaria (principal), Medico (indica los rangos a bloquear) | | |
 | **Descripcion:** | Permite a la secretaria marcar rangos de fechas y horarios como no disponibles en el calendario (por vacaciones, feriados u otras actividades del medico), impidiendo la asignacion de nuevos turnos en esas franjas y mostrando el motivo del bloqueo. | | |
-| **Activar Evento:** | El medico informa a la secretaria un periodo de indisponibilidad (vacaciones, feriado, guardia u otra actividad). | | |
-| **Tipo de senal:** | [x] Externa | [x] Temporal | [ ] |
+
+| **Activar Evento:** | El médico informa a la secretaria un periodo de indisponibilidad (vacaciones, feriado, guardia u otra actividad). | **Identificadores e iniciadores de caso de uso** |
+|---|---|---|
+| **Tipo de señal:** | [x] Externa | [x] Temporal |
 
 | **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|

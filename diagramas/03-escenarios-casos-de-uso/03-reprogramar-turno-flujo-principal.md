@@ -4,8 +4,10 @@
 | **Area:** | Sistema de Gestion de Turnos Medicos - Modificacion de Turnos | | |
 | **Actor(es):** | Secretaria (principal), Sistema de Notificaciones WhatsApp | | |
 | **Descripcion:** | Permite a la secretaria reasignar un turno existente a un nuevo dia y horario disponible. El sistema libera la franja anterior, bloquea la nueva, guarda el historial del cambio y notifica al paciente por WhatsApp con los nuevos datos del turno (RF3, RNF4). | | |
-| **Activar Evento:** | El paciente solicita reprogramar su turno asignado. | | |
-| **Tipo de senal:** | [x] Externa | [ ] Temporal | [ ] |
+
+| **Activar Evento:** | El paciente solicita reprogramar su turno asignado. | **Identificadores e iniciadores de caso de uso** |
+|---|---|---|
+| **Tipo de señal:** | [x] Externa | [ ] Temporal |
 
 | **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|
