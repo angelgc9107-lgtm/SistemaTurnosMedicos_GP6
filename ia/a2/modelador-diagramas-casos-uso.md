@@ -22,3 +22,36 @@ La Secretaria inicia Agendar Turno y Agendar como sobreturno (todas las acciones
 El Paciente solicita el turno con una interacción directa hacia Agendar Turno (con etiqueta "solicita turno")
 El Sistema WhatsApp envía la notificación al Paciente (WA --> PAC)
 - CU6 Se agrego el CU6 el puml y el archivo png.
+
+## Interacciones
+
+### Iteración 1: Creación de Diagramas de casos de uso
+- **Prompt usado:**
+```
+Leer el archivo anexo/introduccion.md para tener como contexto
+En base a ese contexto generar 5 archivos puml con cada caso de uso registrado.
+```
+**Respuesta:** Genero los 5 diagramas de casos de uso.
+
+### Iteración 2: Corrección a diagrama CU1
+- **Prompt usado:**
+```
+el cu1 los actores serian la secretaria y el paciente
+```
+**Respuesta:** Genero el archivo con la corrección solicitada.
+
+### Iteración 3: Corrección a diagrama CU1 — 2
+- **Prompt usado:**
+```
+El Paciente solicita el turno con una interacción directa hacia Agendar Turno (con etiqueta "solicita turno")
+El Sistema WhatsApp envía la notificación al Paciente (WA --> PAC)
+```
+**Respuesta:** Genero el archivo con las correcciones solicitada.
+
+### Iteración 6: Generación de archivo puml CU6
+- **Prompt usado:**
+```
+Leer en el archivo anexo/introduccion.md el caso de uso "6. Cancelar turno" para tomar como contexto, en base a eso generar un archivo puml con el nombre "02-cancelar-turno-06"
+```
+**Respuesta:** Generó el caso de uso N° 6.
+
