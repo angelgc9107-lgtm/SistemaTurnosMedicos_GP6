@@ -1,0 +1,32 @@
+@startuml 01-solid-03-lsp
+skinparam classAttributeIconSize 0
+title Principio de Sustitución de Liskov (LSP) - Sistema de Turnos
+
+' --- Clase Base ---
+class Turno {
+    + confirmarCita(): boolean
+}
+
+' --- Subclases ---
+class TurnoPresencial {
+    + confirmarCita(): boolean
+}
+
+class TurnoVirtual {
+    + confirmarCita(): boolean
+}
+
+' --- Relación de Herencia (Generalización) ---
+Turno <|-- TurnoPresencial
+Turno <|-- TurnoVirtual
+
+' --- Nota Técnica de LSP ---
+note bottom of TurnoVirtual
+  **Cumple el contrato de LSP:**
+  1. No fortalece las precondiciones.
+  2. No debilita las postcondiciones.
+  3. No lanza excepciones inesperadas.
+  4. Devuelve el mismo tipo (boolean).
+end note
+
+@enduml
