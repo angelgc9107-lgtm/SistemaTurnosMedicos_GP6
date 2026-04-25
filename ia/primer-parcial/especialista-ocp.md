@@ -23,4 +23,4 @@ Control de Coherencia de Dominio: Asegurate de que la solución sea realista par
 ## Archivos utilizados como contexto
 - anexos/introduccion.md
 - diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw
-herramientas-agile/tarjetas-crc
+- herramientas-agile/tarjetas-crc
