@@ -1,0 +1,98 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface IRegistroDeTurnos {
+  +registrarTurno()
+  +cancelarTurno()
+  +reprogramarTurno()
+}
+
+interface IConsultaDeDisponibilidad {
+  +consultarDisponibilidad()
+  +mostrarTurnosDisponibles()
+}
+
+interface IAutorizacionDeSobreturno {
+  +autorizarSobreturno()
+}
+
+interface IRegistroDeAsistencia {
+  +registrarHoraLlegada()
+  +marcarPresencia()
+  +notificarMedico()
+}
+
+abstract class Persona {
+  -dni
+  -nombre
+  -telefono
+  -email
+}
+
+class Paciente {
+  +solicitarTurno()
+  +cancelarTurno()
+  +consultarHistorial()
+}
+
+class Medico {
+  +definirDisponibilidad()
+  +atenderTurno()
+}
+
+class Secretaria {
+  +registrarTurno()
+  +cancelarTurno()
+  +reprogramarTurno()
+  +consultarDisponibilidad()
+  +registrarHoraLlegada()
+}
+
+class Turno {
+  -fecha
+  -hora
+  -estado
+  -tipoConsulta
+}
+
+class Agenda {
+  -listaTurnos
+  -horariosDisponibles
+}
+
+class LlegadaPaciente {
+  -horaLlegada
+  -presente
+  -estadoPresencia
+}
+
+Persona <|-- Paciente
+Persona <|-- Medico
+Persona <|-- Secretaria
+Secretaria ..|> IRegistroDeTurnos
+Secretaria ..|> IConsultaDeDisponibilidad
+Secretaria ..|> IRegistroDeAsistencia
+Medico ..|> IAutorizacionDeSobreturno
+Agenda ..|> IConsultaDeDisponibilidad
+
+Agenda o-- Turno
+Turno --> Paciente
+Turno --> Medico
+LlegadaPaciente --> Turno
+Secretaria --> Agenda
+Medico --> Agenda
+
+note left of Secretaria
+  Rol administrativo:
+  registrar y gestionar turnos,
+  consultar disponibilidad,
+  registrar llegada del paciente.
+end note
+
+note right of Medico
+  Rol médico:
+  autoriza sobreturnos
+  y atiende turnos.
+end note
+
+@enduml
