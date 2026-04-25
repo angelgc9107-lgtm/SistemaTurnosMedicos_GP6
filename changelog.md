@@ -33,7 +33,7 @@
   - [fix/changelog-diag]  Corrección al formato archivo a2.
   PR: [#94](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/94) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
-  - [fix/changelog-correcciones]  Corrección al changelog y archivo modelador ia.
+  - [fix/changelog-correcciones]  Corrección al changelog y archivo diagramas de casos de uso.
   PR: [#97](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/97) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
 ---
