@@ -31,6 +31,7 @@
 
 - [fix/changelog-casos-de-uso]  Correcciones solicitadas en gral. PR: [#103](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/103) — @angelgc9107-lgtm (Modelador de diagramas de casos de uso)
 
+- [fix/correccion-tarjetas-crc-completa]  Correcciones tarjetas CRC completa. PR: [#104](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/104) — @luchobarrionuevo13 (Diseñador de tarjetas CRC)
 ---
 
 ## [Release Actividad Obligatoria N°1] - 2026-03-26
