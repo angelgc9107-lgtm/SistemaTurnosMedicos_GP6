@@ -1,0 +1,46 @@
+@startuml 01-solid-05-dip
+
+skinparam classAttributeIconSize 0
+title Principio de Inversión de Dependencias (DIP) - Sistema de Turnos
+
+' --- Abstracciones (Interfaces) ---
+interface IGestorTurnos {
+    + agendarTurno(turno: Turno)
+    + cancelarTurno(id: int)
+}
+
+interface INotificador {
+    + enviarNotificacion(mensaje: String, destino: String)
+}
+
+' --- Clases de Alto Nivel ---
+class Secretaria {
+    - gestor: IGestorTurnos
+    + Secretaria(gestor: IGestorTurnos)
+    + procesarSolicitudTurno()
+}
+
+class Agenda {
+    - notificador: INotificador
+    + Agenda(notificador: INotificador)
+    + confirmarCita()
+}
+
+' --- Clases de Bajo Nivel (Detalles) ---
+class NotificadorWhatsApp {
+    + enviarNotificacion(mensaje: String, destino: String)
+}
+
+' --- Relaciones de Inversión ---
+Secretaria --> IGestorTurnos : "depende de"
+Agenda ..|> IGestorTurnos : "implementa"
+Agenda --> INotificador : "depende de"
+NotificadorWhatsApp ..|> INotificador : "implementa"
+
+note right of Agenda
+  Inyección de Dependencias:
+  Agenda no crea el Notificador,
+  lo recibe por constructor.
+end note
+
+@enduml
