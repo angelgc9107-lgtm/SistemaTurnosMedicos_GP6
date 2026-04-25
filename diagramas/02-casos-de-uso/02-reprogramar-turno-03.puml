@@ -1,7 +1,6 @@
 @startuml CU3 - Reprogramar Turno
 
 left to right direction
-skinparam actorStyle awesome
 skinparam packageStyle rectangle
 skinparam usecase {
     BackgroundColor #FFFBEB
@@ -38,6 +37,7 @@ rectangle "Sistema de Turnos Médicos" {
 PAC --> CU3
 SEC --> CU3
 CU3_6 --> WA
+WA --> PAC
 
 note bottom of CU3_5
   RNF4: Se debe mantener
