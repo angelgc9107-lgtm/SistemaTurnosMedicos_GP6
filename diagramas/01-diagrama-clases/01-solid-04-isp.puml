@@ -1,4 +1,4 @@
-@startuml Diagramas
+@startuml 01-solid-04-isp 
 skinparam classAttributeIconSize 0
 
 interface IRegistroDeTurnos {
