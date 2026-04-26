@@ -2,7 +2,7 @@
 
 ## [Unreleased Primer-parcial]
 ### Added
-- [feature/esp-srp-add-anexo-srp]  Archivos de SRP. PR: [#114](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/114) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+- [feature/esp-srp-add-anexo-srp]  Archivos de SRP. PR: [#115](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/115) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added

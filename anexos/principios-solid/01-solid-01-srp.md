@@ -21,9 +21,9 @@ Aplicar SRP implica identificar qué hace cada clase y separar aquellas tareas q
 
 
 - Agenda debe mantener la colección de turnos y bloqueos.
-- GestorDisponibilidad debe validar horarios disponibles.
-- CalendarioVista debe mostrar la agenda.
-- BloqueoHorario debe representar horarios no disponibles.
+- Validardisponibilidad debe validar horarios disponibles.
+- Vistacalendario debe mostrar la agenda.
+- Gestorbloqueos debe representar horarios no disponibles.
 
 Así, cada clase cambia solo cuando cambia su propia responsabilidad.
 
