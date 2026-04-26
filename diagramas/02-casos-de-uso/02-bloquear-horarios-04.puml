@@ -1,7 +1,6 @@
 @startuml CU4 - Bloquear Días y Horarios
 
 left to right direction
-skinparam actorStyle awesome
 skinparam packageStyle rectangle
 skinparam usecase {
     BackgroundColor #FFF1F2
@@ -22,25 +21,20 @@ rectangle "Sistema de Turnos Médicos" {
     usecase "Ingresar motivo\nu observación" as CU4_2
     usecase "Marcar horarios\ncomo no disponibles" as CU4_3
 
-    usecase "Bloquear por\nVacaciones" as CU4_EXT1
-    usecase "Bloquear por\nFeriado" as CU4_EXT2
-    usecase "Bloquear por\notra actividad" as CU4_EXT3
-
     CU4 ..> CU4_1       : <<include>>
     CU4 ..> CU4_2       : <<include>>
     CU4 ..> CU4_3       : <<include>>
-
-    CU4_EXT1 ..> CU4    : <<extend>>\n[motivo: vacaciones]
-    CU4_EXT2 ..> CU4    : <<extend>>\n[motivo: feriado]
-    CU4_EXT3 ..> CU4    : <<extend>>\n[motivo: otra actividad]
 
 }
 
 MED --> CU4
 SEC --> CU4
-SEC --> CU4_EXT1
-SEC --> CU4_EXT2
-SEC --> CU4_EXT3
+
+note right of CU4_2
+  Posibles motivos:
+  vacaciones, feriado,
+  otra actividad
+end note
 
 note bottom of CU4_3
   En el calendario se visualiza
