@@ -1,0 +1,67 @@
+@startuml SRP-02 - Turno
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #F0FDF4
+    BorderColor #16A34A
+    ArrowColor #15803D
+}
+
+title SRP-02 — Descomposición de Turno (Single Responsibility Principle)
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - tipoConsulta: String
+    == estado: EstadoTurno ==
+    - valor: PENDIENTE | PRESENTE | CANCELADO | REPROGRAMADO
+    --
+    + estaActivo(): boolean
+    + getEstado(): String
+}
+
+note right of Turno
+  Única razón de cambio:
+  estructura y estado interno
+  del turno.
+  EstadoTurno es un valor interno,
+  no una clase externa.
+  Las operaciones de negocio
+  se delegan a GestorTurnos.
+end note
+
+class GestorTurnos {
+    + crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time, tipo: String): Turno
+    + confirmarTurno(turno: Turno): void
+    + cancelarTurno(turno: Turno, motivo: String): void
+    + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: Time): void
+}
+
+note right of GestorTurnos
+  Única razón de cambio:
+  reglas del proceso de negocio
+  sobre los turnos (crear, confirmar,
+  cancelar, reprogramar).
+  Orquesta Turno, HistorialTurno
+  y Agenda.
+end note
+
+class HistorialTurno {
+    - turno: Turno
+    - fechaCambio: DateTime
+    - estadoAnterior: EstadoTurno
+    - estadoNuevo: EstadoTurno
+    - motivo: String
+    + registrarCambio(anterior: EstadoTurno, nuevo: EstadoTurno, motivo: String): void
+}
+
+note right of HistorialTurno
+  Única razón de cambio:
+  requisitos de auditoría y trazabilidad
+  de cambios (RNF4 — historial obligatorio).
+end note
+
+Turno "1" *-- "0..*" HistorialTurno : genera >
+GestorTurnos --> Turno : gestiona >
+
+@enduml
