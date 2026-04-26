@@ -1,9 +1,9 @@
 ﻿# Changelog
 
-## [Unrelease Primer-Parcial] 
+## [Unreleased Primer-Parcial] 
 
 ### Added
-- [feature/esp-extension-ocp-add-anexo-ocp] Creacion de diagramasUML de OCP y carpeta de ia con sus despectivos archivos PR: [#109](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/109) — @alandox1 (Especialista en Principios de Extensión)
+- [feature/esp-extension-ocp-add-anexo-ocp] Creacion de diagramasUML de OCP y carpeta de ia con sus despectivos archivos PR: [#109](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/109) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
 ### Changed
 
