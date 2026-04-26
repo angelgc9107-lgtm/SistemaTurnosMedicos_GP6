@@ -5,17 +5,15 @@
 - [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
  PR: [#113](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/113) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
-
-
-## [Unreleased Primer-Parcial]
-
-### Added
 - [feature/esp-isp-add-anexo-isp]  Creacion de archivo anexos/principios-solid/04-isp.md ,diagramas
 diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/primer-parcial/especialista-isp.md. . PR: [#107](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/107) — @luchobarrionuevo13 (Especialista en segregacion de interfaces (ISP))
 
 - [feature/esp-extension-ocp-add-anexo-ocp] Creacion de diagramasUML de OCP y carpeta de ia con sus despectivos archivos PR: [#109](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/109) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
-### Changed
+- [feature/esp-srp-add-anexo-srp] Creación de archivos SRP UML PR: [#119](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/119) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
+- [feature/doc-coord-repo-update-readme-md] Documentación de las PR en Changelog y archivo primer-parcial PR: [#121](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/121) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
 
 ### Fixed
 
