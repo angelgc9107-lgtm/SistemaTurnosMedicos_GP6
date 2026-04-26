@@ -38,6 +38,7 @@ class Paciente {
 class Medico {
   +definirDisponibilidad()
   +atenderTurno()
+  +autorizarSobreturno()
 }
 
 class Secretaria {
@@ -46,6 +47,8 @@ class Secretaria {
   +reprogramarTurno()
   +consultarDisponibilidad()
   +registrarHoraLlegada()
+  +marcarPresencia()
+  +notificarMedico()
 }
 
 class Turno {
@@ -58,6 +61,8 @@ class Turno {
 class Agenda {
   -listaTurnos
   -horariosDisponibles
+  +consultarDisponibilidad()
+  +mostrarTurnosDisponibles()
 }
 
 class LlegadaPaciente {

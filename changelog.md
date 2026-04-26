@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## [Unrelease Primer-Parcial]
+## [Unreleased Primer-Parcial]
 
 ### Added
 - [feature/esp-isp-add-anexo-isp]  Creacion de archivo anexos/principios-solid/04-isp.md ,diagramas

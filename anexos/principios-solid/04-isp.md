@@ -59,7 +59,7 @@ El diagrama ISP muestra cómo se distribuyen las responsabilidades:
 
 Otras relaciones relevantes:
 - `Paciente` es cliente de `IRegistroDeTurnos` al solicitar y cancelar turnos.
-- `Turno` ferente el ciclo de vida de la cita y colabora con `Paciente`, `Medico`, `Agenda` y `LlegadaPaciente`.
+- `Turno` referente al ciclo de vida de la cita y colabora con `Paciente`, `Medico`, `Agenda` y `LlegadaPaciente`.
 
 ---
 
@@ -92,7 +92,7 @@ Una interfaz como `IGestionDeTurnos` con métodos de registro, consulta, autoriz
 - Mejora la legibilidad del diseño al vincular métodos concretos a responsabilidades de rol.
 
 ### 5. Justificación aplicada al modelo actual
-El comportamiento de `LlegadaPaciente` indica que la llegada y notificación son un dominio aparte. Por eso se aisla en `IRegistroDeAsistencia` en lugar de combinarlo con la lógica de `Agenda` o de `RegistroDeTurnos`.
+Aunque el origen del comportamiento es `LlegadaPaciente`, es `Secretaria` quien ejecuta el check-in según el caso de uso CU2. Por eso implementa `IRegistroDeAsistencia`, y `LlegadaPaciente` actúa como entidad de dominio colaboradora.
 
 ---
 
