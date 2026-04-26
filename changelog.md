@@ -1,6 +1,6 @@
 ﻿﻿# Changelog
 
-## [Unrelease  Primer-Parcial]
+## [Unreleased  Primer-Parcial]
 ### Added 
 - [feature/esp-dip-add-anexo-dip] - Anexo Técnico DIP: Creación del documento anexos/principios-solid/05-dip.md detallando el propósito, motivación y justificación técnica del Principio de Inversión de Dependencias aplicado al Sistema de Turnos.
 Diagrama UML de DIP: Incorporación del código fuente 01-solid-05-dip.puml e imagen .png en la carpeta diagramas/01-diagrama-clases/, reflejando la inversión de dependencias y la inyección por constructor.
