@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## [Unreleased  Primer-Parcial]
+### Added 
+- [feature/esp-dip-add-anexo-dip] - Anexo Técnico DIP: Creación del documento anexos/principios-solid/05-dip.md detallando el propósito, motivación y justificación técnica del Principio de Inversión de Dependencias aplicado al Sistema de Turnos.
+Diagrama UML de DIP: Incorporación del código fuente 01-solid-05-dip.puml e imagen .png en la carpeta diagramas/01-diagrama-clases/, reflejando la inversión de dependencias y la inyección por constructor.
+Documentación de IA: Registro del proceso de asistencia con Copilot Agent Mode y revisión crítica en ia/primer-parcial/especialista-dip.md.
+Estructura SOLID: Actualización del índice central anexos/principios-solid/principios_solid.md para incluir el acceso al nuevo anexo de DIP.
+  PR: [#111](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/111) @Piastrellini (ESPECIALISTA EN PRINCIPIOS DE EXTENSIÓN (OCP + LSP)
+
+## [Unreleased] - Actividad Obligatoria N°2
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
 - [feature/espec-escenarios-casos-uso-add-escenario-1]  Escenarios de casos de uso completos. PR: [#67](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/67) — @Piastrellini (Especialista en Escenarios De Casos de Uso)
