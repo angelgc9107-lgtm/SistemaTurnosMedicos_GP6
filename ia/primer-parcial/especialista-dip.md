@@ -1,4 +1,4 @@
-# Uso de Copilot Agent Mode - Especialista en Escenarios de Casos de Uso
+# Uso de Copilot Agent Mode - Especialista en Principios de Extensión (OCP + LSP)  
 
 ## Prompt utilizado
 Analiza las dependencias entre las clases secretaria, Agenda, Turno y Paciente basándote en las Tarjetas CRC (01-05) y el boceto inicial. Propón interfaces para aplicar el Principio de Inversión de Dependencias (DIP) y desacoplar la secretaria de la implementación concreta de la Agenda, y a la Agenda del servicio de notificaciones. Indica dónde aplicar inyección de dependencias. 
