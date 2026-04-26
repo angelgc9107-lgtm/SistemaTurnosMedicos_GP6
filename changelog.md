@@ -19,6 +19,10 @@ diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/prime
 
 ### Fixed
 
+## [Unreleased Primer-parcial]
+### Added
+- [feature/esp-srp-add-anexo-srp]  Archivos de SRP. PR: [#115](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/115) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
 - [feature/espec-escenarios-casos-uso-add-escenario-1]  Escenarios de casos de uso completos. PR: [#67](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/67) — @Piastrellini (Especialista en Escenarios De Casos de Uso)

@@ -1,0 +1,61 @@
+@startuml SRP-04 - Paciente
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #F5F3FF
+    BorderColor #7C3AED
+    ArrowColor #6D28D9
+}
+
+title SRP-04 — Descomposición de Paciente (Single Responsibility Principle)
+
+class Persona {
+    # nombre: String
+    # apellido: String
+    # dni: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: boolean
+}
+
+class Paciente {
+    - historialMedico: String
+    - numeroAfiliado: String
+    + solicitarTurno(medico: Medico, fecha: Date, hora: Time): Turno
+    + cancelarTurno(turno: Turno): void
+    + consultarHistorialTurnos(): List<Turno>
+}
+
+note right of Paciente
+  Única razón de cambio:
+  reglas de negocio del paciente
+  como actor (solicitar, cancelar,
+  consultar historial).
+end note
+
+class RegistroPaciente {
+    + registrar(datos: Map): Paciente
+    + validarDatos(datos: Map): boolean
+    + verificarExistencia(dni: String): boolean
+}
+
+note right of RegistroPaciente
+  Única razón de cambio:
+  proceso de alta / onboarding
+  del paciente en el sistema.
+  Separa la identidad del proceso
+  de registro (RF4).
+end note
+
+note bottom of RegistroPaciente
+  Aplicar en iteración posterior
+  al MVP (RNF3). En la etapa actual
+  el registro lo realiza la Secretaria
+  mediante GestorTurnos.
+end note
+
+Persona <|-- Paciente : hereda
+RegistroPaciente ..> Paciente : crea >
+
+@enduml
