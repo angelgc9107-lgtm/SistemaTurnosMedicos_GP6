@@ -1,4 +1,4 @@
-# Copilot Agent Mode - Modelador de Diagramas de Casos de Uso
+# Copilot Agent Mode - DOCUMENTADOR Y COORDINADOR DE REPOSITORIO + SRP
 Se utilizó Copilot para identificar que clases tienen multiple responsabilidades en el diseño actual, después del analisis se pidio que genere 5 archivos de lenguaje UML
 
 ## Prompt utilizado
@@ -14,6 +14,8 @@ Se utilizó Copilot para identificar que clases tienen multiple responsabilidade
  - 5 En el solid 02 (turnos) agregar una clase llamada gestor de turnos que se encargue de crear, confirmar, cancelar y reprogramar los turnos y que estado del turno sea una instancia dentro de turno no una clase separada
  - 6 consultar disponiblidad tiene consultar horarios, ver la disponiblidad de ese horario.
  - 7 gestor de turnos que tenga los mismas resposabilidad que en el solid 02
+ - 8 Agregar el validador de disponiblidad como clase propia}
+ - 9 Se verifico que consultar historial corresponda a Paciente.
  ```
 
 ## Archivos utilizados como contexto
@@ -25,6 +27,4 @@ Se utilizó Copilot para identificar que clases tienen multiple responsabilidade
 Se modificaron las clases dentro de los 4 archivos seleccionados
 En bloqueo se saca como clase individual y quedo incorporado en gestor de bloqueo.
 Se agrego vista calendario como una clase aparte de agenda
-
-
-## Interacciones
+Se dividieron responsabilidades en diferentes clases.
