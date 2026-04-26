@@ -1,16 +1,16 @@
 ﻿# Changelog
 
-## [Unreleased Primer-Parcial] 
+## [Unreleased Primer-Parcial]
 
 ### Added
+- [feature/esp-isp-add-anexo-isp]  Creacion de archivo anexos/principios-solid/04-isp.md ,diagramas
+diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/primer-parcial/especialista-isp.md. . PR: [#107](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/107) — @luchobarrionuevo13 (Especialista en segregacion de interfaces (ISP))
+
 - [feature/esp-extension-ocp-add-anexo-ocp] Creacion de diagramasUML de OCP y carpeta de ia con sus despectivos archivos PR: [#109](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/109) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
 ### Changed
 
-
-
 ### Fixed
-
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
@@ -22,7 +22,7 @@
 
 - [feature/documentador-y-coordinador-2]  Registrar uso de Ia en la carpeta correspondida. PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) — @alandox1 (Documentador y coordinador de archivos)
 
-- [feature/modelador-diag-casos-uso-update-use-case-1]  Corrección a diagramas de casos de uso. PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) — @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
+- [feature/modelador-diag-casos-uso-update-use-case-1] Corrección a diagramas de casos de uso. PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) — @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
 ### Fixed
 - [fix/changelog]  Reestructurar changelog segun estandares. PR: [#85](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/85) — @alandox1 (Documentador y coordinador de archivos)
