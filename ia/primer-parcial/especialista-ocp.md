@@ -2,25 +2,39 @@
 
 - **Prompt usado:**
 
-"Actúa como un Arquitecto de Software experto en Programación Orientada a Objetos y Principios SOLID. Necesito que realices un análisis de diseño sobre un Sistema de Gestión de Turnos Médicos utilizando los siguientes archivos como contexto:
+"Actúa como Senior Software Engineer especializado en Open/Closed Principle (OCP).
 
-Introducción y Dominio: anexos/introduccion.md
+Analiza los archivos proporcionados como contexto y realiza un análisis exhaustivo 
+de las clases identificadas, enfocándote en:
 
-Estructura Visual: diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw
+1. VIOLACIONES DE OCP (Open/Closed Principle)
+   → Identifica clases CERRADAS PARA EXTENSIÓN (no permiten nuevas comportamientos)
+   → Identifica clases ABIERTAS A MODIFICACIÓN (requieren cambio en código existente)
+   → Explica qué problema de escalabilidad genera cada caso
+   
+2. OPORTUNIDADES DE EXTENSIÓN SIN MODIFICACIÓN
+   → Analiza requisitos futuros potenciales (nuevos tipos de turnos, notificadores, etc.)
+   → Verifica si el diseño actual soportaría esos cambios sin modificar clases existentes
+   
+3. PROPUESTAS DE ARQUITECTURA EXTENSIBLE
+   → Propón abstracciones (interfaces, clases abstractas) para permitir extensión
+   → Diseña estrategia de inyección de dependencias
+   → Sugiere patrones de diseño (Strategy, Factory, Template Method, etc.)
+   
+4. IMPACTO EN ESCALABILIDAD Y MANTENIMIENTO
+   → Explica qué cambios futuros (más probables) requieren modificación en código actual
+   → Estima esfuerzo de agregar nuevas funcionalidades
+   → Identifica "puntos de fragilidad" donde el código es frágil a cambios
 
-Responsabilidades: Todas las tarjetas en herramientas-agile/tarjetas-crc/
-
-**Tu misión es:**
-
-Identificar Violaciones al SRP: Detecta qué clases tienen múltiples responsabilidades (por ejemplo, si una entidad de dominio como Paciente también gestiona la persistencia, validaciones complejas o lógica de visualización).
-
-Diagnóstico de Mantenibilidad: Para cada caso identificado, explica qué problemas genera (ej: acoplamiento excesivo, dificultad para realizar pruebas unitarias o riesgo de efectos secundarios al modificar el código).
-
-Propuesta de Descomposición: Propón una nueva estructura donde cada clase tenga una única razón para cambiar. Indica claramente qué métodos o atributos deberían moverse a nuevas clases o servicios (ej: clases de validación, repositorios para persistencia o gestores de agenda).
-
-Control de Coherencia de Dominio: Asegurate de que la solución sea realista para el flujo de un centro médico, respetando la lógica entre Médicos, Especialidades, Turnos y Pacientes.
+FORMATO REQUERIDO:
+- Estructura clara con secciones: PROBLEMA | OPORTUNIDAD PERDIDA | PROPUESTA
+- Ejemplos de código concretos (pseudocódigo o Java)
+- Diagramas de abstracción (ASCII o descripción textual)
+- Escenarios de extensión futura simulados
+- Conclusiones verificables sobre escalabilidad"
 
 ## Archivos utilizados como contexto
 - anexos/introduccion.md
 - diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw
 - herramientas-agile/tarjetas-crc
+

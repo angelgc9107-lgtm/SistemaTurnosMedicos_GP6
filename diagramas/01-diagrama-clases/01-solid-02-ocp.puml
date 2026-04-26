@@ -3,15 +3,26 @@
 abstract class Turno {
   - fecha
   - hora
-  + calcularDuracion()
+  - estado
+  + {abstract} calcularDuracion()
 }
 
 class TurnoConsulta
-class TurnoUrgencia
+class TurnoPrimeraVez
 class TurnoControl
 
 Turno <|-- TurnoConsulta
-Turno <|-- TurnoUrgencia
+Turno <|-- TurnoPrimeraVez
 Turno <|-- TurnoControl
 
+class TurnoConsulta {
+  + calcularDuracion() : 30 min
+}
+
+class TurnoControl {
+  + calcularDuracion() : 15 min
+}
+class TurnoPrimeraVez {
++ calcularDuracion() : 30 min
+}
 @enduml
