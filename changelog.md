@@ -1,4 +1,11 @@
 ﻿# Changelog
+## [Unreleased Primer-Parcial] 
+
+### Added
+- [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
+ PR: [#113](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/113) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
+
+
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
