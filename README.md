@@ -24,4 +24,3 @@ digitalizar la gestión de sus turnos.
 - [Anexos](anexos/anexos.md)
 - [Diagramas UML](diagramas/diagramasUML.md)
 - [Herramientas Agile](herramientas-agile/herramientas_agile.md)
-- [Principios Solid](anexos/principios-solid/05-dip.md)
