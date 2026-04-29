@@ -3,4 +3,4 @@
 - [Abierto/Cerrado (OCP)](/anexos/principios_solid/02-ocp.md)
 - [Sustitucion de Liskov (LSP)](/anexos/principios_solid/03-lsp.md)
 - [Segregación de Interfaces (ISP)](/anexos/principios_solid/04-isp.md)
-- [Inversion de Dependencias](/anexos/principios_solid/05-dip.md)
+- [Inversion de Dependencias (DIP)](/anexos/principios_solid/05-dip.md)
