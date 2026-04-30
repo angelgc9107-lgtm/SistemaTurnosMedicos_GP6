@@ -38,3 +38,21 @@ FORMATO REQUERIDO:
 - diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw
 - herramientas-agile/tarjetas-crc
 
+## Ajustes Realizados
+
+Ajuste: Analizar condicionales en clase Turno
+
+Problema potencial: ¿Turno usa if/switch para diferentes tipos de turno?
+Violación OCP: Si agregar nuevo tipo de turno requiere modificar Turno
+Solicitud: Identificar dónde habría condicionales por tipo de turno (PRIMERA_VEZ vs. CONTROL vs. ?)
+
+
+## Iteraciones
+
+Iteración 1: Identificación de Oportunidades Perdidas
+Salida esperada:
+
+✅ Lista de extensiones futuras probables (nuevos notificadores, tipos de turno, etc.)
+✅ Identificación de clases que NO están preparadas para esas extensiones
+✅ Puntos específicos donde código se vería "quebrado" al agregar funcionalidad
+✅ Análisis de patrón: ¿hay condicionales (if/switch) que indican violación OCP?
