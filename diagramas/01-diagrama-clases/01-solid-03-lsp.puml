@@ -1,0 +1,27 @@
+@startuml
+
+class Persona {
+  nombre
+  dni
+  telefono
+}
+
+class Paciente {
+  + verTurno()
+  + cancelarTurno()
+}
+
+class Medico {
+  + consultarAgenda()
+}
+
+class Secretaria {
+  + generarTurno()
+  + bloquearAgenda()
+}
+
+Persona <|-- Paciente
+Persona <|-- Medico
+Persona <|-- Secretaria
+
+@enduml
