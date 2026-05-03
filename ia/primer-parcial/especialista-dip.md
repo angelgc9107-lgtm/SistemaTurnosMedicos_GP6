@@ -6,7 +6,7 @@
 * `herramientas-agile/tarjetas-crc/`
 
 ## Prompts utilizados
-Actuá como un Especialista en Inversión de Dependencias y aplica los principios de DIP: Debes identificar dependecias, proponer abstracciones, aplicar inyección de dependencias, hacer una revisión del diseño y lograr un resultado estructurada. Primero, leé y usá como contexto los siguientes archivos del proyecto:
+Actuá como un Especialista en Inversión de Dependencias y aplica los principios de DIP: Debes identificar dependecias, proponer abstracciones, aplicar inyección de dependencias, hacer una revisión del diseño y lograr un resultado estructurado. Primero, leé y usá como contexto los siguientes archivos del proyecto:
 * `anexos/introduccion.md`
 * `diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw`
 * `herramientas-agile/tarjetas-crc/`
@@ -25,4 +25,4 @@ al diagrama correcto.
 
 ## Observaciones finales
 - Copilot generaliza el dominio cuando el contexto no es suficientemente explicito. Copilot propuso nombres de clases genéricos que no coincidian con el vocabulario real del STM, por lo que requirió intervención manual para mantener coherencia.
-- 
+- Se identifico correctamente que Agenda dependia de una clase concreta de Notificación. 
