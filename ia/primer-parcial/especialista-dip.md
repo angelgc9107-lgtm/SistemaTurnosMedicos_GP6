@@ -25,4 +25,4 @@ al diagrama correcto.
 
 ## Observaciones finales
 - Copilot generaliza el dominio cuando el contexto no es suficientemente explicito. Copilot propuso nombres de clases genéricos que no coincidian con el vocabulario real del STM, por lo que requirió intervención manual para mantener coherencia.
-- Se identifico correctamente que Agenda dependia de una clase concreta de Notificación. 
+- Se identifico correctamente que `Agenda` dependia de una clase concreta de Notificación. 
