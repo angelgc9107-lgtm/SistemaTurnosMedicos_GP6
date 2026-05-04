@@ -1,5 +1,5 @@
 ﻿# Changelog
-## [Released Primer-Parcial] 
+## [Released Primer-Parcial] 2026-04-26
 
 ### Added
 - [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
@@ -16,6 +16,11 @@ diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/prime
 
 
 ### Fixed
+
+
+
+
+
 
 ## [Unreleased Primer-parcial]
 ### Added

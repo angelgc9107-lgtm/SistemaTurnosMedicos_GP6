@@ -4,21 +4,45 @@ class Persona {
   nombre
   dni
   telefono
+  + notificar(mensaje: String)
 }
+
+note right of Persona
+  Precondición: mensaje != null
+  Postcondición: destinatario recibe el mensaje
+end note
 
 class Paciente {
   + verTurno()
   + cancelarTurno()
+  + notificar(mensaje: String)
 }
+
+note right of Paciente
+  notificar(): envía SMS al paciente
+  Pre/Post heredadas: se respetan sin alterar contrato
+end note
 
 class Medico {
   + consultarAgenda()
+  + notificar(mensaje: String)
 }
+
+note right of Medico
+  notificar(): envía notificación al panel médico
+  Pre/Post heredadas: se respetan sin alterar contrato
+end note
 
 class Secretaria {
   + generarTurno()
   + bloquearAgenda()
+  + notificar(mensaje: String)
 }
+
+note right of Secretaria
+  notificar(): envía alerta al sistema de gestión
+  Pre/Post heredadas: se respetan sin alterar contrato
+end note
 
 Persona <|-- Paciente
 Persona <|-- Medico

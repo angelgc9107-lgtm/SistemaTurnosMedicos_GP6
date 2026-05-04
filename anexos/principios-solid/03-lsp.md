@@ -39,14 +39,22 @@ Para cumplir LSP:
 
 ## Justificación Técnica
 
-En el diagrama, cada subclase extiende Persona manteniendo coherencia con su rol en el sistema.
+En el diagrama, cada subclase extiende `Persona` manteniendo coherencia con su rol en el sistema.
 
-No se agregan comportamientos que rompan el contrato de la superclase.
+El método `notificar(mensaje: String)` está definido en `Persona` y sobreescrito en cada subclase con una implementación acorde a su rol:
 
-Esto garantiza que:
+| Clase | Implementación de `notificar()` |
+|---|---|
+| `Paciente` | Envía SMS al número del paciente |
+| `Medico` | Envía notificación al panel médico |
+| `Secretaria` | Envía alerta al sistema de gestión |
 
-Las subclases puedan utilizarse en lugar de la clase base
-No se generen errores lógicos
-Se mantenga la consistencia del sistema
+**Verificación de pre/postcondiciones (LSP):**
 
-La solución es correcta porque respeta el principio LSP y asegura una jerarquía de herencia válida.
+- **Precondición:** `mensaje != null` — ninguna subclase endurece esta condición (no exigen parámetros adicionales).
+- **Postcondición:** el destinatario recibe el mensaje — todas las subclases garantizan esta postcondición con su implementación específica.
+- **Invariante:** el atributo `nombre`, `dni` y `telefono` permanece accesible en todas las subclases sin modificación.
+
+Esto garantiza que cualquier subclase puede sustituir a `Persona` sin alterar el comportamiento esperado del sistema (STM): si el sistema llama a `persona.notificar(msg)`, el resultado es siempre una notificación entregada, independientemente de qué subtipo concreto recibe el mensaje.
+
+La solución es correcta porque respeta el principio LSP: las jerarquías de herencia son válidas, no se agregan comportamientos que rompan el contrato de la superclase, y cada subclase puede utilizarse en lugar de la clase base sin generar errores lógicos.
