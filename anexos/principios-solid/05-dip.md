@@ -1,8 +1,11 @@
 # Principio de Inversión de Dependencias (DIP)
 
 ## Propósito y Tipo del Principio SOLID
+El Principio de Inversión de Dependencias (DIP) es un principio de
+**desacoplamiento estructural**. Establece dos reglas fundamentales:
 
-El Principio de Inversión de Dependencias (DIP) establece que las clases de alto nivel no deben depender de clases de bajo nivel, sino de abstracciones.
+1. Las clases de alto nivel no deben depender de clases de bajo nivel, sino de abstracciones.
+2. Las abstracciones no deben depender de los detalles. Son los detalles los que deben depender de las abstracciones.
 
 Esto permite reducir el acoplamiento y mejorar la flexibilidad del sistema.
 
@@ -10,11 +13,13 @@ Esto permite reducir el acoplamiento y mejorar la flexibilidad del sistema.
 
 ## Motivación
 
-En el diseño original, la clase `Agenda` dependía directamente de `NotificadorWhatsApp`.
+En el diseño original del Sistemas de Turnos Medicos, la clase `Agenda` dependía directamente de `NotificadorWhatsApp`.
 
-Esto genera un problema:
-- No se puede cambiar fácilmente el tipo de notificación
-- El sistema queda acoplado a una implementación concreta
+Esto genera los siguientes problemas:
+- **Rigidez:** Si la clinica decide incorporar notificaciones por email o SMS, hay que modificar `Agenda`, una clase que no deberia conocer el detalle de como se notifica.
+- **Acoplamiento:** `Agenda` queda atada a `NotificadorWhatsApp`. Un cambio en la API de WhatsApp puede romper la lógica de gestión de turnos. 
+- **Baja Testeabilidad:** para testear `Agenda` en aislamiento es necesario
+  que `NotificadorWhatsApp` funcione.
 
 ---
 
@@ -25,9 +30,11 @@ Una interfaz define un contrato que diferentes clases pueden implementar.
 Una clase abstracta puede contener implementación parcial.
 
 En DIP:
-- Se utilizan interfaces como abstracciones
-- Las clases concretas dependen de estas abstracciones
-
+- Se utilizan interfaces como abstracciones.
+- Las clases concretas dependen de estas abstracciones.
+- En el STM, por ejemplo, en lugar de que
+`Agenda` conozca a `NotificadorWhatsApp` directamente, depende de la
+interfaz `INotificador`.
 ---
 
 ## Estructura de Clases
