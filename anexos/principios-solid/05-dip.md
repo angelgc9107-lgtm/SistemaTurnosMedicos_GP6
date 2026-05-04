@@ -45,11 +45,10 @@ interfaz `INotificador`.
 ## Justificación Técnica
 
 En el diagrama, la clase Agenda depende de la interfaz Notificador y no de una implementación concreta.
-
 Esto permite:
 
-Cambiar el tipo de notificación sin modificar Agenda
-Reducir el acoplamiento
-Mejorar la escalabilidad del sistema
+- Cambiar el tipo de notificación sin modificar Agenda
+- Reducir el acoplamiento
+- Mejorar la escalabilidad del sistema
 
 La solución es correcta porque sigue el principio de depender de abstracciones, logrando un diseño flexible y mantenible.
