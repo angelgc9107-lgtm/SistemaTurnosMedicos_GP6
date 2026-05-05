@@ -8,10 +8,10 @@ class Agenda {
   + agendarTurno(turno: Turno): void
 }
 
-class NotificadorWhatsApp {
+class Notificador {
   + enviarNotificacion(turno: Turno): void
 }
 
 Agenda --> INotificador
-NotificadorWhatsApp ..|> INotificador
+Notificador ..|> INotificador
 @enduml
