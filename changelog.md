@@ -1,5 +1,5 @@
 ﻿# Changelog
-## [Released Primer-Parcial] 
+## [Released Primer-Parcial] 2026-04-26
 
 ### Added
 - [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
@@ -16,6 +16,11 @@ diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/prime
 
 - [feature/esp-dip-add-anexo-dip] Creación de Diagrama UML DIP en diagramas/01-diagrama-clases/01-solid-05-dip.puml y .png, documentación en anexos/principios-solid/05-dip.md, y documento en ia/primer-parcial/especialista-dip.md. PR: [#126](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/126) — @Piastrellini (Especialista DIP)
 ### Fixed
+
+
+
+
+
 
 ## [Unreleased Primer-parcial]
 ### Added
