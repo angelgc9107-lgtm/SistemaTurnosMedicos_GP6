@@ -13,13 +13,12 @@ Esto permite reducir el acoplamiento y mejorar la flexibilidad del sistema.
 
 ## Motivación
 
-En el diseño original del Sistemas de Turnos Medicos, la clase `Agenda` dependía directamente de `NotificadorWhatsApp`.
+En el diseño original del Sistemas de Turnos Medicos, la clase `Agenda` dependía directamente de `Notificador`.
 
 Esto genera los siguientes problemas:
 - **Rigidez:** Si la clinica decide incorporar notificaciones por email o SMS, hay que modificar `Agenda`, una clase que no deberia conocer el detalle de como se notifica.
-- **Acoplamiento:** `Agenda` queda atada a `NotificadorWhatsApp`. Un cambio en la API de WhatsApp puede romper la lógica de gestión de turnos. 
-- **Baja Testeabilidad:** para testear `Agenda` en aislamiento es necesario
-  que `NotificadorWhatsApp` funcione.
+- **Acoplamiento:** `Agenda` queda atada a `Notificador`.
+- **Baja Testeabilidad:** para testear `Agenda` en aislamiento es necesario que `Notificador` funcione.
 
 ---
 
@@ -33,7 +32,7 @@ En DIP:
 - Se utilizan interfaces como abstracciones.
 - Las clases concretas dependen de estas abstracciones.
 - En el STM, por ejemplo, en lugar de que
-`Agenda` conozca a `NotificadorWhatsApp` directamente, depende de la
+`Agenda` conozca a `Notificador` directamente, depende de la
 interfaz `INotificador`.
 ---
 
@@ -44,11 +43,17 @@ interfaz `INotificador`.
 
 ## Justificación Técnica
 
-En el diagrama, la clase Agenda depende de la interfaz Notificador y no de una implementación concreta.
-Esto permite:
+- Diseño antes de aplicar DIP: `Agenda` dependía directamente de `Notificador`. La dependencia era concreta, instanciada dentro de la propia clase.
 
-- Cambiar el tipo de notificación sin modificar Agenda
-- Reducir el acoplamiento
-- Mejorar la escalabilidad del sistema
+- Diseño después de aplicar DIP: Se introduce la interfaz `INotificador` como abstracción. Agenda pasa a depender del contrato, no de la implementación.
 
-La solución es correcta porque sigue el principio de depender de abstracciones, logrando un diseño flexible y mantenible.
+- Testabilidad: Ahora es posible testear `Agenda` sin depender de `Notificador`.
+
+- Flexibilidad: Si la clínica incorpora un nuevo canal de notificación,
+basta con crear una nueva clase que implemente `INotificador` sin tocar `Agenda`.
+
+- Mantenibilidad: Un cambio en la logica de notificación solo afecta a
+`Notificador`. La clase `Agenda`, que contiene la lógica central del
+sistema de turnos, permanece intacta.
+
+En el diagrama se puede observar que Agenda apunta hacia `INotificador` y `Notificador` implementa `INotificador`. Esto refleja correctamente la aplicación del DIP: ambos modulos dependen de la abstracción, no entre si.
