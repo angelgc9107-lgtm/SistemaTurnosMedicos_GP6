@@ -14,7 +14,7 @@ diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/prime
 
 - [feature/doc-coord-repo-update-readme-md] Documentación de las PR en Changelog y archivo primer-parcial PR: [#121](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/121) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
 
-
+- [feature/esp-dip-add-anexo-dip] Creación de Diagrama UML DIP en diagramas/01-diagrama-clases/01-solid-05-dip.puml y .png, documentación en anexos/principios-solid/05-dip.md, y documento en ia/primer-parcial/especialista-dip.md. PR: [#126](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/126) — @Piastrellini (Especialista DIP)
 ### Fixed
 
 

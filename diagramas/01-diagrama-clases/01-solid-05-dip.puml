@@ -1,0 +1,17 @@
+@startuml 01-solid-05-dip
+interface INotificador {
+  + enviarNotificacion(turno: Turno): void
+}
+
+class Agenda {
+  - notificador: INotificador
+  + agendarTurno(turno: Turno): void
+}
+
+class Notificador {
+  + enviarNotificacion(turno: Turno): void
+}
+
+Agenda --> INotificador
+Notificador ..|> INotificador
+@enduml
