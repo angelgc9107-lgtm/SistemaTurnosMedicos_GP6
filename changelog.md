@@ -5,6 +5,8 @@
 - [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
  PR: [#113](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/113) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
+- [feature/esp-srp-add-anexo-srp]  Archivos de SRP. PR: [#115](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/115) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
 - [feature/esp-isp-add-anexo-isp]  Creacion de archivo anexos/principios-solid/04-isp.md ,diagramas
 diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/primer-parcial/especialista-isp.md. . PR: [#107](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/107) — @luchobarrionuevo13 (Especialista en segregacion de interfaces (ISP))
 
@@ -15,16 +17,13 @@ diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/prime
 - [feature/doc-coord-repo-update-readme-md] Documentación de las PR en Changelog y archivo primer-parcial PR: [#121](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/121) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
 
 - [feature/esp-dip-add-anexo-dip] Creación de Diagrama UML DIP en diagramas/01-diagrama-clases/01-solid-05-dip.puml y .png, documentación en anexos/principios-solid/05-dip.md, y documento en ia/primer-parcial/especialista-dip.md. PR: [#126](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/126) — @Piastrellini (Especialista DIP)
+
 ### Fixed
+- [fix/correccion-documentador] Correccion del primer parcial PR: [](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
 
+- [fix/especialista-extension] Correcciones de los archivos puml y png
+ PR: [#124](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/124) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
-
-
-
-
-## [Unreleased Primer-parcial]
-### Added
-- [feature/esp-srp-add-anexo-srp]  Archivos de SRP. PR: [#115](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/115) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
