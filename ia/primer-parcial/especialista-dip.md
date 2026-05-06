@@ -6,10 +6,12 @@
 * `herramientas-agile/tarjetas-crc/`
 
 ## Prompts utilizados
+```
 Actuá como un Especialista en Inversión de Dependencias y aplica los principios de DIP: Debes identificar dependecias, proponer abstracciones, aplicar inyección de dependencias, hacer una revisión del diseño y lograr un resultado estructurado. Primero, leé y usá como contexto los siguientes archivos del proyecto:
 * `anexos/introduccion.md`
 * `diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw`
 * `herramientas-agile/tarjetas-crc/`
+```
 
 ## Resultado obtenido
 1. Copilot identificó a la Agenda como módulo de alto nivel con dependencia directa hacia una clase concreta de notificación, y propuso introducir una interfaz `INotificador` para desacoplar esa relación. 
