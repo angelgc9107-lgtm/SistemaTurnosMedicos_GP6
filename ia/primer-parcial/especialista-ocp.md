@@ -2,7 +2,8 @@
 
 - **Prompt usado:**
 
-"Actúa como Senior Software Engineer especializado en Open/Closed Principle (OCP).
+```
+Actúa como Senior Software Engineer especializado en Open/Closed Principle (OCP).
 
 Analiza los archivos proporcionados como contexto y realiza un análisis exhaustivo 
 de las clases identificadas, enfocándote en:
@@ -31,7 +32,8 @@ FORMATO REQUERIDO:
 - Ejemplos de código concretos (pseudocódigo o Java)
 - Diagramas de abstracción (ASCII o descripción textual)
 - Escenarios de extensión futura simulados
-- Conclusiones verificables sobre escalabilidad"
+- Conclusiones verificables sobre escalabilidad.
+```
 
 ## Archivos utilizados como contexto
 - anexos/introduccion.md

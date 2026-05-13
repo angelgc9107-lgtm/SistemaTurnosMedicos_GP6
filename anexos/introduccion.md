@@ -1,5 +1,3 @@
-[[GRUPO N°2][Primer Parcial] Entrega de la actividad](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/119)
-
 # Introducción al Diseño Orientado a Objetos
 
 ## Descripción del paradigma orientado a objetos

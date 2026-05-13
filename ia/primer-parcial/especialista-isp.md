@@ -1,7 +1,7 @@
 # Especialista ISP
 
 ## Prompt utilizado
-Analizá el sistema de turnos médicos utilizando como contexto los archivos `anexos/introduccion.md`, `diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw` y `herramientas-agile/tarjetas-crc/`. Actuá como Especialista en Segregación de Interfaces (ISP) y aplicá el principio ISP al diseño actual del sistema.
+```Analizá el sistema de turnos médicos utilizando como contexto los archivos `anexos/introduccion.md`, `diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw` y `herramientas-agile/tarjetas-crc/`. Actuá como Especialista en Segregación de Interfaces (ISP) y aplicá el principio ISP al diseño actual del sistema.```
 
 ## Archivos de contexto referenciados
 - anexos/introduccion.md
