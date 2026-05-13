@@ -14,10 +14,10 @@ digitalizar la gestión de sus turnos.
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub | Rol |
 |-----| ----- | ------ | ------ |
-| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Diseñador de tarjetas crc|
-| Alan Diaz | 152841 | @alandox1| Documentador y Coordinador|
-| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Modelador de diagramas de casos de uso|
-| Thiago Piastrellini | 158097 | @Piastrellini | Especialista en Escenarios de Casos de Uso|
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Especialista en Segregación de Interfaces (ISP)|
+| Alan Diaz | 152841 | @alandox1| Especialista en Principios de Extensión(OCP + LSP)|
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Documentador y coordinador + SRP|
+| Thiago Piastrellini | 158097 | @Piastrellini | Especialista en Inversión de Dependencias(DIP)|
 
 ## Diagramas y Diseños
 

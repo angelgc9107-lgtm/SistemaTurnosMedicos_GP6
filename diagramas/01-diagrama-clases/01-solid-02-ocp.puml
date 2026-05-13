@@ -1,0 +1,26 @@
+@startuml
+
+abstract class Turno {
+  - fecha
+  - hora
+  - estado
+  + {abstract} calcularDuracion()
+}
+
+class TurnoConsulta {
+  + calcularDuracion() : 30 min
+}
+
+class TurnoPrimeraVez {
+  + calcularDuracion() : 30 min
+}
+
+class TurnoControl {
+  + calcularDuracion() : 15 min
+}
+
+Turno <|-- TurnoConsulta
+Turno <|-- TurnoPrimeraVez
+Turno <|-- TurnoControl
+
+@enduml

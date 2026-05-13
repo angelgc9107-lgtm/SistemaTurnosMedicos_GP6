@@ -1,4 +1,26 @@
 ﻿# Changelog
+## [Released Primer-Parcial] 2026-04-26
+
+### Added
+- [feature/esp-extension-lsp-add-anexo-lsp] Feature/esp extension lsp add anexo lsp
+ PR: [#113](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/113) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
+
+- [feature/esp-isp-add-anexo-isp] Creacion de archivo anexos/principios-solid/04-isp.md ,diagramas - diagramas/01-diagrama-clases/01-solid-04-isp.puml y .png , Documento en ia/primer-parcial/especialista-isp.md PR: [#107](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/107) — @luchobarrionuevo13 (Especialista en segregacion de interfaces (ISP))
+
+- [feature/esp-extension-ocp-add-anexo-ocp] Creacion de diagramasUML de OCP y carpeta de ia con sus despectivos archivos PR: [#109](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/109) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
+
+- [feature/esp-srp-add-anexo-srp] Creación de archivos SRP UML PR: [#119](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/119) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
+- [feature/doc-coord-repo-update-readme-md] Documentación de las PR en Changelog y archivo primer-parcial PR: [#121](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/121) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
+- [feature/esp-dip-add-anexo-dip] Creación de Diagrama UML DIP en diagramas/01-diagrama-clases/01-solid-05-dip.puml y .png, documentación en anexos/principios-solid/05-dip.md, y documento en ia/primer-parcial/especialista-dip.md. PR: [#126](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/126) — @Piastrellini (Especialista DIP)
+
+### Fixed
+- [fix/correccion-documentador] Correccion del primer parcial PR: [#128](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/128) — @angelgc9107-lgtm (Documentador y coordinador + SRP)
+
+- [fix/especialista-extension] Correcciones de los archivos puml y png PR: [#124](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/124) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
+
+- [fix/especialista-extension] Correcciones del parcial [#130](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/130) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
@@ -10,7 +32,7 @@
 
 - [feature/documentador-y-coordinador-2]  Registrar uso de Ia en la carpeta correspondida. PR: [#82](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/82) — @alandox1 (Documentador y coordinador de archivos)
 
-- [feature/modelador-diag-casos-uso-update-use-case-1]  Corrección a diagramas de casos de uso. PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) — @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
+- [feature/modelador-diag-casos-uso-update-use-case-1] Corrección a diagramas de casos de uso. PR: [#80](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/80) — @angelgc9107-lgtm (Modelador de Diagramas de Casos de Uso)
 
 ### Fixed
 - [fix/changelog]  Reestructurar changelog segun estandares. PR: [#85](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/85) — @alandox1 (Documentador y coordinador de archivos)
