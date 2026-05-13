@@ -1,4 +1,3 @@
-
 # Introducción al Diseño Orientado a Objetos
 
 ## Descripción del paradigma orientado a objetos

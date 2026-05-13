@@ -1,7 +1,7 @@
 # Uso de Copilot Agent Mode - Especialista en Principios de Extensión
 - **Prompt usado:**
 
-Actúa como Senior Software Engineer especializado en Principios SOLID.
+```Actúa como Senior Software Engineer especializado en Principios SOLID.
 
 Analiza los archivos proporcionados como contexto y realiza un análisis exhaustivo 
 de las clases identificadas, enfocándote en:
@@ -22,12 +22,13 @@ de las clases identificadas, enfocándote en:
    → Explica qué problemas causa cada violación
    → Estima esfuerzo de cambios futuros (antes vs. después refactoring)
 
+
 FORMATO REQUERIDO:
 - Estructura clara con secciones: PROBLEMA | IMPACTO | PROPUESTA
 - Ejemplos de código concretos (pseudocódigo o Java)
 - Diagramas UML (ASCII o descripción textual)
-- Conclusiones verificables y medibles
-
+- Conclusiones verificables y medibles.
+```
 ## Archivos utilizados como contexto
 - anexos/introduccion.md
 - diagramas/01-diagrama-clases/01-boceto-inicial.excalidraw
@@ -134,4 +135,3 @@ Prompt para Copilot:
 2. Para cada RF, identifica qué clase/responsabilidad lo implementa
 3. Verifica que después del refactoring, CADA RF sigue siendo implementable
 4. Verifica que RNF4 (Trazabilidad) y RNF5 (Control centralizado) se respetan"
-
