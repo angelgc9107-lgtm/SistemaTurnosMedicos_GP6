@@ -20,6 +20,7 @@
 
 - [fix/especialista-extension] Correcciones de los archivos puml y png PR: [#124](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/124) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
+- [fix/especialista-extension] Correcciones del parcial [#130](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/130) — @alandox1 (Especialista en Principios de Extensión (OCP + LSP))
 
 ## [Release Actividad Obligatoria N°2] - 2026-04-20
 ### Added
