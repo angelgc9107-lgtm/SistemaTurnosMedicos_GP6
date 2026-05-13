@@ -28,7 +28,7 @@ Aplicar SRP implica identificar qué hace cada clase y separar aquellas tareas q
 Así, cada clase cambia solo cuando cambia su propia responsabilidad.
 
 ## Estructura de Clases
-[Diagrama UML - SRP](diagramas/01-diagrama-clases/01-solid-01-srp.png)
+![Diagrama UML - SRP](/diagramas/01-diagrama-clases/01-solid-01-srp-01.png)
 
 ## Justificación Técnica
 
