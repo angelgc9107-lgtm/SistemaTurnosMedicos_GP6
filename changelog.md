@@ -1,4 +1,14 @@
 ﻿# Changelog
+## [Unrelease Actividad Obligatoria N°3]
+
+### Added
+- [feature/doc-coord-repo-update-readme-md] Actualización de diagramasUML.md con enlaces a diagramas de actividades y secuencia. PR: [#133](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/133) — @Piastrellini (Documentador y Coordinador de Repositorio)
+
+
+
+
+
+
 ## [Released Primer-Parcial] 2026-04-26
 
 ### Added
