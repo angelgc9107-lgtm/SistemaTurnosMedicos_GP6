@@ -1,0 +1,78 @@
+@startuml 05-cu04-bloquear-horarios
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+skinparam sequence {
+    ArrowColor          #2C3E50
+    LifeLineBorderColor #C0392B
+    LifeLineBackgroundColor #FADBD8
+    BoxBackgroundColor  #FDFEFE
+    BoxBorderColor      #2C3E50
+}
+skinparam participant {
+    BackgroundColor #FADBD8
+    BorderColor     #C0392B
+    FontColor       #1A252F
+    FontStyle       bold
+}
+skinparam actor {
+    BackgroundColor #FDEBD0
+    BorderColor     #E67E22
+    FontColor       #1A252F
+    FontStyle       bold
+}
+
+title **CU-04: Bloquear Días/Horarios**\n<size:12>Flujo Principal Exitoso</size>
+
+actor       ":Secretaria"           as secretaria
+participant ":Sistema"              as sistema
+participant ":Agenda"               as agenda
+participant ":BloqueHorario"        as bloqueHorario
+
+' ── 1. Evento disparador (fuera del sistema) ────────────────────────────────
+note over secretaria
+  Evento externo (fuera del sistema):
+  el médico informa presencialmente
+  el rango de fechas, horarios y motivo
+  del bloqueo a la secretaria.
+end note
+
+' ── 2. La secretaria accede al calendario y selecciona el rango ─────────────
+secretaria  ->  sistema             : seleccionarRango(fechaInicio, fechaFin)
+activate sistema
+sistema     ->  agenda              : seleccionarRango(fechaInicio, fechaFin)
+activate agenda
+agenda      -->  sistema            : rangoSeleccionado(diasHorarios)
+deactivate agenda
+sistema     -->  secretaria         : rangoSeleccionado(diasHorarios)
+
+' ── 3. La secretaria ingresa el motivo del bloqueo ──────────────────────────
+secretaria  ->  sistema             : ingresarMotivo(motivo)
+sistema     ->  agenda              : ingresarMotivo(motivo)
+activate agenda
+agenda      -->  sistema            : motivoRegistrado()
+deactivate agenda
+sistema     -->  secretaria         : motivoRegistrado()
+
+' ── 4. La secretaria confirma el bloqueo ────────────────────────────────────
+secretaria  ->  sistema             : confirmarBloqueo(fechaInicio, fechaFin, motivo)
+sistema     ->  agenda              : confirmarBloqueo(fechaInicio, fechaFin, motivo)
+activate agenda
+
+' ── 5. Registro del bloqueo en la agenda ────────────────────────────────────
+create bloqueHorario
+agenda      ->  bloqueHorario       : <<create>>\nnew(fechaInicio, fechaFin, motivo)
+activate bloqueHorario
+bloqueHorario -->  agenda           : bloqueCreado()
+
+agenda      ->  bloqueHorario       : marcarNoDisponible(fechaInicio, fechaFin)
+bloqueHorario -->  agenda           : franjaBloqueada()
+
+' ── 6. El calendario refleja el bloqueo con motivo ──────────────────────────
+agenda      -->  sistema            : bloqueRegistrado(fechaInicio, fechaFin, motivo)
+deactivate agenda
+sistema     -->  secretaria         : mostrarBloqueoEnCalendario(fechaInicio, fechaFin, motivo)
+deactivate sistema
+
+@enduml

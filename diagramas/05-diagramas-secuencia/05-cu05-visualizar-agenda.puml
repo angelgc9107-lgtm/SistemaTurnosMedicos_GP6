@@ -1,0 +1,94 @@
+@startuml 05-cu05-visualizar-agenda
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+skinparam sequence {
+    ArrowColor          #2C3E50
+    LifeLineBorderColor #2980B9
+    LifeLineBackgroundColor #D6EAF8
+    BoxBackgroundColor  #FDFEFE
+    BoxBorderColor      #2C3E50
+}
+skinparam participant {
+    BackgroundColor #D6EAF8
+    BorderColor     #2980B9
+    FontColor       #1A252F
+    FontStyle       bold
+}
+skinparam actor {
+    BackgroundColor #FDEBD0
+    BorderColor     #E67E22
+    FontColor       #1A252F
+    FontStyle       bold
+}
+
+title **CU-05: Visualizar Agenda**\n<size:12>Flujo Principal Exitoso</size>
+
+actor       ":Usuario"              as usuario
+participant ":Sistema"              as sistema
+participant ":Agenda"               as agenda
+participant ":VistaCalendario"      as vistaCalendario
+
+note over usuario
+  Puede ser :Secretaria
+  o :Medico (RF4)
+end note
+
+' ── 1. El usuario accede a la sección Agenda (paso 1) ──────────────────────
+usuario     ->  sistema             : accederAgenda(dni, rol)
+activate sistema
+sistema     ->  agenda              : verificarAcceso(rol)
+activate agenda
+agenda      ->  agenda              : verificarAcceso(rol, matricula)
+agenda      -->  sistema            : vistaHabilitada(rol)
+deactivate agenda
+sistema     -->  usuario            : vistaHabilitada(rol)
+
+' ── 2. El usuario elige la vista y el sistema la presenta (pasos 2-3) ──────
+usuario     ->  sistema             : seleccionarVista(tipoVista, fechaActual)
+sistema     ->  agenda              : cargarVista(tipoVista, fechaActual)
+activate agenda
+
+create vistaCalendario
+agenda      ->  vistaCalendario     : <<create>>\nnew(tipoVista)
+activate vistaCalendario
+
+' ── 3. Carga de turnos con estado (pasos 4-5) ──────────────────────────────
+agenda      ->  vistaCalendario     : mostrarVistaDiaria(fechaActual, listaTurnos)
+vistaCalendario -->  agenda         : vistaActualizada()
+
+' ── 4. Carga de horarios bloqueados con motivo (paso 6) ─────────────────────
+agenda      ->  vistaCalendario     : mostrarBloqueado(fechaActual, hora, motivo)
+vistaCalendario -->  agenda         : bloqueosActualizados()
+deactivate vistaCalendario
+
+agenda      -->  sistema            : calendarioListo(vistaCalendario)
+deactivate agenda
+sistema     -->  usuario            : mostrarCalendario(turnos, bloqueos)
+
+' ── 5. El usuario navega entre fechas (paso 7) ──────────────────────────────
+usuario     ->  sistema             : navegarFecha(direccion)
+sistema     ->  vistaCalendario     : navegarFecha(direccion)
+activate vistaCalendario
+
+vistaCalendario ->  agenda          : obtenerTurnosPorRango(fechaInicio, fechaFin)
+activate agenda
+agenda      -->  vistaCalendario    : listaTurnosRango(matricula, listaTurnos)
+deactivate agenda
+
+vistaCalendario -->  sistema        : calendarioActualizado(fechaInicio, fechaFin)
+deactivate vistaCalendario
+sistema     -->  usuario            : calendarioActualizado(fechaInicio, fechaFin)
+
+' ── 6. El usuario cierra la vista ───────────────────────────────────────────
+usuario     ->  sistema             : cerrarVista()
+sistema     ->  agenda              : cerrarVista()
+activate agenda
+destroy vistaCalendario
+agenda      -->  sistema            : vistaCerrada()
+deactivate agenda
+sistema     -->  usuario            : vistaCerrada()
+deactivate sistema
+
+@enduml
