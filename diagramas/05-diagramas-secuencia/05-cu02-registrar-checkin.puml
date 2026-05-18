@@ -74,7 +74,7 @@ llegadaPaciente ->  agenda      : registrarHoraLlegada(horaLlegada)
 agenda      -->  llegadaPaciente : horaRegistrada()
 
 ' ── 4. Notificación al médico (responsabilidad de LlegadaPaciente - CRC) ────
-llegadaPaciente ->  medico      : notificarPacienteEnSala(nombre, estadoPresencia, horaLlegada)
+llegadaPaciente ->  medico      : notificarMedicoDePresencia(nombre, estadoPresencia, horaLlegada)
 activate medico
 medico      -->  llegadaPaciente : notificacionRecibida()
 deactivate medico

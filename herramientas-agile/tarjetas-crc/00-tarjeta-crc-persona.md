@@ -2,7 +2,7 @@
 |---|---|---|---|
 | **Nombre de la Clase:**| Persona | | | 
 | **Superclase:** | | |  
-| **Subclase:** | Paciente, Médico | | |
+| **Subclase:** | Paciente, Médico, Secretaria | | |
 | **Responsabilidades** | **Colaboradores** | **Pensamiento del objeto** | **Propiedad** |
 | Mantener datos personales |  | Conozco mis datos básicos de identificación | nombre |
 | Gestionar contacto | Secretaria | Sé cómo comunicarme | apellido |
