@@ -66,7 +66,7 @@ endif
 |Secretaria|
 :Ejecutar acción\n"Marcar como Presente /\nEn sala de espera";
 
-|Sistema|
+|LlegadaPaciente|
 :Registrar timestamp\nde llegada real del paciente;
 
 note right
@@ -75,7 +75,15 @@ note right
 end note
 
 :Cambiar estado del turno\nde "Pendiente" a\n"Presente / En sala de espera";
-:Actualizar vista\ndel médico en tiempo real;
+
+note right
+  Responsabilidad de LlegadaPaciente
+  según tarjeta CRC del sistema
+end note
+
+:Notificar al médico\npresencia del paciente\n(nombre, estado, hora de llegada);
+
+|Sistema|
 :Confirmar cambio de estado\nen pantalla de la secretaria;
 
 |Secretaria|
