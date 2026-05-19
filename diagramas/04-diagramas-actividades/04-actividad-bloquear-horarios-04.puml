@@ -1,0 +1,48 @@
+@startuml 04-actividad-bloquear-horarios-04
+
+|Médico|
+start
+:Informar período de\nindisponibilidad con motivo;
+:Especificar rango de fechas\ny horarios a bloquear;
+
+|Secretaria|
+:Ingresar al calendario\ndel sistema;
+:Seleccionar rango de fechas\ny horarios indicado;
+:Ingresar motivo u observación\ndel bloqueo;
+
+if (¿Datos válidos?) then (sí)
+    :Confirmar bloqueo\ndel rango seleccionado;
+else (no)
+    :Corregir datos ingresados;
+    :Reintentar ingreso;
+endif
+
+|SistemaTurnosMedicos|
+:Validar rango de fechas;
+
+if (¿Existen turnos\nen rango?) then (sí)
+    :Verificar estado de turnos\nen las franjas;
+else (no)
+    :Proceder a bloqueo;
+endif
+
+:Registrar bloqueo\nen la agenda;
+:Marcar franjas como\nno disponibles (RF3);
+
+fork
+    :Actualizar calendario\ncon visualización diferenciada;
+fork again
+    :Asociar motivo del bloqueo\na cada franja;
+fork again
+    :Invalidar franjas para\nnuevos turnos;
+endfork
+
+:Confirmar bloqueo\nexitoso en pantalla;
+
+|Secretaria|
+:Ver confirmación del bloqueo;
+:Observar franjas bloqueadas\ncon motivo en calendario;
+
+stop
+
+@enduml

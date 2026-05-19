@@ -1,0 +1,48 @@
+@startuml 04-actividad-reprogramar-turno-03
+
+|Paciente|
+start
+:Solicitar reprogramación\nde turno en recepción;
+
+|Secretaria|
+:Buscar turno existente\ncon datos del paciente;
+
+if (¿Turno encontrado?) then (sí)
+    :Seleccionar turno\na reprogramar;
+    :Elegir opción\n"Reprogramar";
+else (no)
+    :Informar que turno\nno existe;
+    stop
+endif
+
+|SistemaTurnosMedicos|
+:Obtener disponibilidad\nde calendario;
+:Validar restricciones\nhorarias (RF5, RF6);
+
+|Secretaria|
+:Seleccionar nuevo día\ny horario disponible;
+:Confirmar reprogramación\n(confirmación explícita);
+
+|SistemaTurnosMedicos|
+fork
+    :Liberar franja horaria\nanterior en agenda;
+fork again
+    :Actualizar turno con\nnueva fecha y horario;
+fork again
+    :Bloquear nuevo horario\nen calendario;
+fork again
+    :Registrar cambio\nen historial (RNF4);
+endfork
+
+|SistemaWhatsApp|
+:Enviar notificación\nal paciente;
+
+|SistemaTurnosMedicos|
+:Confirmar operación\nexitosa en pantalla;
+
+|Secretaria|
+:Ver confirmación\nen pantalla;
+
+stop
+
+@enduml
