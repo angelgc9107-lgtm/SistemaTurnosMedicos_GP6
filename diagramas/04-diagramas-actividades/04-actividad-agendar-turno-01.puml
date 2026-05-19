@@ -66,6 +66,7 @@ else (SÍ)
       :Seleccionar otro\nhorario o día;
       |Sistema|
     endif
+    :Volver al flujo principal\nde selección de horario;
   else (SÍ)
   endif
 endif
