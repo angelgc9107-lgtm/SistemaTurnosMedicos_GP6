@@ -15,14 +15,15 @@ Estos diagramas los debes crear dentro de la carpeta "05-diagramas-secuencia"
 
 ## Ajustes realizados
 - 05-cu01-agendar-turno: Se agregó "sistema" dentro del diagrama 05-cu01-agendar-turno para interactuar directamente con secretaria
--05-cu02-registrar-checkin: Se quito una note dentro del diagrama 05-cu02-registrar-checkin y se agrego sistema para que interactue directamente con la secretaria
+-05-cu02-registrar-checkin: Se quitó una note dentro del diagrama 05-cu02-registrar-checkin y se agregó sistema para que interactue directamente con la secretaria
 - 05-cu03-reprogramar-turno: Se agregó "sistema" dentro del diagrama 05-cu03-reprogramar-turno para interactuar directamente con secretaria
-- 05-cu04-bloquear-horarios: Se elimino el actor médico que interactuaba directamente con el actor secretaria y se pidio agregar una note para indicar el mensaje externo que inicia la interacción de la secretaria con el sistema.
-- 05-cu04-bloquear-horarios: Se pidio sacar el "alt" dentro del diagrama 05-cu04-bloquear-horarios, el diagrama es el modelado del caso de flujo exitoso.
-- 05-cu05-visualizar-agenda: Se agrego "sistema" dentro del diagrama 05-cu05-visualizar-agenda para interactuar directamente con secretaria
-- 05-cu05-visualizar-agenda: Se pidio quitar los objetos bloque horarios y turnos del diagrama 05-cu05-visualizar-agenda.
-- Se verifico que los mensajes de los 5 diagramas de secuencia correspondan a las clases dentro de tarjeta-crc/
-- Se agrego una tarjeta crc "servicio-notificacion" ya que estaba mencionada en el escenario de casos de uso y era necesario de representarlo en los diagramas de secuencia.
+- 05-cu04-bloquear-horarios: Se eliminó el actor médico que interactuaba directamente con el actor secretaria y se pidio agregar una note para indicar el mensaje externo que inicia la interacción de la secretaria con el sistema.
+- 05-cu04-bloquear-horarios: Se quitó el "alt" dentro del diagrama 05-cu04-bloquear-horarios, el diagrama es el modelado del caso de flujo exitoso.
+- 05-cu05-visualizar-agenda: Se agregó "sistema" dentro del diagrama 05-cu05-visualizar-agenda para interactuar directamente con secretaria
+- 05-cu05-visualizar-agenda: Se quitó los objetos bloque horarios y turnos del diagrama 05-cu05-visualizar-agenda.
+- Se verificó que los mensajes de los 5 diagramas de secuencia correspondan a las clases dentro de tarjeta-crc/
+- Se agregó una tarjeta crc "servicio-notificacion" ya que estaba mencionada en el escenario de casos de uso y era necesario de representarlo en los diagramas de secuencia.
+- Se modificaron los 5 diagramas de secuencia para que las clases respeten el contexto dado (tarjetas-crc & escenearios de casos de uso)
 
 
 ### interaciones 1
@@ -194,3 +195,9 @@ Decime si los diagramas de secuencia coinciden con el contexto de los archivos d
 5	CU-05	Flujo omitido	No se modela la vista diaria por defecto antes de seleccionar vista
 6	Todos	CRC faltante	ServicioNotificacion, HistorialTurno, BloqueHorario, VistaCalendario no tienen tarjeta CRC
 
+### interacion 13
+```
+Hacer las modificaciones para los diagramas de secuencia para que coincidan con el contexto dado
+```
+- **Respuesta de Copilot:**
+Todos los diagramas fueron corregidos.

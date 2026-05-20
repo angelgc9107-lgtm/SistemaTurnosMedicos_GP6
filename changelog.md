@@ -2,7 +2,7 @@
 ## [Unrelease Actividad Obligatoria N°3]
 
 ### Added
-- [feature/esp-secuencia-add-diagrama-secuencia-1] Se agregan los diagramas de secuencia puml/png y el archivo a3/esp-secuencia.md, actualización del changelog . PR: [#141](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/141) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
+- [feature/esp-secuencia-add-diagrama-secuencia-1] Diagramas de secuencia, actualización del changelog . PR: [#141](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/141) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
 
 ## [Released Primer-Parcial] 2026-04-26
 
