@@ -26,24 +26,20 @@ title CU2 - Diagrama de Actividades: Registrar Check-in (Llegada del Paciente)
 start
 :Presentarse físicamente\nen recepción;
 
-|Secretaria|
+|Recepcionista|
 :Buscar turno del paciente\nen la agenda;
 
 note right
   Búsqueda por nombre,
   apellido o DNI — RF4
-  Secretaria actúa en rol de
-  operador de check-in (rol dual).
-  Responsabilidades de check-in
-  asignadas a Secretaria por RF4:
-  mismo actor administrativo,
-  diferente fase del caso de uso.
+  Rol: Recepcionista (actor de check-in).
+  Ver tarjeta CRC: 07-tarjeta-crc-recepcionista.md
 end note
 
 |Sistema|
 if (¿Turno encontrado?) then (NO)
   :Mostrar mensaje:\n"No se encontró turno\npara el paciente";
-  |Secretaria|
+  |Recepcionista|
   :Verificar datos\ndel paciente;
   if (¿Datos correctos?) then (SÍ)
     :Reintentar búsqueda\ncon otros datos;
@@ -63,19 +59,19 @@ else (SÍ)
   :Mostrar datos del turno\nencontrado;
 endif
 
-|Secretaria|
+|Recepcionista|
 :Seleccionar el turno\ncorrespondiente al paciente;
 
 |Sistema|
 if (¿Turno en estado "Pendiente"?) then (NO)
   :Informar que el turno\nno está en estado válido\npara check-in;
-  |Secretaria|
+  |Recepcionista|
   :Revisar estado\ndel turno con el paciente;
   stop
 else (SÍ)
 endif
 
-|Secretaria|
+|Recepcionista|
 :Ejecutar acción\n"Marcar como Presente /\nEn sala de espera";
 
 |Sistema|
@@ -91,7 +87,7 @@ end note
 :Notificar al médico\npresencia del paciente;
 :Confirmar cambio de estado\nen pantalla de la secretaria;
 
-|Secretaria|
+|Recepcionista|
 :Informar al paciente\nque quedó registrado\nen sala de espera;
 
 |Médico|
