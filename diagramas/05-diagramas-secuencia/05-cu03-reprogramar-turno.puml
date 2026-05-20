@@ -47,7 +47,7 @@ sistema     ->  agenda              : obtenerTurno(idTurno)
 activate agenda
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado("Pendiente" o "Presente")
+turno       -->  agenda             : estado("Pendiente")
 deactivate turno
 agenda      -->  sistema            : datosTurno(turno)
 deactivate agenda

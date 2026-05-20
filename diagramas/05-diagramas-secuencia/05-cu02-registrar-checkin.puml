@@ -30,7 +30,6 @@ participant ":Sistema"          as sistema
 participant ":Agenda"           as agenda
 participant ":Turno"            as turno
 participant ":LlegadaPaciente"  as llegadaPaciente
-actor    ":Medico"              as medico
 
 ' ── 1. Búsqueda del turno del paciente ─────────────────────────────────────
 secretaria  ->  sistema         : buscarTurnoPaciente(apellido, nombre, dni)
@@ -63,7 +62,7 @@ create llegadaPaciente
 agenda      ->  llegadaPaciente : <<create>>\nnew(idTurno, horaLlegada)
 activate llegadaPaciente
 
-llegadaPaciente ->  turno       : cambiarEstado("Presente o en sala de espera")
+llegadaPaciente ->  turno       : cambiarEstado("Presente")
 activate turno
 turno       -->  llegadaPaciente : estadoActualizado()
 deactivate turno
@@ -72,12 +71,6 @@ llegadaPaciente ->  llegadaPaciente : actualizarPresencia(presente, estadoPresen
 
 llegadaPaciente ->  agenda      : registrarHoraLlegada(horaLlegada)
 agenda      -->  llegadaPaciente : horaRegistrada()
-
-' ── 4. Notificación al médico (responsabilidad de LlegadaPaciente - CRC) ────
-llegadaPaciente ->  medico      : notificarMedicoDePresencia(nombre, estadoPresencia, horaLlegada)
-activate medico
-medico      -->  llegadaPaciente : notificacionRecibida()
-deactivate medico
 
 deactivate llegadaPaciente
 
