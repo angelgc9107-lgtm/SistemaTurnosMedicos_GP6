@@ -1,0 +1,64 @@
+@startuml 04-actividad-visualizar-agenda-05
+
+|Secretaria/Médico|
+start
+:Acceder a sección "Agenda"\ndesde menú principal;
+
+|SistemaTurnosMedicos|
+:Validar autenticación\ndel usuario (RF4);
+
+if (¿Usuario autenticado?) then (sí)
+    :Obtener rol de usuario\n(Secretaria/Médico);
+else (no)
+    :Requerir autenticación;
+    stop
+endif
+
+:Cargar vista por defecto\n(Diaria, día actual);
+
+|Secretaria/Médico|
+if (¿Selecciona vista?) then (Día)
+    :Elegir vista "Día";
+elseif (Semana) then (Semana)
+    :Elegir vista "Semana";
+else (Inválida/No soportada)
+    :Mostrar error de opción\nno válida;
+    stop
+endif
+
+|SistemaTurnosMedicos|
+:Obtener horarios habilitados\n(RF6: Lun-Vie 9-13, 15-19);
+
+fork
+    :Obtener turnos asignados\npara período seleccionado\n(desde Agenda);
+fork again
+    :Obtener horarios bloqueados\ny motivos (GestorBloqueos)\ndesde CU-04;
+fork again
+    :Obtener estados de turnos\n(Pendiente, Presente)(RF8);
+endfork
+
+:Renderizar bloques horarios\nen calendario (VistaCalendario);
+
+:Mostrar datos del paciente\ny estado en cada turno;
+
+:Mostrar motivo del bloqueo\nen franjas no disponibles;
+
+|Secretaria/Médico|
+:Navegar entre fechas\n(siguiente/anterior);
+
+if (¿Desea cambiar período?) then (sí)
+    :Solicitar nuevo período;
+else (no)
+    :Permanecer en vista actual;
+endif
+
+|SistemaTurnosMedicos|
+:Actualizar vista del calendario\ncon nuevo período;
+:Mostrar datos actualizados;
+
+|Secretaria/Médico|
+:Visualizar agenda actualizada;
+
+stop
+
+@enduml
