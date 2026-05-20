@@ -11,8 +11,6 @@
 
 - [feature/esp-actividades-3-4-5-add-diagrama-actividad3] Creacion de la carpeta 04-diagramas-actividades/04-actividad-[Nombre]-03-04 y 05.puml y png, creacion de carpeta ia/a3/esp-actividades-3-4-5.md PR: [#146](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/146) — @luchobarrionuevo13 (Especialista en Diagramas de Actividades - CU3 - CU4 Y CU5)
 
-- [feature/esp-secuencia-add-diagrama-secuencia-1] (Completar)
-
 ## [Released Primer-Parcial] 2026-04-26
 
 ### Added

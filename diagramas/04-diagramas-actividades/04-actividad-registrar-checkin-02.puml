@@ -1,0 +1,108 @@
+@startuml 04-actividad-registrar-checkin-02
+
+skinparam backgroundColor #FFFFFF
+skinparam activity {
+    BackgroundColor #F0FDF4
+    BorderColor #16A34A
+    ArrowColor #15803D
+    DiamondBackgroundColor #DCFCE7
+    DiamondBorderColor #16A34A
+    StartColor #15803D
+    EndColor #15803D
+}
+skinparam swimlane {
+    BorderColor #86EFAC
+    TitleBackgroundColor #BBF7D0
+    TitleFontColor #14532D
+    TitleFontSize 13
+}
+skinparam ArrowFontColor #15803D
+skinparam NoteBorderColor #86EFAC
+skinparam NoteBackgroundColor #F0FDF4
+
+title CU2 - Diagrama de Actividades: Registrar Check-in (Llegada del Paciente)
+
+|Paciente|
+start
+:Presentarse físicamente\nen recepción;
+
+|Recepcionista|
+:Buscar turno del paciente\nen la agenda;
+
+note right
+  Búsqueda por nombre,
+  apellido o DNI — RF4
+  Rol: Recepcionista (actor de check-in).
+  Ver tarjeta CRC: 07-tarjeta-crc-recepcionista.md
+end note
+
+|Sistema|
+if (¿Turno encontrado?) then (NO)
+  :Mostrar mensaje:\n"No se encontró turno\npara el paciente";
+  |Recepcionista|
+  :Verificar datos\ndel paciente;
+  if (¿Datos correctos?) then (SÍ)
+    :Reintentar búsqueda\ncon otros datos;
+    note right
+      Ciclo de reintentos ilimitado
+      según RF4 (sin restricción explícita).
+      En implementación: considerar
+      máximo de intentos para evitar loops.
+    end note
+    |Sistema|
+  else (NO)
+    :Informar al paciente\nque no tiene turno\nasignado para hoy;
+    |Paciente|
+    stop
+  endif
+else (SÍ)
+  :Mostrar datos del turno\nencontrado;
+endif
+
+|Recepcionista|
+:Seleccionar el turno\ncorrespondiente al paciente;
+
+|Sistema|
+if (¿Turno en estado "Pendiente"?) then (NO)
+  :Informar que el turno\nno está en estado válido\npara check-in;
+  |Recepcionista|
+  :Revisar estado\ndel turno con el paciente;
+  stop
+else (SÍ)
+endif
+
+|Recepcionista|
+:Ejecutar acción\n"Marcar como Presente /\nEn sala de espera";
+
+|Sistema|
+:Registrar timestamp\nde llegada real del paciente;
+
+note right
+  Hora real de presentación guardada en el turno — RF8
+  (Responsabilidad delegada a LlegadaPaciente
+  según tarjeta CRC del sistema)
+end note
+
+:Cambiar estado del turno\nde "Pendiente" a\n"Presente / En sala de espera";
+:Notificar al médico\npresencia del paciente;
+:Confirmar cambio de estado\nen pantalla de la secretaria;
+
+|Recepcionista|
+:Informar al paciente\nque quedó registrado\nen sala de espera;
+
+|Médico|
+:Visualizar al paciente\nen su lista de espera\ndesde la agenda;
+
+note right
+  Vista actualizada sin
+  necesidad de recargar — RF4
+end note
+
+:Llamar al siguiente\npaciente en espera;
+
+|Paciente|
+:Pasar a consulta\ncon el médico;
+
+stop
+
+@enduml
