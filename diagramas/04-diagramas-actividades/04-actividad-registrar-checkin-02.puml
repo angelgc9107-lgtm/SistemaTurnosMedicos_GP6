@@ -32,6 +32,12 @@ start
 note right
   Búsqueda por nombre,
   apellido o DNI — RF4
+  Secretaria actúa en rol de
+  operador de check-in (rol dual).
+  Responsabilidades de check-in
+  asignadas a Secretaria por RF4:
+  mismo actor administrativo,
+  diferente fase del caso de uso.
 end note
 
 |Sistema|
@@ -41,6 +47,12 @@ if (¿Turno encontrado?) then (NO)
   :Verificar datos\ndel paciente;
   if (¿Datos correctos?) then (SÍ)
     :Reintentar búsqueda\ncon otros datos;
+    note right
+      Ciclo de reintentos ilimitado
+      según RF4 (sin restricción explícita).
+      En implementación: considerar
+      máximo de intentos para evitar loops.
+    end note
     |Sistema|
   else (NO)
     :Informar al paciente\nque no tiene turno\nasignado para hoy;

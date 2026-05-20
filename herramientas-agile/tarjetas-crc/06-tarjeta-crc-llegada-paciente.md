@@ -1,7 +1,7 @@
 |  |  |  |  |
 |---|---|---|---|
 | **Nombre de la Clase:** | LlegadaPaciente | | |
-| **Superclase:**| | | |  
+| **Superclase:**| — (Entidad de dominio independiente) | | |  
 | **Subclase:** | | | |  
 | **Responsabilidades** | **Colaboradores** | **Pensamiento del objeto** | **Propiedad** |
 | Registrar hora real de llegada | Turno, Secretaria | Existo solo si el paciente llega, sé cuándo llegó realmente | horaLlegada |

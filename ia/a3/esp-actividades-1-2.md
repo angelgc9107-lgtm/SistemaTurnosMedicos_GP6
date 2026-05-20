@@ -93,7 +93,7 @@ Usa skinparam con paleta azul y agrega notas con referencias a RF2 y RF7.
 
 **Respuesta de Copilot:**
 
-Generó el diagrama con los 12 pasos del flujo principal distribuidos en 3 swimlanes. Incluyó notas para RF2 (tipos de turno) y RF7 (notificaciones WhatsApp). No modeló restricciones RF5 ni el flujo de sobreturno.
+Generó el diagrama con los 12 pasos del flujo principal distribuidos en 3 swimlanes. Incluyó notas para RF2 (tipos de turno) y RF7 (notificaciones WhatsApp). No modeló restricciones RF5 ni el flujo de sobreturno definido en CU1_EXT.
 
 **Decisión:** Se aceptó la base del diagrama y se solicitaron ajustes en la iteración 2.
 
@@ -115,7 +115,7 @@ Mantener los 3 swimlanes existentes.
 
 **Respuesta de Copilot:**
 
-Incorporó ambos rombos de decisión con sus ramas. El texto de los nodos se ajustó manualmente para incluir referencias a RF5 explícitas en los labels de los rombos. Se aceptaron los flujos alternativos propuestos.
+Incorporó ambos rombos de decisión con sus ramas. El texto de los nodos se ajustó manualmente para incluir referencias a RF5 explícitas en los labels de los rombos. Se aceptaron los flujos alternativos propuestos. El resultado cumple con el mínimo de 10 actividades y 3 swimlanes.
 
 **Decisión:** Se aceptaron todos los cambios. El resultado cumple con el mínimo de 10 actividades y 3 swimlanes.
 
@@ -139,7 +139,7 @@ Referencia RF4 y RF8 en las notas del diagrama.
 
 **Respuesta de Copilot:**
 
-Generó el diagrama con 4 swimlanes y modeló los 8 pasos del flujo principal. Incluyó notas para RF4 (roles diferenciados) y RF8 (registro de timestamp). No modeló los caminos alternativos para turno no encontrado ni estado inválido.
+Generó el diagrama con 4 swimlanes y modeló los 8 pasos del flujo principal. Incluyó notas para RF4 (roles diferenciados) y RF8 (registro de timestamp). No modeló los caminos alternativos para turno no encontrado ni turno en estado diferente a "Pendiente".
 
 **Decisión:** Se aceptó la base y se solicitaron los flujos alternativos en la iteración 4.
 
@@ -161,6 +161,6 @@ Mantener los 4 swimlanes y las notas RF4 y RF8.
 
 **Respuesta de Copilot:**
 
-Incorporó ambas ramas alternativas con nodos de decisión anidados. Se ajustó el nivel de anidamiento del primer rombo para incluir la subdecisión de verificación de datos con posibilidad de reintento o terminación. Se aceptó la propuesta completa.
+Incorporó ambas ramas alternativas con nodos de decisión anidados. Se ajustó el nivel de anidamiento del primer rombo para incluir la subdecisión de verificación de datos con posibilidad de reintento o terminación del flujo si los datos son incorrectos. Se aceptó la propuesta completa.
 
 **Decisión:** Se aceptaron todos los cambios. El resultado cumple con el mínimo de 10 actividades y 3 swimlanes (se superó con 4 swimlanes).
