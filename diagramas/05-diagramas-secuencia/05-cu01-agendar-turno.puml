@@ -1,0 +1,107 @@
+@startuml 05-cu01-agendar-turno
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+skinparam sequence {
+    ArrowColor       #2C3E50
+    LifeLineBorderColor  #2980B9
+    LifeLineBackgroundColor #D6EAF8
+    BoxBackgroundColor  #FDFEFE
+    BoxBorderColor   #2C3E50
+}
+skinparam participant {
+    BackgroundColor #D6EAF8
+    BorderColor     #2980B9
+    FontColor       #1A252F
+    FontStyle       bold
+}
+skinparam actor {
+    BackgroundColor #FDEBD0
+    BorderColor     #E67E22
+    FontColor       #1A252F
+    FontStyle       bold
+}
+
+title **CU-01: Agendar Turno**\n<size:12>Flujo Principal Exitoso</size>
+
+actor    ":Secretaria"              as secretaria
+participant ":Sistema"              as sistema
+participant ":Agenda"               as agenda
+participant ":Turno"                as turno
+participant ":ServicioNotificacion" as svcNotificacion
+
+' ── 1. Inicio de flujo: selección de nuevo turno ───────────────────────────
+secretaria  ->  sistema         : seleccionarNuevoTurno()
+activate sistema
+sistema     -->  secretaria     : solicitarDatosPaciente()
+
+' ── 2. Ingreso de datos del paciente ───────────────────────────────────────
+secretaria  ->  sistema         : ingresarDatosPaciente(apellido, nombre, sexo,\nedad, dni, tipoConsulta, matricula)
+
+sistema     ->  agenda          : consultarDisponibilidad(matricula, semana)
+activate agenda
+agenda      ->  agenda          : verificarDisponibilidad(matricula, semana)
+agenda      -->  sistema        : listaHorariosDisponibles(listaHorarios)
+deactivate agenda
+
+sistema     -->  secretaria     : mostrarCalendarioSemanal(listaHorarios)
+
+' ── 3. Selección de día y horario ──────────────────────────────────────────
+secretaria  ->  sistema         : seleccionarDia(fecha)
+
+sistema     ->  agenda          : obtenerHorariosDelDia(fecha, matricula)
+activate agenda
+agenda      ->  agenda          : filtrarHorariosDisponibles(fecha, matricula)
+agenda      -->  sistema        : horariosDelDia(listaHorarios)
+deactivate agenda
+
+sistema     -->  secretaria     : mostrarHorariosDelDia(listaHorarios)
+
+secretaria  ->  sistema         : seleccionarHorario(fecha, hora)
+
+sistema     ->  agenda          : validarHorario(tipoConsulta, fecha, hora)
+activate agenda
+agenda      ->  agenda          : validarRestricciones(tipoConsulta, fecha, hora)
+agenda      -->  sistema        : horarioValido(horarioSeleccionado)
+deactivate agenda
+
+sistema     -->  secretaria     : confirmarHorarioValido(horarioSeleccionado)
+
+' ── 4. Confirmación y creación del Turno ───────────────────────────────────
+secretaria  ->  sistema         : confirmarTurno()
+
+sistema     ->  agenda          : registrarTurno(apellido, nombre, sexo, edad, dni,\ntipoConsulta, matricula, fecha, hora)
+activate agenda
+
+create turno
+agenda      ->  turno           : <<create>>\nnew(fecha, hora, tipoConsulta, paciente, matricula)
+activate turno
+turno       -->  agenda         : :Turno
+
+agenda      ->  turno           : establecerEstado("Pendiente")
+turno       -->  agenda         : estadoEstablecido()
+deactivate turno
+
+agenda      ->  agenda          : bloquearFranjaHoraria(fecha, hora, duracionMinutos)
+
+' ── 5. Notificación y programación de recordatorios ────────────────────────
+create svcNotificacion
+agenda      ->  svcNotificacion : <<create>>\nnew(canalWhatsApp)
+activate svcNotificacion
+agenda      ->  svcNotificacion : enviarConfirmacion(telefono, fechaTurno,\nhoraTurno, nombreMedico)
+svcNotificacion -->  agenda     : confirmacionEnviada()
+agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nanticipacion24h)
+agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nhoraAlerta8am)
+svcNotificacion -->  agenda     : recordatoriosProgramados()
+destroy svcNotificacion
+deactivate svcNotificacion
+
+agenda      -->  sistema        : turnoRegistrado(idTurno, fechaTurno, horaTurno)
+deactivate agenda
+
+' ── 6. Confirmación de alta ────────────────────────────────────────────────
+sistema     -->  secretaria     : confirmarAltaTurno(idTurno, fechaTurno, horaTurno)
+deactivate sistema
+
+@enduml

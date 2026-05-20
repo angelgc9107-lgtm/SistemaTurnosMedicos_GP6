@@ -6,3 +6,4 @@
 - [Agenda](04-tarjeta-crc-agenda.md)
 - [Secretaria](05-tarjeta-crc-secretaria.md)
 - [LlegadaPaciente](06-tarjeta-crc-llegada-paciente.md)
+- [ServicioNotificacion](08-tarjeta-crc-servicio-notificacion.md)
