@@ -63,7 +63,7 @@ create llegadaPaciente
 agenda      ->  llegadaPaciente : <<create>>\nnew(idTurno, horaLlegada)
 activate llegadaPaciente
 
-llegadaPaciente ->  turno       : cambiarEstado("Presente")
+llegadaPaciente ->  turno       : cambiarEstado("Presente o en sala de espera")
 activate turno
 turno       -->  llegadaPaciente : estadoActualizado()
 deactivate turno

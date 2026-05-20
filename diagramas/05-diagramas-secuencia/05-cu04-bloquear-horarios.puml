@@ -28,7 +28,7 @@ title **CU-04: Bloquear Días/Horarios**\n<size:12>Flujo Principal Exitoso</size
 actor       ":Secretaria"           as secretaria
 participant ":Sistema"              as sistema
 participant ":Agenda"               as agenda
-participant ":BloqueHorario"        as bloqueHorario
+participant ":Turno"                as turno
 
 ' ── 1. Evento disparador (fuera del sistema) ────────────────────────────────
 note over secretaria
@@ -61,13 +61,17 @@ sistema     ->  agenda              : confirmarBloqueo(fechaInicio, fechaFin, mo
 activate agenda
 
 ' ── 5. Registro del bloqueo en la agenda ────────────────────────────────────
-create bloqueHorario
-agenda      ->  bloqueHorario       : <<create>>\nnew(fechaInicio, fechaFin, motivo)
-activate bloqueHorario
-bloqueHorario -->  agenda           : bloqueCreado()
-
-agenda      ->  bloqueHorario       : marcarNoDisponible(fechaInicio, fechaFin)
-bloqueHorario -->  agenda           : franjaBloqueada()
+agenda      ->  agenda              : obtenerTurnosEnRango(fechaInicio, fechaFin)
+agenda      ->  turno               : getEstado()
+activate turno
+turno       -->  agenda             : estado(estadoActual)
+deactivate turno
+agenda      ->  turno               : getFechaHora()
+activate turno
+turno       -->  agenda             : fechaHora(fecha, hora)
+deactivate turno
+agenda      ->  agenda              : registrarBloqueo(fechaInicio, fechaFin, motivo)
+agenda      ->  agenda              : marcarNoDisponible(fechaInicio, fechaFin)
 
 ' ── 6. El calendario refleja el bloqueo con motivo ──────────────────────────
 agenda      -->  sistema            : bloqueRegistrado(fechaInicio, fechaFin, motivo)

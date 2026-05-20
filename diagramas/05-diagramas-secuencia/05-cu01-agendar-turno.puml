@@ -37,7 +37,7 @@ activate sistema
 sistema     -->  secretaria     : solicitarDatosPaciente()
 
 ' ── 2. Ingreso de datos del paciente ───────────────────────────────────────
-secretaria  ->  sistema         : ingresarDatosPaciente(apellido, nombre, dni,\ntipoConsulta, matricula)
+secretaria  ->  sistema         : ingresarDatosPaciente(apellido, nombre, sexo,\nedad, dni, tipoConsulta, matricula)
 
 sistema     ->  agenda          : consultarDisponibilidad(matricula, semana)
 activate agenda
@@ -71,7 +71,7 @@ sistema     -->  secretaria     : confirmarHorarioValido(horarioSeleccionado)
 ' ── 4. Confirmación y creación del Turno ───────────────────────────────────
 secretaria  ->  sistema         : confirmarTurno()
 
-sistema     ->  agenda          : registrarTurno(apellido, nombre, dni,\ntipoConsulta, matricula, fecha, hora)
+sistema     ->  agenda          : registrarTurno(apellido, nombre, sexo, edad, dni,\ntipoConsulta, matricula, fecha, hora)
 activate agenda
 
 create turno
@@ -89,17 +89,13 @@ agenda      ->  agenda          : bloquearFranjaHoraria(fecha, hora, duracionMin
 create svcNotificacion
 agenda      ->  svcNotificacion : <<create>>\nnew(canalWhatsApp)
 activate svcNotificacion
-
 agenda      ->  svcNotificacion : enviarConfirmacion(telefono, fechaTurno,\nhoraTurno, nombreMedico)
 svcNotificacion -->  agenda     : confirmacionEnviada()
-
 agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nanticipacion24h)
-svcNotificacion -->  agenda     : recordatorioProgramado()
-
 agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nhoraAlerta8am)
-svcNotificacion -->  agenda     : recordatorioProgramado()
-
+svcNotificacion -->  agenda     : recordatoriosProgramados()
 destroy svcNotificacion
+deactivate svcNotificacion
 
 agenda      -->  sistema        : turnoRegistrado(idTurno, fechaTurno, horaTurno)
 deactivate agenda

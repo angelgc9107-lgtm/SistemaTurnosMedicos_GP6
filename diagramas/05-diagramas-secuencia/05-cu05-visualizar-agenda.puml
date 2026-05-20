@@ -28,7 +28,7 @@ title **CU-05: Visualizar Agenda**\n<size:12>Flujo Principal Exitoso</size>
 actor       ":Usuario"              as usuario
 participant ":Sistema"              as sistema
 participant ":Agenda"               as agenda
-participant ":VistaCalendario"      as vistaCalendario
+participant ":Turno"                as turno
 
 note over usuario
   Puede ser :Secretaria
@@ -45,47 +45,50 @@ agenda      -->  sistema            : vistaHabilitada(rol)
 deactivate agenda
 sistema     -->  usuario            : vistaHabilitada(rol)
 
-' ── 2. El usuario elige la vista y el sistema la presenta (pasos 2-3) ──────
+' ── 2. El sistema presenta por defecto la vista diaria (paso 2) ────────────
+sistema     ->  agenda              : cargarVistaDiaria(fechaActual)
+activate agenda
+agenda      ->  agenda              : obtenerTurnosPorFecha(fechaActual)
+agenda      ->  turno               : getEstado()
+activate turno
+turno       -->  agenda             : estado(estadoActual)
+deactivate turno
+agenda      ->  agenda              : obtenerBloquesPorFecha(fechaActual)
+agenda      -->  sistema            : calendarioDiario(listaTurnos, bloqueos)
+deactivate agenda
+sistema     -->  usuario            : mostrarVistaDiaria(listaTurnos, bloqueos)
+
+' ── 3. El usuario elige la vista y el sistema la presenta (pasos 3-6) ──────
 usuario     ->  sistema             : seleccionarVista(tipoVista, fechaActual)
 sistema     ->  agenda              : cargarVista(tipoVista, fechaActual)
 activate agenda
-
-create vistaCalendario
-agenda      ->  vistaCalendario     : <<create>>\nnew(tipoVista)
-activate vistaCalendario
-
-' ── 3. Carga de turnos con estado (pasos 4-5) ──────────────────────────────
-agenda      ->  vistaCalendario     : mostrarVistaDiaria(fechaActual, listaTurnos)
-vistaCalendario -->  agenda         : vistaActualizada()
-
-' ── 4. Carga de horarios bloqueados con motivo (paso 6) ─────────────────────
-agenda      ->  vistaCalendario     : mostrarBloqueado(fechaActual, hora, motivo)
-vistaCalendario -->  agenda         : bloqueosActualizados()
-deactivate vistaCalendario
-
-agenda      -->  sistema            : calendarioListo(vistaCalendario)
+agenda      ->  agenda              : obtenerTurnosPorFecha(fechaActual)
+agenda      ->  turno               : getEstado()
+activate turno
+turno       -->  agenda             : estado(estadoActual)
+deactivate turno
+agenda      ->  agenda              : obtenerBloquesPorFecha(fechaActual)
+agenda      -->  sistema            : calendarioListo(listaTurnos, bloqueos)
 deactivate agenda
-sistema     -->  usuario            : mostrarCalendario(turnos, bloqueos)
+sistema     -->  usuario            : mostrarCalendario(listaTurnos, bloqueos)
 
 ' ── 5. El usuario navega entre fechas (paso 7) ──────────────────────────────
 usuario     ->  sistema             : navegarFecha(direccion)
-sistema     ->  vistaCalendario     : navegarFecha(direccion)
-activate vistaCalendario
-
-vistaCalendario ->  agenda          : obtenerTurnosPorRango(fechaInicio, fechaFin)
+sistema     ->  agenda              : obtenerTurnosPorRango(fechaInicio, fechaFin)
 activate agenda
-agenda      -->  vistaCalendario    : listaTurnosRango(matricula, listaTurnos)
+agenda      ->  agenda              : filtrarTurnosPorRango(fechaInicio, fechaFin)
+agenda      ->  turno               : getEstado()
+activate turno
+turno       -->  agenda             : estado(estadoActual)
+deactivate turno
+agenda      -->  sistema            : listaTurnosRango(matricula, listaTurnos)
 deactivate agenda
-
-vistaCalendario -->  sistema        : calendarioActualizado(fechaInicio, fechaFin)
-deactivate vistaCalendario
 sistema     -->  usuario            : calendarioActualizado(fechaInicio, fechaFin)
 
 ' ── 6. El usuario cierra la vista ───────────────────────────────────────────
 usuario     ->  sistema             : cerrarVista()
 sistema     ->  agenda              : cerrarVista()
 activate agenda
-destroy vistaCalendario
 agenda      -->  sistema            : vistaCerrada()
 deactivate agenda
 sistema     -->  usuario            : vistaCerrada()

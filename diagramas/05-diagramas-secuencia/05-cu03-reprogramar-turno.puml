@@ -29,7 +29,6 @@ actor       ":Secretaria"               as secretaria
 participant ":Sistema"                  as sistema
 participant ":Agenda"                   as agenda
 participant ":Turno"                    as turno
-participant ":HistorialTurno"           as historialTurno
 participant ":ServicioNotificacion"     as svcNotificacion
 
 ' ── 1. La secretaria busca el turno del paciente (paso 2) ──────────────────
@@ -48,7 +47,7 @@ sistema     ->  agenda              : obtenerTurno(idTurno)
 activate agenda
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado("Pendiente")
+turno       -->  agenda             : estado("Pendiente" o "Presente")
 deactivate turno
 agenda      -->  sistema            : datosTurno(turno)
 deactivate agenda
@@ -80,31 +79,24 @@ activate agenda
 agenda      ->  agenda              : liberarFranjaAnterior(fechaAnterior, horaAnterior)
 
 ' ── 7. El sistema actualiza el turno y bloquea la nueva franja (paso 9) ────
-agenda      ->  turno               : getEstado()
+agenda      ->  turno               : actualizarFechaHora(nuevaFecha, nuevaHora)
 activate turno
-turno       -->  agenda             : estado("Pendiente")
+turno       -->  agenda             : turnoActualizado()
 deactivate turno
 agenda      ->  agenda              : bloquearNuevaFranja(nuevaFecha, nuevaHora)
 
 ' ── 8. Registro obligatorio del historial de cambio (paso 9 - RNF4) ────────
-create historialTurno
-agenda      ->  historialTurno      : <<create>>\nregistrarCambio(estadoAnterior,\nestadoNuevo, motivo)
-activate historialTurno
-historialTurno -->  agenda          : cambioRegistrado()
-deactivate historialTurno
+agenda      ->  agenda              : registrarCambio(estadoAnterior,\nestadoNuevo, motivo)
 
 ' ── 9. El sistema notifica al paciente por WhatsApp (paso 10 - RF7) ─────────
 create svcNotificacion
 agenda      ->  svcNotificacion     : <<create>>\nnew(canalWhatsApp)
 activate svcNotificacion
-
 agenda      ->  svcNotificacion     : enviarCambioTurno(telefono, nuevaFecha,\nnuevaHora, nombreMedico)
-svcNotificacion -->  agenda         : notificacionEnviada()
-
 agenda      ->  svcNotificacion     : reprogramarRecordatorio(telefono,\nnuevaFecha, nuevaHora)
-svcNotificacion -->  agenda         : recordatorioProgramado()
-
+svcNotificacion -->  agenda         : notificacionEnviada()
 destroy svcNotificacion
+deactivate svcNotificacion
 
 agenda      -->  sistema            : reprogramacionExitosa(idTurno,\nnuevaFecha, nuevaHora)
 deactivate agenda
