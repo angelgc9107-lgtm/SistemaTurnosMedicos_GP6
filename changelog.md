@@ -2,7 +2,15 @@
 ## [Unrelease Actividad Obligatoria N°3]
 
 ### Added
+- [feature/esp-secuencia-add-diagrama-secuencia-1] Diagramas de secuencia, actualización del changelog . PR: [#141](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/141) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
 - [feature/doc-coord-repo-update-readme-md] Actualización de diagramasUML.md con enlaces a diagramas de actividades y secuencia. PR: [#133](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/133) — @Piastrellini (Documentador y Coordinador de Repositorio)
+
+- [feature/esp-actividades-1-2-add-diagrama-actividad-1] Creación de 2 diagramas de actividades(CU1-Agendar Turno, CU2-Registrar Check-in) con PlantUML, incluyendo swimlanes,
+  nodos de decisión y flujos alternativos.
+  Documentación de 4 iteraciones de refinamiento con Copilot.
+  PR: [#142](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/142) — @alandox1 (Especialista en Diagramas de Actividades - CU1 y CU2)
+
+- [feature/esp-actividades-3-4-5-add-diagrama-actividad3] Creacion de la carpeta 04-diagramas-actividades/04-actividad-[Nombre]-03-04 y 05.puml y png, creacion de carpeta ia/a3/esp-actividades-3-4-5.md PR: [#146](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/146) — @luchobarrionuevo13 (Especialista en diagramas de actividades - CU3 - CU4 Y CU5)
 
 ## [Released Primer-Parcial] 2026-04-26
 

@@ -11,7 +11,7 @@
 
 ## Ajustes realizados
 - Se corrigieron responsabilidades de la clase Turno para alinearlas con los requisitos funcionales (cancelar, reprogramar, registrar).
-- Se reemplazó la clase Notificación por Recepcionista para representar correctamente al actor administrativo del sistema.
+- Se reemplazó la clase Notificación por Secretaria para representar correctamente al actor administrativo del sistema.
 - Se ajustaron las colaboraciones entre Paciente, Médico y Agenda.
 - Se agregaron propiedades relevantes a cada clase.
 - Se adaptó el formato de salida a la plantilla de tarjetas CRC en markdown requerida.
@@ -29,9 +29,9 @@
 ### Iteración 2: Corrección de responsabilidades y reemplazo de clase
 - **Prompt usado:**
   ```
-  Corrige las responsabilidades de la clase Turno para incluir cancelar, reprogramar y registrar. Reemplaza la clase Notificación por Recepcionista para representar al actor administrativo.
+  Corrige las responsabilidades de la clase Turno para incluir cancelar, reprogramar y registrar. Reemplaza la clase Notificación por Secretaria para representar al actor administrativo.
   ```
-- **Respuesta de Copilot:** Actualizó las responsabilidades de Turno y cambió Notificación por Recepcionista.
+- **Respuesta de Copilot:** Actualizó las responsabilidades de Turno y cambió Notificación por Secretaria.
 - **Observaciones:** Mejoró la alineación con los casos de uso del sistema.
 
 ### Iteración 3: Ajustes finales de colaboraciones, propiedades y formato

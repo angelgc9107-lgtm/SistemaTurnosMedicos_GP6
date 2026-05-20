@@ -1,0 +1,88 @@
+@startuml 05-cu02-registrar-checkin
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+skinparam sequence {
+    ArrowColor          #2C3E50
+    LifeLineBorderColor #27AE60
+    LifeLineBackgroundColor #D5F5E3
+    BoxBackgroundColor  #FDFEFE
+    BoxBorderColor      #2C3E50
+}
+skinparam participant {
+    BackgroundColor #D5F5E3
+    BorderColor     #27AE60
+    FontColor       #1A252F
+    FontStyle       bold
+}
+skinparam actor {
+    BackgroundColor #FDEBD0
+    BorderColor     #E67E22
+    FontColor       #1A252F
+    FontStyle       bold
+}
+
+title **CU-02: Registrar Check-in**\n<size:12>Flujo Principal Exitoso</size>
+
+actor    ":Secretaria"          as secretaria
+participant ":Sistema"          as sistema
+participant ":Agenda"           as agenda
+participant ":Turno"            as turno
+participant ":LlegadaPaciente"  as llegadaPaciente
+
+' ── 1. Búsqueda del turno del paciente ─────────────────────────────────────
+secretaria  ->  sistema         : buscarTurnoPaciente(apellido, nombre, dni)
+activate sistema
+sistema     ->  agenda          : buscarTurnoPaciente(apellido, nombre, dni)
+activate agenda
+agenda      ->  agenda          : filtrarTurnosPorFechaActual(dni, fechaHoy)
+agenda      -->  sistema        : mostrarTurnoEncontrado(datosTurno)
+deactivate agenda
+sistema     -->  secretaria     : mostrarTurnoEncontrado(datosTurno)
+
+' ── 2. Selección y verificación del turno ──────────────────────────────────
+secretaria  ->  sistema         : seleccionarTurno(idTurno)
+sistema     ->  agenda          : obtenerTurno(idTurno)
+activate agenda
+agenda      ->  turno           : getEstado()
+activate turno
+turno       -->  agenda         : estado("Pendiente")
+deactivate turno
+agenda      -->  sistema        : datosTurno(turno)
+deactivate agenda
+sistema     -->  secretaria     : habilitarRegistroPresencia(datosTurno)
+
+' ── 3. Registro de presencia y creación de LlegadaPaciente ─────────────────
+secretaria  ->  sistema         : registrarPresencia(idTurno)
+sistema     ->  agenda          : registrarPresencia(idTurno)
+activate agenda
+
+create llegadaPaciente
+agenda      ->  llegadaPaciente : <<create>>\nnew(idTurno, horaLlegada)
+activate llegadaPaciente
+
+llegadaPaciente ->  turno       : cambiarEstado("Presente")
+activate turno
+turno       -->  llegadaPaciente : estadoActualizado()
+deactivate turno
+
+llegadaPaciente ->  llegadaPaciente : actualizarPresencia(presente, estadoPresencia)
+
+llegadaPaciente ->  agenda      : registrarHoraLlegada(horaLlegada)
+agenda      -->  llegadaPaciente : horaRegistrada()
+
+deactivate llegadaPaciente
+
+' ── 5. Cancelación de recordatorios pendientes ─────────────────────────────
+agenda      ->  agenda          : cancelarRecordatoriosPendientes(idTurno)
+agenda      -->  agenda         : recordatoriosCancelados()
+
+agenda      -->  sistema        : checkInRegistrado(timestampLlegada, nuevoEstado)
+deactivate agenda
+
+' ── 6. Confirmación a la secretaria ────────────────────────────────────────
+sistema     -->  secretaria     : confirmarCheckIn(timestampLlegada, nuevoEstado)
+deactivate sistema
+
+@enduml

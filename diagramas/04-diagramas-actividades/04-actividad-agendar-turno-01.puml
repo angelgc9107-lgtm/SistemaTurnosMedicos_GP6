@@ -1,0 +1,101 @@
+@startuml 04-actividad-agendar-turno-01
+
+skinparam backgroundColor #FFFFFF
+skinparam activity {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+    DiamondBackgroundColor #DBEAFE
+    DiamondBorderColor #2563EB
+    StartColor #1D4ED8
+    EndColor #1D4ED8
+}
+skinparam swimlane {
+    BorderColor #93C5FD
+    TitleBackgroundColor #BFDBFE
+    TitleFontColor #1E3A8A
+    TitleFontSize 13
+}
+skinparam ArrowFontColor #1D4ED8
+skinparam NoteBorderColor #93C5FD
+skinparam NoteBackgroundColor #EFF6FF
+
+title CU1 - Diagrama de Actividades: Agendar Turno
+
+|Paciente|
+start
+:Solicitar turno\nen recepción;
+
+|Secretaria|
+:Seleccionar opción\n"Nuevo Turno" en la agenda;
+:Ingresar datos del paciente\n(Apellido, Nombre, DNI, Sexo, Edad);
+:Seleccionar tipo de consulta\ny médico asignado;
+
+note right
+  Tipos: "Primera vez" (30 min)
+  o "Control" (15 min) — RF2
+end note
+
+|Sistema|
+:Presentar calendario\nsemanal del médico;
+
+|Secretaria|
+:Seleccionar día\nde la agenda;
+
+|Sistema|
+:Mostrar horarios disponibles\n(ocultar bloqueados y ocupados);
+
+|Secretaria|
+:Elegir horario disponible;
+
+|Sistema|
+if (¿Horario cumple restricciones?) then (NO)
+  :Informar restricción\n(RF5: sin "Primera vez"\nviernes tarde / sin\nprocedimientos lunes);
+  |Secretaria|
+  :Seleccionar otro horario;
+  |Sistema|
+else (SÍ)
+  if (¿Horario disponible?) then (NO)
+    :Notificar conflicto\nde horario;
+    |Secretaria|
+    if (¿Agendar como sobreturno?) then (SÍ)
+      :Seleccionar opción\n"Sobreturno";
+      |Sistema|
+      :Registrar sobreturno\nen agenda;
+    else (NO)
+      :Seleccionar otro\nhorario o día;
+      |Sistema|
+    endif
+    :Volver al flujo principal\nde selección de horario;
+  else (SÍ)
+  endif
+endif
+
+|Secretaria|
+:Confirmar el turno;
+
+|Sistema|
+:Registrar turno en estado\n"Pendiente";
+:Bloquear franja horaria\nsegún tipo de turno\n(30 min / 15 min);
+:Enviar confirmación\npor WhatsApp al paciente;
+
+note right
+  Notificación inmediata
+  con día y horario — RF7
+end note
+
+:Programar recordatorios\nautomáticos;
+
+note right
+  Recordatorio 1: 24 horas antes
+  Recordatorio 2: 8:00 AM del día — RF7
+end note
+
+:Confirmar alta exitosa\ndel turno en pantalla;
+
+|Paciente|
+:Recibir confirmación\npor WhatsApp;
+
+stop
+
+@enduml
