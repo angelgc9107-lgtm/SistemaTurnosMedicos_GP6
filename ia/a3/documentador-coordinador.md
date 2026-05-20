@@ -1,4 +1,4 @@
-# Uso de Copilot Agent Mode - Documentador y Coodinador
+# Uso de Copilot Agent Mode - Documentador y Coordinador
 ## Prompt utilizado
 ```
 Actúa como un Senior Software Engineer realizando una code review profesional de esta Pull Request:
