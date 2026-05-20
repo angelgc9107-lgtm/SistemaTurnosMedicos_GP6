@@ -2,7 +2,7 @@
 ## [Released  Actividad Obligatoria N°3] 2026-05-21
 
 ### Added
-- [feature/esp-actividades-3-4-5-add-diagrama-actividad3] Creacion de la carpeta 04-diagramas-actividades/04-actividad-reprogramar-turno-03.puml y .png ; 04-actividad-bloquear-horarios-04.puml y .png ; 04-actividad-visualizar-agenda-05.puml y .png , creacion de carpeta ia/a3/esp-actividades-3-4-5.md PR: [](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/) — @luchobarrionuevo13 (Especialista en diagramas de actividades - casos de uso 3,4 y 5)
+- [feature/esp-actividades-3-4-5-add-diagrama-actividad3] Creacion de la carpeta 04-diagramas-actividades/04-actividad-[Nombre]-03-04 y 05.puml y png, creacion de carpeta ia/a3/esp-actividades-3-4-5.md PR: [#146](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/146) — @luchobarrionuevo13 (Especialista en diagramas de actividades - CU3 - CU4 Y CU5)
 
 ## [Released Primer-Parcial] 2026-04-26
 

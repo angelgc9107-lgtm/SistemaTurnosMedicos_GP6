@@ -142,78 +142,173 @@ comandos git para revisar cambios, agregar, commitear y subir la rama.
 
 ## Ajustes Realizados al Resultado de la IA
 
-### Diagrama CU-03: Reprogramar Turno
-**Cambios respecto a la propuesta inicial**:
-- Adicionado swimlane `SistemaWhatsApp` separado para la notificación, reflejando mejor la arquitectura del sistema
-- Incorporado flujo de decisión para validar si el turno existe antes de proceder
-- Utilizado `fork/endfork` para las 4 operaciones paralelas del sistema: liberar franja anterior, actualizar turno, bloquear nuevo horario, registrar en historial
-- Agregadas referencias a requisitos (RF5, RF6, RNF4) en actividades específicas
+### Iteración Inicial: Correcciones por Revisión de Código
+Tras revisión por el equipo de arquitectura, se realizaron correcciones significativas en los diagramas para mejorar la semántica UML y coherencia OO:
 
-### Diagrama CU-04: Bloquear Horarios
-**Cambios respecto a la propuesta inicial**:
-- Incluida decisión para validación de datos ingresados con opción de corrección
-- Adicionada decisión para detectar turnos conflictivos en el rango antes de aplicar bloqueo
-- Implementado `fork/endfork` para las 3 operaciones paralelas: actualizar visualización, asociar motivo, invalidar franjas
-- Estructura que refleja flujo bidireccional entre Médico y Secretaria (el médico informa, la secretaria ejecuta)
+#### Diagrama CU-03: Reprogramar Turno (04-actividad-reprogramar-turno-03.puml)
+**Correcciones aplicadas**:
+1. **Evento detonante agregado**: Se adicionaron las actividades iniciales en swimlane Paciente:
+   - "Presentarse en recepción del consultorio"
+   - "Solicitar reprogramación de su turno"
+   - Estas actividades ahora aparecen inmediatamente después de `start`, modelando el evento detonante real del caso de uso
 
-### Diagrama CU-05: Visualizar Agenda
-**Cambios respecto a la propuesta inicial**:
-- Refactorizado swimlane de usuario como genérico (Secretaria/Médico) con indicación clara en actividad
-- Agregada decisión para validar autenticación del usuario
-- Adicionada decisión para selección de vista (Día vs Semana)
-- Implementado `fork/endfork` para las 3 operaciones paralelas: obtener turnos, obtener horarios bloqueados, obtener estados
-- Incorporada navegación interactiva con decisión de cambio de período
-- Incluidas referencias a requisitos (RF4, RF6, RF8, CU-04)
+2. **Eliminación de fork/endfork incorrecto**: 
+   - ANTES: 4 acciones en paralelo (fork/endfork) que violaban la semántica UML
+   - AHORA: Secuencia correcta de operaciones dependientes:
+     - Liberar franja horaria anterior (Agenda)
+     - Actualizar turno con nueva fecha y horario
+     - Bloquear nuevo horario (GestorBloqueos)
+   - El fork/endfork ahora SOLO se aplica a tareas realmente independientes:
+     - Registrar cambio en historial (RNF4)
+     - Preparar y enviar notificación WhatsApp
+
+3. **Referencias a componentes OO**: Se agregaron explícitamente en paréntesis las clases del modelo:
+   - Agenda: para gestión de disponibilidad
+   - ValidadorDisponibilidad: para validación de restricciones
+   - GestorBloqueos: para bloqueo de nuevos horarios
+
+**Justificación**: El escenario A2 especifica pasos secuenciales (paso 8 → 9 → 10), y RNF4 requiere atomicidad de la transacción. Las acciones de historial y notificación sí pueden procesarse en paralelo al ser independientes de la persistencia del Turno.
+
+#### Diagrama CU-04: Bloquear Horarios (04-actividad-bloquear-horarios-04.puml)
+**Correcciones aplicadas**:
+1. **Evento detonante agregado**: Se adicionaron actividades iniciales en swimlane Médico:
+   - "Acceder al sistema con credenciales"
+   - "Ingresar a módulo de gestión de agenda"
+   - Coherente con RF4 (validación de roles) y el escenario que presupone autenticación
+
+2. **Reemplazo de if/else por repeat/repeat while**:
+   - ANTES: `if (¿Datos válidos?) then ... else (corregir) ... endif` — el flujo caía al procesamiento incluso con datos inválidos
+   - AHORA: `repeat ... repeat while (¿Datos válidos?) is (no - corregir)` — el flujo retorna al ingreso hasta validación exitosa
+   - Semántica UML correcta: el bucle asegura que los datos sean válidos antes de continuar
+
+3. **Eliminación de fork/endfork incorrecto**:
+   - ANTES: 3 acciones en paralelo (actualizar calendario, asociar motivo, invalidar franjas)
+   - AHORA: Convertidas a secuencia lineal, reflejando que las operaciones del GestorBloqueos son atómicas
+
+4. **Referencias a componentes OO**: Se agregó explícitamente GestorBloqueos (la clase responsable del bloqueo)
+
+**Justificación**: El modelo OO define GestorBloqueos.bloquearRango() como operación atómica secuencial, no como acciones paralelas.
+
+#### Diagrama CU-05: Visualizar Agenda (04-actividad-visualizar-agenda-05.puml)
+**Correcciones aplicadas**:
+1. **Eliminación de término genérico |Usuario|**:
+   - ANTES: `|Usuario|` — carril genérico que rompe coherencia con modelo OO
+   - AHORA: `|Secretaria/Médico|` — roles concretos definidos en tarjetas CRC
+   - Elimina ambigüedad y mantiene coherencia con jerarquía Persona → Secretaria/Médico
+
+2. **Mejora de robustez if/else**:
+   - ANTES: `if (¿Día o Semana?) then Día else Semana` — asume que no-Día implica Semana
+   - AHORA: `if/elseif/else` con 3 ramas explícitas:
+     - Día → elegir vista "Día"
+     - elseif Semana → elegir vista "Semana"
+     - else → mostrar error y stop (opción no válida/no soportada)
+   - Semántica UML correcta y defensiva ante futuras extensiones
+
+3. **Referencias a componentes OO**: Se agregaron explícitamente:
+   - Agenda: para consultas de turnos
+   - GestorBloqueos: para obtener horarios bloqueados
+   - VistaCalendario: para renderización
+
+**Justificación**: Mejora robustez del diagrama ante cambios futuros y es consistente con el modelo OO.
+
+### Resumen de Correcciones Aplicadas
+
+| Corrección | CU-03 | CU-04 | CU-05 | Tipo |
+|-----------|-------|-------|-------|------|
+| Evento detonante agregado | ✅ | ✅ | — | Semántica UML |
+| Fork/endfork incorrecto removido | ✅ | ✅ | — | Concurrencia |
+| If/else mejorado a if/elseif/else | — | ✅ (repeat) | ✅ | Robustez |
+| Términos genéricos eliminados | — | — | ✅ | Coherencia OO |
+| Referencias a componentes OO agregadas | ✅ | ✅ | ✅ | Trazabilidad |
 
 ---
 
 ## Iteraciones Relevantes
 
-### Iteración 1: Análisis Inicial
+### Iteración 1: Análisis Inicial y Creación Base
 - Revisión exhaustiva de los 3 casos de uso en `diagramas/02-casos-de-uso/`
 - Lectura completa de los 3 escenarios principales en `diagramas/03-escenarios-casos-de-uso/`
-- Identificación de actores, actividades y flujos para cada caso de uso
+- Análisis del diagrama de clases (01-solid-01-srp-01.puml) para identificar componentes OO del dominio
+- Identificación de actores (Paciente, Secretaria, Médico) y componentes (Agenda, ValidadorDisponibilidad, GestorBloqueos)
 - Mapeo de decisiones y bifurcaciones justificadas por los escenarios
+- Creación inicial de 3 diagramas PlantUML con sintaxis de swimlanes
 
 ### Iteración 2: Diseño de Estructura
 - Determinación de swimlanes específicos para cada diagrama basado en actores y componentes
-- Extracción de al menos 10-14 actividades por diagrama desde los pasos de escenarios
-- Identificación de puntos de decisión naturales en los flujos
-- Definición de bifurcaciones (fork/endfork) para operaciones paralelas del sistema
+- Extracción de 11-14 actividades por diagrama desde los pasos de escenarios
+- Identificación de puntos de decisión naturales en los flujos (búsqueda de turno, validación de datos, selección de vista)
+- Definición inicial de bifurcaciones fork/endfork
 
 ### Iteración 3: Síntesis en PlantUML
 - Conversión de flujos a sintaxis PlantUML válida con carriles verticales
 - Incorporación de referencias a requisitos funcionales (RF3, RF4, RF5, RF6, RF7, RF8) y no funcionales (RNF4, RNF5)
 - Validación de sintaxis: @startuml/@enduml, |NombreCarril|, :Actividad;, if/then/else/endif, fork/endfork
-- Asegurar que cada diagrama tiene mínimo 10 actividades y 3+ swimlanes
+- Generación de PNG desde PlantUML
 
-### Iteración 4: Completitud Funcional
-- CU-03: Incluyó 4 bifurcaciones paralelas que representan la atomicidad del cambio de turno
-- CU-04: Agregó flujo de corrección de datos y validación de conflictos
-- CU-05: Incorporó navegación y decisión de selección de vista
+### Iteración 4: Revisión de Código - Correcciones por IA Review
+**Problemas detectados**:
+- fork/endfork incorrectamente aplicado a operaciones con dependencias de orden
+- Flujo de validación incorrecto en CU-04 (if/else en lugar de repeat/repeat while)
+- Términos genéricos (|Usuario|) rompiendo coherencia OO
+- Eventos detonantes faltantes al inicio de los diagramas
+- if/else binario frágil en CU-05
+
+**Correcciones aplicadas**:
+1. **CU-03**: Agregado evento detonante + remover fork paralelo incorrecto → mantener secuencia + fork solo para historial/notificación
+2. **CU-04**: Agregado evento detonante + reemplazar if/else por repeat while + remover fork paralelo
+3. **CU-05**: Reemplazar |Usuario| por |Secretaria/Médico| + mejorar if/else a if/elseif/else
+
+**Referencia**: Observaciones del reviewer Piastrellini sobre semántica UML y consistencia OO
 
 ---
 
 ## Breve Conclusión del Proceso
 
-El proceso de creación de estos 3 diagramas de actividades se basó íntegramente en los artefactos documentales existentes (casos de uso y escenarios). No se inventaron flujos nuevos; todos los elementos provienen de la especificación funcional ya completada.
+El proceso de creación de estos 3 diagramas de actividades se basó íntegramente en los artefactos documentales existentes (casos de uso, escenarios y modelo de clases). No se inventaron flujos nuevos; todos los elementos provienen de la especificación funcional y arquitectónica ya completada.
 
-**Puntos clave alcanzados**:
-- ✅ 3 diagramas PlantUML válidos con sintaxis de swimlanes correcta
-- ✅ 11-14 actividades por diagrama, superando el mínimo de 10
-- ✅ 3-4 swimlanes por diagrama, todos con actores/componentes del dominio
-- ✅ Decisiones y bifurcaciones justificadas por escenarios
-- ✅ Referencias explícitas a requisitos funcionales y no funcionales
-- ✅ Índice actualizado en `diagramas_de_actividades.md`
-- ✅ Documentación de IA completa con contexto y trazabilidad
+### Primera Fase: Creación Inicial
+Se desarrollaron 3 diagramas PlantUML funcionales que cumplían con requisitos mínimos (10+ actividades, 3+ swimlanes, decisiones y bifurcaciones). Los diagramas modelaban correctamente los flujos de negocio y eran sintácticamente válidos en PlantUML.
 
-Los diagramas están listos para:
-- Generación de PNG usando PlantUML
-- Revisión en la rama `feature/esp-actividades-3-4-5-add-diagrama-actividad3`
-- Integración a develop tras aprobación
+### Segunda Fase: Correcciones por Revisión de Código
+Tras análisis por el equipo de arquitectura y observaciones del reviewer, se identificaron y corrigieron 5 categorías de problemas:
+
+1. **Semántica UML**: Corrección de fork/endfork para operaciones con dependencia de orden
+2. **Validación de Flujos**: Reemplazo de if/else frágil por repeat/repeat while en CU-04
+3. **Coherencia OO**: Eliminación de términos genéricos y agregación de referencias a componentes
+4. **Eventos Detonantes**: Inclusión explícita de actividades iniciales que modelan el inicio real del caso de uso
+5. **Robustez**: Mejora de if/else binario a if/elseif/else para manejar opciones inválidas
+
+### Puntos Clave Alcanzados
+
+**Correcciones Aplicadas**:
+- ✅ CU-03: Evento detonante + secuencia correcta + fork solo para tareas independientes
+- ✅ CU-04: Evento detonante + repeat loop para validación + secuencia en GestorBloqueos
+- ✅ CU-05: Eliminación de |Usuario| genérico + if/elseif/else robusto
+- ✅ Todos los diagramas: Agregadas referencias explícitas a componentes OO (Agenda, GestorBloqueos, ValidadorDisponibilidad, VistaCalendario)
+
+**Validación UML y Código**:
+- ✅ 3 diagramas PlantUML válidos sin errores de sintaxis
+- ✅ 11-14 actividades por diagrama (superando mínimo de 10)
+- ✅ 2-4 swimlanes por diagrama con actores/componentes del dominio
+- ✅ Decisiones y bifurcaciones correctamente semánticas
+- ✅ Flujos coherentes con escenarios de A2
+
+**Trazabilidad y Documentación**:
+- ✅ Índice actualizado en `diagramas/04-diagramas-actividades/diagramas_de_actividades.md`
+- ✅ Documentación de IA completa con análisis, correcciones e iteraciones
+- ✅ Referencias explícitas a casos de uso, escenarios y componentes OO
+
+### Estado Final
+Los diagramas ahora cumplen con estándares UML 2.0, son coherentes con el modelo de dominio OO, y están alineados con las observaciones del reviewer. Están listos para:
+- Generación de PNG usando PlantUML (ya realizada)
+- Revisión en Pull Request en la rama `feature/esp-actividades-3-4-5-add-diagrama-actividad3`
+- Integración a `develop` tras aprobación
+- Inclusión en documentación de arquitectura y referencia para futuros desarrollos
 
 ---
 
-**Fecha de elaboración**: 2026-05-18  
-**Rol responsable**: Especialista en Diagramas de Actividades - casos de uso 3, 4 y 5  
-**Estado**: Completado
+**Fecha de elaboración inicial**: 2026-05-18  
+**Fecha de correcciones**: 2026-05-20  
+**Rol responsable**: Especialista en Diagramas de Actividades  
+**Revisor**: Equipo de Arquitectura / Reviewer Piastrellini  
+**Estado**: ✅ Completado con Correcciones Aplicadas

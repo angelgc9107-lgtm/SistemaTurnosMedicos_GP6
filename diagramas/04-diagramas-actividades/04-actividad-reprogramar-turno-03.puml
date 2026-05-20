@@ -2,7 +2,8 @@
 
 |Paciente|
 start
-:Solicitar reprogramación\nde turno en recepción;
+:Presentarse en recepción\ndel consultorio;
+:Solicitar reprogramación\nde su turno;
 
 |Secretaria|
 :Buscar turno existente\ncon datos del paciente;
@@ -16,26 +17,25 @@ else (no)
 endif
 
 |SistemaTurnosMedicos|
-:Obtener disponibilidad\nde calendario;
-:Validar restricciones\nhorarias (RF5, RF6);
+:Obtener disponibilidad\nde calendario (Agenda);
+:Validar restricciones\nhorarias (RF5, RF6)\ncon ValidadorDisponibilidad;
 
 |Secretaria|
 :Seleccionar nuevo día\ny horario disponible;
 :Confirmar reprogramación\n(confirmación explícita);
 
 |SistemaTurnosMedicos|
-fork
-    :Liberar franja horaria\nanterior en agenda;
-fork again
-    :Actualizar turno con\nnueva fecha y horario;
-fork again
-    :Bloquear nuevo horario\nen calendario;
-fork again
-    :Registrar cambio\nen historial (RNF4);
-endfork
+:Liberar franja horaria\nanterior en agenda (Agenda);
+:Actualizar turno con\nnueva fecha y horario;
+:Bloquear nuevo horario\nen calendario (GestorBloqueos);
 
-|SistemaWhatsApp|
-:Enviar notificación\nal paciente;
+fork
+    :Registrar cambio\nen historial (RNF4);
+fork again
+    |SistemaWhatsApp|
+    :Preparar notificación\nal paciente;
+    :Enviar notificación\ncon nuevo día y horario;
+endfork
 
 |SistemaTurnosMedicos|
 :Confirmar operación\nexitosa en pantalla;

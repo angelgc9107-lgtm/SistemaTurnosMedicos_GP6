@@ -2,40 +2,40 @@
 
 |Médico|
 start
+:Acceder al sistema\ncon credenciales;
+:Ingresar a módulo\nde gestión de agenda;
 :Informar período de\nindisponibilidad con motivo;
 :Especificar rango de fechas\ny horarios a bloquear;
 
 |Secretaria|
 :Ingresar al calendario\ndel sistema;
-:Seleccionar rango de fechas\ny horarios indicado;
-:Ingresar motivo u observación\ndel bloqueo;
 
-if (¿Datos válidos?) then (sí)
-    :Confirmar bloqueo\ndel rango seleccionado;
-else (no)
-    :Corregir datos ingresados;
-    :Reintentar ingreso;
-endif
+repeat
+    :Seleccionar rango de fechas\ny horarios indicado;
+    :Ingresar motivo u observación\ndel bloqueo;
+    
+    |SistemaTurnosMedicos|
+    :Validar formato de datos\ny rango de fechas;
+    
+    |Secretaria|
+repeat while (¿Datos válidos?) is (no - corregir)
 
 |SistemaTurnosMedicos|
+:Confirmar ingreso de datos;
 :Validar rango de fechas;
 
-if (¿Existen turnos\nen rango?) then (sí)
+if (¿Existen turnos\nasignados en rango?) then (sí)
     :Verificar estado de turnos\nen las franjas;
+    :Registrar advertencia de\nturnos en rango;
 else (no)
     :Proceder a bloqueo;
 endif
 
-:Registrar bloqueo\nen la agenda;
+:Registrar bloqueo\nen la agenda (GestorBloqueos);
 :Marcar franjas como\nno disponibles (RF3);
-
-fork
-    :Actualizar calendario\ncon visualización diferenciada;
-fork again
-    :Asociar motivo del bloqueo\na cada franja;
-fork again
-    :Invalidar franjas para\nnuevos turnos;
-endfork
+:Actualizar calendario\ncon visualización diferenciada;
+:Asociar motivo del bloqueo\na cada franja;
+:Invalidar franjas para\nnuevos turnos;
 
 :Confirmar bloqueo\nexitoso en pantalla;
 
