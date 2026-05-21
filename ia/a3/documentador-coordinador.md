@@ -373,4 +373,3 @@ COMMENT ONLY
 **Respuesta:** Copilot detectó problemas de modelado UML y consistencia de diseño OO, recomendando REQUEST CHANGES. Tras la revisión humana, se rechazaron los hallazgos #1 y #2 por ser falsos positivos, y se aceptaron las demás observaciones técnicas.
 
 **Observación:** Se observó que los hallazgos #1 y #2 correspondían a falsos positivos generados por Copilot. El formato utilizado en changelog.md era válido según el criterio del proyecto y no existían líneas duplicadas en diagramasUML.md, sino un reemplazo correcto de contenido.
-
