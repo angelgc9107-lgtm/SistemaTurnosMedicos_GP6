@@ -53,7 +53,7 @@ if (¿Turno encontrado?) then (NO)
   else (NO)
     :Informar al paciente\nque no tiene turno\nasignado para hoy;
     |Paciente|
-    stop
+    end
   endif
 else (SÍ)
   :Mostrar datos del turno\nencontrado;
@@ -67,7 +67,7 @@ if (¿Turno en estado "Pendiente"?) then (NO)
   :Informar que el turno\nno está en estado válido\npara check-in;
   |Recepcionista|
   :Revisar estado\ndel turno con el paciente;
-  stop
+  end
 else (SÍ)
 endif
 
