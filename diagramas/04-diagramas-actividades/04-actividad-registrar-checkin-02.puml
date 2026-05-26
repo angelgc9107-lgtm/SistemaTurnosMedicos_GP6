@@ -48,6 +48,10 @@ if (¿Turno encontrado?) then (NO)
       según RF4 (sin restricción explícita).
       En implementación: considerar
       máximo de intentos para evitar loops.
+      NOTA: El ciclo de reintentos está
+      simplificado en este diagrama.
+      En implementación real modelar
+      con estructura repeat/while.
     end note
     |Sistema|
   else (NO)
@@ -103,6 +107,6 @@ end note
 |Paciente|
 :Pasar a consulta\ncon el médico;
 
-stop
+end
 
 @enduml
