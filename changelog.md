@@ -1,5 +1,5 @@
 ﻿# Changelog
-## [Unrelease Actividad Obligatoria N°3]
+## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
 - [fix/diag-secuencias] Corrección a los archivos de diagramas de secuencias . PR: [#153](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/153) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)

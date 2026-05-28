@@ -62,17 +62,17 @@ create llegadaPaciente
 agenda      ->  llegadaPaciente : <<create>>\nnew(idTurno, horaLlegada)
 activate llegadaPaciente
 
-llegadaPaciente ->  turno       : cambiarEstado
+llegadaPaciente ->  turno       : cambiarEstado("Presente")
 activate turno
-turno       -->  llegadaPaciente : estadoActualizado()
+turno       -->  llegadaPaciente : estadoActualizado
 deactivate turno
 
 llegadaPaciente ->  llegadaPaciente : actualizarPresencia(presente, estadoPresencia)
-
-llegadaPaciente ->  agenda      : registrarHoraLlegada
-
-
+llegadaPaciente -->  turno      : registrarHoraLlegada
+activate turno
+turno --> agenda : estadoActualizado
 deactivate llegadaPaciente
+deactivate turno
 
 ' ── 5. Cancelación de recordatorios pendientes ─────────────────────────────
 agenda      ->  agenda          : cancelarRecordatoriosPendientes(idTurno)
