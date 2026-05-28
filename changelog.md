@@ -1,6 +1,9 @@
 ﻿# Changelog
 ## [Unrelease Actividad Obligatoria N°3]
 
+### Fixed
+- [fix/diag-secuencias] Corrección a los archivos de diagramas de secuencias . PR: [#153](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/153) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
+
 ### Added
 - [feature/esp-secuencia-add-diagrama-secuencia-1] Diagramas de secuencia, actualización del changelog . PR: [#141](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/141) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
 
