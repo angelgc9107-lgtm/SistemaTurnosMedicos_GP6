@@ -37,9 +37,9 @@ activate sistema
 sistema     ->  agenda          : buscarTurnoPaciente(apellido, nombre, dni)
 activate agenda
 agenda      ->  agenda          : filtrarTurnosPorFechaActual(dni, fechaHoy)
-agenda      -->  sistema        : mostrarTurnoEncontrado(datosTurno)
+agenda      -->  sistema        : mostrarTurnoEncontrado
 deactivate agenda
-sistema     -->  secretaria     : mostrarTurnoEncontrado(datosTurno)
+sistema     -->  secretaria     : mostrarTurnoEncontrado
 
 ' ── 2. Selección y verificación del turno ──────────────────────────────────
 secretaria  ->  sistema         : seleccionarTurno(idTurno)
@@ -47,11 +47,11 @@ sistema     ->  agenda          : obtenerTurno(idTurno)
 activate agenda
 agenda      ->  turno           : getEstado()
 activate turno
-turno       -->  agenda         : estado("Pendiente")
+turno       -->  agenda         : estado
 deactivate turno
-agenda      -->  sistema        : datosTurno(turno)
+agenda      -->  sistema        : datosTurno
 deactivate agenda
-sistema     -->  secretaria     : habilitarRegistroPresencia(datosTurno)
+sistema     -->  secretaria     : habilitarRegistroPresencia
 
 ' ── 3. Registro de presencia y creación de LlegadaPaciente ─────────────────
 secretaria  ->  sistema         : registrarPresencia(idTurno)
@@ -62,15 +62,15 @@ create llegadaPaciente
 agenda      ->  llegadaPaciente : <<create>>\nnew(idTurno, horaLlegada)
 activate llegadaPaciente
 
-llegadaPaciente ->  turno       : cambiarEstado("Presente")
+llegadaPaciente ->  turno       : cambiarEstado
 activate turno
 turno       -->  llegadaPaciente : estadoActualizado()
 deactivate turno
 
 llegadaPaciente ->  llegadaPaciente : actualizarPresencia(presente, estadoPresencia)
 
-llegadaPaciente ->  agenda      : registrarHoraLlegada(horaLlegada)
-agenda      -->  llegadaPaciente : horaRegistrada()
+llegadaPaciente ->  agenda      : registrarHoraLlegada
+
 
 deactivate llegadaPaciente
 
@@ -78,11 +78,11 @@ deactivate llegadaPaciente
 agenda      ->  agenda          : cancelarRecordatoriosPendientes(idTurno)
 agenda      -->  agenda         : recordatoriosCancelados()
 
-agenda      -->  sistema        : checkInRegistrado(timestampLlegada, nuevoEstado)
+agenda      -->  sistema        : checkInRegistrado
 deactivate agenda
 
 ' ── 6. Confirmación a la secretaria ────────────────────────────────────────
-sistema     -->  secretaria     : confirmarCheckIn(timestampLlegada, nuevoEstado)
+sistema     -->  secretaria     : confirmarCheckIn
 deactivate sistema
 
 @enduml

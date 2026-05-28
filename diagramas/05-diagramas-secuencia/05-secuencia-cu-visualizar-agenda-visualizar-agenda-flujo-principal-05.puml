@@ -41,9 +41,9 @@ activate sistema
 sistema     ->  agenda              : verificarAcceso(rol)
 activate agenda
 agenda      ->  agenda              : verificarAcceso(rol, matricula)
-agenda      -->  sistema            : vistaHabilitada(rol)
+agenda      -->  sistema            : vistaHabilitada
 deactivate agenda
-sistema     -->  usuario            : vistaHabilitada(rol)
+sistema     -->  usuario            : vistaHabilitada
 
 ' ── 2. El sistema presenta por defecto la vista diaria (paso 2) ────────────
 sistema     ->  agenda              : cargarVistaDiaria(fechaActual)
@@ -51,12 +51,12 @@ activate agenda
 agenda      ->  agenda              : obtenerTurnosPorFecha(fechaActual)
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado(estadoActual)
+turno       -->  agenda             : estado
 deactivate turno
 agenda      ->  agenda              : obtenerBloquesPorFecha(fechaActual)
-agenda      -->  sistema            : calendarioDiario(listaTurnos, bloqueos)
+agenda      -->  sistema            : calendarioDiario
 deactivate agenda
-sistema     -->  usuario            : mostrarVistaDiaria(listaTurnos, bloqueos)
+sistema     -->  usuario            : mostrarVistaDiaria
 
 ' ── 3. El usuario elige la vista y el sistema la presenta (pasos 3-6) ──────
 usuario     ->  sistema             : seleccionarVista(tipoVista, fechaActual)
@@ -65,12 +65,12 @@ activate agenda
 agenda      ->  agenda              : obtenerTurnosPorFecha(fechaActual)
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado(estadoActual)
+turno       -->  agenda             : estado
 deactivate turno
 agenda      ->  agenda              : obtenerBloquesPorFecha(fechaActual)
-agenda      -->  sistema            : calendarioListo(listaTurnos, bloqueos)
+agenda      -->  sistema            : calendarioListo
 deactivate agenda
-sistema     -->  usuario            : mostrarCalendario(listaTurnos, bloqueos)
+sistema     -->  usuario            : mostrarCalendario
 
 ' ── 5. El usuario navega entre fechas (paso 7) ──────────────────────────────
 usuario     ->  sistema             : navegarFecha(direccion)
@@ -79,19 +79,19 @@ activate agenda
 agenda      ->  agenda              : filtrarTurnosPorRango(fechaInicio, fechaFin)
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado(estadoActual)
+turno       -->  agenda             : estado
 deactivate turno
-agenda      -->  sistema            : listaTurnosRango(matricula, listaTurnos)
+agenda      -->  sistema            : listaTurnosRango
 deactivate agenda
-sistema     -->  usuario            : calendarioActualizado(fechaInicio, fechaFin)
+sistema     -->  usuario            : calendarioActualizado
 
 ' ── 6. El usuario cierra la vista ───────────────────────────────────────────
 usuario     ->  sistema             : cerrarVista()
 sistema     ->  agenda              : cerrarVista()
 activate agenda
-agenda      -->  sistema            : vistaCerrada()
+agenda      -->  sistema            : vistaCerrada
 deactivate agenda
-sistema     -->  usuario            : vistaCerrada()
+sistema     -->  usuario            : vistaCerrada
 deactivate sistema
 
 @enduml
