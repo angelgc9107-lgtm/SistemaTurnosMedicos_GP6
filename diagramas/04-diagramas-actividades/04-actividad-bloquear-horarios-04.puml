@@ -1,5 +1,7 @@
 @startuml 04-actividad-bloquear-horarios-04
 
+title Diagrama de Actividades - CU-04 Bloquear Horarios
+
 |Médico|
 start
 :Acceder al sistema\ncon credenciales;
