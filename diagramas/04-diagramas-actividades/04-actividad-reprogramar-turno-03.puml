@@ -1,5 +1,7 @@
 @startuml 04-actividad-reprogramar-turno-03
 
+title Diagrama de Actividades - CU-03 Reprogramar Turno
+
 |Paciente|
 start
 :Presentarse en recepción\ndel consultorio;
@@ -13,7 +15,7 @@ if (¿Turno encontrado?) then (sí)
     :Elegir opción\n"Reprogramar";
 else (no)
     :Informar que turno\nno existe;
-    stop
+    end
 endif
 
 |SistemaTurnosMedicos|
@@ -43,6 +45,6 @@ endfork
 |Secretaria|
 :Ver confirmación\nen pantalla;
 
-stop
+end
 
 @enduml
