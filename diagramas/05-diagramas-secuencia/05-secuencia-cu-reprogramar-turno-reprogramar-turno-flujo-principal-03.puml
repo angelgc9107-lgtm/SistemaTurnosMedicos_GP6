@@ -37,9 +37,9 @@ activate sistema
 sistema     ->  agenda              : obtenerTurnosPorPaciente(apellido, nombre, dni)
 activate agenda
 agenda      ->  agenda              : filtrarTurnosActivos(dni)
-agenda      -->  sistema            : mostrarTurnoEncontrado(datosTurno)
+agenda      -->  sistema            : mostrarTurnoEncontrado
 deactivate agenda
-sistema     -->  secretaria         : mostrarTurnoEncontrado(datosTurno)
+sistema     -->  secretaria         : mostrarTurnoEncontrado
 
 ' ── 2. La secretaria selecciona el turno y elige "Reprogramar" (pasos 3-4) ─
 secretaria  ->  sistema             : seleccionarReprogramar(idTurno)
@@ -47,11 +47,11 @@ sistema     ->  agenda              : obtenerTurno(idTurno)
 activate agenda
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado("Pendiente")
+turno       -->  agenda             : estado
 deactivate turno
-agenda      -->  sistema            : datosTurno(turno)
+agenda      -->  sistema            : datosTurno
 deactivate agenda
-sistema     -->  secretaria         : habilitarSeleccionHorario(datosTurno)
+sistema     -->  secretaria         : habilitarSeleccionHorario
 
 ' ── 3. El sistema presenta el calendario con horarios disponibles (paso 5) ─
 secretaria  ->  sistema             : consultarDisponibilidad(matricula, semana)
@@ -60,15 +60,15 @@ activate agenda
 agenda      ->  agenda              : verificarDisponibilidad(matricula, semana)
 agenda      -->  sistema            : listaHorarios
 deactivate agenda
-sistema     -->  secretaria         : mostrarHorariosDisponibles(listaHorarios)
+sistema     -->  secretaria         : mostrarHorariosDisponibles
 
 ' ── 4. La secretaria selecciona el nuevo día y horario (paso 6) ────────────
 secretaria  ->  sistema             : seleccionarNuevoHorario(nuevaFecha, nuevaHora)
 sistema     ->  agenda              : validarRestricciones(tipoConsulta, nuevaFecha, nuevaHora)
 activate agenda
-agenda      -->  sistema            : horarioValido(horarioSeleccionado)
+agenda      -->  sistema            : horarioValido
 deactivate agenda
-sistema     -->  secretaria         : confirmarHorarioValido(horarioSeleccionado)
+sistema     -->  secretaria         : confirmarHorarioValido
 
 ' ── 5. La secretaria confirma la reprogramación (paso 7) ───────────────────
 secretaria  ->  sistema             : confirmarReprogramacion()
@@ -81,7 +81,7 @@ agenda      ->  agenda              : liberarFranjaAnterior(fechaAnterior, horaA
 ' ── 7. El sistema actualiza el turno y bloquea la nueva franja (paso 9) ────
 agenda      ->  turno               : actualizarFechaHora(nuevaFecha, nuevaHora)
 activate turno
-turno       -->  agenda             : turnoActualizado()
+turno       -->  agenda             : turnoActualizado
 deactivate turno
 agenda      ->  agenda              : bloquearNuevaFranja(nuevaFecha, nuevaHora)
 
@@ -94,15 +94,15 @@ agenda      ->  svcNotificacion     : <<create>>\nnew(canalWhatsApp)
 activate svcNotificacion
 agenda      ->  svcNotificacion     : enviarCambioTurno(telefono, nuevaFecha,\nnuevaHora, nombreMedico)
 agenda      ->  svcNotificacion     : reprogramarRecordatorio(telefono,\nnuevaFecha, nuevaHora)
-svcNotificacion -->  agenda         : notificacionEnviada()
+svcNotificacion -->  agenda         : notificacionEnviada
 destroy svcNotificacion
 deactivate svcNotificacion
 
-agenda      -->  sistema            : reprogramacionExitosa(idTurno,\nnuevaFecha, nuevaHora)
+agenda      -->  sistema            : reprogramacionExitosa
 deactivate agenda
 
 ' ── 10. El sistema confirma la reprogramación exitosa en pantalla (paso 11) ─
-sistema     -->  secretaria         : confirmarReprogramacionExitosa(idTurno,\nnuevaFecha, nuevaHora)
+sistema     -->  secretaria         : confirmarReprogramacionExitosa
 deactivate sistema
 
 @enduml

@@ -43,17 +43,17 @@ secretaria  ->  sistema             : seleccionarRango(fechaInicio, fechaFin)
 activate sistema
 sistema     ->  agenda              : seleccionarRango(fechaInicio, fechaFin)
 activate agenda
-agenda      -->  sistema            : rangoSeleccionado(diasHorarios)
+agenda      -->  sistema            : rangoSeleccionado
 deactivate agenda
-sistema     -->  secretaria         : rangoSeleccionado(diasHorarios)
+sistema     -->  secretaria         : rangoSeleccionado
 
 ' ── 3. La secretaria ingresa el motivo del bloqueo ──────────────────────────
 secretaria  ->  sistema             : ingresarMotivo(motivo)
 sistema     ->  agenda              : ingresarMotivo(motivo)
 activate agenda
-agenda      -->  sistema            : motivoRegistrado()
+agenda      -->  sistema            : motivoRegistrado
 deactivate agenda
-sistema     -->  secretaria         : motivoRegistrado()
+sistema     -->  secretaria         : motivoRegistrado
 
 ' ── 4. La secretaria confirma el bloqueo ────────────────────────────────────
 secretaria  ->  sistema             : confirmarBloqueo(fechaInicio, fechaFin, motivo)
@@ -64,19 +64,19 @@ activate agenda
 agenda      ->  agenda              : obtenerTurnosEnRango(fechaInicio, fechaFin)
 agenda      ->  turno               : getEstado()
 activate turno
-turno       -->  agenda             : estado(estadoActual)
+turno       -->  agenda             : estado
 deactivate turno
 agenda      ->  turno               : getFechaHora()
 activate turno
-turno       -->  agenda             : fechaHora(fecha, hora)
+turno       -->  agenda             : fechaHora
 deactivate turno
 agenda      ->  agenda              : registrarBloqueo(fechaInicio, fechaFin, motivo)
 agenda      ->  agenda              : marcarNoDisponible(fechaInicio, fechaFin)
 
 ' ── 6. El calendario refleja el bloqueo con motivo ──────────────────────────
-agenda      -->  sistema            : bloqueRegistrado(fechaInicio, fechaFin, motivo)
+agenda      -->  sistema            : bloqueRegistrado
 deactivate agenda
-sistema     -->  secretaria         : mostrarBloqueoEnCalendario(fechaInicio, fechaFin, motivo)
+sistema     -->  secretaria         : mostrarBloqueoEnCalendario
 deactivate sistema
 
 @enduml
