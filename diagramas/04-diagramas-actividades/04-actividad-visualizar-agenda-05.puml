@@ -67,6 +67,6 @@ endif
 |Médico|
 :Visualizar agenda actualizada;
 
-end
+stop
 
 @enduml

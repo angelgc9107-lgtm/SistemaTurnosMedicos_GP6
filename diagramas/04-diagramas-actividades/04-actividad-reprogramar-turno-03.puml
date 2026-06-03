@@ -45,6 +45,6 @@ endfork
 |Secretaria|
 :Ver confirmación\nen pantalla;
 
-end
+stop
 
 @enduml

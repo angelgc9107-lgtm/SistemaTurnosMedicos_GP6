@@ -45,6 +45,6 @@ endif
 :Ver confirmación del bloqueo;
 :Observar franjas bloqueadas\ncon motivo en calendario;
 
-end
+stop
 
 @enduml
