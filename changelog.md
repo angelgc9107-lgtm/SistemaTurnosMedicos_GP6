@@ -8,6 +8,8 @@
 
 - [fix/correccion-actividades-casos-3-4-5] Correccion de archivos puml y png. PR: [#156](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/156) — @luchobarrionuevo13 (Especialista en diagramasd de actividades - CU3 - CU4 Y CU5)
 
+- [fix/diag-sec-changelog] Corrección a los archivos de diagramas de secuencias & changelog.md . PR: [#158](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/158) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
+
 ### Added
 - [feature/esp-secuencia-add-diagrama-secuencia-1] Diagramas de secuencia, actualización del changelog . PR: [#141](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/141) — @angelgc9107-lgtm (Especialista de diagramas de secuencia)
 
