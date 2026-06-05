@@ -42,8 +42,8 @@ deactivate agenda
 sistema     -->  secretaria         : mostrarTurnoEncontrado
 
 ' ── 2. La secretaria selecciona el turno y elige "Reprogramar" (pasos 3-4) ─
-secretaria  ->  sistema             : seleccionarReprogramar(idTurno)
-sistema     ->  agenda              : obtenerTurno(idTurno)
+secretaria  ->  sistema             : seleccionarReprogramar(turno)
+sistema     ->  agenda              : obtenerTurno(turno)
 activate agenda
 agenda      ->  turno               : getEstado()
 activate turno
@@ -72,7 +72,7 @@ sistema     -->  secretaria         : confirmarHorarioValido
 
 ' ── 5. La secretaria confirma la reprogramación (paso 7) ───────────────────
 secretaria  ->  sistema             : confirmarReprogramacion()
-sistema     ->  agenda              : reprogramarTurno(idTurno, nuevaFecha, nuevaHora)
+sistema     ->  agenda              : reprogramarTurno(turno, nuevaFecha, nuevaHora)
 activate agenda
 
 ' ── 6. El sistema libera la franja anterior (paso 8) ───────────────────────
