@@ -1,0 +1,108 @@
+@startuml 05-cu03-reprogramar-turno
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+skinparam sequence {
+    ArrowColor          #2C3E50
+    LifeLineBorderColor #8E44AD
+    LifeLineBackgroundColor #E8DAEF
+    BoxBackgroundColor  #FDFEFE
+    BoxBorderColor      #2C3E50
+}
+skinparam participant {
+    BackgroundColor #E8DAEF
+    BorderColor     #8E44AD
+    FontColor       #1A252F
+    FontStyle       bold
+}
+skinparam actor {
+    BackgroundColor #FDEBD0
+    BorderColor     #E67E22
+    FontColor       #1A252F
+    FontStyle       bold
+}
+
+title **CU-03: Reprogramar Turno**\n<size:12>Flujo Principal Exitoso</size>
+
+actor       ":Secretaria"               as secretaria
+participant ":Sistema"                  as sistema
+participant ":Agenda"                   as agenda
+participant ":Turno"                    as turno
+participant ":ServicioNotificacion"     as svcNotificacion
+
+' ── 1. La secretaria busca el turno del paciente (paso 2) ──────────────────
+secretaria  ->  sistema             : buscarTurno(apellido, nombre, dni)
+activate sistema
+sistema     ->  agenda              : obtenerTurnosPorPaciente(apellido, nombre, dni)
+activate agenda
+agenda      ->  agenda              : filtrarTurnosActivos(dni)
+agenda      -->  sistema            : mostrarTurnoEncontrado
+deactivate agenda
+sistema     -->  secretaria         : mostrarTurnoEncontrado
+
+' ── 2. La secretaria selecciona el turno y elige "Reprogramar" (pasos 3-4) ─
+secretaria  ->  sistema             : seleccionarReprogramar(turno)
+sistema     ->  agenda              : obtenerTurno(turno)
+activate agenda
+agenda      ->  turno               : getEstado()
+activate turno
+turno       -->  agenda             : estado
+deactivate turno
+agenda      -->  sistema            : datosTurno
+deactivate agenda
+sistema     -->  secretaria         : habilitarSeleccionHorario
+
+' ── 3. El sistema presenta el calendario con horarios disponibles (paso 5) ─
+secretaria  ->  sistema             : consultarDisponibilidad(matricula, semana)
+sistema     ->  agenda              : obtenerHorariosDisponibles(matricula, semana)
+activate agenda
+agenda      ->  agenda              : verificarDisponibilidad(matricula, semana)
+agenda      -->  sistema            : listaHorarios
+deactivate agenda
+sistema     -->  secretaria         : mostrarHorariosDisponibles
+
+' ── 4. La secretaria selecciona el nuevo día y horario (paso 6) ────────────
+secretaria  ->  sistema             : seleccionarNuevoHorario(nuevaFecha, nuevaHora)
+sistema     ->  agenda              : validarRestricciones(tipoConsulta, nuevaFecha, nuevaHora)
+activate agenda
+agenda      -->  sistema            : horarioValido
+deactivate agenda
+sistema     -->  secretaria         : confirmarHorarioValido
+
+' ── 5. La secretaria confirma la reprogramación (paso 7) ───────────────────
+secretaria  ->  sistema             : confirmarReprogramacion()
+sistema     ->  agenda              : reprogramarTurno(turno, nuevaFecha, nuevaHora)
+activate agenda
+
+' ── 6. El sistema libera la franja anterior (paso 8) ───────────────────────
+agenda      ->  agenda              : liberarFranjaAnterior(fechaAnterior, horaAnterior)
+
+' ── 7. El sistema actualiza el turno y bloquea la nueva franja (paso 9) ────
+agenda      ->  turno               : actualizarFechaHora(nuevaFecha, nuevaHora)
+activate turno
+turno       -->  agenda             : turnoActualizado
+deactivate turno
+agenda      ->  agenda              : bloquearNuevaFranja(nuevaFecha, nuevaHora)
+
+' ── 8. Registro obligatorio del historial de cambio (paso 9 - RNF4) ────────
+agenda      ->  agenda              : registrarCambio(estadoAnterior,\nestadoNuevo, motivo)
+
+' ── 9. El sistema notifica al paciente por WhatsApp (paso 10 - RF7) ─────────
+create svcNotificacion
+agenda      ->  svcNotificacion     : <<create>>\nnew(canalWhatsApp)
+activate svcNotificacion
+agenda      ->  svcNotificacion     : enviarCambioTurno(telefono, nuevaFecha,\nnuevaHora, nombreMedico)
+agenda      ->  svcNotificacion     : reprogramarRecordatorio(telefono,\nnuevaFecha, nuevaHora)
+svcNotificacion -->  agenda         : notificacionEnviada
+destroy svcNotificacion
+deactivate svcNotificacion
+
+agenda      -->  sistema            : reprogramacionExitosa
+deactivate agenda
+
+' ── 10. El sistema confirma la reprogramación exitosa en pantalla (paso 11) ─
+sistema     -->  secretaria         : confirmarReprogramacionExitosa
+deactivate sistema
+
+@enduml
