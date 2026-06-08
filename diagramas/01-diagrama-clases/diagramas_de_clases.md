@@ -1,0 +1,2 @@
+- [Diagrama de clases CU-04](../../diagramas/01-diagrama-clases/04-clase-bloquear-horarios.png)
+- [Diagrama de clases CU-05](../../diagramas/01-diagrama-clases/05-clase-visualizar-agenda.png)
