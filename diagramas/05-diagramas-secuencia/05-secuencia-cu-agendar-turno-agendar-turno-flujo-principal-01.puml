@@ -34,7 +34,7 @@ participant ":ServicioNotificacion" as svcNotificacion
 ' ── 1. Inicio de flujo: selección de nuevo turno ───────────────────────────
 secretaria  ->  sistema         : seleccionarNuevoTurno()
 activate sistema
-sistema     -->  secretaria     : solicitarDatosPaciente()
+sistema     -->  secretaria     : solicitarDatosPaciente
 
 ' ── 2. Ingreso de datos del paciente ───────────────────────────────────────
 secretaria  ->  sistema         : ingresarDatosPaciente(apellido, nombre, sexo,\nedad, dni, tipoConsulta, matricula)
@@ -42,10 +42,10 @@ secretaria  ->  sistema         : ingresarDatosPaciente(apellido, nombre, sexo,\
 sistema     ->  agenda          : consultarDisponibilidad(matricula, semana)
 activate agenda
 agenda      ->  agenda          : verificarDisponibilidad(matricula, semana)
-agenda      -->  sistema        : listaHorariosDisponibles(listaHorarios)
+agenda      -->  sistema        : listaHorariosDisponibles
 deactivate agenda
 
-sistema     -->  secretaria     : mostrarCalendarioSemanal(listaHorarios)
+sistema     -->  secretaria     : mostrarCalendarioSemanal
 
 ' ── 3. Selección de día y horario ──────────────────────────────────────────
 secretaria  ->  sistema         : seleccionarDia(fecha)
@@ -53,20 +53,20 @@ secretaria  ->  sistema         : seleccionarDia(fecha)
 sistema     ->  agenda          : obtenerHorariosDelDia(fecha, matricula)
 activate agenda
 agenda      ->  agenda          : filtrarHorariosDisponibles(fecha, matricula)
-agenda      -->  sistema        : horariosDelDia(listaHorarios)
+agenda      -->  sistema        : horariosDelDia
 deactivate agenda
 
-sistema     -->  secretaria     : mostrarHorariosDelDia(listaHorarios)
+sistema     -->  secretaria     : mostrarHorariosDelDia
 
 secretaria  ->  sistema         : seleccionarHorario(fecha, hora)
 
 sistema     ->  agenda          : validarHorario(tipoConsulta, fecha, hora)
 activate agenda
 agenda      ->  agenda          : validarRestricciones(tipoConsulta, fecha, hora)
-agenda      -->  sistema        : horarioValido(horarioSeleccionado)
+agenda      -->  sistema        : horarioValido
 deactivate agenda
 
-sistema     -->  secretaria     : confirmarHorarioValido(horarioSeleccionado)
+sistema     -->  secretaria     : confirmarHorarioValido
 
 ' ── 4. Confirmación y creación del Turno ───────────────────────────────────
 secretaria  ->  sistema         : confirmarTurno()
@@ -80,7 +80,7 @@ activate turno
 turno       -->  agenda         : :Turno
 
 agenda      ->  turno           : establecerEstado("Pendiente")
-turno       -->  agenda         : estadoEstablecido()
+turno       -->  agenda         : estadoEstablecido
 deactivate turno
 
 agenda      ->  agenda          : bloquearFranjaHoraria(fecha, hora, duracionMinutos)
@@ -90,18 +90,18 @@ create svcNotificacion
 agenda      ->  svcNotificacion : <<create>>\nnew(canalWhatsApp)
 activate svcNotificacion
 agenda      ->  svcNotificacion : enviarConfirmacion(telefono, fechaTurno,\nhoraTurno, nombreMedico)
-svcNotificacion -->  agenda     : confirmacionEnviada()
+svcNotificacion -->  agenda     : confirmacionEnviada
 agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nanticipacion24h)
 agenda      ->  svcNotificacion : programarRecordatorio(telefono, fechaTurno,\nhoraAlerta8am)
-svcNotificacion -->  agenda     : recordatoriosProgramados()
+svcNotificacion -->  agenda     : recordatoriosProgramados
 destroy svcNotificacion
 deactivate svcNotificacion
 
-agenda      -->  sistema        : turnoRegistrado(idTurno, fechaTurno, horaTurno)
+agenda      -->  sistema        : turnoRegistrado
 deactivate agenda
 
 ' ── 6. Confirmación de alta ────────────────────────────────────────────────
-sistema     -->  secretaria     : confirmarAltaTurno(idTurno, fechaTurno, horaTurno)
+sistema     -->  secretaria     : confirmarAltaTurno
 deactivate sistema
 
 @enduml

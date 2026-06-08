@@ -1,8 +1,18 @@
 @startuml 04-actividad-visualizar-agenda-05
 
-|Secretaria/Médico|
+title Diagrama de Actividades - CU-05 Visualizar Agenda
+
+|Secretaria|
 start
 :Acceder a sección "Agenda"\ndesde menú principal;
+
+|Médico|
+:Acceder a sección "Agenda"\ndesde menú principal;
+
+note right
+Secretaria y Médico pueden acceder a la agenda.
+El sistema muestra la información según el rol autenticado.
+end note
 
 |SistemaTurnosMedicos|
 :Validar autenticación\ndel usuario (RF4);
@@ -11,19 +21,19 @@ if (¿Usuario autenticado?) then (sí)
     :Obtener rol de usuario\n(Secretaria/Médico);
 else (no)
     :Requerir autenticación;
-    stop
+    end
 endif
 
 :Cargar vista por defecto\n(Diaria, día actual);
 
-|Secretaria/Médico|
+|Secretaria|
 if (¿Selecciona vista?) then (Día)
     :Elegir vista "Día";
 elseif (Semana) then (Semana)
     :Elegir vista "Semana";
 else (Inválida/No soportada)
     :Mostrar error de opción\nno válida;
-    stop
+    end
 endif
 
 |SistemaTurnosMedicos|
@@ -38,12 +48,10 @@ fork again
 endfork
 
 :Renderizar bloques horarios\nen calendario (VistaCalendario);
-
 :Mostrar datos del paciente\ny estado en cada turno;
-
 :Mostrar motivo del bloqueo\nen franjas no disponibles;
 
-|Secretaria/Médico|
+|Secretaria|
 :Navegar entre fechas\n(siguiente/anterior);
 
 if (¿Desea cambiar período?) then (sí)
@@ -56,7 +64,7 @@ endif
 :Actualizar vista del calendario\ncon nuevo período;
 :Mostrar datos actualizados;
 
-|Secretaria/Médico|
+|Médico|
 :Visualizar agenda actualizada;
 
 stop

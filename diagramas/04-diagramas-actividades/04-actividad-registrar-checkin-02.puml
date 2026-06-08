@@ -48,12 +48,16 @@ if (¿Turno encontrado?) then (NO)
       según RF4 (sin restricción explícita).
       En implementación: considerar
       máximo de intentos para evitar loops.
+      NOTA: El ciclo de reintentos está
+      simplificado en este diagrama.
+      En implementación real modelar
+      con estructura repeat/while.
     end note
     |Sistema|
   else (NO)
     :Informar al paciente\nque no tiene turno\nasignado para hoy;
     |Paciente|
-    stop
+    end
   endif
 else (SÍ)
   :Mostrar datos del turno\nencontrado;
@@ -67,7 +71,7 @@ if (¿Turno en estado "Pendiente"?) then (NO)
   :Informar que el turno\nno está en estado válido\npara check-in;
   |Recepcionista|
   :Revisar estado\ndel turno con el paciente;
-  stop
+  end
 else (SÍ)
 endif
 
