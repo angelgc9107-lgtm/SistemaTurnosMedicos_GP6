@@ -26,80 +26,8 @@ El diagrama de actividades describe la validación de autenticación, la carga d
 El diagrama de secuencia muestra la interacción de Usuario, Sistema, Agenda y Turno al acceder a la agenda, cargar la vista diaria y navegar entre fechas.
 
 ## 5. Diagrama de clases específico
-El diagrama de clases específico para CU-05 se diseñó en PlantUML y está disponible en `diagramas/01-diagrama-clases/05-clase-visualizar-agenda.puml`.
 
-```plantuml
-@startuml CU05-Clases-Visualizar-Agenda
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor #E0F2FE
-    BorderColor #2563EB
-    ArrowColor #1D4ED8
-}
-
-title CU-05 - Diagrama de Clases Específico
-
-class Usuario {
-    - dni: String
-    - rol: String
-    + autenticar(): boolean
-    + accederAgenda(): Resultado
-}
-
-class Secretaria {
-    + accederAgenda(): Resultado
-}
-
-class Medico {
-    + accederAgenda(): Resultado
-}
-
-class Agenda {
-    - listaTurnos: List<Turno>
-    - gestorBloqueos: GestorBloqueos
-    + obtenerVistaDiaria(fecha: Date): Calendario
-    + obtenerVistaSemanal(fechaInicio: Date): Calendario
-    + obtenerTurnosPorFecha(fecha: Date): List<Turno>
-    + obtenerBloqueosPorFecha(fecha: Date): List<Bloqueo>
-}
-
-class VistaCalendario {
-    + mostrarVistaDiaria(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
-    + mostrarVistaSemanal(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
-    + navegarFecha(direccion: String): Date
-}
-
-class Turno {
-    - fecha: Date
-    - hora: Time
-    - paciente: Paciente
-    - medico: Medico
-    - estado: String
-    + getEstado(): String
-    + getFechaHora(): DateTime
-}
-
-class GestorBloqueos {
-    - bloqueos: List<Bloqueo>
-    + obtenerBloqueosPorFecha(fecha: Date): List<Bloqueo>
-    + obtenerMotivo(fecha: Date, hora: Time): String
-}
-
-class Bloqueo {
-    - fechaInicio: Date
-    - fechaFin: Date
-    - motivo: String
-    + contiene(fecha: Date, hora: Time): boolean
-}
-
-Usuario <|-- Secretaria
-Usuario <|-- Medico
-Agenda --> Turno : consulta >
-Agenda --> GestorBloqueos : usa >
-Agenda --> VistaCalendario : presenta >
-GestorBloqueos --> Bloqueo : administra >
-@enduml
-```
+![Diagrama de clases CU-05](../../diagramas/01-diagrama-clases/05-clase-visualizar-agenda.png)
 
 El diagrama muestra que `Agenda` es el componente central para recuperar turnos y bloqueos. `VistaCalendario` es responsable de presentar la información en modo diario o semanal, mientras que `Usuario` determina el acceso autorizado.
 

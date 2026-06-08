@@ -26,80 +26,8 @@ El diagrama de actividades refleja el flujo principal con las swimlanes de Médi
 El diagrama de secuencia describe la interacción entre Secretaria, Sistema, Agenda y Turno. Muestra la confirmación de bloqueo, la verificación de turnos existentes en el rango y la notificación al usuario de que la franja quedó bloqueada.
 
 ## 5. Diagrama de clases específico
-El diagrama de clases específico para CU-04 se diseñó en PlantUML y está disponible en `diagramas/01-diagrama-clases/04-clase-bloquear-horarios.puml`.
 
-```plantuml
-@startuml CU04-Clases-Bloquear-Horarios
-skinparam classAttributeIconSize 0
-skinparam class {
-    BackgroundColor #EFF6FF
-    BorderColor #3B82F6
-    ArrowColor #1D4ED8
-}
-
-title CU-04 - Diagrama de Clases Específico
-
-class Secretaria {
-    + solicitarBloqueo(rango: RangoFechaHora, motivo: String): Resultado
-}
-
-class Medico {
-    + informarIndisponibilidad(rango: RangoFechaHora, motivo: String): void
-}
-
-class Agenda {
-    - listaTurnos: List<Turno>
-    - gestorBloqueos: GestorBloqueos
-    + bloquearRango(rango: RangoFechaHora, motivo: String): Resultado
-    + obtenerTurnosPorRango(rango: RangoFechaHora): List<Turno>
-    + obtenerBloqueosPorRango(rango: RangoFechaHora): List<Bloqueo>
-}
-
-class GestorBloqueos {
-    - bloqueos: List<Bloqueo>
-    + bloquearRango(rango: RangoFechaHora, motivo: String): void
-    + estaBloqueado(fecha: Date, hora: Time): boolean
-    + obtenerMotivo(fecha: Date, hora: Time): String
-}
-
-class Bloqueo {
-    - fechaInicio: Date
-    - fechaFin: Date
-    - motivo: String
-    + contiene(fecha: Date, hora: Time): boolean
-}
-
-class Turno {
-    - fecha: Date
-    - hora: Time
-    - paciente: Paciente
-    - medico: Medico
-    - estado: String
-    + getEstado(): String
-    + getFechaHora(): DateTime
-}
-
-class VistaCalendario {
-    + mostrarBloqueos(bloqueos: List<Bloqueo>): void
-    + mostrarTurnos(turnos: List<Turno>): void
-}
-
-class RangoFechaHora {
-    - fechaInicio: Date
-    - fechaFin: Date
-    - horaInicio: Time
-    - horaFin: Time
-    + validar(): boolean
-}
-
-Secretaria --> Agenda : solicitaBloqueo >
-Medico --> Secretaria : informaIndisponibilidad >
-Agenda --> GestorBloqueos : usa >
-Agenda --> Turno : consulta >
-Agenda --> VistaCalendario : actualiza >
-GestorBloqueos --> Bloqueo : administra >
-@enduml
-```
+![Diagrama de clases CU-04](../../diagramas/01-diagrama-clases/04-clase-bloquear-horarios.png)
 
 Este diseño enfatiza que la `Agenda` centraliza la gestión de bloqueos y turnos, mientras que `GestorBloqueos` almacena los rangos bloqueados y `VistaCalendario` presenta el estado actualizado. La `Secretaria` interactúa con la `Agenda`; el `Médico` provee la información del bloqueo.
 
