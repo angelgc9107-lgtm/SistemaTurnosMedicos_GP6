@@ -99,7 +99,7 @@ A1, referenciando cada RF por su identificador
 - diagramas/01-diagrama-clases/04-clase-visualizar-agenda.png
 
 
-**Observación:**  
+**Observación:** Copilot generó bien los archivos, solo tuvo un error en el formato de los anexos.
 
 ### Interacción 2: Ajuste de formato
 **Promp usado:**
@@ -109,13 +109,3 @@ Se solicitó a copilot que reemplace el codigo de plantUML que aparecia en los a
 **Respuesta:** Copilot cumplio con lo asignado.
 
 **Observación:** Se debio escribir un prompt simple esta vez para que entienda la tarea que debia realizar.
-
-### Interacción 3: 
-**Promp usado:**
-```
-
-```
-
-**Respuesta:** 
-
-**Observacion:** 
