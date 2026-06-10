@@ -61,7 +61,15 @@ class RangoFechaHora {
     + validar(): boolean
 }
 
-Secretaria --> Agenda : solicitaBloqueo >
+class Sistema {
+    + seleccionarRango(fechaInicio: Date, fechaFin: Date): Resultado
+    + ingresarMotivo(motivo: String): Resultado
+    + confirmarBloqueo(fechaInicio: Date, fechaFin: Date, motivo: String): Resultado
+    + mostrarBloqueoEnCalendario(): void
+}
+
+Secretaria --> Sistema : solicitaBloqueo >
+Sistema --> Agenda : delega bloqueo >
 Medico --> Secretaria : informaIndisponibilidad >
 Agenda --> GestorBloqueos : usa >
 Agenda --> Turno : consulta >

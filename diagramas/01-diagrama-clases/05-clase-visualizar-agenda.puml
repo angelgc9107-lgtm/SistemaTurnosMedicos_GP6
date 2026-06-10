@@ -61,8 +61,19 @@ class Bloqueo {
     + contiene(fecha: Date, hora: Time): boolean
 }
 
+class Sistema {
+    + accederAgenda(dni: String, rol: String): Resultado
+    + cargarVistaDiaria(fecha: Date): Calendario
+    + cargarVista(tipoVista: String, fecha: Date): Calendario
+    + navegarFecha(direccion: String): Date
+    + cerrarVista(): void
+}
+
 Usuario <|-- Secretaria
 Usuario <|-- Medico
+Usuario --> Sistema : solicita acceso >
+Sistema --> Agenda : consulta y carga >
+Sistema --> VistaCalendario : presenta >
 Agenda --> Turno : consulta >
 Agenda --> GestorBloqueos : usa >
 Agenda --> VistaCalendario : presenta >
