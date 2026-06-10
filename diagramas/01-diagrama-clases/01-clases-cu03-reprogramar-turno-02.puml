@@ -1,0 +1,155 @@
+@startuml CU03-Clases-ReprogramarTurno-02
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #FFFBEB
+    BorderColor     #D97706
+    ArrowColor      #B45309
+    FontColor       #451A03
+    AttributeFontColor #451A03
+}
+skinparam classFontStyle bold
+skinparam note {
+    BackgroundColor #FEF3C7
+    BorderColor     #FCD34D
+    FontColor       #451A03
+}
+
+title CU-03: Reprogramar Turno\nDiagrama de Clases 2 — Modelo de Dominio e Infraestructura de Soporte
+
+abstract class Persona {
+    # nombre: String
+    # apellido: String
+    # dni: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: boolean
+    --
+    + getNombre(): String
+    + getApellido(): String
+    + getDni(): String
+    + getTelefono(): String
+    + estaActivo(): boolean
+}
+
+class Paciente {
+    - historialMedico: String
+    - nroAfiliado: String
+    --
+    + solicitarTurno(): Turno
+    + cancelarTurno(turno: Turno): void
+    + reprogramarTurno(turno: Turno): void
+    + consultarHistorial(): List<Turno>
+}
+
+class Secretaria {
+    - legajo: String
+    --
+    + buscarTurno(apellido: String, nombre: String, dni: String): void
+    + seleccionarReprogramar(turno: Turno): void
+    + confirmarReprogramacion(): void
+    + gestionarAgenda(): void
+}
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - estado: String
+    - tipoConsulta: String
+    --
+    + getEstado(): String
+    + actualizarFechaHora(nuevaFecha: Date, nuevaHora: Time): void
+    + cambiarEstado(nuevoEstado: String): void
+}
+
+class HistorialTurno {
+    - fechaCambio: Date
+    - fechaAnterior: Date
+    - horaAnterior: Time
+    - fechaNueva: Date
+    - horaNueva: Time
+    - secretaria: String
+    --
+    + registrarCambio(fechaAnterior: Date, horaAnterior: Time, fechaNueva: Date, horaNueva: Time): void
+    + getHistorial(): HistorialTurno
+}
+
+class Agenda {
+    - listaTurnos: List<Turno>
+    - horariosDisponibles: List<String>
+    --
+    + obtenerHorariosDisponibles(matricula: String, semana: Date): List<Time>
+    + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: Time): void
+    + liberarFranjaAnterior(fechaAnterior: Date, horaAnterior: Time): void
+    + bloquearNuevaFranja(nuevaFecha: Date, nuevaHora: Time): void
+}
+
+class ValidadorDisponibilidad {
+    - horariosHabilitados: Map<Date, List<Time>>
+    --
+    + estaDisponible(fecha: Date, hora: Time, tipo: String): boolean
+    + aplicarRestriccionesDia(fecha: Date, tipo: String): boolean
+    + obtenerSlotsLibres(fecha: Date): List<Time>
+}
+
+class GestorBloqueos {
+    - bloqueos: List<Bloqueo>
+    --
+    + bloquearRango(fechaInicio: Date, fechaFin: Date, motivo: String): void
+    + liberarBloqueo(fechaInicio: Date, fechaFin: Date): void
+    + estaBloquedo(fecha: Date, hora: Time): boolean
+    + obtenerMotivo(fecha: Date, hora: Time): String
+}
+
+' ─── Herencia ──────────────────────────────────────────────────
+Persona <|-- Paciente
+Persona <|-- Secretaria
+
+' ─── Asociaciones y composición ────────────────────────────────
+Turno  "0..*" -->  "1"     Paciente           : pertenece a >
+Turno  "1"    *--  "0..*"  HistorialTurno     : tiene historial de >
+Agenda "1"    o--  "0..*"  Turno              : contiene
+
+' ─── Dependencias de infraestructura ───────────────────────────
+Agenda  -->  ValidadorDisponibilidad  : valida restricciones con >
+Agenda  -->  GestorBloqueos           : gestiona bloqueos con >
+Secretaria ..> Agenda                 : gestiona >
+
+' ─── Notas ─────────────────────────────────────────────────────
+note right of ValidadorDisponibilidad
+  Valida disponibilidad respetando
+  restricciones horarias (RF5, RF6).
+  Consultada por Agenda al verificar
+  el nuevo horario propuesto por
+  la secretaria. Cambia sólo si
+  se modifican reglas de disponibilidad.
+end note
+
+note right of GestorBloqueos
+  Bloquea la nueva franja horaria y
+  libera la anterior (RF3).
+  Garantiza que no existan solapamientos.
+  Cambia sólo si se modifican las
+  reglas de bloqueo por ausencias
+  del médico (vacaciones, feriados).
+end note
+
+note bottom of HistorialTurno
+  Composición con Turno: el historial
+  sólo tiene sentido vinculado a un turno.
+  Requisito obligatorio RNF4.
+  Guarda los datos anteriores y nuevos
+  del turno tras cada reprogramación.
+  (CRC: 09-tarjeta-crc-historial-turnos)
+end note
+
+note right of Persona
+  Superclase abstracta con atributos
+  compartidos de identificación y contacto.
+  Paciente puede solicitar la reprogramación
+  de forma presencial a través de la Secretaria.
+  (CRC: 00-tarjeta-crc-persona)
+end note
+
+@enduml

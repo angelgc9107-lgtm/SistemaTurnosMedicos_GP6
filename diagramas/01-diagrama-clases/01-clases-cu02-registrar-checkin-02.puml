@@ -1,0 +1,124 @@
+@startuml CU02-Clases-RegistrarCheckin-02
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #F0FDF4
+    BorderColor     #16A34A
+    ArrowColor      #15803D
+    FontColor       #14532D
+    AttributeFontColor #14532D
+}
+skinparam classFontStyle bold
+skinparam note {
+    BackgroundColor #DCFCE7
+    BorderColor     #86EFAC
+    FontColor       #14532D
+}
+
+title CU-02: Registrar Check-in\nDiagrama de Clases 2 — Jerarquía de Dominio y Modelo de Datos
+
+abstract class Persona {
+    # nombre: String
+    # apellido: String
+    # dni: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: boolean
+    --
+    + getNombre(): String
+    + getApellido(): String
+    + getDni(): String
+    + getTelefono(): String
+    + estaActivo(): boolean
+}
+
+class Paciente {
+    - historialMedico: String
+    - nroAfiliado: String
+    --
+    + solicitarTurno(): Turno
+    + cancelarTurno(turno: Turno): void
+    + reprogramarTurno(turno: Turno): void
+    + consultarHistorial(): List<Turno>
+}
+
+class Medico {
+    - matricula: String
+    - especialidad: String
+    --
+    + definirDisponibilidad(fechaInicio: Date, fechaFin: Date): void
+    + atenderTurno(turno: Turno): void
+    + verListaEspera(): List<Turno>
+    + autorizarSobreturno(): boolean
+}
+
+class Secretaria {
+    - legajo: String
+    --
+    + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): void
+    + seleccionarTurno(turno: Turno): void
+    + registrarPresencia(turno: Turno): void
+    + gestionarAgenda(): void
+}
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - estado: String
+    - tipoConsulta: String
+    --
+    + getEstado(): String
+    + cambiarEstado(nuevoEstado: String): void
+    + registrarHoraLlegada(hora: Time): void
+}
+
+class LlegadaPaciente {
+    - horaLlegada: Time
+    - presente: boolean
+    - estadoPresencia: String
+    --
+    + LlegadaPaciente(turno: Turno, horaLlegada: Time)
+    + cambiarEstado(estado: String): void
+    + actualizarPresencia(presente: boolean, estadoPresencia: String): void
+}
+
+' ─── Herencia ──────────────────────────────────────────────────
+Persona <|-- Paciente
+Persona <|-- Medico
+Persona <|-- Secretaria
+
+' ─── Asociaciones ──────────────────────────────────────────────
+Turno "0..*" --> "1"    Paciente       : pertenece a >
+Turno "0..*" --> "1"    Medico         : asignado a >
+Turno "1"    *--  "0..1" LlegadaPaciente : registra llegada >
+
+' ─── Notas ─────────────────────────────────────────────────────
+note bottom of LlegadaPaciente
+  Composición con Turno: LlegadaPaciente
+  solo existe si el Turno fue efectivamente
+  presentado. No hereda de Persona;
+  representa un acto de llegada,
+  no una identidad de usuario.
+  (CRC: 06-tarjeta-crc-llegada-paciente)
+end note
+
+note right of Medico
+  El médico visualiza al paciente
+  en la sala de espera desde su
+  vista del calendario (RF4), una vez
+  que el check-in fue registrado por
+  la Secretaria. No participa
+  activamente en el flujo de check-in.
+  (CRC: 02-tarjeta-crc-medico)
+end note
+
+note right of Persona
+  Superclase abstracta.
+  Contiene los atributos compartidos
+  de identificación y contacto.
+  Subclases: Paciente, Médico, Secretaria.
+  (CRC: 00-tarjeta-crc-persona)
+end note
+
+@enduml

@@ -1,0 +1,124 @@
+@startuml CU03-Clases-ReprogramarTurno-01
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #FFFBEB
+    BorderColor     #D97706
+    ArrowColor      #B45309
+    FontColor       #451A03
+    AttributeFontColor #451A03
+}
+skinparam classFontStyle bold
+skinparam note {
+    BackgroundColor #FEF3C7
+    BorderColor     #FCD34D
+    FontColor       #451A03
+}
+
+title CU-03: Reprogramar Turno\nDiagrama de Clases 1 — Clases Operacionales del Caso de Uso
+
+class Secretaria {
+    - legajo: String
+    --
+    + buscarTurno(apellido: String, nombre: String, dni: String): void
+    + seleccionarReprogramar(turno: Turno): void
+    + consultarDisponibilidad(matricula: String, semana: Date): void
+    + seleccionarNuevoHorario(nuevaFecha: Date, nuevaHora: Time): void
+    + confirmarReprogramacion(): void
+}
+
+class ControlSistema {
+    + buscarTurno(apellido: String, nombre: String, dni: String): Turno
+    + seleccionarReprogramar(turno: Turno): void
+    + obtenerTurno(turno: Turno): Turno
+    + consultarDisponibilidad(matricula: String, semana: Date): List<Time>
+    + seleccionarNuevoHorario(nuevaFecha: Date, nuevaHora: Time): void
+    + validarRestricciones(tipoConsulta: String, nuevaFecha: Date, nuevaHora: Time): boolean
+    + confirmarReprogramacion(): void
+}
+
+class Agenda {
+    - listaTurnos: List<Turno>
+    - horariosDisponibles: List<String>
+    --
+    + obtenerTurnosPorPaciente(apellido: String, nombre: String, dni: String): List<Turno>
+    + filtrarTurnosActivos(dni: String): List<Turno>
+    + obtenerTurno(turno: Turno): Turno
+    + obtenerHorariosDisponibles(matricula: String, semana: Date): List<Time>
+    + verificarDisponibilidad(matricula: String, semana: Date): boolean
+    + validarRestricciones(tipoConsulta: String, nuevaFecha: Date, nuevaHora: Time): boolean
+    + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: Time): void
+    + liberarFranjaAnterior(fechaAnterior: Date, horaAnterior: Time): void
+    + bloquearNuevaFranja(nuevaFecha: Date, nuevaHora: Time): void
+}
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - estado: String
+    - tipoConsulta: String
+    --
+    + getEstado(): String
+    + actualizarFechaHora(nuevaFecha: Date, nuevaHora: Time): void
+    + cambiarEstado(nuevoEstado: String): void
+}
+
+class HistorialTurno {
+    - fechaCambio: Date
+    - fechaAnterior: Date
+    - horaAnterior: Time
+    - fechaNueva: Date
+    - horaNueva: Time
+    - secretaria: String
+    --
+    + registrarCambio(fechaAnterior: Date, horaAnterior: Time, fechaNueva: Date, horaNueva: Time): void
+    + getHistorial(): HistorialTurno
+}
+
+class ServicioNotificacion {
+    - canalWhatsApp: String
+    - telefono: String
+    --
+    + ServicioNotificacion(canalWhatsApp: String)
+    + enviarCambioTurno(telefono: String, nuevaFecha: Date, nuevaHora: Time, nombreMedico: String): void
+    + reprogramarRecordatorio(telefono: String, nuevaFecha: Date, nuevaHora: Time): void
+}
+
+' ─── Relaciones ────────────────────────────────────────────────
+Secretaria       ..>  ControlSistema         : <<usa>>
+ControlSistema   -->  Agenda                 : delega a
+Agenda           "1" o-- "0..*" Turno        : contiene
+Agenda           "1" *-- "0..*" HistorialTurno : registra en
+Agenda           ..>  ServicioNotificacion   : <<crea y usa>>
+ServicioNotificacion ..> Turno               : notifica cambios de
+
+' ─── Notas ─────────────────────────────────────────────────────
+note right of HistorialTurno
+  Requisito obligatorio RNF4:
+  historial completo de todos los cambios
+  realizados sobre un turno.
+  Registra fechas y horas anteriores
+  y nuevas. La operación es atómica:
+  si falla la persistencia no se libera
+  la franja ni se envía notificación.
+  (CRC: 09-tarjeta-crc-historial-turnos)
+end note
+
+note right of ServicioNotificacion
+  Creada por Agenda para enviar la
+  notificación al paciente vía WhatsApp
+  con el nuevo día y horario del turno (RF7).
+  También reprograma el recordatorio
+  automático al nuevo horario.
+  (CRC: 07-tarjeta-crc-servicio-notificacion)
+end note
+
+note bottom of Agenda
+  Coordina de forma atómica: libera la franja
+  anterior, actualiza el Turno, bloquea la nueva
+  franja, registra en HistorialTurno y crea
+  ServicioNotificacion para notificar al paciente.
+  (CRC: 04-tarjeta-crc-agenda)
+end note
+
+@enduml

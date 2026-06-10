@@ -1,0 +1,100 @@
+@startuml CU02-Clases-RegistrarCheckin-01
+
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #F0FDF4
+    BorderColor     #16A34A
+    ArrowColor      #15803D
+    FontColor       #14532D
+    AttributeFontColor #14532D
+}
+skinparam classFontStyle bold
+skinparam note {
+    BackgroundColor #DCFCE7
+    BorderColor     #86EFAC
+    FontColor       #14532D
+}
+
+title CU-02: Registrar Check-in\nDiagrama de Clases 1 — Clases Operacionales del Caso de Uso
+
+class Secretaria {
+    - legajo: String
+    --
+    + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): void
+    + seleccionarTurno(turno: Turno): void
+    + registrarPresencia(turno: Turno): void
+}
+
+class ControlSistema {
+    + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): Turno
+    + seleccionarTurno(turno: Turno): void
+    + obtenerTurno(turno: Turno): Turno
+    + registrarPresencia(turno: Turno): void
+    + confirmarCheckIn(): void
+}
+
+class Agenda {
+    - listaTurnos: List<Turno>
+    - horariosDisponibles: List<String>
+    --
+    + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): Turno
+    + filtrarTurnosPorFechaActual(dni: String, fechaHoy: Date): List<Turno>
+    + obtenerTurno(turno: Turno): Turno
+    + registrarPresencia(turno: Turno): void
+    + cancelarRecordatoriosPendientes(turno: Turno): void
+}
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - estado: String
+    - tipoConsulta: String
+    --
+    + getEstado(): String
+    + cambiarEstado(nuevoEstado: String): void
+    + registrarHoraLlegada(hora: Time): void
+}
+
+class LlegadaPaciente {
+    - horaLlegada: Time
+    - presente: boolean
+    - estadoPresencia: String
+    --
+    + LlegadaPaciente(turno: Turno, horaLlegada: Time)
+    + cambiarEstado(estado: String): void
+    + actualizarPresencia(presente: boolean, estadoPresencia: String): void
+}
+
+' ─── Relaciones ────────────────────────────────────────────────
+Secretaria      ..>  ControlSistema         : <<usa>>
+ControlSistema  -->  Agenda                 : delega a
+Agenda          "1" o-- "0..*" Turno        : contiene
+Agenda          ..>  LlegadaPaciente        : <<crea>>
+LlegadaPaciente -->  Turno                  : actualiza estado de
+
+' ─── Notas ─────────────────────────────────────────────────────
+note right of LlegadaPaciente
+  Creada por Agenda al registrar la presencia
+  del paciente. Representa el acto de llegada,
+  no una identidad de usuario.
+  El estado del turno pasa a
+  "Presente / En sala de espera".
+  (CRC: 06-tarjeta-crc-llegada-paciente)
+end note
+
+note right of ControlSistema
+  Coordina el flujo de check-in.
+  Recibe la solicitud de la secretaria
+  y delega búsqueda y registro en Agenda.
+  No reemplaza la lógica central de Agenda.
+  (CRC: 08-tarjeta-crc-control-sistemas)
+end note
+
+note bottom of Agenda
+  Coordina la creación de LlegadaPaciente,
+  la actualización del estado del Turno
+  y la cancelación de recordatorios
+  pendientes al registrar el check-in (RF8).
+end note
+
+@enduml

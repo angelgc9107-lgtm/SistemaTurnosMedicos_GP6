@@ -7,3 +7,5 @@
 - [Secretaria](05-tarjeta-crc-secretaria.md)
 - [LlegadaPaciente](06-tarjeta-crc-llegada-paciente.md)
 - [ServicioNotificacion](08-tarjeta-crc-servicio-notificacion.md)
+- [SistemaTurnoMedico](08-tarjeta-crc-sistema-turnos-medicos.md)
+- [HistorialTurnos](09-tarjeta-crc-historial-turnos.md)
