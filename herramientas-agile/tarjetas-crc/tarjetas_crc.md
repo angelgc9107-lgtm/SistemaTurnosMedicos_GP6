@@ -6,4 +6,6 @@
 - [Agenda](04-tarjeta-crc-agenda.md)
 - [Secretaria](05-tarjeta-crc-secretaria.md)
 - [LlegadaPaciente](06-tarjeta-crc-llegada-paciente.md)
-- [ServicioNotificacion](08-tarjeta-crc-servicio-notificacion.md)
+- [ServicioNotificacion](07-tarjeta-crc-servicio-notificacion.md)
+- [ControlSistemas](08-tarjeta-crc-control-sistemas.md)
+- [HistorialTurnos](09-tarjeta-crc-historial-turnos.md)
