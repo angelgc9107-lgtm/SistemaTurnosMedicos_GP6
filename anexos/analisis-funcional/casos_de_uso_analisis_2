@@ -1,0 +1,69 @@
+## Caso de uso 2 - Registrar Check-in
+Actores: Secretaria, Médico.
+
+Descripción: Cuando el paciente llega físicamente, la secretaria lo busca en la agenda y marca su estado como "Presente" o "En sala de espera" para informar al Médico que el paciente se encuentra esperando en la sala de espera. El sistema registra el horario real en que el turno pasó del estado pendiente a presente o en sala.
+
+### Flujo principal:
+
+- El paciente se presenta en la recepción del consultorio.
+- La secretaria busca el turno del paciente en la agenda.
+- La secretaria selecciona el turno y lo marca para pasarlo al estado de "Presente" o "En sala de espera".
+- En el sistema se guarda el horario real en que se presentó el paciente en recepción.
+- El sistema cambia el estado del turno.
+- El Médico puede ver que el paciente ya se encuentra en la sala esperando por la interfaz del calendario.
+
+
+#### Requerimentos referenciados:
+- RF4: Depende el perfil del usuario va a poder registrar el check-in, esto solo lo debe hacer el usuario de perfil secretaria.
+- RF8: Al indicar que el paciente esta presente en la sala de espera se registra con el estado de "check in"
+- RNF5: Los turnos generados solo se gestionan a travez de la agenda, para poder verificar que el paciente tenga un turno con el médico para ese día y horario se verifica a travez de la agenda.
+
+## [Diagrama de Casos de Uso 2 - Registrar Check in](../../diagramas/02-casos-de-uso/02-registrar-checkin-02.png)
+
+
+#### Descripción del diagrama del caso de uso 2
+
+ Actores: Secretaria, Médico
+
+ La secretaria registra la llegada del paciente, el "sistema" interactua con la agenda y busca el turno del paciente y en caso de encontrarlo cambia el estado del turno a "presente" y registra la llegada del paciente. Una vez registrado la llegada del paciente el usuario Médico puede visualizar que el paciente esta "presente" en la sala de espera.
+
+
+## [Diagrama de Actividades - Registrar Check in](../../diagramas/04-diagramas-actividades/04-actividad-registrar-checkin-02.png)
+
+El diagrama de actividades representa el proceso de Registro de Check-in (Llegada del Paciente) dentro del Sistema de Turnos Médicos. El flujo comienza cuando el paciente se presenta en la recepción y la secretaria inicia la búsqueda del turno correspondiente. El sistema valida que exista un turno para la fecha y horario actual y que el paciente aún no haya realizado el check-in.
+Si las validaciones son correctas, el sistema registra la hora real de llegada y actualiza el estado del turno a "Presente" o "En sala de espera". Posteriormente, la información queda disponible para que el médico pueda visualizar los pacientes que se encuentran esperando atención.
+
+### Swimlanes
+- Paciente inicia el proceso al presentarse en recepción (evento físico)
+- Secretaria hace las acciones operativas
+- Sistemas hace las validaciones en la agenda
+- Médico solo visualiza una vez se haya registrado el check in
+
+
+## [Diagrama de Secuencia - Registrar Check in](../../diagramas/05-diagramas-secuencia/05-secuencia-cu-registrar-checkin-registrar-checkin-flujo-principal-02.png)
+
+### Participantes del diagrama
+Secretaria (actor): inicia el caso de uso buscando el turno del paciente, selecciona el turno correspondiente y confirma el registro de presencia.
+Sistema: actúa como intermediario entre la secretaria y las entidades del dominio, coordinando las operaciones necesarias para registrar el check-in.
+Agenda: administra la búsqueda y recuperación de los turnos programados para el paciente en la fecha actual.
+Turno: representa el turno médico específico y contiene la información de estado y horario de llegada.
+LlegadaPaciente (objeto temporal): objeto creado durante la ejecución para registrar la llegada física del paciente y actualizar el estado del turno.
+
+### Mensajes intercambiados
+La Secretaria solicita al Sistema buscar el turno del paciente mediante apellido, nombre y DNI.
+El Sistema consulta a Agenda, que filtra los turnos del paciente para la fecha actual.
+Agenda devuelve el turno encontrado y el Sistema lo muestra a la secretaria.
+La Secretaria selecciona el turno deseado.
+El Sistema solicita a Agenda los datos del turno.
+Agenda consulta al objeto Turno para obtener su estado actual y devuelve la información al sistema.
+El Sistema habilita la opción de registrar la presencia.
+La Secretaria confirma el check-in.
+El Sistema solicita a Agenda registrar la presencia.
+Agenda crea el objeto temporal LlegadaPaciente.
+LlegadaPaciente actualiza el estado del Turno a "Presente" y registra la hora real de llegada.
+Se cancelan los recordatorios pendientes asociados al turno.
+Agenda informa que el check-in fue registrado correctamente.
+El Sistema confirma la operación a la secretaria.
+
+### Objetos temporales creado y destruido
+LlegadaPaciente es un objeto temporal creado durante el registro del check-in (<<create>>).
