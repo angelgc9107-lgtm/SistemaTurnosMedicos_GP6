@@ -1,4 +1,4 @@
-# Uso de Copilot Agent Mode - Especialista en Escenarios de Casos de Uso 
+# Uso de Copilot Agent Mode - Analista Funcional de Casos de Uso 4 y 5 
 
 ## Prompt utilizado
 
@@ -109,3 +109,24 @@ Se solicitó a copilot que reemplace el codigo de plantUML que aparecia en los a
 **Respuesta:** Copilot cumplio con lo asignado.
 
 **Observación:** Se debio escribir un prompt simple esta vez para que entienda la tarea que debia realizar.
+
+### Interacción 3: Ajuste de diagrama UML 
+
+**Promp usado:**
+´´´
+Necesito que solo agregues al diagrama de 05-clase-visualizar-agenda.puml la clase sistema mencionada en 05-secuencia-cu-visualizar-agenda-visualizar-agenda-flujo-principal-05.puml, manteniendo relaciones y coherencia tal cual como lo hiciste al crearlo
+´´´ 
+**Respuesta:** Copilot agregó al diagrama la clase sistema.
+
+**Observación:** Copilot resolvio bien.
+
+### Interacción 4: Ajuste de diagrama UML
+
+**Promp usado:** 
+´´´
+Ahora debes hacer lo mismo con el diagrama 04-clase-bloquear-horarios.puml, la clase sistema se menciona en el archivo 05-secuencia-cu-bloquear-horarios-bloquear-horarios-flujo-principal-04.puml
+´´´
+
+**Respuesta:** Copilot agregó al diagrama la clase sistema.
+
+**Observación:** Copilot resolvio bien.
