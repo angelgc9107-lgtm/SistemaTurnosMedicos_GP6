@@ -1,0 +1,2 @@
+- [Diagrama de clases CU-02](../../diagramas/01-diagrama-clases/02-clase-registrar-checkin.png)
+- [Diagrama de clases CU-03](../../diagramas/01-diagrama-clases/03-clase-reprogramar-turno.png)

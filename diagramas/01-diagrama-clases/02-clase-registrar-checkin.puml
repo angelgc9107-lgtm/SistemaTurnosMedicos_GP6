@@ -15,8 +15,7 @@ skinparam note {
     FontColor       #14532D
 }
 
-title CU-02: Registrar Check-in\nDiagrama de Clases 1 — Clases Operacionales del Caso de Uso
-
+title Diagramas de clases caso de uso 2: Registrar Check-in
 class Secretaria {
     - legajo: String
     --
@@ -67,10 +66,10 @@ class LlegadaPaciente {
 
 ' ─── Relaciones ────────────────────────────────────────────────
 Secretaria      ..>  ControlSistema         : <<usa>>
-ControlSistema  -->  Agenda                 : delega a
+ControlSistema  "1" -->  "1" Agenda         : delega a
 Agenda          "1" o-- "0..*" Turno        : contiene
 Agenda          ..>  LlegadaPaciente        : <<crea>>
-LlegadaPaciente -->  Turno                  : actualiza estado de
+LlegadaPaciente "0..1" --> "1" Turno        : actualiza estado de
 
 ' ─── Notas ─────────────────────────────────────────────────────
 note right of LlegadaPaciente
@@ -86,7 +85,9 @@ note right of ControlSistema
   Coordina el flujo de check-in.
   Recibe la solicitud de la secretaria
   y delega búsqueda y registro en Agenda.
-  No reemplaza la lógica central de Agenda.
+  Respeta RNF5: no gestiona turnos directamente,
+  garantizando que Agenda sea el único
+  componente que controla la gestión de turnos.
   (CRC: 08-tarjeta-crc-control-sistemas)
 end note
 

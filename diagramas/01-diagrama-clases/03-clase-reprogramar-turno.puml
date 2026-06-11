@@ -72,7 +72,6 @@ class HistorialTurno {
     - secretaria: String
     --
     + registrarCambio(fechaAnterior: Date, horaAnterior: Time, fechaNueva: Date, horaNueva: Time): void
-    + getHistorial(): HistorialTurno
 }
 
 class ServicioNotificacion {
@@ -85,12 +84,11 @@ class ServicioNotificacion {
 }
 
 ' ─── Relaciones ────────────────────────────────────────────────
-Secretaria       ..>  ControlSistema         : <<usa>>
-ControlSistema   -->  Agenda                 : delega a
-Agenda           "1" o-- "0..*" Turno        : contiene
-Agenda           "1" *-- "0..*" HistorialTurno : registra en
-Agenda           ..>  ServicioNotificacion   : <<crea y usa>>
-ServicioNotificacion ..> Turno               : notifica cambios de
+Secretaria       ..>  ControlSistema           : <<usa>>
+ControlSistema   "1" -->  "1" Agenda            : delega a
+Agenda           "1" o-- "0..*" Turno            : contiene
+Agenda           "1" *-- "0..*" HistorialTurno   : registra en
+Agenda           ..>  ServicioNotificacion      : <<crea y usa>>
 
 ' ─── Notas ─────────────────────────────────────────────────────
 note right of HistorialTurno
