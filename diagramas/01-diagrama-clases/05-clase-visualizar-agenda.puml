@@ -61,7 +61,7 @@ class Bloqueo {
     + contiene(fecha: Date, hora: Time): boolean
 }
 
-class Sistema {
+class ControlSistema {
     + accederAgenda(dni: String, rol: String): Resultado
     + cargarVistaDiaria(fecha: Date): Calendario
     + cargarVista(tipoVista: String, fecha: Date): Calendario
@@ -71,9 +71,9 @@ class Sistema {
 
 Usuario <|-- Secretaria
 Usuario <|-- Medico
-Usuario --> Sistema : solicita acceso >
-Sistema --> Agenda : consulta y carga >
-Sistema --> VistaCalendario : presenta >
+Usuario --> ControlSistema : solicita acceso >
+ControlSistema --> Agenda : consulta y carga >
+ControlSistema --> VistaCalendario : presenta >
 Agenda --> Turno : consulta >
 Agenda --> GestorBloqueos : usa >
 Agenda --> VistaCalendario : presenta >
