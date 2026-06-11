@@ -1,4 +1,8 @@
 ﻿# Changelog
+## [Released Actividad Obligatoria N°4] - 2026-06-21
+
+### Fixed
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
