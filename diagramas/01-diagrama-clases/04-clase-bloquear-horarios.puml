@@ -22,6 +22,7 @@ class Agenda {
     + bloquearRango(rango: RangoFechaHora, motivo: String): Resultado
     + obtenerTurnosPorRango(rango: RangoFechaHora): List<Turno>
     + obtenerBloqueosPorRango(rango: RangoFechaHora): List<Bloqueo>
+    + getGestorBloqueos(): GestorBloqueos
 }
 
 class GestorBloqueos {

@@ -30,6 +30,7 @@ class Agenda {
     + obtenerVistaSemanal(fechaInicio: Date): Calendario
     + obtenerTurnosPorFecha(fecha: Date): List<Turno>
     + obtenerBloqueosPorFecha(fecha: Date): List<Bloqueo>
+    + getGestorBloqueos(): GestorBloqueos
 }
 
 class VistaCalendario {
