@@ -72,6 +72,8 @@ resolución concreta del problema.
 - En el diagrama de clases de caso de uso 2 se agrego al comentario al lado de "ControlSistema" una referencia a la RNF5
 - Corrección a la cardinalidad en LlegadaPaciente en el diagrama de clases de uso 2
 - Se realizo una modificación para que el pseudocódigo coincida con el template propuesto del caso de uso 2 & 3
+- Se agrego la clase abstracta persona en el archivo del diagrama de clase del caso de uso Registrar checkin.
+- Se agrego la clase abstracta persona en el archivo del diagrama de clase del caso de uso Reprogramar Turno.
 
 
 ### interaciones 1
@@ -179,3 +181,17 @@ Tipos primitivos	horaLlegada = ...	Time horaLlegada = ...
 Instanciaciones	llegada = nuevo LlegadaPaciente(...)	LlegadaPaciente llegada = nuevo LlegadaPaciente(...)
 Rama negativa	SI NO condicion ... FIN SI	SI condicion ... SINO ... FIN SI
 Cierre	sin Retornar	Retornar "..." antes de FIN
+
+### interaciones 7
+```
+En el archivo 02-clase-registrar-checkin.puml debes agregar la superclase de secretaria.
+```
+**Respuesta de Copilot:**
+Listo. Se agregó la clase abstracta Persona con sus atributos estándar (dni, nombre, apellido, telefono, email, rol, estadoActivo) y la relación de herencia Persona <|-- Secretaria, consistente con el resto de los diagramas del proyecto (como 01-clases-agendar-turno-01.puml).
+
+### interaciones 8
+```
+En el archivo 03-clase-reprogramar-turno.puml debes agregar la superclase de secretaria.
+```
+**Respuesta de Copilot:**
+Listo. Se agregó la clase abstracta Persona con sus atributos estándar y la relación Persona <|-- Secretaria, consistente con el resto de los diagramas del proyecto

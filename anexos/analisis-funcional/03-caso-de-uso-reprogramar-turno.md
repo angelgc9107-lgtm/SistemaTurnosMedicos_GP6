@@ -101,6 +101,7 @@ ServicioNotificacion es un objeto temporal que solo tiene la responsabilidad de 
 
 | Relación | Clases | Justificación |
 |----------|--------|---------------|
+| Herencia | `Persona` <|-- `Secretaria` | Secretaria hereda los atributos y comportamientos comunes definidos en la superclase Persona |
 | Dependencia `..>` | `Secretaria` → `ControlSistema` | La Secretaria envía mensajes a ControlSistema solo durante la ejecución del caso de uso. No mantiene referencia persistente: es dependencia y no asociación. |
 | Asociación `-->` | `ControlSistema "1"` → `"1" Agenda` | ControlSistema conoce a Agenda durante todo su ciclo de vida para delegar la reprogramación. Es asociación y no dependencia porque la relación no es puntual. Cardinalidad 1 a 1 por RNF5. |
 | Agregación `o--` | `Agenda "1"` → `"0..*" Turno` | Agenda administra Turnos pero estos tienen identidad propia. Es agregación y no composición porque un Turno puede conceptualmente existir sin estar vinculado a la misma instancia de Agenda. |

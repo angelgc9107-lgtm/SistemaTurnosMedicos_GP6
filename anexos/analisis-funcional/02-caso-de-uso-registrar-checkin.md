@@ -81,12 +81,13 @@ Objetivo: Registrar el horario real en la que el paciente se presenta en recepci
 
 | Relación | Clases | Justificación |
 |----------|--------|---------------|
+| Herencia | `Persona` <|-- `Secretaria` | Secretaria hereda los atributos y comportamientos comunes definidos en la superclase Persona |
 | Dependencia `..>` | `Secretaria` → `ControlSistema` | La Secretaria envía mensajes a ControlSistema solo durante la ejecución del caso de uso. No mantiene referencia persistente: es dependencia y no asociación. |
 | Asociación `-->` | `ControlSistema "1"` → `"1" Agenda` | ControlSistema necesita conocer a Agenda durante todo su ciclo de vida para poder delegarle. Es asociación (referencia permanente) y no dependencia porque la relación no es puntual. Cardinalidad 1 a 1 por RNF5: una única Agenda centraliza la gestión. |
 | Agregación `o--` | `Agenda "1"` → `"0..*" Turno` | Agenda contiene Turnos pero estos tienen identidad propia y pueden existir más allá del ciclo de vida de la Agenda. Es agregación y no composición porque la dependencia de existencia no es absoluta. |
 | Dependencia `..>` `<<crea>>` | `Agenda` → `LlegadaPaciente` | Agenda instancia LlegadaPaciente dentro de `registrarPresencia()` pero no guarda referencia a ella una vez finalizada la operación. Es dependencia de creación y no asociación porque el vínculo no persiste en Agenda. |
 | Asociación `-->` | `LlegadaPaciente "0..1"` → `"1" Turno` | LlegadaPaciente necesita mantener referencia al Turno para actualizar su estado y registrar la hora real de llegada. Un Turno puede tener 0 LlegadaPaciente (si no se registró check-in aún) o exactamente 1 (si el paciente se presentó). Es asociación y no composición porque Turno existe independientemente de LlegadaPaciente. |
-
+| Asociación `-->`  | `LlegadaPaciente "0..1"`` → "1" Turno`  | LlegadaPaciente se vincula al Turno para registrar la llegada del paciente. Un Turno puede no tener check-in registrado o tener uno único. Es asociación porque ambos pueden existir independientemente.   |
 
 ## 6. Pseudocódigo
 ```text

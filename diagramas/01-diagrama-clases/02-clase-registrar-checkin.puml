@@ -16,6 +16,18 @@ skinparam note {
 }
 
 title Diagramas de clases caso de uso 2: Registrar Check-in
+
+abstract class Persona {
+    # dni: String
+    --
+    # nombre: String
+    # apellido: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: Boolean
+}
+
 class Secretaria {
     - legajo: String
     --
@@ -23,6 +35,8 @@ class Secretaria {
     + seleccionarTurno(turno: Turno): void
     + registrarPresencia(turno: Turno): void
 }
+
+Persona <|-- Secretaria
 
 class ControlSistema {
     + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): Turno
@@ -82,13 +96,21 @@ note right of LlegadaPaciente
 end note
 
 note right of ControlSistema
-  Coordina el flujo de check-in.
+  Coordina el flujo de check-in en este caso de uso.
   Recibe la solicitud de la secretaria
   y delega búsqueda y registro en Agenda.
   Respeta RNF5: no gestiona turnos directamente,
   garantizando que Agenda sea el único
   componente que controla la gestión de turnos.
   (CRC: 08-tarjeta-crc-control-sistemas)
+end note
+
+note right of Agenda
+  Coordina la creación de LlegadaPaciente,
+  la actualización del estado del Turno
+  y la cancelación de recordatorios
+  pendientes al registrar el check-in (RF8).
+  Respeta el control centralizado de turnos (RNF5).
 end note
 
 note bottom of Agenda

@@ -17,6 +17,17 @@ skinparam note {
 
 title CU-03: Reprogramar Turno\nDiagrama de Clases 1 — Clases Operacionales del Caso de Uso
 
+abstract class Persona {
+    # dni: String
+    --
+    # nombre: String
+    # apellido: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: Boolean
+}
+
 class Secretaria {
     - legajo: String
     --
@@ -26,6 +37,8 @@ class Secretaria {
     + seleccionarNuevoHorario(nuevaFecha: Date, nuevaHora: Time): void
     + confirmarReprogramacion(): void
 }
+
+Persona <|-- Secretaria
 
 class ControlSistema {
     + buscarTurno(apellido: String, nombre: String, dni: String): Turno
@@ -88,7 +101,7 @@ Secretaria       ..>  ControlSistema           : <<usa>>
 ControlSistema   "1" -->  "1" Agenda            : delega a
 Agenda           "1" o-- "0..*" Turno            : contiene
 Agenda           "1" *-- "0..*" HistorialTurno   : registra en
-Agenda           ..>  ServicioNotificacion      : <<crea y usa>>
+Agenda           ..>  ServicioNotificacion      : <<crea>>
 
 ' ─── Notas ─────────────────────────────────────────────────────
 note right of HistorialTurno
@@ -111,11 +124,22 @@ note right of ServicioNotificacion
   (CRC: 07-tarjeta-crc-servicio-notificacion)
 end note
 
+note right of ControlSistema
+  Coordina el flujo de la reprogramación de turnos en este caso de uso.
+  Recibe la solicitud de la secretaria
+  y delega búsqueda y registro en Agenda.
+  Respeta RNF5: no gestiona turnos directamente,
+  garantizando que Agenda sea el único
+  componente que controla la gestión de turnos.
+  (CRC: 08-tarjeta-crc-control-sistemas)
+end note
+
 note bottom of Agenda
   Coordina de forma atómica: libera la franja
   anterior, actualiza el Turno, bloquea la nueva
   franja, registra en HistorialTurno y crea
   ServicioNotificacion para notificar al paciente.
+  Respeta RNF5 al ser el unico componente que gestiona turnos.
   (CRC: 04-tarjeta-crc-agenda)
 end note
 
