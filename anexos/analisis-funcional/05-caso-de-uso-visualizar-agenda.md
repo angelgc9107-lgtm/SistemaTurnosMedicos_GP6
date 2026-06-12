@@ -1,0 +1,90 @@
+# CU-05: Visualizar agenda (Diaria/Semanal)
+
+## 1. Descripción y trazabilidad con requisitos funcionales de A1
+El caso de uso CU-05 permite que la secretaria y el médico consulten la agenda de turnos en una vista diaria o semanal. El sistema debe mostrar los estados de cada turno, los horarios bloqueados con su motivo y permitir la navegación entre fechas sin modificar los datos.
+
+### Trazabilidad con requisitos de A1
+- **RF1**: La agenda debe presentar un calendario semanal con opción de vista diaria.
+- **RF4**: El acceso está restringido a usuarios autenticados con rol Secretaria o Médico.
+- **RF6**: La vista respeta los horarios habilitados del consultorio y muestra los bloques de cada día.
+- **RF8**: El sistema muestra el estado de los turnos, incluyendo "Pendiente" y "Presente".
+- **RNF5**: La agenda actúa como el único componente centralizado para controlar la visualización de los turnos.
+
+## 2. Diagrama de casos de uso de A2
+![Diagrama de casos de uso CU-05](../../diagramas/02-casos-de-uso/02-visualizar-agenda-05.png)
+
+El diagrama de casos de uso muestra a Secretaria y Médico accediendo a la agenda, seleccionando vista diaria o semanal, navegando fechas y observando horarios bloqueados y estados de turnos.
+
+## 3. Diagrama de actividades de A3
+![Diagrama de actividades CU-05](../../diagramas/04-diagramas-actividades/04-actividad-visualizar-agenda-05.png)
+
+El diagrama de actividades describe la validación de autenticación, la carga de la vista diaria por defecto, la obtención de turnos y bloqueos, y la renderización del calendario con los estados y motivos.
+
+## 4. Diagrama de secuencia de A3
+![Diagrama de secuencia CU-05](../../diagramas/05-diagramas-secuencia/05-secuencia-cu-visualizar-agenda-visualizar-agenda-flujo-principal-05.png)
+
+El diagrama de secuencia muestra la interacción de Usuario, Sistema, Agenda y Turno al acceder a la agenda, cargar la vista diaria y navegar entre fechas.
+
+## 5. Diagrama de clases específico
+
+![Diagrama de clases CU-05](../../diagramas/01-diagrama-clases/05-clase-visualizar-agenda.png)
+
+El diagrama muestra que `Agenda` es el componente central para recuperar turnos y bloqueos. `VistaCalendario` es responsable de presentar la información en modo diario o semanal, mientras que `Usuario` determina el acceso autorizado.
+
+## 6. Coherencia con tarjetas CRC
+- La tarjeta CRC de `Secretaria` define su responsabilidad de "Consultar disponibilidad" y "Gestionar agenda", lo cual valida su rol en CU-05.
+- La tarjeta CRC de `Agenda` describe su capacidad de "Mostrar turnos disponibles" y "Gestionar disponibilidad", lo que coincide con la recuperación de turnos y bloqueos para la vista.
+- La tarjeta CRC de `Turno` refuerza que cada turno aporta un estado visible y una fecha/hora, necesario para la visualización correcta de la agenda.
+
+## 7. Pseudocódigo orientado a objetos
+```pseudo
+class Usuario {
+    autenticar(): boolean
+    accederAgenda(tipoVista, fechaActual): Resultado {
+        if not self.autenticar() then
+            return Resultado.error("Acceso denegado")
+        // Delegación a través de ControlSistema, como muestra el diagrama
+        return ControlSistema.instancia().cargarVista(tipoVista, fechaActual)
+    }
+}
+
+class ControlSistema {
+    cargarVista(tipoVista, fechaActual): Resultado {
+        return Agenda.instancia().mostrarAgenda(tipoVista, fechaActual)
+    }
+}
+
+class Agenda {
+    mostrarAgenda(tipoVista, fechaActual): Resultado {
+        turnos = self.obtenerTurnosPorFecha(fechaActual)
+        bloqueos = self.gestorBloqueos.obtenerBloqueosPorFecha(fechaActual)
+        if tipoVista == "diaria" then
+            VistaCalendario.instancia().mostrarVistaDiaria(turnos, bloqueos)
+        else
+            calendario = self.calcularRangoSemanal(fechaActual)
+            turnos = self.obtenerTurnosPorRango(calendario.fechaInicio, calendario.fechaFin)
+            bloqueos = self.gestorBloqueos.obtenerBloqueosPorRango(calendario.fechaInicio, calendario.fechaFin)
+            VistaCalendario.instancia().mostrarVistaSemanal(turnos, bloqueos)
+        return Resultado.ok("Agenda mostrada")
+    }
+}
+
+class VistaCalendario {
+    mostrarVistaDiaria(turnos, bloqueos): void {
+        renderizarBloques(turnos)
+        renderizarBloqueos(bloqueos)
+    }
+    mostrarVistaSemanal(turnos, bloqueos): void {
+        renderizarBloques(turnos)
+        renderizarBloqueos(bloqueos)
+    }
+}
+
+class GestorBloqueos {
+    obtenerBloqueosPorFecha(fecha): List<Bloqueo> {
+        return bloqueos.filtrar(b => b.contiene(fecha, null)) // null = todas las horas
+    }
+}
+```
+
+El pseudocódigo muestra cómo un Usuario autenticado delega la solicitud de visualización en ControlSistema, que actúa como mediador hacia Agenda. Luego Agenda reúne los turnos y bloqueos correspondientes y VistaCalendario presenta la información en la vista solicitada.

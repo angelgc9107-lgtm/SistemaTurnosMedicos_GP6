@@ -1,0 +1,93 @@
+@startuml CU05-Clases-Visualizar-Agenda
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #E0F2FE
+    BorderColor #2563EB
+    ArrowColor #1D4ED8
+}
+
+title CU-05 - Diagrama de Clases Específico
+
+class Usuario {
+    - dni: String
+    - rol: String
+    + autenticar(): boolean
+    + accederAgenda(tipoVista: String, fechaActual: Date): Resultado
+}
+
+class Secretaria {
+    + accederAgenda(tipoVista: String, fechaActual: Date): Resultado
+}
+
+class Medico {
+    + accederAgenda(tipoVista: String, fechaActual: Date): Resultado
+}
+
+class Agenda {
+    - listaTurnos: List<Turno>
+    - gestorBloqueos: GestorBloqueos
+    + obtenerVistaDiaria(fecha: Date): Calendario
+    + obtenerVistaSemanal(fechaInicio: Date): Calendario
+    + obtenerTurnosPorFecha(fecha: Date): List<Turno>
+    + obtenerBloqueosPorFecha(fecha: Date): List<Bloqueo>
+    + getGestorBloqueos(): GestorBloqueos
+}
+
+class VistaCalendario {
+    + mostrarVistaDiaria(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
+    + mostrarVistaSemanal(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
+    + navegarFecha(direccion: String): Date
+}
+
+class Turno {
+    - fecha: Date
+    - hora: Time
+    - paciente: Paciente
+    - medico: Medico
+    - estado: String
+    + getEstado(): String
+    + getFechaHora(): DateTime
+}
+
+class GestorBloqueos {
+    - bloqueos: List<Bloqueo>
+    + obtenerBloqueosPorFecha(fecha: Date): List<Bloqueo>
+    + obtenerMotivo(fecha: Date, hora: Time): String
+}
+
+class Bloqueo {
+    - fechaInicio: Date
+    - fechaFin: Date
+    - motivo: String
+    + contiene(fecha: Date, hora: Time): boolean
+}
+
+class ControlSistema {
+    + accederAgenda(dni: String, rol: String): Resultado
+    + cargarVistaDiaria(fecha: Date): Calendario
+    + cargarVista(tipoVista: String, fecha: Date): Resultado
+    + navegarFecha(direccion: String): Date
+    + cerrarVista(): void
+}
+
+Usuario <|-- Secretaria
+Usuario <|-- Medico
+Usuario --> ControlSistema : solicita acceso >
+ControlSistema --> Agenda : consulta y carga >
+ControlSistema --> VistaCalendario : presenta >
+Agenda --> Turno : consulta >
+Agenda --> GestorBloqueos : usa >
+Agenda --> VistaCalendario : presenta >
+GestorBloqueos --> Bloqueo : administra >
+
+class Resultado {
+    - exito: boolean
+    - mensaje: String
+    + {static} error(msg: String): Resultado
+    + {static} ok(msg: String): Resultado
+}
+
+Usuario --> Resultado : retorna >
+ControlSistema --> Resultado : retorna >
+Agenda --> Resultado : retorna >
+@enduml
