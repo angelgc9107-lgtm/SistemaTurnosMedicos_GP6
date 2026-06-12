@@ -43,6 +43,13 @@ class Usuario {
     accederAgenda(tipoVista, fechaActual): Resultado {
         if not self.autenticar() then
             return Resultado.error("Acceso denegado")
+        // Delegación a través de ControlSistema, como muestra el diagrama
+        return ControlSistema.instancia().cargarVista(tipoVista, fechaActual)
+    }
+}
+
+class ControlSistema {
+    cargarVista(tipoVista, fechaActual): Resultado {
         return Agenda.instancia().mostrarAgenda(tipoVista, fechaActual)
     }
 }
@@ -75,9 +82,9 @@ class VistaCalendario {
 
 class GestorBloqueos {
     obtenerBloqueosPorFecha(fecha): List<Bloqueo> {
-        return bloqueos.filtrar(b => b.contiene(fecha, cualquierHora))
+        return bloqueos.filtrar(b => b.contiene(fecha, null)) // null = todas las horas
     }
 }
 ```
 
-El pseudocódigo muestra cómo un `Usuario` autenticado solicita la visualización de la agenda, cómo `Agenda` reúne los turnos y bloqueos correspondientes y cómo `VistaCalendario` presenta la información en la vista solicitada.
+El pseudocódigo muestra cómo un Usuario autenticado delega la solicitud de visualización en ControlSistema, que actúa como mediador hacia Agenda. Luego Agenda reúne los turnos y bloqueos correspondientes y VistaCalendario presenta la información en la vista solicitada.

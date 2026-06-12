@@ -38,22 +38,48 @@ Este diseño enfatiza que la `Agenda` centraliza la gestión de bloqueos y turno
 
 ## 7. Pseudocódigo orientado a objetos
 ```pseudo
+class Resultado {
+    - exito: boolean
+    - mensaje: String
+    
+    {static} error(msg: String): Resultado
+    {static} ok(msg: String): Resultado
+}
+
+class ValidadorDisponibilidad {
+    validarRango(rango: RangoFechaHora): boolean {
+        // Valida que el rango esté dentro de los horarios habilitados
+        // del consultorio (Lun-Vie 9-13 y 15-19, sábados ocasionales)
+        return rango.estaEnHorariosHabilitados()
+    }
+}
+
 class Secretaria {
     autenticar(): boolean
     solicitarBloqueo(rango, motivo): Resultado {
         if not self.autenticar() then
             return Resultado.error("Acceso denegado")
+        // Delegación a través de ControlSistema
+        return ControlSistema.instancia().confirmarBloqueo(rango, motivo)
+    }
+}
+
+class ControlSistema {
+    confirmarBloqueo(rango, motivo): Resultado {
         return Agenda.instancia().bloquearRango(rango, motivo)
     }
 }
 
 class Agenda {
+    - listaTurnos: List<Turno>
+    - gestorBloqueos: GestorBloqueos
+    
     bloquearRango(rango, motivo): Resultado {
         if not ValidadorDisponibilidad.instancia().validarRango(rango) then
             return Resultado.error("Rango inválido")
         if self.existeTurnoEnRango(rango) then
             return Resultado.error("Existen turnos asignados en el rango")
-        GestorBloqueos.instancia().bloquearRango(rango, motivo)
+             self.getGestorBloqueos().bloquearRango(rango, motivo)
         VistaCalendario.instancia().mostrarBloqueos(self.obtenerBloqueosPorRango(rango))
         return Resultado.ok("Bloqueo registrado")
     }
@@ -64,13 +90,27 @@ class Agenda {
                 return true
         return false
     }
+    
+    obtenerTurnosPorRango(rango): List<Turno>
+    obtenerBloqueosPorRango(rango): List<Bloqueo>
+    getGestorBloqueos(): GestorBloqueos
 }
 
 class GestorBloqueos {
+    - bloqueos: List<Bloqueo>
+    
     bloquearRango(rango, motivo): void {
         bloqueo = new Bloqueo(rango.fechaInicio, rango.fechaFin, motivo)
         bloqueos.agregar(bloqueo)
     }
+}
+
+class Bloqueo {
+    - fechaInicio: Date
+    - fechaFin: Date
+    - motivo: String
+    
+    contiene(fecha: Date, hora: Time): boolean
 }
 
 class VistaCalendario {
@@ -80,5 +120,4 @@ class VistaCalendario {
     }
 }
 ```
-
-El pseudocódigo define la responsabilidad de cada objeto: la `Secretaria` inicia el bloqueo, la `Agenda` valida la disponibilidad y delega el registro a `GestorBloqueos`, mientras que `VistaCalendario` actualiza la presentación con las franjas bloqueadas.
+El pseudocódigo define la responsabilidad de cada objeto: la `Secretaria` inicia el bloqueo delegando a `ControlSistema`, el `ControlSistema` coordina la operación con `Agenda`, `Agenda` valida la disponibilidad a través de `ValidadorDisponibilidad` y delega el registro a `GestorBloqueos`, mientras que `VistaCalendario` actualiza la presentación con las franjas bloqueadas. Se han incluido las clases de soporte `Resultado` y `ValidadorDisponibilidad` para completar la coherencia entre diagrama y especificación.
