@@ -75,4 +75,17 @@ Agenda --> GestorBloqueos : usa >
 Agenda --> Turno : consulta >
 Agenda --> VistaCalendario : actualiza >
 GestorBloqueos --> Bloqueo : administra >
+class ValidadorDisponibilidad {
+    + validarRango(rango: RangoFechaHora): boolean
+}
+
+class Resultado {
+    - exito: boolean
+    - mensaje: String
+    + {static} error(msg: String): Resultado
+    + {static} ok(msg: String): Resultado
+}
+
+Agenda --> ValidadorDisponibilidad : usa >
+Agenda --> Resultado : retorna >
 @enduml

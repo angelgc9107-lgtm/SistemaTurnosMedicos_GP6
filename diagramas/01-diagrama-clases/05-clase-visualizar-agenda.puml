@@ -64,7 +64,7 @@ class Bloqueo {
 class ControlSistema {
     + accederAgenda(dni: String, rol: String): Resultado
     + cargarVistaDiaria(fecha: Date): Calendario
-    + cargarVista(tipoVista: String, fecha: Date): Calendario
+    + cargarVista(tipoVista: String, fecha: Date): Resultado
     + navegarFecha(direccion: String): Date
     + cerrarVista(): void
 }
@@ -78,4 +78,15 @@ Agenda --> Turno : consulta >
 Agenda --> GestorBloqueos : usa >
 Agenda --> VistaCalendario : presenta >
 GestorBloqueos --> Bloqueo : administra >
+
+class Resultado {
+    - exito: boolean
+    - mensaje: String
+    + {static} error(msg: String): Resultado
+    + {static} ok(msg: String): Resultado
+}
+
+Usuario --> Resultado : retorna >
+ControlSistema --> Resultado : retorna >
+Agenda --> Resultado : retorna >
 @enduml
