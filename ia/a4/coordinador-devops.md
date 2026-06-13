@@ -1,116 +1,263 @@
-# Análisis Funcional del Caso de Uso 1: Agendar Turno
-## Especialista: Analista Funcional
+# Coordinador de Repositorio
+
+## Review 1 - PR #171
+
+**Autor:** angelgc9107-lgtm  
+**Rama:** feature/analista-cu-2-3-add-anexo-cu2-cu3  
+**Fecha:** Junio 2026
+
+### Objetivo de la revisión
+
+Verificar consistencia entre diagramas de clases, anexos funcionales, documentación de IA, tarjetas CRC y requisitos funcionales correspondientes a los Casos de Uso 2 y 3.
+
+---
+
+## Prompt utilizado
+
+```text
+Actúa como un Senior Software Engineer realizando una revisión de código profesional de esta Pull Request https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/171
+
+INSTRUCCIONES IMPORTANTES:
+Identifica SOLO problemas reales del código
+Enumera los hallazgos (1, 2, 3...)
+Cada hallazgo debe ser independiente claro
+Sé técnico y concreto
+No inventes problemas hipotéticos sin evidencia en el código
+No incluyes sugerencias de pruebas
+
+PARA CADA HALLAZGO USA EXACTAMENTE ESTA ESTRUCTURA:
+
+════════════════════════════════════
+HALLAZGO #<número>
+
+Archivo:
+Línea:
+Tipo de problema: (bug | performance | seguridad | legibilidad | diseño | otro)
+Severidad: (baja | media | alta | crítica)
+
+Explicación técnica:
+Por qué esto es un problema real.
+
+Sugerencia de mejora:
+Cambio concreto recomendado.
+
+Ejemplo de código corregido (si aplica):
+
+DECISIÓN DEL REVISOR HUMANO:
+[ ] Aceptar sugerencia
+[ ] Rechazar sugerencia
+
+Justificación del revisor humano:
+(Completar manualmente si se rechaza)
+
+════════════════════════════════════
+
+Al final agrega:
+
+RESUMEN GENERAL DE LA PR:
+Evaluación global y riesgos técnicos.
+
+DECISIÓN FINAL SUGERIDA POR IA:
+APROBAR
+SOLICITUD CAMBIOS
+SÓLO COMENTARIOS
+
+Nota importante:
+Si seleccionas "SÓLO COMENTARIOS", no completa la sección "DECISIÓN DEL REVISOR HUMANO".
+Debes dejar vía para edición manual en el Pull Request en la sección correspondiente.
+Publica comentarios directamente en el código si lo consideras necesario.
+```
+
+---
+
+## Archivos revisados
+
+- herramientas-agile/tarjetas-crc/tarjetas_crc.md
+- herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistemas.md
+- anexos/analisis-funcional/02-caso-de-uso-registrar-checkin.md
+- anexos/analisis-funcional/03-caso-de-uso-reprogramar-turno.md
+- diagramas/01-diagrama-clases/02-clase-registrar-checkin.puml
+- diagramas/01-diagrama-clases/03-clase-reprogramar-turno.puml
+- ia/a4/analista-cu-2-3.md
+
+---
+
+## Hallazgos detectados por Copilot
+
+### Hallazgo 1
+Referencia incorrecta en el índice de tarjetas CRC debido a una inconsistencia entre el nombre del archivo y la referencia utilizada en la documentación.
+
+### Hallazgo 2
+Error tipográfico en el nombre del archivo relacionado con la clase ControlSistema, generando inconsistencias de nomenclatura.
+
+### Hallazgo 3
+Ambigüedad en la relación de dependencia entre Agenda y LlegadaPaciente dentro de la documentación funcional.
+
+### Hallazgo 4
+Documentación UML incompleta en la nota descriptiva asociada a la clase ControlSistema.
+
+### Hallazgo 5
+Ambigüedad funcional en la interpretación del requisito RF7 respecto a las notificaciones y la reprogramación de recordatorios.
+
+### Hallazgo 6
+Cardinalidad no explicitada en la relación entre Agenda y ServicioNotificacion.
+
+### Hallazgo 7
+Pequeñas inconsistencias entre la documentación del proceso de IA y los diagramas generados.
+
+---
+
+## Ajustes solicitados
+
+- Corregir referencias rotas en índices y documentación.
+- Unificar la nomenclatura utilizada en archivos, diagramas y tarjetas CRC.
+- Mejorar la trazabilidad entre requisitos funcionales y diagramas UML.
+- Completar la documentación de las notas UML.
+- Clarificar el comportamiento asociado al requisito RF7.
+- Mantener consistencia entre documentación técnica y artefactos generados.
+
+---
+
+## Resultado de la revisión
+
+Se solicitaron cambios antes de aprobar la Pull Request debido a inconsistencias de documentación, nomenclatura y trazabilidad detectadas durante la revisión asistida con IA.
+
+---
+
+## Conclusión
+
+La revisión permitió detectar problemas de consistencia entre artefactos antes de la integración en la rama develop. Las observaciones realizadas contribuyen a mantener la calidad, trazabilidad y coherencia del proyecto.
+
+**Estado final de la revisión:** Solicitud de cambios.
+
+---
+
+## Review 2 - PR #164
+
+**Pull Request revisada:** #164  
+**Título:** Reportaje/analista cu 4 5 agregar anexo cu4 cu5  
+**Rama:** feature/analista-cu-4-5-add-anexo-cu4-cu5  
+**Tipo de revisión:** Code review asistido con Copilot Agent Mode  
+
+### Objetivo de la revisión
+
+Verificar la coherencia entre diagramas de clases, anexos funcionales, documentación de IA, tarjetas CRC e índices correspondientes a los Casos de Uso 4 y 5.
+
+---
 
 ### Prompt utilizado
 
+```text
+Actúa como un Senior Software Engineer realizando una revisión de código profesional de esta Pull Request https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/164
+
+INSTRUCCIONES IMPORTANTES:
+Identifica SOLO problemas reales del código
+Enumera los hallazgos (1, 2, 3...)
+Cada hallazgo debe ser independiente claro
+Sé, técnico y concreto
+No inventes problemas hipotéticos sin evidencia en el código
+No incluyes sugerencias de pruebas
+
+PARA CADA HALLAZGO USA EXACTAMENTE ESTA ESTRUCTURA:
+
+══════════════════════════════
+══════════════════════════════
+HALLAZGO #<número>
+
+Archivo:
+Línea:
+Tipo de problema: (bug | performance | seguridad | legibilidad | diseño | otro)
+Severidad: (baja | media | alta | crítica)
+
+Explicación técnica:
+Por qué esto es un problema real.
+
+Sugerencia de mejora:
+Cambio concreto recomendado.
+
+Ejemplo de código corregido (si aplica):
+
+DECISIÓN DEL REVISOR HUMANO:
+[ ] Aceptar sugerencia
+[ ] Rechazar sugerencia
+
+Justificación del revisor humano:
+(Completar manualmente si se rechaza)
+
+══════════════════════════════
+══════════════════════════════
+
+Al final agrega:
+
+RESUMEN GENERAL DE LA PR:
+Evaluación global y riesgos técnicos.
+
+DECISIÓN FINAL SUGERIDA POR IA:
+APROBAR
+SOLICITUD CAMBIOS
+SÓLO COMENTARIOS
+
+⚠️ Nota importante:
+Si seleccionas "SÓLO COMENTARIOS", no completa la sección "DECISIÓN DEL REVISOR HUMANO".
+Debes quedar vía para edición manual en el Pull Request en la sección correspondiente.
+Publica comentarios directamente en el código si lo consideras necesario.
 ```
-Actúa como Analista Funcional del Caso de Uso 1 (Agendar Turno) y Coordinador de Repositorio del proyecto SistemaTurnosMedicos_GP6.
 
-CONTEXTO OBLIGATORIO:
-1. Diagrama de casos de uso: diagramas/02-casos-de-uso/02-agendar-turno-01.puml
-2. Escenario: diagramas/03-escenarios-casos-de-uso/03-agendar-turno-flujo-principal.md
-3. Diagrama de actividades: diagramas/04-diagramas-actividades/04-actividad-agendar-turno-01.puml
-4. Diagrama de secuencia: diagramas/05-diagramas-secuencia/05-secuencia-cu-agendar-turno-agendar-turno-flujo-principal-01.puml
-5. Tarjetas CRC: todas las de herramientas-agile/tarjetas-crc/
-6. Requisitos funcionales: anexos/introduccion.md
+---
 
-TAREAS:
-1. Diseñar diagrama de clases específico para CU1 (diagramas/01-diagrama-clases/01-clases-agendar-turno-01.puml)
-2. Generar PNG (diagramas/01-diagrama-clases/01-clases-agendar-turno-01.png)
-3. Crear anexo: anexos/analisis-funcional/01-caso-de-uso-agendar-turno.md
-4. Actualizar índices
+### Archivos revisados
 
-RESTRICCIONES:
-- No inventar requisitos, actores, clases ni métodos
-- Todo debe surgir de los artefactos existentes
-- Trazabilidad completa entre diagrama de secuencia, CRC y clase
-- Nombres exactos según repositorio
-```
+- diagramas/01-diagrama-clases/04-clase-bloquear-horarios.puml
+- diagramas/01-diagrama-clases/05-clase-visualizar-agenda.puml
+- anexos/analisis-funcional/04-caso-de-uso-bloquear-horarios.md
+- anexos/analisis-funcional/05-caso-de-uso-visualizar-agenda.md
+- herramientas-agile/tarjetas-crc/tarjetas_crc.md
+- ia/a4/analista-cu-4-5.md
 
-### Archivos utilizados como contexto
+---
 
-1. **Artefactos de CU1:**
-   - `diagramas/02-casos-de-uso/02-agendar-turno-01.puml` (actores: Secretaria, Paciente, sistema WhatsApp)
-   - `diagramas/03-escenarios-casos-de-uso/03-agendar-turno-flujo-principal.md` (flujo con 12 pasos)
-   - `diagramas/04-diagramas-actividades/04-actividad-agendar-turno-01.puml` (swimlanes: Paciente, Secretaria, Sistema)
-   - `diagramas/05-diagramas-secuencia/05-secuencia-cu-agendar-turno-agendar-turno-flujo-principal-01.puml` (participantes: Secretaria, Sistema, Agenda, Turno, ServicioNotificacion)
+### Hallazgos detectados por Copilot
 
-2. **Tarjetas CRC:**
-   - `00-tarjeta-crc-persona.md` (superclase abstracta)
-   - `01-tarjeta-crc-paciente.md` (hereda de Persona)
-   - `02-tarjeta-crc-medico.md` (hereda de Persona)
-   - `05-tarjeta-crc-secretaria.md` (hereda de Persona)
-   - `03-tarjeta-crc-turno.md` (entidad core)
-   - `04-tarjeta-crc-agenda.md` (entidad core)
-   - `08-tarjeta-crc-servicio-notificacion.md` (servicio)
+#### Hallazgo 1
+Inconsistencia entre el diagrama de clases CU-04 y el pseudocódigo del anexo, porque aparece `ControlSistema` como mediador en el diagrama pero el pseudocódigo delega directamente en `Agenda`.
 
-3. **Requisitos:**
-   - `anexos/introduccion.md` (RF1-RF8, casos de uso CU1-CU6)
+#### Hallazgo 2
+Inconsistencia similar en CU-05: `ControlSistema` aparece en el diagrama de clases, pero el pseudocódigo no refleja esa mediación.
 
-### Ajustes realizados sobre propuesta inicial
+#### Hallazgo 3
+El pseudocódigo de CU-04 invoca clases o métodos que no están modelados en el diagrama de clases, como `ValidadorDisponibilidad` y `Resultado`.
 
-**Decisión 1: Inclusión de Turno como clase con identidad**
-- Propuesta inicial: Turno solo como agregación de Agenda
-- Ajuste: Turno es entidad con identidad propia (idTurno: UUID) y atributos de estado
-- Justificación: Diagrama de secuencia muestra `<<create>> new Turno(...)` → Turno es clase que se instancia
+#### Hallazgo 4
+Ambigüedad en la relación entre `Agenda` y `GestorBloqueos`, porque el diagrama sugiere composición, pero el pseudocódigo lo usa como singleton.
 
-**Decisión 2: Métodos de Agenda**
-- Fuente: Diagrama de secuencia enumera: consultarDisponibilidad, obtenerHorariosDelDia, filtrarHorariosDisponibles, verificarDisponibilidad, registrarTurno, validarHorario, validarRestricciones, bloquearFranjaHoraria
-- Aplicado: Todos incluidos en clase Agenda con firmas de método tipadas
+#### Hallazgo 5
+Uso de un parámetro indefinido (`cualquierHora`) en el pseudocódigo del anexo CU-05.
 
-**Decisión 3: Métodos de Turno**
-- Fuente: Escenario paso 9 "registra turno en estado Pendiente"; Secuencia "establecerEstado('Pendiente'); bloquearFranja()"
-- Aplicado: establecerEstado(String), bloquearFranja(Integer), obtenerDuracion(), validarRestricciones()
+#### Hallazgo 6
+Inconsistencia de nomenclatura en el índice de tarjetas CRC por numeración del archivo `010-tarjeta-crc-vista-calendario.md`.
 
-**Decisión 4: Relaciones UML**
-- Agregación vs Composición: Agenda *-- Turno (agregación con propietario fuerte)
-- Dependencia: Agenda ..> ServicioNotificacion (no es tenencia, es delegación temporal)
-- Asociaciones bidireccionales: Secretaria → Agenda, Medico → Agenda (ambas gestionan)
+---
 
-**Decisión 5: Atributos de Turno**
-- Fuente: Escenario pasos 2-9: tipoConsulta, estado, fecha, hora, paciente, medico
-- Agregado: fechaRegistro para auditoría (RNF4: "mantener historial de cambios")
+### Ajustes solicitados
 
-### Iteraciones relevantes
+- Alinear el pseudocódigo con los diagramas de clases.
+- Definir si `ControlSistema` participa como mediador o si debe eliminarse de los diagramas.
+- Agregar al diagrama las clases utilizadas por el pseudocódigo o simplificar el pseudocódigo para no usar clases inexistentes.
+- Clarificar si `GestorBloques/GestorBloqueos` se accede por composición o como singleton.
+- Corregir parámetros indefinidos en pseudocódigo.
+- Normalizar la nomenclatura de archivos en tarjetas CRC.
 
-**Iteración 1: Análisis de Diagrama de Secuencia**
-- Identificadas 5 clases participantes: Secretaria, Sistema, Agenda, Turno, ServicioNotificacion
-- Mapeadas operaciones de cada clase al diagrama de secuencia
+---
 
-**Iteración 2: Trazabilidad CRC→Métodos**
-- Paciente.solicitar() → CRC: "Solicitar un turno médico"
-- Médico.autorizarSobreturno() → CRC: "Solo yo decido si se agrega un turno extra"
-- Secretaria.registrarTurno() → CRC: "Registrar turnos"
-- Agenda.consultarDisponibilidad() → CRC: "Mostrar turnos disponibles"
-- ServicioNotificacion.enviarConfirmacion() → CRC: "Enviar confirmación de turno"
+### Resultado de la revisión
 
-**Iteración 3: Restricciones RF5**
-- Escenario línea 20: "Debe cumplir restricciones: sin procedimientos los lunes; sin Primera vez viernes tarde"
-- Aplicado: método validarRestricciones(tipoConsulta, fecha, hora) en Agenda
-- Aplicado: método validarRestricciones() en Turno para self-validation
+La revisión fue publicada como comentario técnico en la PR.  
+La decisión sugerida por la IA fue **SÓLO COMENTARIOS**, ya que los hallazgos afectan la claridad y coherencia documental, pero no bloquean funcionalidad ejecutable.
 
-**Iteración 4: Horarios habilitados RF6**
-- Escenario línea 18: "Horarios habilitados: Lun-Vie 9-13 y 15-19"
-- Aplicado: atributo horariosHabilitados: String = "Lun-Vie 9-13, 15-19" en Agenda
+---
 
-### Justificación de cambios
+### Conclusión
 
-1. **Herencia de Persona**: Respeta modelo OO definido en introducción.md + CRC cards
-2. **Agregación Agenda-Turno**: Agenda es propietaria, mantiene colección, responsabilidad central (RF1)
-3. **Dependencia Agenda→ServicioNotificacion**: No es propiedad, es delegación temporal (patrón Dependency Injection)
-4. **Métodos tipados**: Aumentan claridad y trazabilidad vs diagrama de secuencia
-5. **idTurno: UUID**: Permite identificación única, coherente con bases de datos relacionales
-6. **Estados explícitos en Turno**: Facilita validación y auditoría
+La PR presenta una estructura completa y cumple con la entrega documental de los Casos de Uso 4 y 5. Sin embargo, se detectaron inconsistencias de trazabilidad entre diagramas UML, pseudocódigo y documentación, por lo que se recomendaron ajustes antes de la integración final.
 
-### Coherencia con artefactos
-
-| Artefacto | Mapeo | Trazabilidad |
-|-----------|-------|-------------|
-| Diagrama Secuencia | Secretaria.registrarTurno() | Secuencia línea 72: `confirmarTurno()` |
-| Diagrama Secuencia | Agenda.consultarDisponibilidad() | Secuencia línea 42: `consultarDisponibilidad(matricula, semana)` |
-| Diagrama Secuencia | Turno.establecerEstado() | Secuencia línea 82: `establecerEstado("Pendiente")` |
-| Diagrama Actividades | Secretaria.validarRestricciones() | Actividad línea 52: decision "¿Horario cumple restricciones?" |
-| Escenario CU1 | Agenda.horariosDisponibles | Escenario paso 5: "horarios disponibles del dia" |
-| Requisito RF2 | Turno.tipoConsulta | RF2: "30 min / 15 min" |
-| Requisito RF5 | Agenda.validarRestricciones() | RF5: restricciones específicas |
-| Requisito RF7 | ServicioNotificacion.enviarConfirmacion() | RF7: "Envío de recordatorios por WhatsApp" |
+**Estado final de la revisión:** Sólo comentarios.

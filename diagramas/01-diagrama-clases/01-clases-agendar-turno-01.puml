@@ -31,7 +31,7 @@ package "Modelo de Dominio" {
 
     class Paciente extends Persona {
         # numeroAfiliado: String
-        # histortalMedico: String
+        # historialMedico: String
         --
         + solicitar(): void
         + consultarHistorial(): List<Turno>
@@ -54,7 +54,7 @@ package "Modelo de Dominio" {
         + consultarDisponibilidad(medico: Medico, fecha: Date): List<String>
         + validarRestricciones(tipoConsulta: String, fecha: Date, hora: String): Boolean
         + cancelarTurno(turno: Turno): void
-        + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevoHora: String): void
+        + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: String): void
     }
 
     class Turno {
@@ -62,7 +62,7 @@ package "Modelo de Dominio" {
         --
         - fecha: Date
         - hora: String
-        - estado: String {Pendiente, Presente, Cancelado}
+        - estado: String {Pendiente, Presente, Cancelado, Sobreturno, PendienteSinNotificacion}
         - tipoConsulta: String {PrimeraVez=30min, Control=15min}
         - paciente: Paciente
         - medico: Medico
@@ -101,8 +101,8 @@ package "Modelo de Dominio" {
         - telefono: String
         --
         + enviarConfirmacion(telefono: String, fechaTurno: Date, horaTurno: String, nombreMedico: String): Boolean
-        + programarRecordatorio(telefono: String, fechaTurno: Date, anticipacion24h: DateTime): void
-        + programarRecordatorio(telefono: String, fechaTurno: Date, horaAlerta8am: DateTime): void
+        + programarRecordatorio24h(telefono: String, fechaTurno: Date): void
+        + programarRecordatorioManana(telefono: String, fechaTurno: Date): void
         + enviarCancelacion(telefono: String, fechaTurno: Date): Boolean
         + enviarReprogramacion(telefono: String, fechaNueva: Date, horaNueva: String): Boolean
     }
@@ -116,16 +116,11 @@ package "Modelo de Dominio" {
     
     ' Asociaciones
     Secretaria "1" --> "1" Agenda : gestiona
-    Medico "1" --> "1" Agenda : posee
     Secretaria "1" --> "1" Paciente : registra datos de
     Secretaria "1" --> "1" Medico : selecciona
     
     ' Agregación
     Agenda "1" *-- "*" Turno : contiene
-    
-    ' Composición/Asociación fuerte
-    Turno "1" --> "1" Paciente : asociado a
-    Turno "1" --> "1" Medico : asignado a
     
     ' Dependencia
     Agenda ..> ServicioNotificacion : usa
