@@ -48,7 +48,7 @@ La clase Turno abstrae una cita médica real. En lugar de modelar cada detalle d
 
 - RF6: Horarios Definidos: Lunes a viernes de 9-13 y 15-19 (excepto jueves tarde), y sábados ocasionales según defina el médico
 
-- RF7: Notificaciones: Envío de recordatorios por WhatsApp 24 horas antes y a las 8:00 AM del día del turno
+- RF7: Notificaciones: Envío de recordatorios por WhatsApp 24 horas antes y a las 8:00 AM del día del turno, se notificara del cambio en caso de reprogramación del turno.
 
 - RF8: Registro de Presencia: Incorporar un estado de "check-in" para marcar la llegada del paciente a la sala de espera
 
