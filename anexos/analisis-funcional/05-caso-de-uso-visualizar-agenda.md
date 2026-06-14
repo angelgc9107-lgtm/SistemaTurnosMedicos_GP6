@@ -37,6 +37,7 @@ El diagrama muestra que `Agenda` es el componente central para recuperar turnos 
 - La tarjeta CRC de `Turno` refuerza que cada turno aporta un estado visible y una fecha/hora, necesario para la visualización correcta de la agenda.
 
 ## 7. Pseudocódigo orientado a objetos
+```pseudo
 class Usuario {
     autenticar(): boolean
     accederAgenda(tipoVista, fechaActual): Resultado {
@@ -61,8 +62,9 @@ class Agenda {
             VistaCalendario.instancia().mostrarVistaDiaria(turnos, bloqueos)
         else
             calendario = self.calcularRangoSemanal(fechaActual)
-            turnos = self.obtenerTurnosPorRango(calendario.fechaInicio, calendario.fechaFin)
-            bloqueos = self.getGestorBloqueos().obtenerBloqueosPorRango(calendario.fechaInicio, calendario.fechaFin)
+            rango = new RangoFechaHora(calendario.fechaInicio, calendario.fechaFin)
+            turnos = self.obtenerTurnosPorRango(rango)
+            bloqueos = self.getGestorBloqueos().obtenerBloqueosPorRango(rango)
             VistaCalendario.instancia().mostrarVistaSemanal(turnos, bloqueos)
         return Resultado.ok("Agenda mostrada")
     }
@@ -85,5 +87,4 @@ class GestorBloqueos {
     }
 }
 ```
-
 El pseudocódigo muestra cómo un Usuario autenticado delega la solicitud de visualización en ControlSistema, que actúa como mediador hacia Agenda. Luego Agenda reúne los turnos y bloqueos correspondientes y VistaCalendario presenta la información en la vista solicitada.
