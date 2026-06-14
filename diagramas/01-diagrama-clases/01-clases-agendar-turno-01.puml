@@ -1,0 +1,154 @@
+@startuml 01-clases-agendar-turno-01
+
+!define ABSTRACT_COLOR #EFF6FF
+!define CLASS_COLOR #BFDBFE
+!define INTERFACE_COLOR #DBEAFE
+!define ENTITY_COLOR #F0F9FF
+
+skinparam backgroundColor #FFFFFF
+skinparam classBackgroundColor CLASS_COLOR
+skinparam classBorderColor #3B82F6
+skinparam classArrowColor #1D4ED8
+skinparam classHeaderBackgroundColor #BFDBFE
+
+title Diagrama de Clases - CU1: Agendar Turno
+
+package "Modelo de Dominio" {
+
+    abstract class Persona {
+        {id} dni: String
+        --
+        # nombre: String
+        # apellido: String
+        # telefono: String
+        # email: String
+        # rol: String
+        # estadoActivo: Boolean
+        --
+        + getDatos(): String
+        + getContacto(): String
+    }
+
+    class Paciente extends Persona {
+        # numeroAfiliado: String
+        # historialMedico: String
+        --
+        + solicitar(): void
+        + consultarHistorial(): List<Turno>
+        + cancelarTurno(turno: Turno): void
+    }
+
+    class Medico extends Persona {
+        # matricula: String
+        # especialidad: String
+        --
+        + definirDisponibilidad(fecha: Date, horario: String): void
+        + autorizarSobreturno(turno: Turno): void
+        + obtenerAgenda(): Agenda
+    }
+
+    class Secretaria extends Persona {
+        # legajo: String
+        --
+        + registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: String): Turno
+        + consultarDisponibilidad(medico: Medico, fecha: Date): List<String>
+        + validarRestricciones(tipoConsulta: String, fecha: Date, hora: String): Boolean
+        + cancelarTurno(turno: Turno): void
+        + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: String): void
+    }
+
+    class Turno {
+        {id} idTurno: UUID
+        --
+        - fecha: Date
+        - hora: String
+        - estado: String {Pendiente, Presente, Cancelado, Sobreturno, PendienteSinNotificacion}
+        - tipoConsulta: String {PrimeraVez=30min, Control=15min}
+        - paciente: Paciente
+        - medico: Medico
+        - fechaRegistro: DateTime
+        --
+        + establecerEstado(nuevoEstado: String): void
+        + bloquearFranja(duracionMinutos: Integer): void
+        + obtenerDuracion(): Integer
+        + validarRestricciones(): Boolean
+    }
+
+    class Agenda {
+        {id} idAgenda: UUID
+        --
+        - listaTurnos: List<Turno>
+        - horariosDisponibles: Map<Date, List<String>>
+        - medico: Medico
+        - horariosHabilitados: String = "Lun-Vie 9-13, 15-19"
+        --
+        + consultarDisponibilidad(matricula: String, semana: Date): List<Turno>
+        + obtenerHorariosDelDia(fecha: Date, matricula: String): List<String>
+        + filtrarHorariosDisponibles(fecha: Date, matricula: String): List<String>
+        + verificarDisponibilidad(matricula: String, semana: Date): Boolean
+        + registrarTurno(apellido: String, nombre: String, sexo: String, edad: Integer, dni: String, tipoConsulta: String, matricula: String, fecha: Date, hora: String): Turno
+        + validarHorario(tipoConsulta: String, fecha: Date, hora: String): Boolean
+        + validarRestricciones(tipoConsulta: String, fecha: Date, hora: String): Boolean
+        + bloquearFranjaHoraria(fecha: Date, hora: String, duracionMinutos: Integer): void
+        + liberarFranjaHoraria(fecha: Date, hora: String): void
+        + obtenerTurnosDelDia(fecha: Date): List<Turno>
+    }
+
+    class ServicioNotificacion {
+        {id} idServicio: UUID
+        --
+        - canalWhatsApp: String
+        - telefono: String
+        --
+        + enviarConfirmacion(telefono: String, fechaTurno: Date, horaTurno: String, nombreMedico: String): Boolean
+        + programarRecordatorio24h(telefono: String, fechaTurno: Date): void
+        + programarRecordatorioManana(telefono: String, fechaTurno: Date): void
+        + enviarCancelacion(telefono: String, fechaTurno: Date): Boolean
+        + enviarReprogramacion(telefono: String, fechaNueva: Date, horaNueva: String): Boolean
+    }
+
+    ' === Relaciones ===
+    
+    ' Herencia
+    Persona <|-- Paciente
+    Persona <|-- Medico
+    Persona <|-- Secretaria
+    
+    ' Asociaciones
+    Secretaria "1" --> "1" Agenda : gestiona
+    Secretaria "1" --> "1" Paciente : registra datos de
+    Secretaria "1" --> "1" Medico : selecciona
+    
+    ' Agregación
+    Agenda "1" *-- "*" Turno : contiene
+    
+    ' Dependencia
+    Agenda ..> ServicioNotificacion : usa
+    Turno ..> ServicioNotificacion : notifica mediante
+
+}
+
+note right of Persona
+    Clase abstracta que define
+    datos comunes de identidad
+    y contacto para todos los roles
+end note
+
+note right of Turno
+    Entidad central del CU1
+    Representa una cita médica
+    con estados y restricciones
+end note
+
+note right of Agenda
+    Gestiona colección de turnos
+    y disponibilidad horaria del médico
+    Valida restricciones RF5
+end note
+
+note right of ServicioNotificacion
+    Encapsula comunicación por WhatsApp
+    Envía confirmaciones y recordatorios (RF7)
+end note
+
+@enduml
