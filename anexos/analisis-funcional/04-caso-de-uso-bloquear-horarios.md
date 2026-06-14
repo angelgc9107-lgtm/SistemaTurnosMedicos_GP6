@@ -66,7 +66,12 @@ class Secretaria {
 
 class ControlSistema {
     confirmarBloqueo(rango, motivo): Resultado {
-        return Agenda.instancia().bloquearRango(rango, motivo)
+        resultado = Agenda.instancia().bloquearRango(rango, motivo)
+        if resultado.exito then
+            VistaCalendario.instancia().mostrarBloqueos(
+                Agenda.instancia().obtenerBloqueosPorRango(rango)
+            )
+        return resultado
     }
 }
 
@@ -79,8 +84,7 @@ class Agenda {
             return Resultado.error("Rango inválido")
         if self.existeTurnoEnRango(rango) then
             return Resultado.error("Existen turnos asignados en el rango")
-             self.getGestorBloqueos().bloquearRango(rango, motivo)
-        VistaCalendario.instancia().mostrarBloqueos(self.obtenerBloqueosPorRango(rango))
+        self.getGestorBloqueos().bloquearRango(rango, motivo)
         return Resultado.ok("Bloqueo registrado")
     }
 
