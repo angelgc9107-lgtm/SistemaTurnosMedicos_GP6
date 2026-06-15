@@ -12,3 +12,5 @@
 - [VistaCalendario](10-tarjeta-crc-vista-calendario.md)
 - [GestorBloqueos](11-tarjeta-crc-gestor-bloqueos.md)
 - [ValidadorDisponibilidad](12-tarjeta-crc-validador-disponibilidad.md)
+- [ControlSistema](08-tarjeta-crc-control-sistema.md)
+- [HistorialTurnos](09-tarjeta-crc-historial-turnos.md)
