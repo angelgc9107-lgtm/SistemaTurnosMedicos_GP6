@@ -1,4 +1,9 @@
 ﻿# Changelog
+## [Released Actividad Obligatoria N°4] - 2026-06-18
+
+### Added
+- [feature/coordinador-devops-add-anexo-cu1] Creacion de la carpeta diagramas/01-diagramas-clases/01-clases[Nombre].puml y png junto a diagramas_de_clases.md, creacion de carpeta ia/a4/analista-cu-1.md y coordinador-devops.md, Creacion de la carpeta anexos/analisis-funcional/analisis_casos.md y 01-caso-de-uso-agendar-turno.md PR: [#172](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/172) — @luchobarrionuevo13 (Analista Funcional CU1 + Coordinador de Repositorio)
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
