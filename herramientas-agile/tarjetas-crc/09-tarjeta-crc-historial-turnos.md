@@ -10,3 +10,4 @@
 | Mantener trazabilidad de reprogramaciones    | Secretaria        | Permito conocer cuándo y por qué se modificó un turno        | fechaNueva    |
 | Permitir consultar modificaciones realizadas | Agenda            | Ayudo a reconstruir el historial de cambios de un turno      | horaNueva     |
 |                                              |                   |                                                              | Secretaria        |
+|                                              |                   |                                                              | Secretaria        |

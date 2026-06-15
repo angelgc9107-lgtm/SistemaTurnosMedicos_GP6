@@ -4,6 +4,8 @@
 ### Added
 - [feature/coordinador-devops-add-anexo-cu1] Creacion de la carpeta diagramas/01-diagramas-clases/01-clases[Nombre].puml y png junto a diagramas_de_clases.md, creacion de carpeta ia/a4/analista-cu-1.md y coordinador-devops.md, Creacion de la carpeta anexos/analisis-funcional/analisis_casos.md y 01-caso-de-uso-agendar-turno.md PR: [#172](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/172) — @luchobarrionuevo13 (Analista Funcional CU1 + Coordinador de Repositorio)
 
+- [feature/analista-cu-4-5-add-anexo-cu4-cu5] Se crearon diagramas de clases específicos, se creó documentación de uso IA, se crearon los anexos, se creó el índice de los diagramas de clases y el de anexos, se generaron los siguiente archivos: 04-clase-bloquear-horarios.puml, 04-clase-bloquear-horarios.png, 05-clase-visualizar-agenda.puml, 05-clase-visualizar-agenda.png, diagramas_de_clases.md, 04-caso-de-uso-bloquear-horarios.md, 05-caso-de-uso-visualizar-agenda.md,analisis_casos_uso.md, analista-cu-4-5.md PR: [#164](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/164) — @Piastrellini (Analista Funcional de Casos de Uso 4 y 5)
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
