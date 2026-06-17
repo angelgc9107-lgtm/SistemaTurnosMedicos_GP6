@@ -82,17 +82,15 @@ Turno turnoEncontrado = agenda.filtrarHorariosDisponibles(paciente.dni, fechaHoy
 // El sistema verifica que el turno esté en estado válido para check-in
 // turnoEncontrado.getEstado() == "Pendiente" → habilitado
 
-// La secretaria registra la presencia; el sistema crea LlegadaPaciente
+// La secretaria registra la presencia; el caller solo interactúa con ControlSistema
 controlSistema.registrarPresencia(turnoEncontrado)
-LlegadaPaciente llegada = agenda.registrarPresencia(turnoEncontrado.idTurno)
-
-// LlegadaPaciente registra timestamp y actualiza estado del turno
-llegada.registrarHoraLlegada()                              // horaLlegada = DateTime.ahora()
-turnoEncontrado.cambiarEstado("Presente")
-llegada.actualizarPresencia(true, "En sala de espera")
-
-// LlegadaPaciente notifica al médico que el paciente está esperando
-llegada.notificarMedico(medico)
+// ControlSistema delega internamente en Agenda (no se llama agenda.registrarPresencia()
+// desde el flujo principal, manteniendo la capa de abstracción):
+//   → LlegadaPaciente llegada = agenda.registrarPresencia(turnoEncontrado.idTurno)
+//   → llegada.registrarHoraLlegada()                    // horaLlegada = DateTime.ahora()
+//   → turnoEncontrado.cambiarEstado("Presente")
+//   → llegada.actualizarPresencia(true, "En sala de espera")
+//   → llegada.notificarMedico(medico)
 
 // El sistema cancela los recordatorios automáticos ya no necesarios
 agenda.cancelarRecordatoriosPendientes(turnoEncontrado.idTurno)
@@ -112,20 +110,21 @@ controlSistema.seleccionarReprogramar(turnoEncontrado)
 List<Time> nuevosHorarios = agenda.obtenerHorariosDelDia(nuevaFecha, medico.matricula)
 Boolean nuevoHorarioValido = controlSistema.validarRestricciones("Control", nuevaFecha, nuevaHora)
 
-// La secretaria confirma; el sistema ejecuta la reprogramación de forma atómica
+// La secretaria confirma; ControlSistema encapsula la atomicidad internamente
 controlSistema.confirmarReprogramacion()
-agenda.liberarFranjaAnterior(fecha, hora)                   // libera franja original
-turnoEncontrado.actualizarFechaHora(nuevaFecha, nuevaHora)
-agenda.bloquearNuevaFranja(nuevaFecha, nuevaHora)           // 15 min para Control
+// confirmarReprogramacion() invoca una única operación atómica en Agenda:
+//   → Resultado reprog = agenda.reprogramarTurno(turnoEncontrado, nuevaFecha, nuevaHora)
+//   → Internamente: liberarFranjaAnterior + actualizarFechaHora + bloquearNuevaFranja
+//   → Si cualquier paso falla, ninguno se aplica (operación todo-o-nada)
 
 // El sistema registra el cambio en el historial (RNF4 - obligatorio)
 HistorialTurno historial = nuevo HistorialTurno()
 historial.registrarCambio(fecha, hora, nuevaFecha, nuevaHora)
 
 // El sistema notifica al paciente el nuevo horario por WhatsApp (RF7)
-ServicioNotificacion svcReprog = nuevo ServicioNotificacion(canalWhatsApp)
-svcReprog.enviarReprogramacion(paciente.telefono, nuevaFecha, nuevaHora, medico.nombre)
-svcReprog.reprogramarRecordatorio(paciente.telefono, nuevaFecha, nuevaHora)
+// Se reutiliza la instancia svcNotificacion ya creada en CU1 (servicio sin estado propio)
+svcNotificacion.enviarReprogramacion(paciente.telefono, nuevaFecha, nuevaHora, medico.nombre)
+svcNotificacion.reprogramarRecordatorio(paciente.telefono, nuevaFecha, nuevaHora)
 // Turno de control reprogramado en estado "Pendiente"
 
 // ============================================================
@@ -136,15 +135,14 @@ svcReprog.reprogramarRecordatorio(paciente.telefono, nuevaFecha, nuevaHora)
 // El médico accede al sistema con su rol
 Resultado accesoMedico = controlSistema.accederAgenda(medico.dni, "Medico")
 
-// El sistema carga la vista diaria con turnos y bloqueos
+// El sistema carga la vista diaria; Agenda encapsula la obtención de turnos y bloqueos
 Resultado vistaResult = controlSistema.cargarVista("Diaria", fechaActual)
-List<Turno> turnosDelDia = agenda.obtenerTurnosPorRango(rangoFecha)
-GestorBloqueos gestorBloqueos = agenda.getGestorBloqueos()
-List<Bloqueo> bloqueosDelDia = gestorBloqueos.obtenerBloqueosPorFecha(fechaActual)
-
-// El sistema presenta el calendario con turnos y bloqueos
 VistaCalendario vista = agenda.obtenerVistaDiaria(fechaActual)
-vista.mostrarVistaDiaria(turnosDelDia, bloqueosDelDia)
+// obtenerVistaDiaria() obtiene internamente turnos (obtenerTurnosPorRango) y
+// bloqueos (gestorBloqueos.obtenerBloqueosPorFecha) antes de retornar la vista poblada
+
+// El sistema presenta el calendario ya cargado
+vista.mostrarVistaDiaria()
 
 // El médico navega entre fechas si lo necesita
 Date nuevaVista = controlSistema.navegarFecha("siguiente")
