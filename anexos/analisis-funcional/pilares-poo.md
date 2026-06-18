@@ -44,7 +44,8 @@ La clase `Turno` encapsula sus atributos internos (`fecha`, `hora`, `estado`, `t
 
 **Ejemplo 1 — notificar(mensaje) en Paciente vs Medico:**
 
-El método `notificar(mensaje: String)` está definido en `Persona` y sobreescrito en `Paciente` y `Medico` con comportamiento diferente. En `Paciente`, `notificar()` envía el mensaje por WhatsApp al teléfono del paciente, coherente con el canal oficial de notificación del sistema (RF7) usado por `ServicioNotificacion`. En `Medico`, `notificar()` envía la notificación al panel médico interno del sistema. Esto permite que `LlegadaPaciente`, al ejecutar `notificarMedico()`, invoque `medico.notificar()` sin conocer el canal concreto, y que `ServicioNotificacion` invoque `paciente.notificar()` de la misma forma. Agregar un nuevo canal de notificación por rol no requiere modificar la lógica de negocio que invoca la notificación.
+El método `notificar(mensaje: String)` está definido en `Persona` y sobreescrito en `Paciente` y `Medico` con comportamiento diferente. En `Paciente`, `notificar()` delega en `ServicioNotificacion` para enviar la confirmación por WhatsApp al teléfono del paciente (RF7).
+En `Medico`, `notificar()` publica una alerta en el panel médico del sistema. Esto permite que `LlegadaPaciente`, al ejecutar `notificarMedico()`, invoque `medico.notificar()` sin conocer el canal concreto, y que `ServicioNotificacion` invoque `paciente.notificar()` de la misma forma. Agregar un nuevo canal de notificación por rol no requiere modificar la lógica de negocio que invoca la notificación.
 
 ![Polimorfismo - Ejemplo 1](./capturas-pilares/poo-polimorfismo-ejemplo-1.png)
 

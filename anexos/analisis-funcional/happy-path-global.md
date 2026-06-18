@@ -82,15 +82,14 @@ Turno turnoEncontrado = agenda.filtrarHorariosDisponibles(paciente.dni, fechaHoy
 // El sistema verifica que el turno esté en estado válido para check-in
 // turnoEncontrado.getEstado() == "Pendiente" → habilitado
 
-// La secretaria registra la presencia; el caller solo interactúa con ControlSistema
+// El caller solo interactúa con ControlSistema:
 controlSistema.registrarPresencia(turnoEncontrado)
-// ControlSistema delega internamente en Agenda (no se llama agenda.registrarPresencia()
-// desde el flujo principal, manteniendo la capa de abstracción):
-//   → LlegadaPaciente llegada = agenda.registrarPresencia(turnoEncontrado.idTurno)
-//   → llegada.registrarHoraLlegada()                    // horaLlegada = DateTime.ahora()
-//   → turnoEncontrado.cambiarEstado("Presente")
-//   → llegada.actualizarPresencia(true, "En sala de espera")
+// Internamente ControlSistema delega (no visible al caller):
+//   → agenda.registrarPresencia(turnoEncontrado.idTurno) → crea LlegadaPaciente
+//   → llegada.registrarHoraLlegada()
+//   → turno.cambiarEstado("Presente")
 //   → llegada.notificarMedico(medico)
+//   → agenda.cancelarRecordatoriosPendientes(turnoEncontrado.idTurno)
 
 // El sistema cancela los recordatorios automáticos ya no necesarios
 agenda.cancelarRecordatoriosPendientes(turnoEncontrado.idTurno)
@@ -110,19 +109,20 @@ controlSistema.seleccionarReprogramar(turnoEncontrado)
 List<Time> nuevosHorarios = agenda.obtenerHorariosDelDia(nuevaFecha, medico.matricula)
 Boolean nuevoHorarioValido = controlSistema.validarRestricciones("Control", nuevaFecha, nuevaHora)
 
-// La secretaria confirma; ControlSistema encapsula la atomicidad internamente
-controlSistema.confirmarReprogramacion()
-// confirmarReprogramacion() invoca una única operación atómica en Agenda:
-//   → Resultado reprog = agenda.reprogramarTurno(turnoEncontrado, nuevaFecha, nuevaHora)
-//   → Internamente: liberarFranjaAnterior + actualizarFechaHora + bloquearNuevaFranja
-//   → Si cualquier paso falla, ninguno se aplica (operación todo-o-nada)
+
+// Una sola llamada encapsula la atomicidad completa:
+controlSistema.confirmarReprogramacion(turnoEncontrado, nuevaFecha, nuevaHora)
+// Internamente:
+//   → agenda.liberarFranjaAnterior(fecha, hora)
+//   → turnoEncontrado.actualizarFechaHora(nuevaFecha, nuevaHora)
+//   → agenda.bloquearNuevaFranja(nuevaFecha, nuevaHora)
 
 // El sistema registra el cambio en el historial (RNF4 - obligatorio)
 HistorialTurno historial = nuevo HistorialTurno()
 historial.registrarCambio(fecha, hora, nuevaFecha, nuevaHora)
 
 // El sistema notifica al paciente el nuevo horario por WhatsApp (RF7)
-// Se reutiliza la instancia svcNotificacion ya creada en CU1 (servicio sin estado propio)
+// Reutilizar instancia existente del mismo flujo:
 svcNotificacion.enviarReprogramacion(paciente.telefono, nuevaFecha, nuevaHora, medico.nombre)
 svcNotificacion.reprogramarRecordatorio(paciente.telefono, nuevaFecha, nuevaHora)
 // Turno de control reprogramado en estado "Pendiente"
@@ -137,8 +137,10 @@ Resultado accesoMedico = controlSistema.accederAgenda(medico.dni, "Medico")
 
 // El sistema carga la vista diaria; Agenda encapsula la obtención de turnos y bloqueos
 Resultado vistaResult = controlSistema.cargarVista("Diaria", fechaActual)
+// Patrón encapsulado (preferido, alineado con el pilar Abstracción):
 VistaCalendario vista = agenda.obtenerVistaDiaria(fechaActual)
-// obtenerVistaDiaria() obtiene internamente turnos (obtenerTurnosPorRango) y
+// obtenerVistaDiaria() resuelve internamente turnos y bloqueos
+vista.mostrarVistaDiaria() y
 // bloqueos (gestorBloqueos.obtenerBloqueosPorFecha) antes de retornar la vista poblada
 
 // El sistema presenta el calendario ya cargado

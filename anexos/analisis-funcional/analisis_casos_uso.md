@@ -6,4 +6,4 @@
 - [Caso de uso 4 - Bloquear Horarios](04-caso-de-uso-bloquear-horarios.md)
 - [Caso de uso 5 - Visualizar Agenda](05-caso-de-uso-visualizar-agenda.md)
 - [Los Cuatro Pilares del Paradigma Orientado a Objetos](pilares-poo.md)
-- [Pseudocogido - Happy Path Global del Sitema](happy-path-global.md)
+- [Pseudocógido - Happy Path Global del Sistema](happy-path-global.md)
