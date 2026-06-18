@@ -6,6 +6,9 @@
 
 - [feature/analista-cu-4-5-add-anexo-cu4-cu5] Se crearon diagramas de clases específicos, se creó documentación de uso IA, se crearon los anexos, se creó el índice de los diagramas de clases y el de anexos, se generaron los siguiente archivos: 04-clase-bloquear-horarios.puml, 04-clase-bloquear-horarios.png, 05-clase-visualizar-agenda.puml, 05-clase-visualizar-agenda.png, diagramas_de_clases.md, 04-caso-de-uso-bloquear-horarios.md, 05-caso-de-uso-visualizar-agenda.md,analisis_casos_uso.md, analista-cu-4-5.md PR: [#164](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/164) — @Piastrellini (Analista Funcional de Casos de Uso 4 y 5)
 
+- [feature/analista-cu-2-3-add-anexo-cu2-cu3] Agregado de diagramas de clase de los casos 2 y 3 integrado [#171](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/171) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+
 - [feature/arquitecto-de-dominio] Se desarrolló el diagrama de clases final del sistema, incluyendo su versión PlantUML, imagen y documentación descriptiva. Se incorporó la documentación de los cuatro pilares del paradigma orientado a objetos con ejemplos visuales de abstracción, encapsulamiento, herencia y polimorfismo. Además, se agregó el documento Happy Path Global del sistema y material de apoyo para el análisis del dominio. Se generaron los siguientes archivos: 06-clases-diagrama-final.puml, 06-clases-diagrama-final.png, 06-diagrama-clases-final.md, pilares-poo.md, happy-path-global.md, capturas de los pilares POO y arquitecto-dominio.md. [#178](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/178) - alandox1 - Arquitecto de Dominio
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
