@@ -27,7 +27,7 @@ El diagrama de secuencia muestra la interacción de Usuario, Sistema, Agenda y T
 
 ## 5. Diagrama de clases específico
 
-![Diagrama de clases CU-05](../../diagramas/01-diagrama-clases/05-clase-visualizar-agenda.png)
+![Diagrama de clases CU-05](../../diagramas/01-diagrama-clases/05-clases-visualizar-agenda.png)
 
 El diagrama muestra que `Agenda` es el componente central para recuperar turnos y bloqueos. `VistaCalendario` es responsable de presentar la información en modo diario o semanal, mientras que `Usuario` determina el acceso autorizado.
 
