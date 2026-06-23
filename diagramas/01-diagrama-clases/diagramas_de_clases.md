@@ -17,5 +17,5 @@
 
 - Diagramas por Caso de Uso
   - [Diagrama de Clases - Agendar Turno](01-clases-agendar-turno-01.png)
-  - [Diagrama de clases - Bloquear Horarios](../../diagramas/01-diagrama-clases/04-clases-bloquear-horarios.png)
-  - [Diagrama de clases - Visualizar Agenda](../../diagramas/01-diagrama-clases/05-clases-visualizar-agenda.png)
+  - [Diagrama de Clases - Bloquear Horarios](../../diagramas/01-diagrama-clases/04-clases-bloquear-horarios.png)
+  - [Diagrama de Clases - Visualizar Agenda](../../diagramas/01-diagrama-clases/05-clases-visualizar-agenda.png)
