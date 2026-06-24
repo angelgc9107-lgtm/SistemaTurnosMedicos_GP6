@@ -1,4 +1,4 @@
-﻿# Changelog
+# Changelog
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
 
 ### Added
@@ -17,6 +17,8 @@
 - [fix/correccion-de-arquitecto-de-dominio] Correcion de arquitecto de dominio. PR: [#182](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/182) - alandox1 - Arquitecto de Dominio
 
 - [fix/analista-cu4-cu5] Corrección a los archivos de los analisis de casos de uso 4 y 5. PR: [#186](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/186) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
+- [fix/diag_caso_uso_2] Corrección de conflicto en archivo del analisis de casos de uso 2. PR: [#188](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/188) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
