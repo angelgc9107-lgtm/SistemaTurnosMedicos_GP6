@@ -63,6 +63,7 @@ Posteriormente, el sistema realiza las acciones necesarias para efectuar el camb
 - ¿Turno encontrado?, esta es una bifurcación importante en la cual se puede finalizar el flujo de dos formas diferentes si se encuentra el turno o no. Esto es disparado cuando la secretaria busca el turno del paciente.
 - Liberar franja horaria anterior. Este evento es disparado cuando se confirma el cambio de horario y día en el turno existente.
 
+## 4. Diagrama de Secuencia
 ![Diagrama de Secuencia - Registrar Check in](../../diagramas/05-diagramas-secuencia/05-secuencia-cu-reprogramar-turno-reprogramar-turno-flujo-principal-03.png)
 
 **Participantes:*
@@ -91,7 +92,7 @@ ServicioNotificacion es un objeto temporal que solo tiene la responsabilidad de 
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |-------|-------------------------------------|-------------|
 | Secretaria | Cancelar o reprogramar turnos; consultar disponibilidad | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
-| ControlSistema | Coordinar la reprogramación de turnos; solicitar notificaciones de cambios | [08-tarjeta-crc-control-sisitemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sisitemas.md) |
+| ControlSistema | Coordinar la reprogramación de turnos; solicitar notificaciones de cambios | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
 | Agenda | Registrar turnos; bloquear fechas; gestionar disponibilidad | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
 | Turno | Reprogramar turno; puede modificar fecha y hora | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
 | HistorialTurno | Registrar cambios realizados sobre un turno; mantener trazabilidad de reprogramaciones | [09-tarjeta-crc-historial-turnos.md](../../herramientas-agile/tarjetas-crc/09-tarjeta-crc-historial-turnos.md) |

@@ -11,6 +11,12 @@
 
 - [feature/arquitecto-de-dominio] Se desarrolló el diagrama de clases final del sistema, incluyendo su versión PlantUML, imagen y documentación descriptiva. Se incorporó la documentación de los cuatro pilares del paradigma orientado a objetos con ejemplos visuales de abstracción, encapsulamiento, herencia y polimorfismo. Además, se agregó el documento Happy Path Global del sistema y material de apoyo para el análisis del dominio. Se generaron los siguientes archivos: 06-clases-diagrama-final.puml, 06-clases-diagrama-final.png, 06-diagrama-clases-final.md, pilares-poo.md, happy-path-global.md, capturas de los pilares POO y arquitecto-dominio.md. [#178](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/178) - alandox1 - Arquitecto de Dominio
 
+### Fixed
+- [fix/diag_casos_uso_2_3] Corrección a los archivos de los analisis de casos de uso 2 y 3. PR: [#184](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/184) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/correccion-de-arquitecto-de-dominio] Correcion de arquitecto de dominio. PR: [#182](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/182) - alandox1 - Arquitecto de Dominio
+
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
