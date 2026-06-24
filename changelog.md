@@ -24,6 +24,8 @@
 
 - [fix/coordinador_analista_cu1] Corrección de conflicto en archivo del analisis de casos de uso 1, changelog.md yu readme.md . PR: [#189](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/189) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
 
+- [fix/analis-caso-de-uso-4-5] Corrección de los diagramas y pseudocodigo de los casos de uso 4 y 5. PR: [#192](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/192) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
