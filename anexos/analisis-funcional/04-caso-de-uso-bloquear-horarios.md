@@ -27,7 +27,7 @@ El diagrama de secuencia describe la interacción entre Secretaria, Sistema, Age
 
 ## 5. Diagrama de clases específico
 
-![Diagrama de clases CU-04](../../diagramas/01-diagrama-clases/04-clase-bloquear-horarios.png)
+![Diagrama de clases CU-04](../../diagramas/01-diagrama-clases/04-clases-bloquear-horarios.png)
 
 Este diseño enfatiza que la `Agenda` centraliza la gestión de bloqueos y turnos, mientras que `GestorBloqueos` almacena los rangos bloqueados y `VistaCalendario` presenta el estado actualizado. La `Secretaria` interactúa con la `Agenda`; el `Médico` provee la información del bloqueo.
 

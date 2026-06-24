@@ -16,6 +16,7 @@
 
 - [fix/correccion-de-arquitecto-de-dominio] Correcion de arquitecto de dominio. PR: [#182](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/182) - alandox1 - Arquitecto de Dominio
 
+- [fix/analista-cu4-cu5] Corrección a los archivos de los analisis de casos de uso 4 y 5. PR: [#186](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/186) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
