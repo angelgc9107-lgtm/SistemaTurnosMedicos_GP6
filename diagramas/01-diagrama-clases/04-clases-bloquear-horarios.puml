@@ -69,13 +69,6 @@ class ControlSistema {
     + mostrarBloqueoEnCalendario(): void
 }
 
-Secretaria --> ControlSistema : solicitaBloqueo >
-ControlSistema --> Agenda : delega bloqueo >
-Medico --> Secretaria : informaIndisponibilidad >
-Agenda --> GestorBloqueos : usa >
-Agenda --> Turno : consulta >
-Agenda --> VistaCalendario : actualiza >
-GestorBloqueos --> Bloqueo : administra >
 class ValidadorDisponibilidad {
     + validarRango(rango: RangoFechaHora): boolean
 }
@@ -87,6 +80,24 @@ class Resultado {
     + {static} ok(msg: String): Resultado
 }
 
-Agenda --> ValidadorDisponibilidad : usa >
-Agenda --> Resultado : retorna >
+' Asociaciones con cardinalidad
+Medico "1" --> "1" Secretaria : informaIndisponibilidad >
+Secretaria "1" --> "1" ControlSistema : solicitaBloqueo >
+ControlSistema "1" --> "1" Agenda : delega bloqueo >
+Agenda "1" --> "1" VistaCalendario : actualiza >
+
+' Composición: GestorBloqueos no existe sin Agenda
+Agenda "1" *-- "1" GestorBloqueos : contiene >
+
+' Agregación: Turno puede existir independientemente de Agenda
+Agenda "1" o-- "0..*" Turno : consulta >
+
+' Composición: Bloqueo no existe sin GestorBloqueos
+GestorBloqueos "1" *-- "0..*" Bloqueo : administra >
+
+' Dependencias con cardinalidad
+Agenda "1" ..> "1" ValidadorDisponibilidad : usa >
+Agenda "1" ..> "1" Resultado : retorna >
+ControlSistema "1" ..> "1" Resultado : retorna >
+
 @enduml
