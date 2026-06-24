@@ -32,9 +32,33 @@ El diagrama de secuencia muestra la interacción de Usuario, Sistema, Agenda y T
 El diagrama muestra que `Agenda` es el componente central para recuperar turnos y bloqueos. `VistaCalendario` es responsable de presentar la información en modo diario o semanal, mientras que `Usuario` determina el acceso autorizado.
 
 ## 6. Coherencia con tarjetas CRC
-- La tarjeta CRC de `Secretaria` define su responsabilidad de "Consultar disponibilidad" y "Gestionar agenda", lo cual valida su rol en CU-05.
-- La tarjeta CRC de `Agenda` describe su capacidad de "Mostrar turnos disponibles" y "Gestionar disponibilidad", lo que coincide con la recuperación de turnos y bloqueos para la vista.
-- La tarjeta CRC de `Turno` refuerza que cada turno aporta un estado visible y una fecha/hora, necesario para la visualización correcta de la agenda.
+
+### Clases involucradas
+
+| Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
+|---------|--------------------------------------|-------------|
+| Secretaria | Gestionar agenda y consultar disponibilidad | `05-tarjeta-crc-secretaria.md` |
+| Medico | Gestionar disponibilidad y consultar agenda médica | `02-tarjeta-crc-medico.md` |
+| Agenda | Gestionar disponibilidad y presentar información de turnos | `04-tarjeta-crc-agenda.md` |
+| Turno | Mantener la información de fecha, hora y estado de los turnos | `03-tarjeta-crc-turno.md` |
+| ControlSistema | Coordinar las operaciones entre usuarios y componentes del sistema | `08-tarjeta-crc-control-sistema.md` |
+| VistaCalendario | Mostrar información de agenda, turnos y bloqueos | `10-tarjeta-crc-vista-calendario.md` |
+
+### Relaciones UML
+
+| Relación | Clases | Justificación |
+|-----------|---------|--------------|
+| Generalización | Secretaria → Usuario | La Secretaria hereda de Usuario los atributos y operaciones comunes de autenticación y acceso a la agenda. |
+| Generalización | Medico → Usuario | El Médico hereda de Usuario los atributos y operaciones comunes del sistema. |
+| Asociación | Usuario → ControlSistema | El Usuario interactúa con el sistema a través de ControlSistema para acceder a la agenda y solicitar distintas vistas. |
+| Asociación | ControlSistema → Agenda | ControlSistema consulta la Agenda para recuperar la información necesaria para construir la vista solicitada. |
+| Asociación | Agenda → Turno | Agenda obtiene los turnos correspondientes a una fecha o rango de fechas para su visualización. |
+| Asociación | Agenda → GestorBloqueos | Agenda utiliza GestorBloqueos para recuperar los bloqueos registrados que deben mostrarse en la vista. |
+| Asociación | GestorBloqueos → Bloqueo | GestorBloqueos administra una colección de bloqueos que representan períodos no disponibles. |
+| Asociación | Agenda → VistaCalendario | Agenda suministra la información de turnos y bloqueos que será presentada en la interfaz. |
+| Dependencia | ControlSistema → VistaCalendario | ControlSistema solicita la renderización de la vista diaria o semanal. |
+| Dependencia | ControlSistema → Resultado | Las operaciones realizadas retornan objetos Resultado indicando éxito o error. |
+| Dependencia | Usuario → Resultado | Las operaciones iniciadas por el Usuario retornan un objeto Resultado. |
 
 ## 7. Pseudocódigo orientado a objetos
 ```pseudo
