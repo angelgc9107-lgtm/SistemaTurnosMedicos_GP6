@@ -62,53 +62,126 @@ El diagrama muestra que `Agenda` es el componente central para recuperar turnos 
 
 ## 7. Pseudocódigo orientado a objetos
 ```pseudo
-class Usuario {
-    autenticar(): boolean
-    accederAgenda(tipoVista, fechaActual): Resultado {
-        if not self.autenticar() then
-            return Resultado.error("Acceso denegado")
-        // Delegación a través de ControlSistema, como muestra el diagrama
-        return ControlSistema.instancia().cargarVista(tipoVista, fechaActual)
-    }
-}
+class Usuario
 
-class ControlSistema {
-    cargarVista(tipoVista, fechaActual): Resultado {
-        return Agenda.instancia().mostrarAgenda(tipoVista, fechaActual)
-    }
-}
+    accederAgenda(tipoVista, fechaActual)
 
-class Agenda {
-    mostrarAgenda(tipoVista, fechaActual): Resultado {
-        turnos = self.obtenerTurnosPorFecha(fechaActual)
-        bloqueos = self.getGestorBloqueos().obtenerBloqueosPorFecha(fechaActual)
-        if tipoVista == "diaria" then
-            VistaCalendario.instancia().mostrarVistaDiaria(turnos, bloqueos)
+        // El usuario solicita visualizar la agenda del consultorio
+        // indicando si desea una vista diaria o semanal.
+
+        resultado = ControlSistema.accederAgenda(dni, rol)
+
+        if resultado.exito = false then
+            return resultado
+        end if
+
+        if tipoVista = "diaria" then
+
+            // El sistema recupera los turnos y bloqueos
+            // correspondientes al día seleccionado.
+
+            calendario = ControlSistema.cargarVistaDiaria(fechaActual)
+
         else
-            calendario = self.calcularRangoSemanal(fechaActual)
-            rango = new RangoFechaHora(calendario.fechaInicio, calendario.fechaFin)
-            turnos = self.obtenerTurnosPorRango(rango)
-            bloqueos = self.getGestorBloqueos().obtenerBloqueosPorRango(rango)
-            VistaCalendario.instancia().mostrarVistaSemanal(turnos, bloqueos)
-        return Resultado.ok("Agenda mostrada")
-    }
-}
 
-class VistaCalendario {
-    mostrarVistaDiaria(turnos, bloqueos): void {
-        renderizarBloques(turnos)
-        renderizarBloqueos(bloqueos)
-    }
-    mostrarVistaSemanal(turnos, bloqueos): void {
-        renderizarBloques(turnos)
-        renderizarBloqueos(bloqueos)
-    }
-}
+            // El sistema recupera la información necesaria
+            // para visualizar la semana correspondiente.
 
-class GestorBloqueos {
-    obtenerBloqueosPorFecha(fecha): List<Bloqueo> {
-        return bloqueos.filtrar(b => b.contiene(fecha, null)) // null = todas las horas
-    }
-}
+            calendario = ControlSistema.cargarVista(tipoVista, fechaActual)
+
+        end if
+
+        return Resultado.ok("Agenda cargada")
+
+
+class ControlSistema
+
+    accederAgenda(dni, rol)
+
+        // Se valida que el usuario posea permisos para acceder
+        // a la agenda médica.
+
+        return Resultado.ok("Acceso autorizado")
+
+
+    cargarVistaDiaria(fecha)
+
+        // Se solicita a la agenda la información del día seleccionado.
+
+        calendario = Agenda.obtenerVistaDiaria(fecha)
+
+        // La vista presenta los turnos y bloqueos recuperados.
+
+        VistaCalendario.mostrarVistaDiaria(
+            calendario.turnos,
+            calendario.bloqueos
+        )
+
+        return calendario
+
+
+    cargarVista(tipoVista, fecha)
+
+        // Se solicita a la agenda la información necesaria
+        // para construir la vista semanal.
+
+        calendario = Agenda.obtenerVistaSemanal(fecha)
+
+        // La vista presenta los turnos y bloqueos de la semana.
+
+        VistaCalendario.mostrarVistaSemanal(
+            calendario.turnos,
+            calendario.bloqueos
+        )
+
+        return calendario
+
+
+    navegarFecha(direccion)
+
+        // El usuario avanza o retrocede entre fechas
+        // sin modificar información de la agenda.
+
+        return nuevaFecha
+
+
+class Agenda
+
+    obtenerVistaDiaria(fecha)
+
+        // Se recuperan los turnos programados para el día.
+
+        turnos = obtenerTurnosPorFecha(fecha)
+
+        // Se recuperan los horarios bloqueados y sus motivos.
+
+        bloqueos = obtenerBloqueosPorFecha(fecha)
+
+        return Calendario(turnos, bloqueos)
+
+
+    obtenerVistaSemanal(fechaInicio)
+
+        // Se construye la vista semanal a partir de la fecha seleccionada.
+
+        turnos = obtenerTurnosPorFecha(fechaInicio)
+
+        bloqueos = obtenerBloqueosPorFecha(fechaInicio)
+
+        return Calendario(turnos, bloqueos)
+
+
+class VistaCalendario
+
+    mostrarVistaDiaria(turnos, bloqueos)
+
+        // Se muestran los turnos del día con su estado
+        // y los horarios bloqueados con su motivo.
+
+
+    mostrarVistaSemanal(turnos, bloqueos)
+
+        // Se muestran los turnos y bloqueos correspondientes
+        // a la semana seleccionada.
 ```
 El pseudocódigo muestra cómo un Usuario autenticado delega la solicitud de visualización en ControlSistema, que actúa como mediador hacia Agenda. Luego Agenda reúne los turnos y bloqueos correspondientes y VistaCalendario presenta la información en la vista solicitada.
