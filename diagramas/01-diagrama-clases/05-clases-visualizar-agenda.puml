@@ -70,16 +70,6 @@ class ControlSistema {
     + cerrarVista(): void
 }
 
-Usuario <|-- Secretaria
-Usuario <|-- Medico
-Usuario --> ControlSistema : solicita acceso >
-ControlSistema --> Agenda : consulta y carga >
-ControlSistema --> VistaCalendario : presenta >
-Agenda --> Turno : consulta >
-Agenda --> GestorBloqueos : usa >
-Agenda --> VistaCalendario : presenta >
-GestorBloqueos --> Bloqueo : administra >
-
 class Resultado {
     - exito: boolean
     - mensaje: String
@@ -87,7 +77,28 @@ class Resultado {
     + {static} ok(msg: String): Resultado
 }
 
-Usuario --> Resultado : retorna >
-ControlSistema --> Resultado : retorna >
-Agenda --> Resultado : retorna >
+' Generalizaciones
+Usuario <|-- Secretaria
+Usuario <|-- Medico
+
+' Asociaciones con cardinalidad
+Usuario "1" --> "1" ControlSistema : solicita acceso >
+ControlSistema "1" --> "1" VistaCalendario : presenta >
+
+' Composición: GestorBloqueos no existe sin Agenda
+Agenda "1" *-- "1" GestorBloqueos : contiene >
+
+' Agregación: Turno puede existir independientemente de Agenda
+Agenda "1" o-- "0..*" Turno : consulta >
+
+' Composición: Bloqueo no existe sin GestorBloqueos
+GestorBloqueos "1" *-- "0..*" Bloqueo : administra >
+
+' Dependencias
+ControlSistema "1" ..> "1" Agenda : consulta y carga >
+Agenda "1" ..> "1" VistaCalendario : presenta >
+Usuario "1" ..> "1" Resultado : retorna >
+ControlSistema "1" ..> "1" Resultado : retorna >
+Agenda "1" ..> "1" Resultado : retorna >
+
 @enduml

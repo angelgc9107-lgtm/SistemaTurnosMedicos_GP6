@@ -32,59 +32,156 @@ El diagrama de secuencia muestra la interacción de Usuario, Sistema, Agenda y T
 El diagrama muestra que `Agenda` es el componente central para recuperar turnos y bloqueos. `VistaCalendario` es responsable de presentar la información en modo diario o semanal, mientras que `Usuario` determina el acceso autorizado.
 
 ## 6. Coherencia con tarjetas CRC
-- La tarjeta CRC de `Secretaria` define su responsabilidad de "Consultar disponibilidad" y "Gestionar agenda", lo cual valida su rol en CU-05.
-- La tarjeta CRC de `Agenda` describe su capacidad de "Mostrar turnos disponibles" y "Gestionar disponibilidad", lo que coincide con la recuperación de turnos y bloqueos para la vista.
-- La tarjeta CRC de `Turno` refuerza que cada turno aporta un estado visible y una fecha/hora, necesario para la visualización correcta de la agenda.
+
+### Clases involucradas
+
+| Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
+|---------|--------------------------------------|-------------|
+| Secretaria | Gestionar agenda y consultar disponibilidad | `05-tarjeta-crc-secretaria.md` |
+| Medico | Gestionar disponibilidad y consultar agenda médica | `02-tarjeta-crc-medico.md` |
+| Agenda | Gestionar disponibilidad y presentar información de turnos | `04-tarjeta-crc-agenda.md` |
+| Turno | Mantener la información de fecha, hora y estado de los turnos | `03-tarjeta-crc-turno.md` |
+| ControlSistema | Coordinar las operaciones entre usuarios y componentes del sistema | `08-tarjeta-crc-control-sistema.md` |
+| VistaCalendario | Mostrar información de agenda, turnos y bloqueos | `10-tarjeta-crc-vista-calendario.md` |
+
+### Relaciones UML
+
+| Relación | Clases | Justificación |
+|-----------|---------|--------------|
+| Generalización | Secretaria → Usuario | La Secretaria hereda de Usuario los atributos y operaciones comunes de autenticación y acceso a la agenda. |
+| Generalización | Medico → Usuario | El Médico hereda de Usuario los atributos y operaciones comunes del sistema. |
+| Asociación | Usuario → ControlSistema | El Usuario interactúa con el sistema a través de ControlSistema para acceder a la agenda y solicitar distintas vistas. |
+| Asociación | ControlSistema → Agenda | ControlSistema consulta la Agenda para recuperar la información necesaria para construir la vista solicitada. |
+| Asociación | Agenda → Turno | Agenda obtiene los turnos correspondientes a una fecha o rango de fechas para su visualización. |
+| Asociación | Agenda → GestorBloqueos | Agenda utiliza GestorBloqueos para recuperar los bloqueos registrados que deben mostrarse en la vista. |
+| Asociación | GestorBloqueos → Bloqueo | GestorBloqueos administra una colección de bloqueos que representan períodos no disponibles. |
+| Asociación | Agenda → VistaCalendario | Agenda suministra la información de turnos y bloqueos que será presentada en la interfaz. |
+| Dependencia | ControlSistema → VistaCalendario | ControlSistema solicita la renderización de la vista diaria o semanal. |
+| Dependencia | ControlSistema → Resultado | Las operaciones realizadas retornan objetos Resultado indicando éxito o error. |
+| Dependencia | Usuario → Resultado | Las operaciones iniciadas por el Usuario retornan un objeto Resultado. |
 
 ## 7. Pseudocódigo orientado a objetos
 ```pseudo
-class Usuario {
-    autenticar(): boolean
-    accederAgenda(tipoVista, fechaActual): Resultado {
-        if not self.autenticar() then
-            return Resultado.error("Acceso denegado")
-        // Delegación a través de ControlSistema, como muestra el diagrama
-        return ControlSistema.instancia().cargarVista(tipoVista, fechaActual)
-    }
-}
+class Usuario
 
-class ControlSistema {
-    cargarVista(tipoVista, fechaActual): Resultado {
-        return Agenda.instancia().mostrarAgenda(tipoVista, fechaActual)
-    }
-}
+    accederAgenda(tipoVista, fechaActual)
 
-class Agenda {
-    mostrarAgenda(tipoVista, fechaActual): Resultado {
-        turnos = self.obtenerTurnosPorFecha(fechaActual)
-        bloqueos = self.getGestorBloqueos().obtenerBloqueosPorFecha(fechaActual)
-        if tipoVista == "diaria" then
-            VistaCalendario.instancia().mostrarVistaDiaria(turnos, bloqueos)
+        // El usuario solicita visualizar la agenda del consultorio
+        // indicando si desea una vista diaria o semanal.
+
+        resultado = ControlSistema.accederAgenda(dni, rol)
+
+        if resultado.exito = false then
+            return resultado
+        end if
+
+        if tipoVista = "diaria" then
+
+            // El sistema recupera los turnos y bloqueos
+            // correspondientes al día seleccionado.
+
+            calendario = ControlSistema.cargarVistaDiaria(fechaActual)
+
         else
-            calendario = self.calcularRangoSemanal(fechaActual)
-            rango = new RangoFechaHora(calendario.fechaInicio, calendario.fechaFin)
-            turnos = self.obtenerTurnosPorRango(rango)
-            bloqueos = self.getGestorBloqueos().obtenerBloqueosPorRango(rango)
-            VistaCalendario.instancia().mostrarVistaSemanal(turnos, bloqueos)
-        return Resultado.ok("Agenda mostrada")
-    }
-}
 
-class VistaCalendario {
-    mostrarVistaDiaria(turnos, bloqueos): void {
-        renderizarBloques(turnos)
-        renderizarBloqueos(bloqueos)
-    }
-    mostrarVistaSemanal(turnos, bloqueos): void {
-        renderizarBloques(turnos)
-        renderizarBloqueos(bloqueos)
-    }
-}
+            // El sistema recupera la información necesaria
+            // para visualizar la semana correspondiente.
 
-class GestorBloqueos {
-    obtenerBloqueosPorFecha(fecha): List<Bloqueo> {
-        return bloqueos.filtrar(b => b.contiene(fecha, null)) // null = todas las horas
-    }
-}
+            calendario = ControlSistema.cargarVista(tipoVista, fechaActual)
+
+        end if
+
+        return Resultado.ok("Agenda cargada")
+
+
+class ControlSistema
+
+    accederAgenda(dni, rol)
+
+        // Se valida que el usuario posea permisos para acceder
+        // a la agenda médica.
+
+        return Resultado.ok("Acceso autorizado")
+
+
+    cargarVistaDiaria(fecha)
+
+        // Se solicita a la agenda la información del día seleccionado.
+
+        calendario = Agenda.obtenerVistaDiaria(fecha)
+
+        // La vista presenta los turnos y bloqueos recuperados.
+
+        VistaCalendario.mostrarVistaDiaria(
+            calendario.turnos,
+            calendario.bloqueos
+        )
+
+        return calendario
+
+
+    cargarVista(tipoVista, fecha)
+
+        // Se solicita a la agenda la información necesaria
+        // para construir la vista semanal.
+
+        calendario = Agenda.obtenerVistaSemanal(fecha)
+
+        // La vista presenta los turnos y bloqueos de la semana.
+
+        VistaCalendario.mostrarVistaSemanal(
+            calendario.turnos,
+            calendario.bloqueos
+        )
+
+        return calendario
+
+
+    navegarFecha(direccion)
+
+        // El usuario avanza o retrocede entre fechas
+        // sin modificar información de la agenda.
+
+        return nuevaFecha
+
+
+class Agenda
+
+    obtenerVistaDiaria(fecha)
+
+        // Se recuperan los turnos programados para el día.
+
+        turnos = obtenerTurnosPorFecha(fecha)
+
+        // Se recuperan los horarios bloqueados y sus motivos.
+
+        bloqueos = obtenerBloqueosPorFecha(fecha)
+
+        return Calendario(turnos, bloqueos)
+
+
+    obtenerVistaSemanal(fechaInicio)
+
+        // Se construye la vista semanal a partir de la fecha seleccionada.
+
+        turnos = obtenerTurnosPorFecha(fechaInicio)
+
+        bloqueos = obtenerBloqueosPorFecha(fechaInicio)
+
+        return Calendario(turnos, bloqueos)
+
+
+class VistaCalendario
+
+    mostrarVistaDiaria(turnos, bloqueos)
+
+        // Se muestran los turnos del día con su estado
+        // y los horarios bloqueados con su motivo.
+
+
+    mostrarVistaSemanal(turnos, bloqueos)
+
+        // Se muestran los turnos y bloqueos correspondientes
+        // a la semana seleccionada.
 ```
 El pseudocódigo muestra cómo un Usuario autenticado delega la solicitud de visualización en ControlSistema, que actúa como mediador hacia Agenda. Luego Agenda reúne los turnos y bloqueos correspondientes y VistaCalendario presenta la información en la vista solicitada.
