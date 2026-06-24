@@ -29,7 +29,7 @@ package "Modelo de Dominio" {
         + getContacto(): String
     }
 
-    class Paciente extends Persona {
+    class Paciente {
         # numeroAfiliado: String
         # historialMedico: String
         --
@@ -38,7 +38,7 @@ package "Modelo de Dominio" {
         + cancelarTurno(turno: Turno): void
     }
 
-    class Medico extends Persona {
+    class Medico {
         # matricula: String
         # especialidad: String
         --
@@ -47,7 +47,7 @@ package "Modelo de Dominio" {
         + obtenerAgenda(): Agenda
     }
 
-    class Secretaria extends Persona {
+    class Secretaria {
         # legajo: String
         --
         + registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: String): Turno

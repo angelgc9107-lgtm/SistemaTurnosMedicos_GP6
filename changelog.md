@@ -1,6 +1,8 @@
 # Changelog
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
 
+## [Unreleased]
+
 ### Added
 - [feature/coordinador-devops-add-anexo-cu1] Creacion de la carpeta diagramas/01-diagramas-clases/01-clases[Nombre].puml y png junto a diagramas_de_clases.md, creacion de carpeta ia/a4/analista-cu-1.md y coordinador-devops.md, Creacion de la carpeta anexos/analisis-funcional/analisis_casos.md y 01-caso-de-uso-agendar-turno.md PR: [#172](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/172) — @luchobarrionuevo13 (Analista Funcional CU1 + Coordinador de Repositorio)
 
@@ -19,6 +21,8 @@
 - [fix/analista-cu4-cu5] Corrección a los archivos de los analisis de casos de uso 4 y 5. PR: [#186](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/186) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
 - [fix/diag_caso_uso_2] Corrección de conflicto en archivo del analisis de casos de uso 2. PR: [#188](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/188) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/coordinador_analista_cu1] Corrección de conflicto en archivo del analisis de casos de uso 1, changelog.md yu readme.md . PR: [#189](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/189) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
