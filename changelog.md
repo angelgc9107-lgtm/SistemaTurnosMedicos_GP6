@@ -32,6 +32,8 @@
 
 - [fix/cu4-cu5-anexos] Correcciones en los casos de uso CU-04 y CU-05 para adecuar el pseudocódigo a las observaciones realizadas durante la revisión. PR: [#204](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/204) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
+- [fix/anexos-cu4-y-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se completan las secciones 1 a 4 de ambos casos de uso siguiendo el formato de plantilla requerido. PR: [#206](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/206) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
