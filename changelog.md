@@ -30,6 +30,8 @@
 
 - [fix/correcion-cu-2-3] Agregar clase Persona a los archivos de los analisis de casos de uso 2 y 3. PR: [#198](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/198) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
 
+- [fix/correcion-diagrama6] Corregir diagrama 6. PR: [#201](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/201) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed
