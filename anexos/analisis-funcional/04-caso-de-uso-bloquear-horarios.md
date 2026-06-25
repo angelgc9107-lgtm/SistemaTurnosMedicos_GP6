@@ -67,141 +67,105 @@ Este diseño enfatiza que la `Agenda` centraliza la gestión de bloqueos y turno
 | Dependencia | Secretaria → RangoFechaHora | La Secretaria utiliza RangoFechaHora como parámetro para encapsular el intervalo de fechas y horarios del bloqueo. |
 
 ## 7. Pseudocódigo orientado a objetos
-```pseudo
-class Secretaria
+``` 
+INICIO CU-04 Bloquear días/horarios en calendario
 
-    solicitarBloqueo(rango, motivo)
+// Evento externo:
+// El médico informa presencialmente a la secretaria el período
+// en el que no estará disponible y el motivo del bloqueo.
 
-        // La secretaria carga en el sistema el rango de fechas y horarios
-        // que el médico indicó como no disponibles, junto con el motivo
-        // del bloqueo (vacaciones, feriado u otra actividad del médico).
+// La secretaria selecciona en el sistema el rango de fechas
+// que deberá quedar bloqueado.
 
-        resultado = ControlSistema.confirmarBloqueo(rango.fechaInicio, rango.fechaFin, motivo)
-
-        if resultado.exito = false then
-            return resultado
-        end if
-
-        // El sistema actualiza el calendario mostrando las franjas
-        // inhabilitadas con el motivo asociado, para que la secretaria
-        // pueda verificar que el bloqueo quedó registrado correctamente.
-
-        ControlSistema.mostrarBloqueoEnCalendario()
-
-        return Resultado.ok("Bloqueo registrado correctamente")
+ControlSistema.seleccionarRango(fechaInicio, fechaFin)
 
 
-class ControlSistema
+// Agenda recibe el rango solicitado para preparar
+// la operación de bloqueo.
 
-    confirmarBloqueo(fechaInicio, fechaFin, motivo)
+Agenda.seleccionarRango(fechaInicio, fechaFin)
 
-        // ControlSistema delega a la Agenda la validación y el registro
-        // del bloqueo solicitado.
-
-        resultado = Agenda.bloquearRango(fechaInicio, fechaFin, motivo)
-
-        return resultado
+retornar rangoSeleccionado
 
 
-    mostrarBloqueoEnCalendario()
+// El sistema informa a la secretaria que el rango fue registrado.
 
-        // Se recuperan los bloqueos registrados en la agenda
-        // para presentarlos actualizados en el calendario.
+mostrar rangoSeleccionado a Secretaria
 
-        bloqueos = Agenda.obtenerBloqueosPorRango(rango)
+// La secretaria ingresa el motivo asociado al bloqueo.
 
-        VistaCalendario.mostrarBloqueos(bloqueos)
-
-
-class Agenda
-
-    bloquearRango(fechaInicio, fechaFin, motivo)
-
-        // El consultorio solo opera en franjas definidas
-        // (Lun-Vie 9-13 y 15-19, sábados ocasionales).
-        // Se verifica que el período solicitado caiga dentro
-        // de esos horarios habilitados.
-
-        rangoValido = ValidadorDisponibilidad.validarRango(rango)
-
-        if rangoValido = false then
-            return Resultado.error("Rango fuera de los horarios habilitados del consultorio")
-        end if
-
-        // Antes de bloquear, se verifica si algún paciente tiene
-        // un turno confirmado dentro del período solicitado.
-        // Si los hay, el bloqueo no puede realizarse y esos turnos
-        // deben resolverse primero.
-
-        turnosEnRango = obtenerTurnosPorRango(rango)
-
-        if turnosEnRango no está vacío then
-            return Resultado.error("Existen turnos asignados en el rango indicado")
-        end if
-
-        // Sin conflictos, la Agenda delega a GestorBloqueos
-        // la creación y almacenamiento del nuevo bloqueo.
-
-        gestorBloqueos.bloquearRango(rango, motivo)
-
-        return Resultado.ok("Bloqueo registrado")
+ControlSistema.ingresarMotivo(motivo)
 
 
-    obtenerTurnosPorRango(rango)
+// Agenda registra el motivo que quedará asociado
+// a la indisponibilidad del médico.
 
-        // Se recorre la lista de turnos para detectar
-        // si alguno se encuentra dentro del rango indicado.
+Agenda.ingresarMotivo(motivo)
 
-        turnosEnRango = []
-
-        for turno in listaTurnos do
-            if turno.estaEnRango(rango) then
-                turnosEnRango.agregar(turno)
-            end if
-        end for
-
-        return turnosEnRango
+retornar motivoRegistrado
 
 
-    obtenerBloqueosPorRango(rango)
+// El sistema confirma que el motivo fue incorporado.
 
-        // Se recuperan los bloqueos registrados dentro
-        // del rango indicado para actualizar la vista.
+mostrar motivoRegistrado a Secretaria
 
-        return gestorBloqueos.obtenerMotivo(rango.fechaInicio, rango.fechaFin)
+// La secretaria confirma la operación de bloqueo.
 
-
-class GestorBloqueos
-
-    bloquearRango(rango, motivo)
-
-        // Se crea el bloqueo con el rango de fechas y el motivo
-        // y se incorpora a la colección de franjas inhabilitadas.
-
-        bloqueo = nuevo Bloqueo(rango.fechaInicio, rango.fechaFin, motivo)
-        bloqueos.agregar(bloqueo)
+ControlSistema.confirmarBloqueo(fechaInicio, fechaFin, motivo)
 
 
-class ValidadorDisponibilidad
+// Agenda analiza los turnos existentes dentro
+// del período para conocer qué reservas se encuentran
+// afectadas por la indisponibilidad.
 
-    validarRango(rango)
+Agenda.obtenerTurnosEnRango(fechaInicio, fechaFin)
 
-        // Se verifica que el rango solicitado se encuentre
-        // dentro de los horarios habilitados del consultorio.
+    // Por cada turno encontrado se consulta su estado.
 
-        return rango.estaEnHorariosHabilitados()
+    Turno.getEstado()
+
+    // También se recupera la fecha y hora de cada turno
+    // comprendido dentro del rango solicitado.
+
+    Turno.getFechaHora()
 
 
-class VistaCalendario
+// Una vez analizada la información existente,
+// Agenda registra el período como bloqueado.
 
-    mostrarBloqueos(bloqueos)
+Agenda.registrarBloqueo(fechaInicio, fechaFin, motivo)
 
-        // Se presenta en el calendario cada franja bloqueada
-        // con su motivo, permitiendo identificar visualmente
-        // los períodos no disponibles para nuevos turnos.
 
-        for bloqueo in bloqueos do
-            renderizarFranjaBloqueada(bloqueo)
-        end for
-```
+// La agenda marca el rango completo como no disponible
+// para impedir nuevas asignaciones de turnos.
+
+Agenda.marcarNoDisponible(fechaInicio, fechaFin)
+
+retornar bloqueoRegistrado
+
+
+// Agenda informa al sistema que el bloqueo fue registrado.
+
+mostrar bloqueoRegistrado
+
+// El sistema actualiza la vista para que la secretaria
+// pueda visualizar la indisponibilidad registrada.
+
+ControlSistema.mostrarBloqueoEnCalendario()
+
+// Estado final del sistema:
+//
+// - El rango indicado quedó registrado como bloqueado.
+// - El motivo quedó asociado al bloqueo.
+// - Las franjas comprendidas en el período aparecen
+//   como no disponibles.
+// - No podrán asignarse nuevos turnos dentro del rango (RF3).
+// - El bloqueo queda visible en el calendario.
+// - La agenda mantiene centralizada la gestión de turnos
+//   y bloqueos (RNF5).
+
+Retornar "Bloqueo registrado exitosamente"
+
+FIN CU-04
+``` 
 El pseudocódigo define la responsabilidad de cada objeto: la `Secretaria` inicia el bloqueo delegando a `ControlSistema`, el `ControlSistema` coordina la operación con `Agenda`, `Agenda` valida la disponibilidad a través de `ValidadorDisponibilidad` y delega el registro a `GestorBloqueos`, mientras que `VistaCalendario` actualiza la presentación con las franjas bloqueadas. Se han incluido las clases de soporte `Resultado` y `ValidadorDisponibilidad` para completar la coherencia entre diagrama y especificación.
