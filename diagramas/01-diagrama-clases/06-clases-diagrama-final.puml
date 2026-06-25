@@ -97,7 +97,6 @@ package "Gestión de Turnos" {
     }
 
     class Agenda {
-        {id} idAgenda: UUID
         --
         - listaTurnos: List<Turno>
         - horariosDisponibles: Map<Date, List<String>>
@@ -247,7 +246,6 @@ package "Servicios" {
         --
         - canalWhatsApp: String
         - telefono: String
-        - idServicio: UUID
         --
         + enviarConfirmacion(telefono: String, fecha: Date, hora: String, medico: String): Boolean
         + programarRecordatorio24h(telefono: String, fecha: Date): void
