@@ -93,7 +93,7 @@ ServicioNotificacion es un objeto temporal que solo tiene la responsabilidad de 
 |-------|-------------------------------------|-------------|
 | Persona | Mantener datos personales y gestionar el estado de actividad de los usuarios del sistema |  [00-tarjeta-crc-persona.md](../../herramientas-agile/tarjetas-crc/00-tarjeta-crc-persona.md) |
 | Secretaria | Cancelar o reprogramar turnos; consultar disponibilidad | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
-| ControlSistema | Coordinar la reprogramación de turnos; solicitar notificaciones de cambios | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
+| ControlSistema | Coordinar la reprogramación de turnos; solicitar notificaciones de cambios | [08-tarjeta-crc-control-sistemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
 | Agenda | Registrar turnos; bloquear fechas; gestionar disponibilidad | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
 | Turno | Reprogramar turno; puede modificar fecha y hora | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
 | HistorialTurno | Registrar cambios realizados sobre un turno; mantener trazabilidad de reprogramaciones | [09-tarjeta-crc-historial-turnos.md](../../herramientas-agile/tarjetas-crc/09-tarjeta-crc-historial-turnos.md) |
