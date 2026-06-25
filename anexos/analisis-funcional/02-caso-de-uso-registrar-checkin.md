@@ -8,8 +8,13 @@ Actores: Secretaria, Médico.
 
 Objetivo: Registrar el horario real en la que el paciente se presenta en recepción para que el Médico pueda visualizarlo como "presente" en el sistema.
 
- ### **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
+<<<<<<< fix/diag_casos_uso_2_3
+ **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
 |---|---|
+=======
+ ### **Pasos desempenados (ruta principal)** | **Informacion para los pasos** |
+|:---|:---|
+>>>>>>> release/actividad-obligatoria-4
 | 1. El paciente se presenta en recepcion. | Evento fisico que inicia el flujo. |
 | 2. La secretaria busca el turno del paciente en la agenda. | Busqueda por nombre, apellido o DNI del paciente. |
 | 3. La secretaria selecciona el turno correspondiente. | Turno en estado "Pendiente" para la fecha actual. |
@@ -72,7 +77,11 @@ Objetivo: Registrar el horario real en la que el paciente se presenta en recepci
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |-------|-------------------------------------|-------------|
 | Secretaria | Registrar turnos; cancelar o reprogramar turnos | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
-| ControlSistema | Coordinar el registro de check-in | [08-tarjeta-crc-control-sisitemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sisitemas.md) |
+<<<<<<< fix/diag_casos_uso_2_3
+| ControlSistema | Coordinar el registro de check-in | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
+=======
+| ControlSistema | Coordinar el registro de check-in | [08-tarjeta-crc-control-sisitemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
+>>>>>>> release/actividad-obligatoria-4
 | Agenda | Registrar turnos; gestionar disponibilidad | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
 | Turno | Registrar turno; confirmar turno; puede cambiar su estado | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
 | LlegadaPaciente | Registrar hora real de llegada; indicar presencia del paciente | [06-tarjeta-crc-llegada-paciente.md](../../herramientas-agile/tarjetas-crc/06-tarjeta-crc-llegada-paciente.md) |

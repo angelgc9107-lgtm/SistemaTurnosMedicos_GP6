@@ -244,10 +244,10 @@ package "Control y Presentación" {
 package "Servicios" {
 
     class ServicioNotificacion {
-        {id} idServicio: UUID
         --
         - canalWhatsApp: String
         - telefono: String
+        - idServicio: UUID
         --
         + enviarConfirmacion(telefono: String, fecha: Date, hora: String, medico: String): Boolean
         + programarRecordatorio24h(telefono: String, fecha: Date): void
