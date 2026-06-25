@@ -26,20 +26,20 @@ title CU2 - Diagrama de Actividades: Registrar Check-in (Llegada del Paciente)
 start
 :Presentarse físicamente\nen recepción;
 
-|Recepcionista|
+|Secretaria|
 :Buscar turno del paciente\nen la agenda;
 
 note right
   Búsqueda por nombre,
   apellido o DNI — RF4
-  Rol: Recepcionista (actor de check-in).
-  Ver tarjeta CRC: 07-tarjeta-crc-recepcionista.md
+  Rol: Secretaria (actor de check-in).
+  Ver tarjeta CRC: 05-tarjeta-crc-secretaria.md
 end note
 
 |Sistema|
 if (¿Turno encontrado?) then (NO)
   :Mostrar mensaje:\n"No se encontró turno\npara el paciente";
-  |Recepcionista|
+  |Secretaria|
   :Verificar datos\ndel paciente;
   if (¿Datos correctos?) then (SÍ)
     :Reintentar búsqueda\ncon otros datos;
@@ -63,19 +63,19 @@ else (SÍ)
   :Mostrar datos del turno\nencontrado;
 endif
 
-|Recepcionista|
+|Secretaria|
 :Seleccionar el turno\ncorrespondiente al paciente;
 
 |Sistema|
 if (¿Turno en estado "Pendiente"?) then (NO)
   :Informar que el turno\nno está en estado válido\npara check-in;
-  |Recepcionista|
+  |Secretaria|
   :Revisar estado\ndel turno con el paciente;
   end
 else (SÍ)
 endif
 
-|Recepcionista|
+|Secretaria|
 :Ejecutar acción\n"Marcar como Presente /\nEn sala de espera";
 
 |Sistema|
@@ -91,7 +91,7 @@ end note
 :Notificar al médico\npresencia del paciente;
 :Confirmar cambio de estado\nen pantalla de la secretaria;
 
-|Recepcionista|
+|Secretaria|
 :Informar al paciente\nque quedó registrado\nen sala de espera;
 
 |Médico|
