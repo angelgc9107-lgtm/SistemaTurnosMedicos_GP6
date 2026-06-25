@@ -26,6 +26,8 @@
 
 - [fix/analis-caso-de-uso-4-5] Corrección de los diagramas y pseudocodigo de los casos de uso 4 y 5. PR: [#192](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/192) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
+- [fix/corrección-analis-cu4-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se agregan los hipervínculos a las tarjetas CRC. PR: [#194](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/194) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
 ### Fixed

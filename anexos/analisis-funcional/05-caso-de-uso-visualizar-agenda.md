@@ -37,12 +37,15 @@ El diagrama muestra que `Agenda` es el componente central para recuperar turnos 
 
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |---------|--------------------------------------|-------------|
-| Secretaria | Gestionar agenda y consultar disponibilidad | `05-tarjeta-crc-secretaria.md` |
-| Medico | Gestionar disponibilidad y consultar agenda médica | `02-tarjeta-crc-medico.md` |
-| Agenda | Gestionar disponibilidad y presentar información de turnos | `04-tarjeta-crc-agenda.md` |
-| Turno | Mantener la información de fecha, hora y estado de los turnos | `03-tarjeta-crc-turno.md` |
-| ControlSistema | Coordinar las operaciones entre usuarios y componentes del sistema | `08-tarjeta-crc-control-sistema.md` |
-| VistaCalendario | Mostrar información de agenda, turnos y bloqueos | `10-tarjeta-crc-vista-calendario.md` |
+| Secretaria | Gestionar agenda y consultar disponibilidad | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md)|
+| Medico | Gestionar disponibilidad y consultar agenda médica | [02-tarjeta-crc-medico.md](../../herramientas-agile/tarjetas-crc/02-tarjeta-crc-medico.md) |
+| Agenda | Gestionar disponibilidad y presentar información de turnos | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
+| Turno | Mantener la información de fecha, hora y estado de los turnos | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md)|
+| ControlSistema | Coordinar las operaciones entre usuarios y componentes del sistema | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistemas.md) |
+| VistaCalendario | Mostrar información de agenda, turnos y bloqueos | [10-tarjeta-crc-vista-calendario.md](../../herramientas-agile/tarjetas-crc/10-tarjeta-crc-vista-calendario.md) |
+| GestorBloqueos | Almacenar y administrar la colección de bloqueos registrados en la agenda | [11-tarjeta-crc-gestor-bloqueos.md](../../herramientas-agile/tarjetas-crc/11-tarjeta-crc-gestor-bloqueos.md) |
+| Bloqueo | Representar un período inhabilitado con su rango de fechas y el motivo asociado | [13-tarjeta-crc-bloqueo.md](../../herramientas-agile/tarjetas-crc/13-tarjeta-crc-bloqueo.md) |
+| Resultado | Encapsular el resultado de una operación indicando éxito o error con su mensaje | [14-tarjeta-crc-resultado.md](../../herramientas-agile/tarjetas-crc/14-tarjeta-crc-resultado.md) |
 
 ### Relaciones UML
 
