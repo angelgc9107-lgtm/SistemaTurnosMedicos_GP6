@@ -71,8 +71,9 @@ Objetivo: Registrar el horario real en la que el paciente se presenta en recepci
 
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |-------|-------------------------------------|-------------|
+| Persona | Mantener datos personales y gestionar el estado de actividad de los usuarios del sistema | [00-tarjeta-crc-persona.md](../../herramientas-agile/tarjetas-crc/00-tarjeta-crc-persona.md) |
 | Secretaria | Registrar turnos; cancelar o reprogramar turnos | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
-| ControlSistema | Coordinar el registro de check-in | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
+| ControlSistema | Coordinar el registro de check-in | [08-tarjeta-crc-control-sistemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistemas.md) |
 | Agenda | Registrar turnos; gestionar disponibilidad | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
 | Turno | Registrar turno; confirmar turno; puede cambiar su estado | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
 | LlegadaPaciente | Registrar hora real de llegada; indicar presencia del paciente | [06-tarjeta-crc-llegada-paciente.md](../../herramientas-agile/tarjetas-crc/06-tarjeta-crc-llegada-paciente.md) |
@@ -81,13 +82,12 @@ Objetivo: Registrar el horario real en la que el paciente se presenta en recepci
 
 | Relación | Clases | Justificación |
 |----------|--------|---------------|
-| Herencia | `Persona` <|-- `Secretaria` | Secretaria hereda los atributos y comportamientos comunes definidos en la superclase Persona |
+| Generalización | `Persona` <|-- `Secretaria` | Secretaria hereda los atributos y comportamientos comunes definidos en la superclase Persona. |
 | Dependencia `..>` | `Secretaria` → `ControlSistema` | La Secretaria envía mensajes a ControlSistema solo durante la ejecución del caso de uso. No mantiene referencia persistente: es dependencia y no asociación. |
 | Asociación `-->` | `ControlSistema "1"` → `"1" Agenda` | ControlSistema necesita conocer a Agenda durante todo su ciclo de vida para poder delegarle. Es asociación (referencia permanente) y no dependencia porque la relación no es puntual. Cardinalidad 1 a 1 por RNF5: una única Agenda centraliza la gestión. |
 | Agregación `o--` | `Agenda "1"` → `"0..*" Turno` | Agenda contiene Turnos pero estos tienen identidad propia y pueden existir más allá del ciclo de vida de la Agenda. Es agregación y no composición porque la dependencia de existencia no es absoluta. |
 | Dependencia `..>` `<<crea>>` | `Agenda` → `LlegadaPaciente` | Agenda instancia LlegadaPaciente dentro de `registrarPresencia()` pero no guarda referencia a ella una vez finalizada la operación. Es dependencia de creación y no asociación porque el vínculo no persiste en Agenda. |
 | Asociación `-->` | `LlegadaPaciente "0..1"` → `"1" Turno` | LlegadaPaciente necesita mantener referencia al Turno para actualizar su estado y registrar la hora real de llegada. Un Turno puede tener 0 LlegadaPaciente (si no se registró check-in aún) o exactamente 1 (si el paciente se presentó). Es asociación y no composición porque Turno existe independientemente de LlegadaPaciente. |
-| Asociación `-->`  | `LlegadaPaciente "0..1"`` → "1" Turno`  | LlegadaPaciente se vincula al Turno para registrar la llegada del paciente. Un Turno puede no tener check-in registrado o tener uno único. Es asociación porque ambos pueden existir independientemente.   |
 
 ## 6. Pseudocódigo
 ```text
