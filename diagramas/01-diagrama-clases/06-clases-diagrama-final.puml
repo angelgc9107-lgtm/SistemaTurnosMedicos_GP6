@@ -79,7 +79,6 @@ package "Jerarquía de Personas" {
 package "Gestión de Turnos" {
 
     class Turno {
-        {id} idTurno: UUID
         --
         - fecha: Date
         - hora: Time
