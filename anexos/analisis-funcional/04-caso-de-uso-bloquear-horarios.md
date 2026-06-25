@@ -1,5 +1,3 @@
-# CU-04: Bloquear días/horarios en calendario
-
 ## 1. Descripción y trazabilidad con requisitos funcionales de A1
 
 ### CU-04: Bloquear días/horarios en calendario
@@ -31,13 +29,6 @@ No se definen flujos alternativos en el escenario de este caso de uso.
 | RF5 | Restricciones Específicas: No permitir procedimientos los lunes ni turnos de "Primera vez" los viernes por la tarde | El sistema valida que el rango de bloqueo respete las restricciones de días y horarios definidos para el consultorio. |
 | RF6 | Horarios Definidos: Lunes a viernes de 9-13 y 15-19 (excepto jueves tarde), y sábados ocasionales según defina el médico | El bloqueo se aplica únicamente dentro de los horarios habilitados definidos para la agenda. |
 | RNF5 | Control Centralizado: La agenda debe ser el único componente que controle la gestión de los turnos | La agenda es el componente centralizado que registra y gestiona todos los bloqueos del sistema. |
-
-### Trazabilidad con requisitos de A1
-- **RF3**: El sistema bloquea horarios ya asignados o no disponibles y evita solapamientos al marcar las franjas como no disponibles.
-- **RF4**: Solo un usuario con rol Secretaría puede gestionar el bloqueo; el médico autoriza y explica el intervalo a bloquear.
-- **RF5**: El sistema debe conocer las restricciones específicas de días y horarios del consultorio cuando valida rangos de bloqueo.
-- **RF6**: El bloqueo se aplica dentro de los horarios habilitados definidos para la agenda (Lun-Vie 9-13 y 15-19, sábados ocasionales).
-- **RNF5**: La agenda es el componente centralizado que controla la gestión de los turnos y los bloqueos.
 
 ## 2. Diagrama de casos de uso de A2
 ![Diagrama de casos de uso CU-04](../../diagramas/02-casos-de-uso/02-bloquear-horarios-04.png)
