@@ -1,5 +1,4 @@
-- [Diagrama de clases CU-02](../../diagramas/01-diagrama-clases/02-clase-registrar-checkin.png)
-- [Diagrama de clases CU-03](../../diagramas/01-diagrama-clases/03-clase-reprogramar-turno.png)
+
 # Diagramas de Clases
 
 - [Diagrama de Clases - Boceto Inicial](01-boceto-inicial.png)
@@ -16,7 +15,9 @@
   - [Diagrama de Clases - DIP (Dependency Inversion Principle)](01-solid-05-dip.png)
 
 - Diagramas por Caso de Uso
-  - [Diagrama de Clases - Agendar Turno](01-clases-agendar-turno-01.png)
-  - [Diagrama de clases - Bloquear Horarios](../../diagramas/01-diagrama-clases/04-clase-bloquear-horarios.png)
-  - [Diagrama de clases - Visualizar Agenda](../../diagramas/01-diagrama-clases/05-clase-visualizar-agenda.png)
+  - [Diagrama de Clases - Agendar Turno](../../diagramas/01-diagrama-clases/01-clases-agendar-turno-01.png)
+  - [Diagrama de Clases - Registrar Checkin](../../diagramas/01-diagrama-clases/02-clase-registrar-checkin.png)
+  - [Diagrama de Clases -Reprogramar Turno](../../diagramas/01-diagrama-clases/03-clase-reprogramar-turno.png)
+  - [Diagrama de clases - Bloquear Horarios](04-clases-bloquear-horarios.png)
+  - [Diagrama de clases - Visualizar Agenda](05-clases-visualizar-agenda.png)
   

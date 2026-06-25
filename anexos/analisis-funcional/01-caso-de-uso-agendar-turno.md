@@ -174,10 +174,10 @@ El flujo principal consta de 12 pasos desde el escenario **03-agendar-turno-fluj
 | **Persona** | Mantener datos comunes de identificación y contacto | [00-tarjeta-crc-persona.md](../../herramientas-agile/tarjetas-crc/00-tarjeta-crc-persona.md) |
 | **Paciente** | Solicitar turnos, recibir notificaciones, mantener historial | [01-tarjeta-crc-paciente.md](../../herramientas-agile/tarjetas-crc/01-tarjeta-crc-paciente.md) |
 | **Médico** | Gestionar agenda, definir horarios habilitados y restricciones | [02-tarjeta-crc-medico.md](../../herramientas-agile/tarjetas-crc/02-tarjeta-crc-medico.md) |
-| **Secretaria** | Registrar turnos, validar disponibilidad y restricciones | [03-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-secretaria.md) |
-| **Turno** | Representar turno agendado, gestionar estado y validaciones | [04-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-turno.md) |
-| **Agenda** | Gestionar horarios disponibles, turnos registrados y bloqueos | [05-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-agenda.md) |
-| **ServicioNotificacion** | Enviar confirmaciones y recordatorios automáticos por WhatsApp | [08-tarjeta-crc-servicio-notificacion.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-servicio-notificacion.md) |
+| **Secretaria** | Registrar turnos, validar disponibilidad y restricciones | [03-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
+| **Turno** | Representar turno agendado, gestionar estado y validaciones | [04-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
+| **Agenda** | Gestionar horarios disponibles, turnos registrados y bloqueos | [05-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
+| **ServicioNotificacion** | Enviar confirmaciones y recordatorios automáticos por WhatsApp | [08-tarjeta-crc-servicio-notificacion.md](../../herramientas-agile/tarjetas-crc/07-tarjeta-crc-servicio-notificacion.md) |
 
 ---
 

@@ -8,5 +8,4 @@
 | Indicar presencia del paciente | Turno, Agenda | Sé si el paciente está presente o ausente | presente |
 | Notificar al médico | Médico, Secretaria | Informe cuando el paciente ya está en la sala | estadoPresencia |
 | Herencia: | NO (Entidad de dominio independiente) |
-| Notas: | LlegadaPaciente es un objeto de dominio que NO hereda de Persona.
-              | Representa un acto de llegada, no una identidad de usuario. |
+| Notas: | LlegadaPaciente es un objeto de dominio que NO hereda de Persona| Representa un acto de llegada, no una identidad de usuario. |

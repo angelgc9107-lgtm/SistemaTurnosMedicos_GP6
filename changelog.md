@@ -1,6 +1,8 @@
 ﻿# Changelog
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
 
+## [Unreleased]
+
 ### Added
 - [feature/coordinador-devops-add-anexo-cu1] Creacion de la carpeta diagramas/01-diagramas-clases/01-clases[Nombre].puml y png junto a diagramas_de_clases.md, creacion de carpeta ia/a4/analista-cu-1.md y coordinador-devops.md, Creacion de la carpeta anexos/analisis-funcional/analisis_casos.md y 01-caso-de-uso-agendar-turno.md PR: [#172](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/172) — @luchobarrionuevo13 (Analista Funcional CU1 + Coordinador de Repositorio)
 
@@ -10,6 +12,28 @@
 
 
 - [feature/arquitecto-de-dominio] Se desarrolló el diagrama de clases final del sistema, incluyendo su versión PlantUML, imagen y documentación descriptiva. Se incorporó la documentación de los cuatro pilares del paradigma orientado a objetos con ejemplos visuales de abstracción, encapsulamiento, herencia y polimorfismo. Además, se agregó el documento Happy Path Global del sistema y material de apoyo para el análisis del dominio. Se generaron los siguientes archivos: 06-clases-diagrama-final.puml, 06-clases-diagrama-final.png, 06-diagrama-clases-final.md, pilares-poo.md, happy-path-global.md, capturas de los pilares POO y arquitecto-dominio.md. [#178](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/178) - alandox1 - Arquitecto de Dominio
+
+### Fixed
+- [fix/diag_casos_uso_2_3] Corrección a los archivos de los analisis de casos de uso 2 y 3. PR: [#184](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/184) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/correccion-de-arquitecto-de-dominio] Correcion de arquitecto de dominio. PR: [#182](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/182) - alandox1 - Arquitecto de Dominio
+
+- [fix/analista-cu4-cu5] Corrección a los archivos de los analisis de casos de uso 4 y 5. PR: [#186](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/186) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
+- [fix/diag_caso_uso_2] Corrección de conflicto en archivo del analisis de casos de uso 2. PR: [#188](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/188) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/coordinador_analista_cu1] Corrección de conflicto en archivo del analisis de casos de uso 1, changelog.md yu readme.md . PR: [#189](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/189) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
+
+- [fix/analis-caso-de-uso-4-5] Corrección de los diagramas y pseudocodigo de los casos de uso 4 y 5. PR: [#192](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/192) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
+- [fix/corrección-analis-cu4-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se agregan los hipervínculos a las tarjetas CRC. PR: [#194](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/194) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
+- [fix/correcion-cu-2-3] Agregar clase Persona a los archivos de los analisis de casos de uso 2 y 3. PR: [#198](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/198) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/cu4-cu5-anexos] Correcciones en los casos de uso CU-04 y CU-05 para adecuar el pseudocódigo a las observaciones realizadas durante la revisión. PR: [#204](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/204) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+- [fix/correcion-diagrama6] Corregir diagrama 6. PR: [#201](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/201) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
+
+- [fix/anexos-cu4-y-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se completan las secciones 1 a 4 de ambos casos de uso siguiendo el formato de plantilla requerido. PR: [#206](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/206) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 

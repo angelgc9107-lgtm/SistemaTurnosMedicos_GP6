@@ -21,7 +21,6 @@ title Diagrama de Clases Final — Sistema de Turnos Médicos
 package "Jerarquía de Personas" {
 
     abstract class Persona {
-        {id} dni: String
         --
         # nombre: String
         # apellido: String
@@ -29,6 +28,7 @@ package "Jerarquía de Personas" {
         # email: String
         # rol: String
         # estadoActivo: Boolean
+        # dni: String
         --
         + getDatos(): String
         + getContacto(): String
@@ -79,7 +79,6 @@ package "Jerarquía de Personas" {
 package "Gestión de Turnos" {
 
     class Turno {
-        {id} idTurno: UUID
         --
         - fecha: Date
         - hora: Time
@@ -98,7 +97,6 @@ package "Gestión de Turnos" {
     }
 
     class Agenda {
-        {id} idAgenda: UUID
         --
         - listaTurnos: List<Turno>
         - horariosDisponibles: Map<Date, List<String>>
@@ -245,7 +243,6 @@ package "Control y Presentación" {
 package "Servicios" {
 
     class ServicioNotificacion {
-        {id} idServicio: UUID
         --
         - canalWhatsApp: String
         - telefono: String
