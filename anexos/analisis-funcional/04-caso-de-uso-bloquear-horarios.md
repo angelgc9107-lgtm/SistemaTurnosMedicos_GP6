@@ -37,17 +37,17 @@ Este diseño enfatiza que la `Agenda` centraliza la gestión de bloqueos y turno
 
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |---|---|---|
-| Secretaria | Gestionar agenda y operaciones administrativas relacionadas con los turnos | `05-tarjeta-crc-secretaria.md` |
-| Medico | Definir disponibilidad y restricciones para la atención médica | `02-tarjeta-crc-medico.md` |
-| Agenda | Gestionar disponibilidad, turnos y bloqueos de horarios | `04-tarjeta-crc-agenda.md` |
-| Turno | Mantener la información correspondiente a fecha, hora y estado del turno | `03-tarjeta-crc-turno.md` |
-| ControlSistema | Coordinar las operaciones entre los usuarios y los componentes del sistema | `08-tarjeta-crc-control-sistemas.md` |
-| VistaCalendario | Presentar la información de agenda, disponibilidad y bloqueos | `10-tarjeta-crc-vista-calendario.md` |
-| GestorBloqueos | Almacenar y administrar la colección de bloqueos registrados en la agenda | `11-tarjeta-crc-gestor-bloqueos.md` |
-| ValidadorDisponibilidad | Verificar que el rango solicitado se encuentre dentro de los horarios habilitados del consultorio | `12-tarjeta-crc-validador-disponibilidad.md` |
-| Bloqueo | Representar un período inhabilitado con su rango de fechas y el motivo asociado | *(clase de soporte, sin tarjeta CRC independiente)* |
-| Resultado | Encapsular el resultado de una operación indicando éxito o error con su mensaje | *(clase de soporte, sin tarjeta CRC independiente)* |
-| RangoFechaHora | Encapsular el intervalo de fechas y horarios que define el período a bloquear | *(clase de soporte, sin tarjeta CRC independiente)* |
+| Secretaria | Gestionar agenda y operaciones administrativas relacionadas con los turnos | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
+| Medico | Definir disponibilidad y restricciones para la atención médica | [02-tarjeta-crc-medico.md](../../herramientas-agile/tarjetas-crc/02-tarjeta-crc-medico.md) |
+| Agenda | Gestionar disponibilidad, turnos y bloqueos de horarios | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
+| Turno | Mantener la información correspondiente a fecha, hora y estado del turno | [03-tarjeta-crc-turno.md](../../herramientas-agile/tarjetas-crc/03-tarjeta-crc-turno.md) |
+| ControlSistema | Coordinar las operaciones entre los usuarios y los componentes del sistema | [08-tarjeta-crc-control-sistemas.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistemas.md) |
+| VistaCalendario | Presentar la información de agenda, disponibilidad y bloqueos | [10-tarjeta-crc-vista-calendario.md](../../herramientas-agile/tarjetas-crc/10-tarjeta-crc-vista-calendario.md) |
+| GestorBloqueos | Almacenar y administrar la colección de bloqueos registrados en la agenda | [11-tarjeta-crc-gestor-bloqueos.md](../../herramientas-agile/tarjetas-crc/11-tarjeta-crc-gestor-bloqueos.md) |
+| ValidadorDisponibilidad | Verificar que el rango solicitado se encuentre dentro de los horarios habilitados del consultorio | [12-tarjeta-crc-validador-disponibilidad.md](../../herramientas-agile/tarjetas-crc/12-tarjeta-crc-validador-disponibilidad.md) |
+| Bloqueo | Representar un período inhabilitado con su rango de fechas y el motivo asociado | [13-tarjeta-crc-bloqueo.md](../../herramientas-agile/tarjetas-crc/13-tarjeta-crc-bloqueo.md) |
+| Resultado | Encapsular el resultado de una operación indicando éxito o error con su mensaje | [14-tarjeta-crc-resultado.md](../../herramientas-agile/tarjetas-crc/14-tarjeta-crc-resultado.md) |
+| RangoFechaHora | Encapsular el intervalo de fechas y horarios que define el período a bloquear | [15-tarjeta-crc-rango-fecha-hora.md](../../herramientas-agile/tarjetas-crc/15-tarjeta-crc-rango-fecha-hora.md)|
 
 ### Relaciones UML:
 
