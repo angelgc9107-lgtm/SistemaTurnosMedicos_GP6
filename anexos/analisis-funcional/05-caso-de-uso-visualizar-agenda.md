@@ -28,7 +28,7 @@ No se definen flujos alternativos en el escenario de este caso de uso.
 | RF4 | Roles y Privilegios: Definir perfiles para Secretaria (gestión), Paciente (consulta/cancelación) y Médico (autorización de sobreturnos y agenda) | El acceso a la agenda está restringido a usuarios autenticados con rol Secretaria o Médico. El médico tiene acceso de solo consulta desde esta vista. |
 | RF6 | Horarios Definidos: Lunes a viernes de 9-13 y 15-19 (excepto jueves tarde), y sábados ocasionales según defina el médico | La vista respeta los horarios habilitados del consultorio y muestra únicamente los bloques definidos para cada día. |
 | RF8 | Registro de Presencia: Incorporar un estado de "check-in" para marcar la llegada del paciente a la sala de espera | El calendario muestra el estado de cada turno (Pendiente o Presente en sala) de forma diferenciada. |
-| RNF5 | Control Centralizado: La agenda debe ser el único componente que controle la gestión de
+| RNF5 | Control Centralizado: La agenda debe ser el único componente que controle la gestión de los turnos | La Agenda actúa como único componente centralizado para recuperar y presentar la información de turnos y bloqueos. |
 
 ## 2. Diagrama de casos de uso de A2
 ![Diagrama de casos de uso CU-05](../../diagramas/02-casos-de-uso/02-visualizar-agenda-05.png)
