@@ -91,6 +91,7 @@ ServicioNotificacion es un objeto temporal que solo tiene la responsabilidad de 
 
 | Clase | Responsabilidad (según tarjeta CRC) | Tarjeta CRC |
 |-------|-------------------------------------|-------------|
+| Persona | Mantener datos personales y gestionar el estado de actividad de los usuarios del sistema |  [00-tarjeta-crc-persona.md](../../herramientas-agile/tarjetas-crc/00-tarjeta-crc-persona.md) |
 | Secretaria | Cancelar o reprogramar turnos; consultar disponibilidad | [05-tarjeta-crc-secretaria.md](../../herramientas-agile/tarjetas-crc/05-tarjeta-crc-secretaria.md) |
 | ControlSistema | Coordinar la reprogramación de turnos; solicitar notificaciones de cambios | [08-tarjeta-crc-control-sistema.md](../../herramientas-agile/tarjetas-crc/08-tarjeta-crc-control-sistema.md) |
 | Agenda | Registrar turnos; bloquear fechas; gestionar disponibilidad | [04-tarjeta-crc-agenda.md](../../herramientas-agile/tarjetas-crc/04-tarjeta-crc-agenda.md) |
