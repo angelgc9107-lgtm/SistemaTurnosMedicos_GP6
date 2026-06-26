@@ -4,6 +4,8 @@
 
 ### Added
 
+- [feature/esp-patron-estructural-add-patron-adapter] Adde branch Especialista de patron Estructural & archivos correspondiente PR: [#](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/) — angelgc9107-lgtm - Especialista Patron Diseño Estructural
+
 
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
 
