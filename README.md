@@ -14,10 +14,10 @@ digitalizar la gestión de sus turnos.
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub | Rol |
 |-----| ----- | ------ | ------ |
-| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Coordinador de repositorio y Analista Funcional CU1 |
-| Alan Diaz | 152841 | @alandox1| Arquitecto de dominio |
-| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Analista Funcional CU2 Y CU3 |
-| Thiago Piastrellini | 158097 | @Piastrellini | Analista Funcional CU4 Y CU5 |
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| ESPECIALISTA EN PATRÓN DE DISEÑO DE COMPORTAMIENTO |
+| Alan Diaz | 152841 | @alandox1| especialista en patrones diseno creacional |
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm | ESPECIALISTA EN PATRÓN DE DISEÑO ESTRUCTURAL|
+| Thiago Piastrellini | 158097 | @Piastrellini | Coordinador y DevOps |
 
 ## Diagramas y Diseños
 
