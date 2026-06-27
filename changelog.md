@@ -1,3 +1,4 @@
+﻿﻿# Changelog
 ﻿# Changelog
 
 ## [Unreleased]
@@ -5,6 +6,8 @@
 ### Added
 
 - [feature/esp-patron-estructural-add-patron-adapter] Added branch Especialista de patron Estructural & archivos correspondiente PR: [#214](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/214) — angelgc9107-lgtm - Especialista Patron Diseño Estructural
+
+- [feature/especialista-en-patrones-diseno-creacional] Added diagrama de especialista en patrones diseno creacion con factory method PR:[211](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/211) - alandox1 - especialista en patrones diseno creacional
 
 
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
@@ -174,7 +177,3 @@
 - [fix/correccion-Actividad-1]  Auditoría de requisitos y casos de uso realizada. PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) — @LuchoBarrionuevo13 (Diseñador de Tarjetas CRC)
 
 - [fix/changelog-remover-duplicados]  Eliminación de duplicados en changelog. PR: [#75](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/75) — @angelgc9107-lgtm (Analista de requerimientos)
-
-
-
-
