@@ -1,7 +1,15 @@
-﻿# Changelog
-## [Released Actividad Obligatoria N°4] - 2026-06-18
+﻿﻿# Changelog
 
 ## [Unreleased]
+
+### Added
+
+- [feature/esp-patron-estructural-add-patron-adapter] Added branch Especialista de patron Estructural & archivos correspondiente PR: [#214](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/214) — angelgc9107-lgtm - Especialista Patron Diseño Estructural
+
+- [feature/especialista-en-patrones-diseno-creacional] Added diagrama de especialista en patrones diseno creacion con factory method PR:[211](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/211) - alandox1 - especialista en patrones diseno creacional
+
+
+## [Released Actividad Obligatoria N°4] - 2026-06-18
 
 ### Added
 - [feature/coordinador-devops-add-anexo-cu1] Creacion de la carpeta diagramas/01-diagramas-clases/01-clases[Nombre].puml y png junto a diagramas_de_clases.md, creacion de carpeta ia/a4/analista-cu-1.md y coordinador-devops.md, Creacion de la carpeta anexos/analisis-funcional/analisis_casos.md y 01-caso-de-uso-agendar-turno.md PR: [#172](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/172) — @luchobarrionuevo13 (Analista Funcional CU1 + Coordinador de Repositorio)
@@ -29,6 +37,12 @@
 - [fix/corrección-analis-cu4-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se agregan los hipervínculos a las tarjetas CRC. PR: [#194](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/194) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
 - [fix/correcion-cu-2-3] Agregar clase Persona a los archivos de los analisis de casos de uso 2 y 3. PR: [#198](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/198) - angelgc9107-lgtm - Analista Funcional de Casos de Uso 2 y 3
+
+- [fix/cu4-cu5-anexos] Correcciones en los casos de uso CU-04 y CU-05 para adecuar el pseudocódigo a las observaciones realizadas durante la revisión. PR: [#204](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/204) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
+
+- [fix/correcion-diagrama6] Corregir diagrama 6. PR: [#201](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/201) - @luchobarrionuevo13 - (Analista Funcional CU1 + Coordinador de Repositorio)
+
+- [fix/anexos-cu4-y-cu5] Se corrigen las observaciones sobre los anexos de CU-04 y CU-05. Se completan las secciones 1 a 4 de ambos casos de uso siguiendo el formato de plantilla requerido. PR: [#206](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/206) - Piastrellini - Analista Funcional de Casos de Uso 4 y 5
 
 ## [Released Actividad Obligatoria N°3] - 2026-05-21
 
@@ -162,7 +176,3 @@
 - [fix/correccion-Actividad-1]  Auditoría de requisitos y casos de uso realizada. PR: [#73](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/73) — @LuchoBarrionuevo13 (Diseñador de Tarjetas CRC)
 
 - [fix/changelog-remover-duplicados]  Eliminación de duplicados en changelog. PR: [#75](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/75) — @angelgc9107-lgtm (Analista de requerimientos)
-
-
-
-
