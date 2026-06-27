@@ -19,17 +19,15 @@ title Patrón de Diseño Creacional — Factory Method\nAplicado al Sistema de T
 ' PRODUCTO ABSTRACTO
 ' ================================================================
 abstract class Turno {
-    - fecha: Date
-    - hora: Time
+    - fechaHora: DateTime
     - estado: String
-    - tipoConsulta: String
     - fechaRegistro: DateTime
     --
     + getEstado(): String
     + getFechaHora(): DateTime
-    + establecerEstado(nuevoEstado: String): void
     + cambiarEstado(nuevoEstado: String): void
-    + actualizarFechaHora(nuevaFecha: Date, nuevaHora: Time): void
+    + getFechaHora(): DateTime
+    + actualizarFechaHora(nuevaFechaHora: DateTime): void
     + {abstract} calcularDuracion(): Integer
     + {abstract} getTipoConsulta(): String
     + validarRestricciones(): Boolean
@@ -40,6 +38,7 @@ abstract class Turno {
 ' ================================================================
 class TurnoConsulta {
     - duracionMinutos: Integer = 30
+    - tipoConsulta: String
     --
     + calcularDuracion(): Integer
     + getTipoConsulta(): String
@@ -47,6 +46,7 @@ class TurnoConsulta {
 
 class TurnoPrimeraVez {
     - duracionMinutos: Integer = 30
+    - tipoConsulta: String
     --
     + calcularDuracion(): Integer
     + getTipoConsulta(): String
@@ -54,6 +54,7 @@ class TurnoPrimeraVez {
 
 class TurnoControl {
     - duracionMinutos: Integer = 15
+    - tipoConsulta: String
     --
     + calcularDuracion(): Integer
     + getTipoConsulta(): String
@@ -65,7 +66,10 @@ class TurnoControl {
 abstract class CreadorTurno {
     --
     + {abstract} crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
-    + registrarEnAgenda(agenda: Agenda, paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+}
+
+class ControlSistema {
++ seleccionarCreador(tipoConsulta: String): CreadorTurno
 }
 
 note right of CreadorTurno
@@ -103,7 +107,9 @@ class Agenda {
     - listaTurnos: List<Turno>
     - creadorTurno: CreadorTurno
     --
-    + registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+    + registrarTurno(paciente, medico, fecha, hora): Turno {turno = creadorTurno.crearTurno(paciente, medico, fecha, hora)
+    + listaTurnos.agregar(turno)
+    return turno
     + setCreadorTurno(creador: CreadorTurno): void
 }
 
@@ -133,5 +139,10 @@ CreadorTurnoControl ..> TurnoControl : <<crea>>
 
 Agenda --> CreadorTurno : usa
 Agenda "1" *-- "*" Turno : contiene
+
+ControlSistema --> Agenda : inyecta CreadorTurno
+ControlSistema ..> CreadorTurnoConsulta : <>
+ControlSistema ..> CreadorTurnoPrimeraVez : <>
+ControlSistema ..> CreadorTurnoControl : <>
 
 @enduml
