@@ -25,10 +25,20 @@ title Patrón Adapter — Servicio de Notificaciones del Sistema de Turnos Médi
 ' ================================================================
 
 interface INotificadorCanal {
-    + enviarConfirmacion(destinatario: String, fecha: Date, hora: String, medico: String): Boolean
-    + enviarCancelacion(destinatario: String, fecha: Date): Boolean
-    + enviarReprogramacion(destinatario: String, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
     + estaDisponible(): Boolean
+}
+
+class DatosContacto {
+  --
+  - telefono: String
+  - email: String
+  --
+  + getTelefono(): String
+  + getEmail(): String
 }
 
 note top of INotificadorCanal
@@ -45,14 +55,15 @@ end note
 
 class ServicioNotificacion {
     --
-  - adaptadores: List<INotificadorCanal>
+    - adaptadores: List<INotificadorCanal>
     --
-  + agregarAdaptador(adaptador: INotificadorCanal): void
-    + enviarConfirmacion(telefono: String, email: String, fecha: Date, hora: String, medico: String): Boolean
-    + programarRecordatorio24h(telefono: String, email: String, fecha: Date): void
-    + programarRecordatorioManana(telefono: String, email: String, fecha: Date): void
-    + enviarCancelacion(telefono: String, email: String, fecha: Date): Boolean
-    + enviarReprogramacion(telefono: String, email: String, nuevaFecha: Date, nuevaHora: String): Boolean
+    + agregarAdaptador(adaptador: INotificadorCanal): void
+    + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+    + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+    + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+    + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + programarRecordatorio24h(contacto: DatosContacto, fecha: Date): void
+    + programarRecordatorioManana(contacto: DatosContacto, fecha: Date): void
 }
 
 note left of ServicioNotificacion
@@ -73,9 +84,10 @@ class AdaptadorWhatsApp {
     --
     - clienteWA: WhatsAppGateway
     --
-    + enviarConfirmacion(destinatario: String, fecha: Date, hora: String, medico: String): Boolean
-    + enviarCancelacion(destinatario: String, fecha: Date): Boolean
-    + enviarReprogramacion(destinatario: String, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
     + estaDisponible(): Boolean
 }
 
@@ -91,9 +103,10 @@ class AdaptadorEmail {
     --
     - clienteEmail: EmailGateway
     --
-    + enviarConfirmacion(destinatario: String, fecha: Date, hora: String, medico: String): Boolean
-    + enviarCancelacion(destinatario: String, fecha: Date): Boolean
-    + enviarReprogramacion(destinatario: String, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
     + estaDisponible(): Boolean
 }
 
@@ -109,9 +122,10 @@ class AdaptadorSMS {
     --
     - clienteSMS: SMSGateway
     --
-    + enviarConfirmacion(destinatario: String, fecha: Date, hora: String, medico: String): Boolean
-    + enviarCancelacion(destinatario: String, fecha: Date): Boolean
-    + enviarReprogramacion(destinatario: String, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
     + estaDisponible(): Boolean
 }
 
@@ -188,6 +202,7 @@ class Agenda {
     - listaTurnos: List<Turno>
     - medico: Medico
     - gestorBloqueos: GestorBloqueos
+  - servicioNotificacion: ServicioNotificacion
     --
     + registrarTurno(datos: Map): Turno
     + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: Time): void
@@ -219,6 +234,10 @@ AdaptadorEmail    --> EmailGateway    : adapta >
 AdaptadorSMS      --> SMSGateway      : adapta >
 
 ' Agenda usa ServicioNotificacion
-Agenda ..> ServicioNotificacion : <<usa>>
+Agenda --> ServicioNotificacion : notifica >
+
+' Dependencia de valor
+ServicioNotificacion ..> DatosContacto : usa
+INotificadorCanal ..> DatosContacto : contrato >
 
 @enduml

@@ -51,6 +51,7 @@ Una explicación breve de por qué el patrón elegido es correcto para este caso
 - Se modifico una explicación del patrón "Adapter" ambigua y podia generar incoherencias
 - Modificación en el archivo 01-patron-estructural-adapter.puml para que coincida con las modificaciones realizadas en el archivo patron-de-diseno-estructural.md.
 - Se modifico la ubicación de la nota en el archivo puml.
+- Se realizaron ajustes al archivo patron-de-diseno.estructural.md para que coincida con la estructura propuesta en la consigna.
 
 
 ### interaciones 1

@@ -1,62 +1,76 @@
-# Patrón de Diseño Estructural — Adapter
+# Anexo - Aplicacion de Patron de Diseno Estructural
+
+## Adapter - Patrones de Diseno Estructurales y su relacion con SOLID
 
 ---
 
-## 1. Propósito y Tipo del Patrón
+## Proposito y Tipo del Patron
 
-### Patrones estructurales y su relación con SOLID
+### Patrones estructurales y su relacion con SOLID
 
-Los patrones de diseño estructurales de GoF se ocupan de cómo se componen clases y objetos para formar estructuras más grandes, sin perder flexibilidad ni claridad. Su objetivo no es describir algoritmos ni flujos de control, sino establecer la forma en que las piezas del sistema se conectan entre sí.
+Los patrones de diseno estructurales de GoF se ocupan de como se componen clases y objetos para formar estructuras mas grandes, sin perder flexibilidad ni claridad. Su objetivo no es describir algoritmos ni flujos de control, sino establecer la forma en que las piezas del sistema se conectan entre si.
 
-Su relación con los principios SOLID es directa:
+Su relacion con los principios SOLID es directa:
 
-| Principio | Cómo lo refuerzan los patrones estructurales |
+| Principio | Como lo refuerzan los patrones estructurales |
 |-----------|---------------------------------------------|
-| SRP | Separan la lógica de adaptación o composición en clases dedicadas, evitando que una clase acumule responsabilidades de traducción además de las propias |
+| SRP | Separan la logica de adaptacion o composicion en clases dedicadas, evitando que una clase acumule responsabilidades de traduccion ademas de las propias |
 | OCP | Permiten extender el comportamiento del sistema (nuevos canales, componentes, decoradores) sin modificar las clases existentes |
 | DIP | El cliente depende de una abstracción (interfaz target), no de implementaciones concretas |
-| ISP | Las interfaces target son reducidas y específicas; cada adaptador implementa solo lo que corresponde |
+| ISP | Las interfaces target son reducidas y especificas; cada adaptador implementa solo lo que corresponde |
 
-### El patrón Adapter
+### Proposito:
 
-El patrón **Adapter** (también llamado *Wrapper*) permite que dos clases con interfaces incompatibles trabajen juntas. Introduce una clase intermediaria —el *Adapter*— que traduce las llamadas de la interfaz que el cliente conoce (*target*) a las llamadas que requiere la clase existente (*adaptee*).
+**Problema estructural:** `ServicioNotificacion` era una clase concreta que enviaba notificaciones unicamente a traves de WhatsApp. `Agenda` la creaba directamente (`<<crea>>`), acoplandose a una implementacion especifica. Para agregar notificaciones por email o SMS, era necesario modificar tanto `ServicioNotificacion` como `Agenda`, violando OCP y DIP. Adicionalmente, cada proveedor externo (WhatsApp Business API, SMTP, Twilio) expone una interfaz completamente distinta: metodos con nombres, parametros y tipos de retorno incompatibles entre si.
 
-### Problema específico y cómo el patrón lo soluciona
+**Como lo resuelve el patron:** Se introduce la interfaz `INotificadorCanal` como *target*. Cada proveedor externo es envuelto por un *Adapter* (`AdaptadorWhatsApp`, `AdaptadorEmail`, `AdaptadorSMS`) que traduce `INotificadorCanal` a la API del proveedor correspondiente. `ServicioNotificacion` pasa a ser el *client*: solo conoce `INotificadorCanal` y delega en los canales registrados. `Agenda` ya no crea ni conoce ningun canal concreto; solo usa `ServicioNotificacion`.
 
-**Problema:** `ServicioNotificacion` era una clase concreta que enviaba notificaciones únicamente a través de WhatsApp. `Agenda` la creaba directamente (`<<crea>>`), acoplándose a una implementación específica. Para agregar notificaciones por email o SMS, era necesario modificar tanto `ServicioNotificacion` como `Agenda`, violando OCP y DIP. Adicionalmente, cada proveedor externo (WhatsApp Business API, SMTP, Twilio) expone una interfaz completamente distinta: métodos con nombres, parámetros y tipos de retorno incompatibles entre sí.
+### Tipo:
 
-**Solución:** Se introduce la interfaz `INotificadorCanal` como *target*. Cada proveedor externo es envuelto por un *Adapter* (`AdaptadorWhatsApp`, `AdaptadorEmail`, `AdaptadorSMS`) que traduce `INotificadorCanal` a la API del proveedor correspondiente. `ServicioNotificacion` pasa a ser el *client*: solo conoce `INotificadorCanal` y delega en los canales registrados. `Agenda` ya no crea ni conoce ningún canal concreto; solo usa `ServicioNotificacion`.
+Patron estructural seleccionado: **Adapter**.
+
+El patron **Adapter** (tambien llamado *Wrapper*) permite que dos clases con interfaces incompatibles trabajen juntas. Introduce una clase intermediaria, el *Adapter*, que traduce las llamadas de la interfaz que el cliente conoce (*target*) a las llamadas que requiere la clase existente (*adaptee*).
+
+Se elige Adapter porque el problema principal del sistema es la incompatibilidad entre APIs externas de notificacion (WhatsApp, Email, SMS), y se necesita una interfaz uniforme para evitar acoplamiento y permitir extensibilidad.
 
 ---
 
-## 2. Motivación
+## Motivacion
 
-### Problema en profundidad
+En esta seccion se describe en detalle:
 
-El sistema de turnos médicos contempla notificaciones como parte del flujo de negocio: confirmación de turno (CU1), recordatorios automáticos, notificación de reprogramación (CU3) y cancelación de recordatorios tras check-in (CU2). En el diagrama final (v4), `Agenda` era responsable de crear `ServicioNotificacion` y `ServicioNotificacion` concentraba toda la lógica de envío para un único canal, WhatsApp.
+- Como estaban estructuradas inicialmente las clases del sistema.
+- Que problemas surgian debido a la rigidez de las relaciones entre clases (acoplamiento, complejidad, falta de extensibilidad).
+- Que clases participaban en el problema original.
+- Que nuevas clases incorpora el patron estructural y cual es el rol de cada una.
+- Como el patron organiza la arquitectura para resolver el inconveniente detectado (desacoplamiento, simplificacion, encapsulamiento).
 
-Este diseño presentaba tres problemas concretos:
+### Desarrollo del caso real
 
-1. **Dificultad para incorporar nuevos canales de notificación**
+El sistema de turnos medicos contempla notificaciones como parte del flujo de negocio: confirmacion de turno (CU1), recordatorios automaticos, notificacion de reprogramacion (CU3) y cancelacion de recordatorios tras check-in (CU2). En el diagrama final (v4), `Agenda` era responsable de crear `ServicioNotificacion` y `ServicioNotificacion` concentraba toda la logica de envio para un unico canal, WhatsApp.
 
-El sistema estaba diseñado para enviar notificaciones únicamente mediante WhatsApp. Si la clínica necesitaba incorporar un nuevo canal, como email o SMS, era necesario modificar ServicioNotificacion para agregar la lógica correspondiente. Esto dificultaba extender el sistema con nuevas alternativas de comunicación y hacía que cada incorporación implicara cambios sobre código existente.
+Este diseno presentaba tres problemas concretos:
+
+1. **Dificultad para incorporar nuevos canales de notificacion**
+
+El sistema estaba disenado para enviar notificaciones unicamente mediante WhatsApp. Si la clinica necesitaba incorporar un nuevo canal, como email o SMS, era necesario modificar `ServicioNotificacion` para agregar la logica correspondiente. Esto dificultaba extender el sistema con nuevas alternativas de comunicacion y hacia que cada incorporacion implicara cambios sobre codigo existente.
 
 2. **Interfaces externas incompatibles**
 
-Cada proveedor de notificaciones ofrece una API diferente. Mientras WhatsApp utiliza un método como sendMessage(phoneNumber, messageText), un servicio de correo electrónico requiere dirección, asunto y cuerpo del mensaje, y un proveedor de SMS puede devolver un tipo de dato distinto. Estas diferencias impiden utilizar todos los proveedores mediante una interfaz común, obligando al sistema a adaptarse a cada API en particular.
+Cada proveedor de notificaciones ofrece una API diferente. Mientras WhatsApp utiliza un metodo como `sendMessage(phoneNumber, messageText)`, un servicio de correo electronico requiere direccion, asunto y cuerpo del mensaje, y un proveedor de SMS puede devolver un tipo de dato distinto. Estas diferencias impiden utilizar todos los proveedores mediante una interfaz comun, obligando al sistema a adaptarse a cada API en particular.
 
 3. **Dependencia directa de infraestructura**
 
-La lógica del sistema quedaba vinculada a clases concretas encargadas de comunicarse con proveedores externos de notificaciones. Como consecuencia, las clases del dominio terminaban dependiendo de implementaciones específicas de infraestructura en lugar de hacerlo de una abstracción. Esto incrementaba el acoplamiento entre ambas capas y reducía la flexibilidad de la arquitectura ante cambios tecnológicos.
+La logica del sistema quedaba vinculada a clases concretas encargadas de comunicarse con proveedores externos de notificaciones. Como consecuencia, las clases del dominio terminaban dependiendo de implementaciones especificas de infraestructura en lugar de hacerlo de una abstraccion. Esto incrementaba el acoplamiento entre ambas capas y reducia la flexibilidad de la arquitectura ante cambios tecnologicos.
 
-### Cómo el patrón Adapter resuelve el problema
+### Como el patron Adapter resuelve el problema
 
-El patrón introduce un nivel de indirección mediante la interfaz *target* `INotificadorCanal`. El vocabulario del patrón en este sistema es el siguiente:
+El patron introduce un nivel de indireccion mediante la interfaz *target* `INotificadorCanal`. El vocabulario del patron en este sistema es el siguiente:
 
-| Rol GoF | Clase en el sistema | Descripción |
+| Rol GoF | Clase en el sistema | Descripcion |
 |---------|--------------------|-------------------------------------------------|
-| **Target** | `INotificadorCanal` | Interfaz uniforme que el client conoce. Define `enviarConfirmacion()`, `enviarCancelacion()`, `enviarReprogramacion()` y `estaDisponible()` |
-| **Client** | `ServicioNotificacion` | Usa `INotificadorCanal`. Mantiene una lista de adapters para traducir la misma operación de negocio a APIs externas incompatibles, sin conocer proveedores concretos |
+| **Target** | `INotificadorCanal` | Interfaz uniforme que el client conoce. Define `enviarConfirmacion()`, `enviarCancelacion()`, `enviarReprogramacion()`, `enviarRecordatorio()` y `estaDisponible()` |
+| **Client** | `ServicioNotificacion` | Usa `INotificadorCanal`. Mantiene una lista de adapters para traducir la misma operacion de negocio a APIs externas incompatibles, sin conocer proveedores concretos |
 | **Adapter** | `AdaptadorWhatsApp` | Implementa `INotificadorCanal` y traduce las llamadas a `WhatsAppGateway.sendMessage()` |
 | **Adapter** | `AdaptadorEmail` | Implementa `INotificadorCanal` y construye asunto + cuerpo HTML antes de llamar a `EmailGateway.sendEmail()` |
 | **Adapter** | `AdaptadorSMS` | Implementa `INotificadorCanal`, trunca el mensaje a 160 caracteres y convierte el `DeliveryStatus` de retorno a `Boolean` antes de delegar en `SMSGateway.dispatch()` |
@@ -66,34 +80,62 @@ El patrón introduce un nivel de indirección mediante la interfaz *target* `INo
 
 ### Clases implicadas: rol y responsabilidad
 
-**`INotificadorCanal` (nueva — target):**  
-Define el contrato mínimo para cualquier canal de notificación del sistema. Es la única cosa que `ServicioNotificacion` conoce de los canales. Su existencia permite cumplir DIP: el dominio depende de esta abstracción, nunca de los proveedores concretos.
+**`INotificadorCanal` (nueva - target):**
+Define el contrato minimo para cualquier canal de notificacion del sistema. Es la unica cosa que `ServicioNotificacion` conoce de los canales. Su existencia permite cumplir DIP: el dominio depende de esta abstraccion, nunca de los proveedores concretos.
 
-**`ServicioNotificacion` (modificada — client):**  
-Deja de ser un canal concreto y pasa a ser un *orquestador de adapters*. Mantiene una lista de `INotificadorCanal` porque cada elemento traduce el mismo contrato del dominio hacia una API externa incompatible. Al recibir una solicitud de notificación, delega en los adapters disponibles sin conocer detalles del proveedor. Esta separación hace explícito que la responsabilidad central es la adaptación de interfaces y no la lógica del canal externo.
+**`ServicioNotificacion` (modificada - client):**
+Deja de ser un canal concreto y pasa a ser un *orquestador de adapters*. Mantiene una lista de `INotificadorCanal` porque cada elemento traduce el mismo contrato del dominio hacia una API externa incompatible. Al recibir una solicitud de notificacion, delega en los adapters disponibles sin conocer detalles del proveedor. Esta separacion hace explicito que la responsabilidad central es la adaptacion de interfaces y no la logica del canal externo.
 
-**`AdaptadorWhatsApp`, `AdaptadorEmail`, `AdaptadorSMS` (nuevas — adapters):**  
-Cada uno conoce exactamente un adaptee. Su única responsabilidad es traducir el vocabulario de `INotificadorCanal` al vocabulario de la API concreta. Por ejemplo, `AdaptadorSMS` sabe que `SMSGateway.dispatch()` devuelve `DeliveryStatus`, y lo convierte a `Boolean` para respetar el contrato del target. Cada adapter también implementa `estaDisponible()` consultando el estado del proveedor, lo que permite que `ServicioNotificacion` omita un canal si su proveedor está caído.
+**`AdaptadorWhatsApp`, `AdaptadorEmail`, `AdaptadorSMS` (nuevas - adapters):**
+Cada uno conoce exactamente un adaptee. Su unica responsabilidad es traducir el vocabulario de `INotificadorCanal` al vocabulario de la API concreta. Por ejemplo, `AdaptadorSMS` sabe que `SMSGateway.dispatch()` devuelve `DeliveryStatus`, y lo convierte a `Boolean` para respetar el contrato del target. Cada adapter tambien implementa `estaDisponible()` consultando el estado del proveedor, lo que permite que `ServicioNotificacion` omita un canal si su proveedor esta caido.
 
-**`WhatsAppGateway`, `EmailGateway`, `SMSGateway` (existentes o de terceros — adaptees):**  
-Son clases externas cuya interfaz no se controla ni se modifica. El patrón Adapter es precisamente la herramienta para trabajar con APIs de terceros sin acoplar el dominio a ellas.
+**`WhatsAppGateway`, `EmailGateway`, `SMSGateway` (existentes o de terceros - adaptees):**
+Son clases externas cuya interfaz no se controla ni se modifica. El patron Adapter es precisamente la herramienta para trabajar con APIs de terceros sin acoplar el dominio a ellas.
 
-**`Agenda` (sin cambios en su interfaz):**  
-Sigue usando `ServicioNotificacion` para notificaciones. Con el patrón aplicado, `Agenda` no necesita cambiar cuando se incorpora un nuevo canal: basta con crear un nuevo adapter e inyectarlo en `ServicioNotificacion`.
+**`Agenda` (sin cambios en su interfaz):**
+Sigue usando `ServicioNotificacion` para notificaciones. Con el patron aplicado, `Agenda` no necesita cambiar cuando se incorpora un nuevo canal: basta con crear un nuevo adapter e inyectarlo en `ServicioNotificacion`.
 
-### Diagrama de clases
+## Estructura de Clases
 
-## Patrón Estructural - Adapter
-![Patrón Estructural - Adapter](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
+Solo se incluyen en el diagrama las clases directamente relacionadas con la aplicacion del patron, evitando sobrecargarlo con detalles irrelevantes. Esto permite visualizar claramente la estructura solucion-problema.
+
+### Ver diagrama en tamano completo
+
+![Patron Estructural - Adapter](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
 
 
 ---
 
-## 3. Relación con los principios SOLID del proyecto
+## Justificacion Tecnica de la Estructura de Clases
 
-| Principio | Impacto del patrón Adapter |
+En esta seccion se proporciona una explicacion tecnica basada en el diagrama UML presentado anteriormente.
+
+### Descripcion de cada clase incluida en el diagrama
+
+**`INotificadorCanal` (nueva - target):**
+Define el contrato minimo para cualquier canal de notificacion del sistema. Es la unica cosa que `ServicioNotificacion` conoce de los canales. Su existencia permite cumplir DIP: el dominio depende de esta abstraccion, nunca de los proveedores concretos.
+
+**`ServicioNotificacion` (modificada - client):**
+Deja de ser un canal concreto y pasa a ser un *orquestador de adapters*. Mantiene una lista de `INotificadorCanal` porque cada elemento traduce el mismo contrato del dominio hacia una API externa incompatible. Al recibir una solicitud de notificacion, delega en los adapters disponibles sin conocer detalles del proveedor.
+
+**`AdaptadorWhatsApp`, `AdaptadorEmail`, `AdaptadorSMS` (nuevas - adapters):**
+Cada uno conoce exactamente un adaptee. Su unica responsabilidad es traducir el vocabulario de `INotificadorCanal` al vocabulario de la API concreta.
+
+**`WhatsAppGateway`, `EmailGateway`, `SMSGateway` (existentes o de terceros - adaptees):**
+Son clases externas cuya interfaz no se controla ni se modifica. El patron Adapter es la herramienta para trabajar con APIs de terceros sin acoplar el dominio a ellas.
+
+**`Agenda` (contexto de uso):**
+Sigue usando `ServicioNotificacion` para notificaciones. Con el patron aplicado, `Agenda` no necesita cambiar cuando se incorpora un nuevo canal: basta con crear un nuevo adapter e inyectarlo en `ServicioNotificacion`.
+
+### Explicacion del flujo estructural
+
+`Agenda` delega en `ServicioNotificacion` las operaciones de notificacion. `ServicioNotificacion` no conoce proveedores concretos: itera sobre una lista de `INotificadorCanal` y ejecuta operaciones del contrato comun. Cada adapter traduce esa llamada a su API externa (adaptee), resolviendo la incompatibilidad de interfaces entre cliente de dominio y servicios de infraestructura.
+
+## Relacion con los principios SOLID del proyecto
+
+| Principio | Impacto del patron Adapter |
 |-----------|---------------------------|
-| **SRP** | Cada adapter tiene una única responsabilidad: traducir un proveedor. `ServicioNotificacion` tiene una sola responsabilidad: orquestar canales. Ya no mezcla lógica de WhatsApp con la de otros canales |
-| **OCP** | Para agregar un canal nuevo (ej. notificación push) basta con crear `AdaptadorPush` que implemente `INotificadorCanal` e inyectarlo. Ni `ServicioNotificacion` ni `Agenda` se modifican |
+| **SRP** | Cada adapter tiene una unica responsabilidad: traducir un proveedor. `ServicioNotificacion` tiene una sola responsabilidad: orquestar canales. Ya no mezcla logica de WhatsApp con la de otros canales |
+| **OCP** | Para agregar un canal nuevo (ej. notificacion push) basta con crear `AdaptadorPush` que implemente `INotificadorCanal` e inyectarlo. Ni `ServicioNotificacion` ni `Agenda` se modifican |
 | **LSP** | Cualquier `INotificadorCanal` puede reemplazar a otro en `ServicioNotificacion` sin alterar el comportamiento esperado. El contrato del target se respeta en todos los adapters |
-| **DIP** | `Agenda` depende de `ServicioNotificacion`; esta depende de `INotificadorCanal`, una abstracción. Ninguna clase del dominio depende de `WhatsAppGateway`, `EmailGateway` ni `SMSGateway` |
+| **DIP** | `Agenda` depende de `ServicioNotificacion`; esta depende de `INotificadorCanal`, una abstraccion. Ninguna clase del dominio depende de `WhatsAppGateway`, `EmailGateway` ni `SMSGateway` |
