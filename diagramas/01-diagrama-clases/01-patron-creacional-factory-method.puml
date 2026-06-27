@@ -1,0 +1,156 @@
+@startuml 01-patron-creacional-factory-method
+
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+    FontColor #1E3A8A
+}
+skinparam note {
+    BackgroundColor #DBEAFE
+    BorderColor #93C5FD
+}
+
+title Patrón de Diseño Creacional — Factory Method\nAplicado al Sistema de Turnos Médicos
+
+' ================================================================
+' PRODUCTO ABSTRACTO
+' ================================================================
+abstract class Turno {
+    - fechaHora: DateTime
+    - estado: String
+    - fechaRegistro: DateTime
+    --
+    + getEstado(): String
+    + getFechaHora(): DateTime
+    + cambiarEstado(nuevoEstado: String): void
+    + getFechaHora(): DateTime
+    + actualizarFechaHora(nuevaFechaHora: DateTime): void
+    + {abstract} calcularDuracion(): Integer
+    + {abstract} getTipoConsulta(): String
+    + validarRestricciones(): Boolean
+}
+
+' ================================================================
+' PRODUCTOS CONCRETOS
+' ================================================================
+class TurnoConsulta {
+    - duracionMinutos: Integer = 30
+    - tipoConsulta: String
+    --
+    + calcularDuracion(): Integer
+    + getTipoConsulta(): String
+}
+
+class TurnoPrimeraVez {
+    - duracionMinutos: Integer = 30
+    - tipoConsulta: String
+    --
+    + calcularDuracion(): Integer
+    + getTipoConsulta(): String
+}
+
+class TurnoControl {
+    - duracionMinutos: Integer = 15
+    - tipoConsulta: String
+    --
+    + calcularDuracion(): Integer
+    + getTipoConsulta(): String
+}
+
+' ================================================================
+' CREADOR ABSTRACTO
+' ================================================================
+abstract class CreadorTurno {
+    --
+    + {abstract} crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+}
+
+note right of CreadorTurno
+El Factory Method crearTurno() retorna Turno (tipo abstracto),
+pero cada subclase instancia el tipo concreto correspondiente:
+
+CreadorTurnoConsulta → TurnoConsulta
+CreadorTurnoPrimeraVez → TurnoPrimeraVez
+CreadorTurnoControl → TurnoControl
+Esto es polimorfismo: el cliente espera Turno, no el tipo concreto.
+end note
+
+class ControlSistema {
++ seleccionarCreador(tipoConsulta: String): CreadorTurno
+}
+
+note right of CreadorTurno
+  registrarEnAgenda() es el método
+  "plantilla": llama a crearTurno()
+  (el Factory Method) para instanciar
+  el tipo correcto sin conocerlo.
+  Esto respeta OCP: agregar un nuevo
+  tipo de turno solo requiere un nuevo
+  CreadorTurno concreto.
+end note
+
+' ================================================================
+' CREADORES CONCRETOS
+' ================================================================
+class CreadorTurnoConsulta {
+    --
+    + crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+}
+
+class CreadorTurnoPrimeraVez {
+    --
+    + crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+}
+
+class CreadorTurnoControl {
+    --
+    + crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
+}
+
+' ================================================================
+' CONTEXTO: AGENDA usa el creador
+' ================================================================
+class Agenda {
+- listaTurnos: List
+- creadorTurno: CreadorTurno
+--
++ registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
++ setCreadorTurno(creador: CreadorTurno): void
+}
+
+note bottom of Agenda
+  Agenda ya no instancia Turno directamente.
+  Delega la creación en CreadorTurno,
+  respetando SRP (Agenda gestiona turnos,
+  no los fabrica) y DIP (depende de la
+  abstracción CreadorTurno, no de
+  TurnoConsulta, TurnoControl, etc.)
+end note
+
+' ================================================================
+' RELACIONES
+' ================================================================
+Turno <|-- TurnoConsulta
+Turno <|-- TurnoPrimeraVez
+Turno <|-- TurnoControl
+
+CreadorTurno <|-- CreadorTurnoConsulta
+CreadorTurno <|-- CreadorTurnoPrimeraVez
+CreadorTurno <|-- CreadorTurnoControl
+
+CreadorTurnoConsulta ..> TurnoConsulta : <<crea>>
+CreadorTurnoPrimeraVez ..> TurnoPrimeraVez : <<crea>>
+CreadorTurnoControl ..> TurnoControl : <<crea>>
+
+Agenda --> CreadorTurno : usa
+Agenda "1" *-- "*" Turno : contiene
+
+ControlSistema --> Agenda : inyecta CreadorTurno
+ControlSistema ..> CreadorTurnoConsulta : <>
+ControlSistema ..> CreadorTurnoPrimeraVez : <>
+ControlSistema ..> CreadorTurnoControl : <>
+
+@enduml
