@@ -72,6 +72,11 @@ note left of ServicioNotificacion
   y delega a cada INotificadorCanal.
   No conoce WhatsApp, Email ni SMS:
   solo la interfaz target.
+  programarRecordatorio24h y
+  programarRecordatorioManana
+  son metodos de scheduling:
+  internamente llaman a
+  enviarRecordatorio(...).
   Cumple DIP y OCP: agregar un adaptador
   nuevo no requiere modificar esta clase.
 end note
