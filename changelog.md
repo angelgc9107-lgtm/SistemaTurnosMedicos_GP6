@@ -6,6 +6,8 @@
 
 - [feature/esp-patron-estructural-add-patron-adapter] Added branch Especialista de patron Estructural & archivos correspondiente PR: [#214](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/214) — angelgc9107-lgtm - Especialista Patron Diseño Estructural
 
+- [feature/esp-patron-comportamiento-add-patron-strategy] Added branch Especialista en patron Comportamiento & archivos correspondinetes PR: [#215](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/215) — @LuchoBarrionuevo13 - Especialista en patron de comportamiento
+
 
 ## [Released Actividad Obligatoria N°4] - 2026-06-18
 
