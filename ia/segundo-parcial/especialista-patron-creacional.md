@@ -53,8 +53,10 @@ Tu tarea es aplicar un patrón de diseño CREACIONAL al STM:
 **Ajuste 1 — Elección del patrón: Factory Method sobre Abstract Factory**
 
 - Copilot propuso inicialmente Abstract Factory, argumentando que el sistema podría necesitar familias de productos relacionados.
-- Se rechazó porque en el STM el problema concreto es la creación de un único tipo de objeto (`Turno`) con variantes, no la creación de familias de objetos relacionados. Abstract Factory introduce complejidad innecesaria para este caso.
-- Decisión tomada: Factory Method, más específico y proporcional al problema identificado.
+- Se rechazó porque en el STM el problema concreto es la creación de un único tipo de objeto (Turno)
+con variantes, no la creación de familias de objetos relacionados. Abstract Factory introduce complejidad innecesaria para este caso específico. Factory Method es más directo y proporcional.
+- Decisión tomada: se procedió con Factory Method.
+Esto mejora la cohesión textual sin cambiar el contenido técnico.
 
 **Ajuste 2 — Producto abstracto: de clase concreta a clase abstracta**
 

@@ -68,6 +68,16 @@ abstract class CreadorTurno {
     + {abstract} crearTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
 }
 
+note right of CreadorTurno
+El Factory Method crearTurno() retorna Turno (tipo abstracto),
+pero cada subclase instancia el tipo concreto correspondiente:
+
+CreadorTurnoConsulta → TurnoConsulta
+CreadorTurnoPrimeraVez → TurnoPrimeraVez
+CreadorTurnoControl → TurnoControl
+Esto es polimorfismo: el cliente espera Turno, no el tipo concreto.
+end note
+
 class ControlSistema {
 + seleccionarCreador(tipoConsulta: String): CreadorTurno
 }
@@ -104,13 +114,11 @@ class CreadorTurnoControl {
 ' CONTEXTO: AGENDA usa el creador
 ' ================================================================
 class Agenda {
-    - listaTurnos: List<Turno>
-    - creadorTurno: CreadorTurno
-    --
-    + registrarTurno(paciente, medico, fecha, hora): Turno {turno = creadorTurno.crearTurno(paciente, medico, fecha, hora)
-    + listaTurnos.agregar(turno)
-    return turno
-    + setCreadorTurno(creador: CreadorTurno): void
+- listaTurnos: List
+- creadorTurno: CreadorTurno
+--
++ registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: Time): Turno
++ setCreadorTurno(creador: CreadorTurno): void
 }
 
 note bottom of Agenda
