@@ -141,7 +141,7 @@ El objetivo de esta reorganización es separar la responsabilidad de seleccionar
 
 - **Agenda:** mantiene su responsabilidad original como administradora de la información de turnos y proveedora de los datos utilizados por las distintas estrategias.
 
-- **VistaCalendario:** continúa siendo la responsable de representar la información obtenida por la estrategia seleccionada.
+- **VistaCalendario:** continúa siendo la responsable de representar la información obtenida. En el contexto del patrón Strategy actúa como el destino uniforme donde todas las estrategias actualizan los datos. Expone métodos especializados (`mostrarVistaDiaria()`, `mostrarVistaSemanal()`) que cada estrategia invoca según su naturaleza, manteniendo separadas la lógica de carga (estrategia) y la presentación visual.
 
 - **Resultado:** mantiene un formato uniforme para comunicar el éxito o error de la operación realizada, independizando la lógica del patrón de la interfaz de usuario.
 

@@ -135,7 +135,7 @@ ControlSistema ..> Resultado : retorna >
 
 FabricaEstrategiaVista ..> IEstrategiaVistaAgenda : crea >
 
-IEstrategiaVistaAgenda <|.. EstrategiaVistaAgendaBase
+IEstrategiaVistaAgenda <|.. EstrategiaVistaAgendaBase : <<implements>>
 EstrategiaVistaAgendaBase <|-- EstrategiaVistaDiaria
 EstrategiaVistaAgendaBase <|-- EstrategiaVistaSemanal
 
