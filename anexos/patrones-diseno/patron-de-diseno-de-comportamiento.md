@@ -92,8 +92,6 @@ A partir de esta abstracción se implementan dos estrategias concretas:
 - `EstrategiaVistaDiaria`, encargada de encapsular el algoritmo correspondiente a la vista diaria.
 - `EstrategiaVistaSemanal`, responsable del algoritmo correspondiente a la vista semanal.
 
-Además, se incorpora la clase abstracta `EstrategiaVistaAgendaBase`, que concentra comportamiento compartido entre ambas estrategias, evitando duplicación de código.
-
 La selección de la estrategia adecuada queda centralizada en `FabricaEstrategiaVista`, mientras que `ControlSistema` conserva únicamente la responsabilidad de coordinar el caso de uso y delegar la ejecución sobre la estrategia correspondiente.
 
 ### Ventajas obtenidas en el Sistema de Turnos Médicos
@@ -102,7 +100,7 @@ La aplicación del patrón Strategy aporta diversas mejoras al diseño del siste
 
 - Reduce el acoplamiento entre el controlador y la lógica de carga de agenda.
 - Facilita la incorporación de nuevas modalidades de visualización sin modificar `ControlSistema`.
-- Favorece la reutilización del comportamiento compartido entre distintas estrategias.
+- Favorece la reutilización del contrato común entre distintas estrategias.
 - Mejora la mantenibilidad al distribuir responsabilidades en clases especializadas.
 - Refuerza la aplicación de los principios SOLID desarrollados durante el proyecto.
 - Mantiene una arquitectura preparada para futuras ampliaciones del Sistema de Turnos Médicos.
@@ -130,8 +128,6 @@ El objetivo de esta reorganización es separar la responsabilidad de seleccionar
 - **ControlSistema:** actúa como el contexto del patrón Strategy. Coordina el flujo del caso de uso y delega la carga de la agenda en la estrategia seleccionada sin conocer su implementación concreta.
 
 - **IEstrategiaVistaAgenda:** define el contrato común para todas las estrategias encargadas de cargar la agenda. Gracias a esta abstracción, el contexto puede trabajar de forma uniforme con cualquier implementación.
-
-- **EstrategiaVistaAgendaBase:** concentra comportamiento compartido entre las distintas estrategias, evitando duplicación de código y favoreciendo la reutilización de funcionalidades comunes.
 
 - **EstrategiaVistaDiaria:** implementa el algoritmo encargado de obtener y mostrar la agenda correspondiente a una vista diaria.
 

@@ -74,11 +74,6 @@ interface IEstrategiaVistaAgenda {
     + cargar(fecha: Date, agenda: Agenda, vista: VistaCalendario): Resultado
 }
 
-abstract class EstrategiaVistaAgendaBase {
-    # normalizarFecha(fecha: Date): Date
-    # validarFecha(fecha: Date): Boolean
-}
-
 class EstrategiaVistaDiaria {
     + cargar(fecha: Date, agenda: Agenda, vista: VistaCalendario): Resultado
 }
@@ -135,9 +130,8 @@ ControlSistema ..> Resultado : retorna >
 
 FabricaEstrategiaVista ..> IEstrategiaVistaAgenda : crea >
 
-IEstrategiaVistaAgenda <|.. EstrategiaVistaAgendaBase : <<implements>>
-EstrategiaVistaAgendaBase <|-- EstrategiaVistaDiaria
-EstrategiaVistaAgendaBase <|-- EstrategiaVistaSemanal
+IEstrategiaVistaAgenda <|.. EstrategiaVistaDiaria : <<implements>>
+IEstrategiaVistaAgenda <|.. EstrategiaVistaSemanal : <<implements>>
 
 EstrategiaVistaDiaria --> Agenda : consulta >
 EstrategiaVistaDiaria --> VistaCalendario : muestra >

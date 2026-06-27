@@ -58,7 +58,6 @@ La IA detecto que la operacion de carga de agenda por `tipoVista` (diaria/semana
 Se genero un diseno conductual basado en **Strategy** para la carga de vistas de agenda:
 
 - interfaz `IEstrategiaVistaAgenda`;
-- clase abstracta `EstrategiaVistaAgendaBase`;
 - estrategias concretas `EstrategiaVistaDiaria` y `EstrategiaVistaSemanal`;
 - `ControlSistema` como contexto;
 - `FabricaEstrategiaVista` para resolucion de estrategia.
