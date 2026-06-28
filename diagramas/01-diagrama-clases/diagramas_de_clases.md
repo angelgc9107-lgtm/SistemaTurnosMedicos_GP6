@@ -24,4 +24,5 @@
 - Patrones de diseño
   - [Patrón de Diseño Estructural - Adapter](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
   - [Patrón de Diseño Creacional - Factory Method](../../diagramas/01-diagrama-clases/01-patron-creacional-factory-method.png)
+  - [Patrón de Diseño Estructural - Strategy](../../diagramas/01-diagrama-clases/01-patron-comportamiento-strategy.png)
   

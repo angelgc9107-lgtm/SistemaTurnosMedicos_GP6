@@ -1,0 +1,144 @@
+@startuml patron-comportamiento-strategy
+
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+    FontColor #1E3A8A
+}
+skinparam interface {
+    BackgroundColor #ECFDF5
+    BorderColor #059669
+    FontColor #064E3B
+}
+skinparam note {
+    BackgroundColor #DBEAFE
+    BorderColor #93C5FD
+}
+
+title Patron Strategy - Carga de vistas de Agenda del Sistema de Turnos Medicos
+
+' ================================================================
+' CONTEXTO DEL DOMINIO EXISTENTE
+' ================================================================
+
+class ControlSistema {
+    --
+    - agenda: Agenda
+    - vistaCalendario: VistaCalendario
+    - estrategiaVista: IEstrategiaVistaAgenda
+    --
+    + cargarVista(tipoVista: String, fecha: Date): Resultado
+    + setEstrategiaVista(estrategia: IEstrategiaVistaAgenda): void
+    + confirmarCambioVista(fecha: Date): Resultado
+    + navegarFecha(direccion: String): Date
+}
+
+class Agenda {
+    --
+    - listaTurnos: List<Turno>
+    - gestorBloqueos: GestorBloqueos
+    --
+    + obtenerVistaDiaria(fecha: Date): VistaCalendario
+    + obtenerVistaSemanal(fechaInicio: Date): VistaCalendario
+    + obtenerTurnosPorRango(rango: RangoFechaHora): List<Turno>
+}
+
+class VistaCalendario {
+    --
+    - periodoActual: Date
+    - tipoVista: String
+    --
+    + mostrarVistaDiaria(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
+    + mostrarVistaSemanal(turnos: List<Turno>, bloqueos: List<Bloqueo>): void
+    + mostrarTurnos(turnos: List<Turno>): void
+    + mostrarBloqueos(bloqueos: List<Bloqueo>): void
+}
+
+class Resultado {
+    --
+    - exito: Boolean
+    - mensaje: String
+    --
+    + {static} ok(msg: String): Resultado
+    + {static} error(msg: String): Resultado
+}
+
+' ================================================================
+' STRATEGY
+' ================================================================
+
+interface IEstrategiaVistaAgenda {
+    + cargar(fecha: Date, agenda: Agenda, vista: VistaCalendario): Resultado
+}
+
+class EstrategiaVistaDiaria {
+    + cargar(fecha: Date, agenda: Agenda, vista: VistaCalendario): Resultado
+}
+
+class EstrategiaVistaSemanal {
+    + cargar(fecha: Date, agenda: Agenda, vista: VistaCalendario): Resultado
+}
+
+class FabricaEstrategiaVista {
+    + crear(tipoVista: String): IEstrategiaVistaAgenda
+}
+
+note right of ControlSistema
+  <<Context>>
+  Reemplaza decisiones rigidas
+  por colaboracion polimorfica.
+  cargarVista(...) solicita la estrategia
+  apropiada y delega la carga.
+end note
+
+note top of IEstrategiaVistaAgenda
+  <<Strategy>>
+  Contrato unico para cualquier
+  forma de cargar agenda.
+end note
+
+note right of EstrategiaVistaDiaria
+  <<ConcreteStrategy>>
+  Usa Agenda.obtenerVistaDiaria(...)
+  y VistaCalendario.mostrarVistaDiaria(...)
+end note
+
+note right of EstrategiaVistaSemanal
+  <<ConcreteStrategy>>
+  Usa Agenda.obtenerVistaSemanal(...)
+  y VistaCalendario.mostrarVistaSemanal(...)
+end note
+
+note bottom of FabricaEstrategiaVista
+  Encapsula la resolucion por tipoVista.
+  Si se agrega una nueva vista,
+  el impacto queda concentrado.
+end note
+
+' ================================================================
+' RELACIONES
+' ================================================================
+
+ControlSistema "1" --> "1" Agenda : consulta >
+ControlSistema "1" --> "1" VistaCalendario : presenta >
+ControlSistema "1" o-- "1" IEstrategiaVistaAgenda : estrategia actual >
+ControlSistema ..> FabricaEstrategiaVista : solicita >
+ControlSistema ..> Resultado : retorna >
+
+FabricaEstrategiaVista ..> IEstrategiaVistaAgenda : crea >
+
+IEstrategiaVistaAgenda <|.. EstrategiaVistaDiaria : <<implements>>
+IEstrategiaVistaAgenda <|.. EstrategiaVistaSemanal : <<implements>>
+
+EstrategiaVistaDiaria --> Agenda : consulta >
+EstrategiaVistaDiaria --> VistaCalendario : muestra >
+EstrategiaVistaDiaria ..> Resultado : retorna >
+
+EstrategiaVistaSemanal --> Agenda : consulta >
+EstrategiaVistaSemanal --> VistaCalendario : muestra >
+EstrategiaVistaSemanal ..> Resultado : retorna >
+
+@enduml
