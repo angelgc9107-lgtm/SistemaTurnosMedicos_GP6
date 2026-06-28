@@ -8,7 +8,7 @@
 
 - [feature/esp-patron-comportamiento-add-patron-strategy] Se agregó la rama Especialista en Patrón de Comportamiento & archivos correspondientes. PR: [#215](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/215) — @LuchoBarrionuevo13 - (Especialista en Patrón de Comportamiento)
 
-- [feature/especialista-en-patrones-diseno-creacional] Added diagrama de especialista en patrones diseno creacion con factory method PR:[211](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/211) — alandox1 - especialista en patrones diseno creacional
+- [feature/especialista-en-patrones-diseno-creacional] Added diagrama de especialista en patrones diseno creacion con factory method PR:[#211](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/211) — alandox1 - especialista en patrones diseno creacional
 
 - [feature/coord-devops-update-docs] Agrega rama de trabajo con documentación requerida. PR: [#213](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/213) — Piastrellini - Coordinador y DevOps
 
