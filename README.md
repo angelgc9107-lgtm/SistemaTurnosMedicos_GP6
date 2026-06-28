@@ -14,9 +14,9 @@ digitalizar la gestión de sus turnos.
 
 | Nombre y Apellido | Matrícula | Usuario de GitHub | Rol |
 |-----| ----- | ------ | ------ |
-| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| ESPECIALISTA EN PATRÓN DE DISEÑO DE COMPORTAMIENTO |
-| Alan Diaz | 152841 | @alandox1| especialista en patrones diseno creacional |
-| Angel Cuarteron | 159438 | @angelgc9107-lgtm | ESPECIALISTA EN PATRÓN DE DISEÑO ESTRUCTURAL|
+| Luciano Barrionuevo | 156398 | @LuchoBarrionuevo13| Especialista en Patrón de Diseño de Comportamiento |
+| Alan Diaz | 152841 | @alandox1| Especialista en Patrón de Diseño Creacional |
+| Angel Cuarteron | 159438 | @angelgc9107-lgtm | Especialista en Patrón de Diseño Estructural |
 | Thiago Piastrellini | 158097 | @Piastrellini | Coordinador y DevOps |
 
 ## Diagramas y Diseños

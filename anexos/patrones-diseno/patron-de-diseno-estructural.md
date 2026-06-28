@@ -103,6 +103,7 @@ Solo se incluyen en el diagrama las clases directamente relacionadas con la apli
 
 ![Patron Estructural - Adapter](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
 
+[Ver diagrama completo](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
 
 ---
 
