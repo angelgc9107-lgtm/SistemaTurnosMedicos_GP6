@@ -18,6 +18,7 @@ Su relacion con los principios SOLID es directa:
 | OCP | Permiten extender el comportamiento del sistema (nuevos canales, componentes, decoradores) sin modificar las clases existentes |
 | DIP | El cliente depende de una abstracción (interfaz target), no de implementaciones concretas |
 | ISP | Las interfaces target son reducidas y especificas; cada adaptador implementa solo lo que corresponde |
+| LSP | Cada adaptador respeta el contrato de `INotificadorCanal`, permitiendo que sean intercambiables sin que el cliente (`ServicioNotificacion`) se vea afectado |
 
 ### Proposito:
 

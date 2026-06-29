@@ -14,6 +14,7 @@ La aplicación del patrón **Strategy** mantiene una relación directa con vario
 - **OCP:** es posible incorporar nuevas modalidades de visualización sin modificar el contexto principal.
 - **LSP:** todas las estrategias concretas pueden sustituirse utilizando la misma interfaz.
 - **DIP:** `ControlSistema` depende de la abstracción `IEstrategiaVistaAgenda` y no de implementaciones concretas.
+- **ISP:** `IEstrategiaVistaAgenda` define solo los métodos necesarios para las estrategias, sin forzar implementaciones innecesarias en las clases concretas.
 
 Como consecuencia, el sistema obtiene un menor acoplamiento, una mejor distribución de responsabilidades y una arquitectura preparada para futuras ampliaciones.
 
