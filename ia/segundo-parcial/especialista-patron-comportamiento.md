@@ -7,17 +7,136 @@ Analizar la arquitectura existente del Sistema de Turnos Medicos y proponer una 
 ## Prompt utilizado
 
 ```
-Actua como un Software Architect Senior especializado en Diseno Orientado a Objetos, UML, PlantUML, Patrones GoF y documentacion tecnica.
+Actúa como un Software Architect Senior especializado en Diseño Orientado a Objetos, UML, PlantUML, Patrones GoF y documentación técnica.
+
+Estoy desarrollando el Segundo Parcial de la materia Diseño Orientado a Objetos (UCES).
 
 IMPORTANTE:
-No quiero una solucion generica.
-Debes trabajar EXCLUSIVAMENTE sobre el proyecto existente llamado "Sistema de Turnos Medicos", reutilizando la arquitectura ya desarrollada durante el primer parcial.
-Toda la solucion debe mantener consistencia con los diagramas UML existentes, las tarjetas CRC, los principios SOLID previamente implementados y la documentacion del proyecto.
-Nunca cambies nombres de clases existentes salvo que sea estrictamente necesario.
-No inventes funcionalidades que no existan en el dominio.
-Todo debe parecer una evolucion natural del sistema.
 
-(Se incluyeron en el prompt original: contexto obligatorio de diagramas, rol de especialista en patron de comportamiento, objetivo, preguntas de analisis tecnico, archivos requeridos, restricciones y formato final de entrega.)
+No quiero una solución genérica.
+
+Debes trabajar EXCLUSIVAMENTE sobre el proyecto existente llamado "Sistema de Turnos Médicos", reutilizando la arquitectura ya desarrollada durante el primer parcial.
+
+Toda la solución debe mantener consistencia con los diagramas UML existentes, las tarjetas CRC, los principios SOLID previamente implementados y la documentación del proyecto.
+
+Nunca cambies nombres de clases existentes salvo que sea estrictamente necesario.
+
+No inventes funcionalidades que no existan en el dominio.
+
+Todo debe parecer una evolución natural del sistema.
+
+==================================================================
+CONTEXTO OBLIGATORIO
+==================================================================
+
+Utiliza como contexto los siguientes archivos del proyecto.
+
+diagramas/01-diagrama-clases/06-clases-diagrama-final.puml
+
+diagramas/01-diagrama-clases/01-solid-01-srp.puml
+
+diagramas/01-diagrama-clases/01-solid-02-ocp.puml
+
+diagramas/01-diagrama-clases/01-solid-03-lsp.puml
+
+diagramas/01-diagrama-clases/01-solid-04-isp.puml
+
+diagramas/01-diagrama-clases/01-solid-05-dip.puml
+
+Analiza completamente dichos diagramas antes de proponer cualquier solución.
+
+Respeta:
+
+* nombres de clases
+* relaciones UML
+* herencias
+* asociaciones
+* dependencias
+* composición
+* agregación
+* responsabilidades
+* nomenclatura
+* estilo visual
+* principios SOLID aplicados
+
+No generes una arquitectura nueva.
+
+Debes extender la existente.
+
+==================================================================
+MI ROL
+==================================================================
+
+Mi rol dentro del equipo es:
+
+ESPECIALISTA EN PATRÓN DE DISEÑO DE COMPORTAMIENTO.
+
+Mi responsabilidad consiste en detectar un problema real del sistema que pueda resolverse mediante la aplicación de un patrón GoF de comportamiento.
+
+Debes identificar automáticamente cuál patrón resulta más adecuado.
+
+Puedes elegir solamente uno de los siguientes:
+
+* Observer
+* Strategy
+* Command
+* State
+* Template Method
+* Chain of Responsibility
+
+La elección debe estar completamente justificada.
+
+No quiero que selecciones un patrón simplemente porque sea conocido.
+
+Debe resolver un problema REAL del dominio del sistema de turnos médicos.
+
+==================================================================
+OBJETIVO
+==================================================================
+
+Necesito que analices el sistema existente y encuentres un punto donde actualmente exista alguno de estos problemas:
+
+* lógica repetida
+
+* mucho acoplamiento
+
+* dificultad para extender comportamientos
+
+* múltiples decisiones mediante if o switch
+
+* algoritmos intercambiables
+
+* comunicación rígida entre objetos
+
+* responsabilidades mezcladas
+
+* poca mantenibilidad
+
+Luego debes proponer una solución utilizando un patrón GoF de comportamiento.
+
+==================================================================
+ANÁLISIS TÉCNICO
+==================================================================
+
+Primero analiza el sistema completo.
+
+Luego responde:
+
+1) ¿Cuál es el problema encontrado?
+
+2) ¿Qué clases participan actualmente?
+
+3) ¿Qué limitaciones presenta el diseño actual?
+
+4) ¿Qué principio SOLID mejora la solución?
+
+5) ¿Qué patrón elegiste?
+
+6) ¿Por qué ese patrón es mejor que los demás?
+
+7) ¿Qué ventajas aporta?
+
+No avances al diseño hasta justificar completamente la decisión.
 ```
 
 ## Archivos utilizados como contexto
