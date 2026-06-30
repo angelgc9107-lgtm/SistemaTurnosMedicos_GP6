@@ -20,4 +20,9 @@
   - [Diagrama de Clases -Reprogramar Turno](../../diagramas/01-diagrama-clases/03-clase-reprogramar-turno.png)
   - [Diagrama de clases - Bloquear Horarios](04-clases-bloquear-horarios.png)
   - [Diagrama de clases - Visualizar Agenda](05-clases-visualizar-agenda.png)
+
+- Patrones de diseño
+  - [Patrón de Diseño Estructural - Adapter](../../diagramas/01-diagrama-clases/01-patron-estructural-adapter.png)
+  - [Patrón de Diseño Creacional - Factory Method](../../diagramas/01-diagrama-clases/01-patron-creacional-factory-method.png)
+  - [Patrón de Diseño De Comportamiento - Strategy](../../diagramas/01-diagrama-clases/01-patron-comportamiento-strategy.png)
   

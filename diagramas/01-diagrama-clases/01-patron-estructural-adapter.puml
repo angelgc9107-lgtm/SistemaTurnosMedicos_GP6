@@ -1,0 +1,248 @@
+@startuml patron-adapter-notificacion
+
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+    FontColor #1E3A8A
+}
+skinparam interface {
+    BackgroundColor #ECFDF5
+    BorderColor #059669
+    FontColor #064E3B
+}
+skinparam note {
+    BackgroundColor #DBEAFE
+    BorderColor #93C5FD
+}
+
+title Patrón Adapter — Servicio de Notificaciones del Sistema de Turnos Médicos
+
+' ================================================================
+' TARGET: Interfaz que el cliente (ServicioNotificacion) conoce
+' ================================================================
+
+interface INotificadorCanal {
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + estaDisponible(): Boolean
+}
+
+class DatosContacto {
+  --
+  - telefono: String
+  - email: String
+  --
+  + getTelefono(): String
+  + getEmail(): String
+}
+
+note top of INotificadorCanal
+  <<Target>>
+  Interfaz uniforme que
+  ServicioNotificacion conoce.
+  Cada canal de notificación
+  debe implementarla.
+end note
+
+' ================================================================
+' CLIENT: ServicioNotificacion usa la interfaz target
+' ================================================================
+
+class ServicioNotificacion {
+    --
+    - adaptadores: List<INotificadorCanal>
+    --
+    + agregarAdaptador(adaptador: INotificadorCanal): void
+    + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+    + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+    + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+    + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + programarRecordatorio24h(contacto: DatosContacto, fecha: Date): void
+    + programarRecordatorioManana(contacto: DatosContacto, fecha: Date): void
+}
+
+note left of ServicioNotificacion
+  <<Client>>
+  Recorre su lista de adaptadores
+  y delega a cada INotificadorCanal.
+  No conoce WhatsApp, Email ni SMS:
+  solo la interfaz target.
+  programarRecordatorio24h y
+  programarRecordatorioManana
+  son metodos de scheduling:
+  internamente llaman a
+  enviarRecordatorio(...).
+  Cumple DIP y OCP: agregar un adaptador
+  nuevo no requiere modificar esta clase.
+end note
+
+' ================================================================
+' ADAPTERS: Adaptan cada API externa a INotificadorCanal
+' ================================================================
+
+class AdaptadorWhatsApp {
+    --
+    - clienteWA: WhatsAppGateway
+    --
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + estaDisponible(): Boolean
+}
+
+note right of AdaptadorWhatsApp
+  <<Adapter>>
+  Traduce INotificadorCanal
+  a la API de WhatsAppGateway.
+  Formatea el mensaje como
+  texto libre para WhatsApp.
+end note
+
+class AdaptadorEmail {
+    --
+    - clienteEmail: EmailGateway
+    --
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + estaDisponible(): Boolean
+}
+
+note top of AdaptadorEmail
+  <<Adapter>>
+  Traduce INotificadorCanal
+  a la API de EmailGateway.
+  Construye asunto y cuerpo HTML
+  del correo médico.
+end note
+
+class AdaptadorSMS {
+    --
+    - clienteSMS: SMSGateway
+    --
+  + enviarConfirmacion(contacto: DatosContacto, fecha: Date, hora: String, medico: String): Boolean
+  + enviarCancelacion(contacto: DatosContacto, fecha: Date): Boolean
+  + enviarReprogramacion(contacto: DatosContacto, nuevaFecha: Date, nuevaHora: String): Boolean
+  + enviarRecordatorio(contacto: DatosContacto, fecha: Date, horasAntes: Integer): Boolean
+    + estaDisponible(): Boolean
+}
+
+note right of AdaptadorSMS
+  <<Adapter>>
+  Traduce INotificadorCanal
+  a la API de SMSGateway.
+  Trunca el mensaje a 160 caracteres
+  según límite del protocolo SMS.
+end note
+
+' ================================================================
+' ADAPTEES: APIs externas incompatibles entre sí
+' ================================================================
+
+class WhatsAppGateway {
+    --
+    - apiKey: String
+    - urlBase: String
+    --
+    + sendMessage(phoneNumber: String, messageText: String): HttpResponse
+    + checkStatus(): Boolean
+}
+
+note bottom of WhatsAppGateway
+  <<Adaptee>>
+  API externa de WhatsApp Business.
+  Opera con número de teléfono
+  y texto libre. No conoce el
+  dominio del sistema de turnos.
+end note
+
+class EmailGateway {
+    --
+    - smtpHost: String
+    - smtpPort: Integer
+    - credentials: String
+    --
+    + sendEmail(toAddress: String, subject: String, htmlBody: String): Boolean
+    + isConnected(): Boolean
+}
+
+note bottom of EmailGateway
+  <<Adaptee>>
+  Cliente SMTP externo.
+  Requiere asunto y cuerpo HTML.
+  Interfaz totalmente distinta
+  a WhatsAppGateway y SMSGateway.
+end note
+
+class SMSGateway {
+    --
+    - accountSid: String
+    - authToken: String
+    --
+    + dispatch(toPhone: String, body: String): DeliveryStatus
+    + getProviderStatus(): String
+}
+
+note bottom of SMSGateway
+  <<Adaptee>>
+  Proveedor de SMS externo (ej. Twilio).
+  Retorna DeliveryStatus en vez de
+  Boolean. Limitado a 160 caracteres.
+  Interfaz incompatible con las demás.
+end note
+
+' ================================================================
+' CONTEXTO: Agenda delega en ServicioNotificacion
+' ================================================================
+
+class Agenda {
+    --
+    - listaTurnos: List<Turno>
+    - medico: Medico
+    - gestorBloqueos: GestorBloqueos
+  - servicioNotificacion: ServicioNotificacion
+    --
+    + registrarTurno(datos: Map): Turno
+    + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: Time): void
+    + registrarPresencia(idTurno: UUID): LlegadaPaciente
+    + bloquearRango(rango: RangoFechaHora, motivo: String): Resultado
+}
+
+note left of Agenda
+  Depende de ServicioNotificacion,
+  que a su vez solo conoce INotificadorCanal.
+  Agenda nunca conoce WhatsApp, Email ni SMS.
+end note
+
+' ================================================================
+' RELACIONES
+' ================================================================
+
+' Client usa Target
+ServicioNotificacion o-- INotificadorCanal : adaptadores >
+
+' Adapters implementan Target
+AdaptadorWhatsApp ..|> INotificadorCanal
+AdaptadorEmail    ..|> INotificadorCanal
+AdaptadorSMS      ..|> INotificadorCanal
+
+' Adapters delegan en Adaptees
+AdaptadorWhatsApp --> WhatsAppGateway : adapta >
+AdaptadorEmail    --> EmailGateway    : adapta >
+AdaptadorSMS      --> SMSGateway      : adapta >
+
+' Agenda usa ServicioNotificacion
+Agenda --> ServicioNotificacion : notifica >
+
+' Dependencia de valor
+ServicioNotificacion ..> DatosContacto : usa
+INotificadorCanal ..> DatosContacto : contrato >
+
+@enduml
