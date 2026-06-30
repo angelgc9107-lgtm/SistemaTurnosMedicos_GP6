@@ -11,6 +11,8 @@ Su relación con los principios SOLID es directa:
 - **SRP (Single Responsibility Principle):** al centralizar la lógica de creación en clases especializadas (los "creadores"), las clases de dominio como `Agenda` dejan de mezclar responsabilidades de gestión con responsabilidades de fabricación de objetos.
 - **OCP (Open/Closed Principle):** los patrones creacionales permiten agregar nuevos tipos de objetos (nuevos tipos de turno, por ejemplo) creando nuevas subclases, sin modificar el código existente.
 - **DIP (Dependency Inversion Principle):** el código cliente depende de abstracciones (el creador abstracto, el producto abstracto), no de implementaciones concretas.
+- **LSP (Liskov Substitution Principle):** todas las subclases de `CreadorTurno` pueden substituirse entre sí sin afectar el funcionamiento de `Agenda`, ya que todas respetan el contrato de la clase abstracta.
+- **ISP (Interface Segregation Principle):** cada creador concreto implementa solo lo necesario para su tipo de turno, sin forzar dependencias innecesarias.
 
 El patrón **Factory Method** en particular formaliza esta idea: define una interfaz para crear objetos en una superclase, pero permite que las subclases decidan qué clase concreta instanciar.
 
