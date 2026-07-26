@@ -1,9 +1,10 @@
-﻿﻿# Changelog
+﻿# Changelog
 
-## [Unreleased - Examen Final] - 2026-07-26
+## [Unreleased]
 
 ### Added
 - [feature/anexo-fundamentos-doo-matricula-159438] Added branch Mesa 645003 Matricula 159438 PR: [#221](https://github.com/angelgc9107-lgtm/SistemaTurnosMedicos_GP6/pull/221) — angelgc9107-lgtm - Matricula 159438
+
 ## [Released Segundo-Parcial] 2026-06-27
 
 ### Added

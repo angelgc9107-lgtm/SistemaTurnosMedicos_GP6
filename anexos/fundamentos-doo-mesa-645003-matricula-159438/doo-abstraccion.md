@@ -17,7 +17,7 @@ La clase Agenda abstrae la gestión de la disponibilidad horaria del sistema. La
 
 ![Abstracción — Ejemplo 1: Agenda](../../diagramas/01-diagrama-clases/capturas-pilares/poo-abstraccion-ejemplo-1.png)
 
-> Ver diagrama completo en: [abstraccion-ejemplo](../../diagramas\01-diagrama-clases\capturas-pilares\poo-abstraccion-ejemplo-1.png)
+> Ver diagrama completo en: [abstraccion-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-abstraccion-ejemplo-1.png)
 
 **Descripción del diagrama:** El fragmento muestra a `Agenda` exponiendo únicamente su interfaz pública: `consultarDisponibilidad()`, `registrarTurno()`, `bloquearRango()`, `registrarPresencia()`, entre otros. Los atributos internos —`listaTurnos`, `gestorBloqueos`— son privados e inaccesibles directamente desde afuera. Ninguna clase colaboradora puede ver ni manipular la estructura interna de `Agenda`.
 
