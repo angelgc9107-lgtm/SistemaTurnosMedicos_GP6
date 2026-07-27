@@ -1,6 +1,6 @@
 # Anexo - Fundamentos del Diseño Orientado a Objetos
 
-El Diseño Orientado a Objetos se basa en estos cuatro fundamentos: 
+El Diseño Orientado a Objetos se basa en estos cuatro pilares fundamentales: 
 
 - [Abstracción](doo-abstraccion.md)
 - [Encapsulamiento](doo-encapsulamiento.md)
