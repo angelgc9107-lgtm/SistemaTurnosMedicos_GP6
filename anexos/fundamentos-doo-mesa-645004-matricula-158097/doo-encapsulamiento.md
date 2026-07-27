@@ -6,7 +6,9 @@ El encapsulamiento en este proyecto cumple una función más amplia que simpleme
 
 En el sistema de turnos médicos, esto es especialmente importante porque una cita puede pasar por varios cambios de estado y cada transición tiene consecuencias reales: afecta la disponibilidad horaria, el historial del turno, la notificación al paciente y la visibilidad en la agenda. Por eso, la información sensible no debe estar expuesta directamente.
 
-## ¿Qué se encapsula en este sistema?
+El encapsulamiento también se relaciona con varios principios SOLID. En particular, refuerza el principio de Responsabilidad Única (SRP), porque cada clase mantiene bajo control su propio estado y sus reglas internas, evitando que otras clases deban manipular ese detalle. Asimismo, contribuye al principio de Abierto/Cerrado (OCP), ya que permite modificar la implementación interna de una clase sin afectar a las clases que usan su interfaz pública.
+
+## Ejemplo en el proyecto
 
 En la solución propuesta, el encapsulamiento aparece principalmente en dos puntos del dominio:
 
@@ -18,25 +20,6 @@ Estas clases mantienen internamente datos como la lista de turnos asignados, los
 ![Encapsulamiento — Ejemplo 1: Agenda y Turno](../../diagramas/01-diagrama-clases/capturas-pilares/poo-encapsulamiento-ejemplo-1.png)
 
 > Ver diagrama completo en: [encapsulamiento-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-encapsulamiento-ejemplo-1.png)
-
-## Aplicación en la clase Agenda
-
-La clase `Agenda` funciona como el punto central de control del sistema. En lugar de permitir que otras clases manipulen directamente la colección de turnos o los horarios ocupados, la agenda ofrece operaciones de alto nivel como reservar, reprogramar, cancelar o registrar la presencia del paciente.
-
-Esto significa que las clases externas, como `Secretaria` o `ControlSistema`, no necesitan conocer cómo se valida la disponibilidad ni cómo se registran los conflictos. Solo invocan un método público y reciben el resultado esperado. Ese diseño evita que un error en otra clase altere de forma accidental la lógica interna de la agenda.
-
-Por ejemplo, si una secretaria intenta agendar un turno en un horario ya ocupado, la agenda no deja que esa operación se complete sin pasar por la validación correspondiente. De esa manera, el encapsulamiento no solo protege datos, sino que también protege las reglas de negocio.
-
-## Aplicación en la clase Turno
-
-La clase `Turno` también encapsula su estado interno. Un turno no puede cambiar de forma arbitraria de "Pendiente" a "Presente" o a "Cancelado" sin pasar por una regla definida. En este sentido, el encapsulamiento ayuda a evitar estados inconsistentes, como un turno que aparezca como presente aunque nunca haya sido confirmado o que se marque como reprogramado sin dejar registro del cambio previo.
-
-Esto es clave para cumplir requisitos como:
-
-- mantener la integridad de los datos del turno;
-- conservar un historial ordenado de cambios;
-- evitar errores en la visualización de la agenda;
-- garantizar que la información enviada al paciente o al médico sea coherente.
 
 ## Ejemplo de código
 
@@ -86,13 +69,7 @@ public class Turno {
 }
 ```
 
-Este ejemplo refleja el objetivo del encapsulamiento: las clases externas no alteran directamente los datos internos, sino que invocan métodos que controlan el comportamiento y mantienen la consistencia del objeto.
+**Justificación técnica del código:** En este ejemplo, los atributos internos de `Agenda` y `Turno` están protegidos mediante encapsulamiento y solo pueden ser modificados a través de métodos controlados. `Agenda` no expone directamente la lista de turnos ni la lógica de validación, por lo que otras clases no pueden alterar la disponibilidad horaria de forma arbitraria. De manera similar, `Turno` solo permite cambiar su estado mediante `marcarPresente()`, que valida que la transición sea válida antes de modificar el valor. Esto preserva la integridad del dominio, centraliza las reglas de negocio y evita que se produzcan estados inconsistentes por acciones externas.
 
-## Relación con la consigna del trabajo
 
-El encapsulamiento aporta directamente al cumplimiento de la consigna porque ayuda a resolver dos problemas centrales del sistema:
 
-- controla el acceso a los datos sensibles del turno y de la agenda;
-- concentra las reglas de negocio en los objetos correctos, evitando que se repitan en varias clases.
-
-Gracias a este enfoque, la agenda puede seguir siendo el único componente que centraliza la gestión de turnos, mientras que los demás actores del sistema interactúan con una interfaz clara y segura. Además, se fortalece la integridad de los datos, algo esencial para cumplir con la idea de un sistema confiable, mantenible y preparado para cambios futuros.

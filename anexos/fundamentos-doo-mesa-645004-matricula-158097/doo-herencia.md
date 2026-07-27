@@ -6,7 +6,9 @@ La herencia permite construir una jerarquía de clases donde una subclase reutil
 
 En este proyecto, la herencia no se usa solamente para reutilizar código, sino para modelar reglas del negocio de forma más clara. Por ejemplo, no todos los turnos tienen la misma duración ni la misma lógica de validación; tampoco todos los actores del sistema interactúan con la agenda de la misma manera. La jerarquía ayuda a representar estas diferencias sin duplicar toda la estructura.
 
-## Aplicación en el proyecto
+La herencia se relaciona con varios principios SOLID. En particular, refuerza el principio de Sustitución de Liskov (LSP), porque las subclases pueden utilizarse donde se espera la clase base sin alterar el comportamiento esperado. Asimismo, favorece el principio de Abierto/Cerrado (OCP), ya que permite introducir nuevos tipos de turno o nuevas especializaciones sin modificar la lógica general que ya funciona. 
+
+## Ejemplo en el proyecto
 
 Un ejemplo muy claro de herencia aparece en la relación entre los tipos de turno. En el sistema, todos los turnos comparten información básica como fecha, hora, paciente, médico y estado, pero cada tipo tiene un comportamiento particular. Un turno de primera vez, un control y un turno de consulta pueden ser tratados de manera uniforme desde la lógica general, mientras que cada uno define su propia duración o regla de negocio.
 
@@ -75,10 +77,4 @@ public class TurnoControl extends Turno {
 }
 ```
 
-Este ejemplo refleja el propósito de la herencia en el sistema: la clase base contiene lo esencial del concepto de turno y cada subclase adapta ese comportamiento a una regla específica del negocio.
-
-## Relación con la consigna del trabajo
-
-La herencia aporta al trabajo porque permite representar de forma ordenada las diferencias entre tipos de turno sin perder la idea de que todos pertenecen al mismo concepto general. Esto ayuda a construir un diseño más flexible, reutilizable y fácil de extender.
-
-Además, esta estructura favorece la organización del código y facilita futuras modificaciones, como agregar nuevos tipos de turno o incorporar nuevas reglas de duración o validación sin tener que reescribir toda la lógica existente.
+**Justificación técnica del código:** En este ejemplo, la clase base `Turno` define la estructura común de todos los turnos del sistema, como los datos del paciente, el médico y la fecha/hora, mientras que las subclases `TurnoPrimeraVez` y `TurnoControl` agregan únicamente el comportamiento específico que diferencia a cada tipo. Gracias a la herencia, la lógica compartida se escribe una sola vez y se reutiliza en todas las especializaciones, lo que evita duplicar código y facilita el mantenimiento. Además, al usar un método abstracto como `calcularDuracion()`, el sistema puede tratar a todos los turnos de forma uniforme desde la clase base, pero cada tipo responde con su propia regla según el contexto de negocio. 

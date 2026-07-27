@@ -7,15 +7,9 @@ En nuestro proyecto, `Agenda` es una abstracción que ofrece servicios como rese
 
 La abstracción es útil porque permite cambiar la implementación interna sin afectar a las clases que dependen de ella. Por ejemplo, se puede mejorar la validación de solapamientos o el algoritmo de bloqueo de horarios sin cambiar el código de `Secretaria`, `Medico` o `Notificador`.
 
+También se conecta con varios principios SOLID. En particular, ayuda a mantener el principio de Responsabilidad Única (SRP), porque `Agenda` concentra la lógica de gestión de turnos y evita que otras clases deban conocer todos los detalles de esa responsabilidad. Además, favorece el principio de Abierto/Cerrado (OCP), ya que permite modificar o ampliar la implementación interna de la agenda sin afectar a las clases que dependen de su interfaz pública.
+
 ---
-
-## Abstracción en el dominio del examen
-
-- `Turno` abstrae una cita médica real con atributos como fecha, hora, paciente, médico y tipo de consulta.
-- `Agenda` abstrae la gestión de horarios y estados, permitiendo operaciones de reserva, reprogramación y check-in.
-- `IRecordatorio` o `Notificador` abstraen el envío de mensajes sin depender de WhatsApp, e-mail o SMS.
-
-Con esta estructura, el sistema respeta la separación de responsabilidades: la secretaria pide una operación a `Agenda`, pero no manipula los detalles de cómo se comprueba la disponibilidad o se aplican las restricciones de RF.
 
 ## Ejemplo en el proyecto
 
@@ -66,12 +60,3 @@ public class Agenda {
 **Justificación técnica del código:** La clase `Secretaria` usa solo la interfaz pública de `Agenda`. No necesita saber si la agenda guarda los turnos en una lista, si valida con un `ValidadorDisponibilidad` o si usa un componente de `Notificador` para avisos.
 
 ---
-
-## Relación con la consigna
-
-La abstracción es clave para cumplir los objetivos de la consigna porque permite:
-
-- centralizar el control de turnos en `Agenda` (RNF5),
-- mantener los roles separados (secretaria, médico, paciente),
-- ocultar la complejidad de validación de conflictos y bloqueo de horarios,
-- facilitar la extensión futura del sistema sin modificar los clientes.

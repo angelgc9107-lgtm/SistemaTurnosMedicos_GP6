@@ -6,7 +6,9 @@ El polimorfismo permite que distintos objetos respondan al mismo mensaje de form
 
 En este proyecto, el polimorfismo aparece cuando una operación como "calcular duración", "mostrar la vista" o "aplicar una regla" se resuelve de manera distinta según el tipo de turno o la estrategia de visualización seleccionada. El resultado es un diseño más flexible, porque el código que usa esas clases no depende de una implementación concreta, sino de una interfaz o de una clase base común.
 
-## Aplicación en el proyecto
+El polimorfismo se relaciona con varios principios SOLID. En particular, refuerza el principio de Abierto/Cerrado (OCP), porque permite agregar nuevos tipos de turno o nuevas estrategias sin modificar el código que ya consume la abstracción. Además, apoya el principio de Sustitución de Liskov (LSP), ya que las subclases pueden reemplazar a la clase base sin alterar el comportamiento esperado por el sistema.
+
+## Ejemplo en el proyecto
 
 Un ejemplo claro del polimorfismo en este sistema se observa en la forma en que los turnos pueden responder al mismo mensaje de negocio. Por ejemplo, todos los turnos pueden recibir una solicitud como "calcular duración", pero cada tipo de turno la resuelve según sus propias reglas: un turno de primera vez puede ocupar 30 minutos, mientras que un turno de control puede ocupar 15.
 
@@ -68,10 +70,4 @@ public class Agenda {
 }
 ```
 
-En este ejemplo, `Agenda` no necesita saber si el turno es de primera vez, control o cualquier otro tipo. Solo invoca `calcularDuracion()` y el comportamiento correcto se resuelve según el objeto concreto que recibe.
-
-## Relación con la consigna del trabajo
-
-El polimorfismo aporta al trabajo porque permite que el sistema trate distintos tipos de turnos o estrategias de comportamiento mediante una interfaz común. Esto hace que el diseño sea más flexible, reusable y preparado para cambios.
-
-Además, ayuda a cumplir con la idea de un sistema orientado a objetos más mantenible, ya que las reglas de negocio pueden extenderse sin romper la lógica que ya existe.
+**Justificación técnica del código:** En este ejemplo, `Agenda` no necesita saber si el turno es de primera vez, control o cualquier otro tipo. Solo invoca `calcularDuracion()` y el comportamiento correcto se resuelve según el objeto concreto que recibe.
