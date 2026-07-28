@@ -1,0 +1,43 @@
+@startuml poo-herencia-alan
+skinparam backgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor #EFF6FF
+    BorderColor #3B82F6
+    ArrowColor #1D4ED8
+    FontColor #1E3A8A
+}
+skinparam note {
+    BackgroundColor #DBEAFE
+    BorderColor #93C5FD
+}
+
+abstract class Persona {
+    # nombre: String
+    # apellido: String
+    # telefono: String
+    # email: String
+    # rol: String
+    # estadoActivo: Boolean
+    # dni: String
+    --
+    + getDatos(): String
+    + getContacto(): String
+    + notificar(mensaje: String): void
+}
+
+class Secretaria {
+    # legajo: String
+    --
+    + registrarTurno(paciente: Paciente, medico: Medico, fecha: Date, hora: String): Turno
+    + consultarDisponibilidad(medico: Medico, fecha: Date): List<String>
+    + cancelarTurno(turno: Turno): void
+    + reprogramarTurno(turno: Turno, nuevaFecha: Date, nuevaHora: String): void
+    + buscarTurnoPaciente(apellido: String, nombre: String, dni: String): void
+    + registrarPresencia(turno: Turno): void
+    + accederAgenda(tipoVista: String, fechaActual: Date): Resultado
+    + notificar(mensaje: String): void
+}
+
+Persona <|-- Secretaria
+@enduml
