@@ -83,3 +83,5 @@ public class Secretaria extends Persona {
 **Justificación técnica del código:**
 
 `Secretaria` reutiliza mediante `super(...)` la inicialización de los atributos comunes definidos en `Persona`, evitando repetir esa lógica en cada subclase. A la vez, especializa el comportamiento heredado sobreescribiendo `notificar()` con un canal propio del rol administrativo, y agrega la operación `registrarTurno()`, que no tiene sentido en otros roles como `Medico`. Cualquier código que reciba una referencia de tipo `Persona` puede invocar `getDatos()` o `notificar()` sobre una `Secretaria` sin conocer que se trata de esa subclase específica, cumpliendo el contrato heredado.
+
+La herencia se ve en el código en la declaración `public class Secretaria extends Persona`, que establece la relación de herencia en sí misma; en el uso de `super(nombre, apellido, telefono, email, dni)` dentro del constructor de `Secretaria`, que reutiliza la inicialización de los atributos comunes definidos en `Persona` sin repetir esa lógica; y en el `@Override` sobre `notificar()`, que muestra a `Secretaria` sobreescribiendo un método heredado con su propia implementación.

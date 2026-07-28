@@ -59,3 +59,5 @@ public class LlegadaPaciente {
 **Justificación técnica del código:**
 
 `LlegadaPaciente` no ofrece setters directos para `horaLlegada` ni `presente`. La única forma de registrar una llegada es `registrarHoraLlegada()`, que primero valida que no exista un registro previo, y la única forma de cambiar la presencia es `actualizarPresencia()`, que exige que la llegada ya haya sido registrada. Ninguna clase externa —ni `Agenda`, ni `ControlSistema`— puede alterar ese estado sin pasar por esas reglas, lo que mantiene la coherencia del objeto y aísla el resto del sistema de los detalles de cómo se valida ese ciclo de vida.
+
+El encapsulamiento se ve en tres puntos concretos del código: los tres atributos (`horaLlegada`, `presente`, `estadoPresencia`) están declarados `private`, no accesibles desde fuera de la clase; no existen setters públicos, la única forma de escribir esos atributos es a través de `registrarHoraLlegada()` y `actualizarPresencia()`
