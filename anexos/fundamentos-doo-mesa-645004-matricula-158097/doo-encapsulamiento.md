@@ -69,7 +69,7 @@ public class Turno {
 }
 ```
 
-**Justificación técnica del código:** En este ejemplo, los atributos internos de `Agenda` y `Turno` están protegidos mediante encapsulamiento y solo pueden ser modificados a través de métodos controlados. `Agenda` no expone directamente la lista de turnos ni la lógica de validación, por lo que otras clases no pueden alterar la disponibilidad horaria de forma arbitraria. De manera similar, `Turno` solo permite cambiar su estado mediante `marcarPresente()`, que valida que la transición sea válida antes de modificar el valor. Esto preserva la integridad del dominio, centraliza las reglas de negocio y evita que se produzcan estados inconsistentes por acciones externas.
+**Justificación técnica del código:** En este ejemplo, los atributos internos de `Agenda` y `Turno` están protegidos mediante encapsulamiento y solo pueden ser modificados a través de métodos controlados. Se puede identificar el encapsulamiento observando los modificadores de acceso: en `Agenda`, los atributos `turnos` y `gestorBloqueos` están declarados como `private`, por lo que ninguna clase externa puede acceder ni modificar esas colecciones directamente; solo se puede interactuar con ellas a través del método público `reservarTurno()`. Lo mismo ocurre en `Turno`: el atributo `estado` es `private`, y no existe un método `setEstado()` público que permita cambiarlo libremente. La única forma de modificarlo es a través de `marcarPresente()`, que además valida la transición antes de aplicar el cambio. 
 
 
 
