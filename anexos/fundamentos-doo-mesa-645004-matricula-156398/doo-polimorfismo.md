@@ -14,11 +14,11 @@ Las clases `Paciente` y `Medico` pueden redefinir una operación heredada desde 
 
 > Ver diagrama completo en: [polimorfismo-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-polimorfismo-ejemplo-1.png)
 
-**Descripción del diagrama:**
+### Descripción del diagrama:
 
 Las clases derivadas comparten una misma estructura heredada, pero cada una puede implementar determinados comportamientos de forma diferente.
 
-**Justificación técnica:**
+### Justificación técnica:
 
 El polimorfismo permite trabajar con referencias del tipo `Persona` sin importar si el objeto concreto corresponde a un `Paciente` o una `Medico`, ya que cada uno responderá según su propia implementación.
 
@@ -51,6 +51,6 @@ public class Medico extends Persona {
 }
 ```
 
-**Justificación técnica del código:**
+### Justificación técnica del código:
 
 Aunque las clases heredan el mismo método, cada una proporciona una implementación diferente. Esto demuestra cómo un mismo mensaje puede producir comportamientos distintos según el objeto que lo reciba, representando el principio de polimorfismo.

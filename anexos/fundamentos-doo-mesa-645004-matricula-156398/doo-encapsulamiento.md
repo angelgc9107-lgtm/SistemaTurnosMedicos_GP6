@@ -16,11 +16,11 @@ La clase `Turno` almacena información importante sobre un turno médico, como s
 
 > Ver diagrama completo en: [encapsulamiento-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-encapsulamiento-ejemplo-1.png)
 
-**Descripción del diagrama:**
+### Descripción del diagrama:
 
 La clase `Turno` mantiene sus atributos con visibilidad privada y expone únicamente los métodos necesarios para consultar o modificar su estado. De esta manera, la información queda protegida y las modificaciones se realizan de forma controlada.
 
-**Justificación técnica:**
+### Justificación técnica:
 
 El encapsulamiento evita que otras clases alteren directamente los datos internos de `Turno`. Todas las modificaciones pasan por los métodos de la clase, permitiendo validar la información y mantener la coherencia del objeto durante todo su ciclo de vida.
 
@@ -50,6 +50,6 @@ public class ControlSistema {
 }
 ```
 
-**Justificación técnica del código:**
+### Justificación técnica del código:
 
 En este ejemplo, el atributo `estado` posee acceso privado, por lo que ninguna clase puede modificarlo directamente. La única forma de cambiar su valor es mediante el método `actualizarEstado()`, definido por la propia clase `Turno`. Esto permite controlar el acceso a la información interna, proteger el estado del objeto y garantizar que los cambios se realicen de manera controlada, aplicando el principio de encapsulamiento.

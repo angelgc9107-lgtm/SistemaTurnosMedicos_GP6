@@ -10,17 +10,17 @@ En UML, la herencia también se conoce como una relación de generalización/esp
 
 ## Ejemplo en el proyecto
 
-La clase `Medico` hereda de `Persona`, reutilizando los datos comunes como nombre, apellido, documento y teléfono, además de incorporar responsabilidades específicas de su rol.
+La clase `Medico` hereda de `Persona`, reutilizando los datos comunes como nombre, DNI y teléfono, además de incorporar atributos propios como matrícula y especialidad junto con comportamientos específicos de su rol.
 
 ![Herencia — Ejemplo 1: Persona](../../diagramas/01-diagrama-clases/capturas-pilares/poo-herencia-ejemplo-1.png)
 
 > Ver diagrama completo en: [herencia-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-herencia-ejemplo-1.png)
 
-**Descripción del diagrama:**
+### Descripción del diagrama:
 
 `Persona` representa la información común a los distintos participantes del sistema, mientras que `Medico` extiende esa estructura incorporando funciones propias.
 
-**Justificación técnica:**
+### Justificación técnica:
 
 La herencia evita repetir atributos comunes en varias clases y facilita la creación de nuevas especializaciones reutilizando una única definición base.
 
@@ -32,15 +32,38 @@ La herencia evita repetir atributos comunes en varias clases y facilita la creac
 public class Persona {
 
     protected String nombre;
-    protected String apellido;
+    protected String dni;
+    protected String telefono;
+
+    public String getDatos() {
+        return nombre + " - " + dni;
+    }
+
+    public void notificar(String mensaje) {
+        // Lógica de notificación
+    }
 }
 
 public class Medico extends Persona {
 
-    private String legajo;
+    private String matricula;
+    private String especialidad;
+
+    public void definirDisponibilidad(Date fecha, String horario) {
+        // Lógica
+    }
+
+    public void autorizarSobreturno(Turno turno) {
+        // Lógica
+    }
+
+    @Override
+    public void notificar(String mensaje) {
+        // Notificación específica para el médico
+    }
 }
 ```
 
-**Justificación técnica del código:**
+### Justificación técnica del código:
 
-`Medico` reutiliza los atributos definidos en `Persona`, evitando duplicar información y manteniendo una jerarquía de clases coherente con el dominio del sistema.
+El código refleja el uso de la herencia al definir a **Medico** como una especialización de **Persona** mediante la palabra clave `extends`. De esta manera, `Medico` reutiliza los atributos y métodos comunes (`nombre`, `dni`, `telefono`, `getDatos()` y `notificar()`), incorporando además los atributos `matricula` y `especialidad`, junto con comportamientos propios como `definirDisponibilidad()` y `autorizarSobreturno()`. Esto evita duplicar información y mantiene una jerarquía de clases coherente con el modelo del sistema.

@@ -16,11 +16,11 @@ La clase `Agenda` abstrae toda la gestión relacionada con los turnos médicos. 
 
 > Ver diagrama completo en: [abstraccion-ejemplo](../../diagramas/01-diagrama-clases/capturas-pilares/poo-abstraccion-ejemplo-1.png)
 
-**Descripción del diagrama:**
+### Descripción del diagrama:
 
 La clase `Agenda` concentra las operaciones relacionadas con la administración de la agenda de un profesional. Entre ellas se encuentran la consulta de disponibilidad y el registro de turnos. Otras clases interactúan únicamente mediante estos métodos, sin acceder a la implementación interna.
 
-**Justificación técnica:**
+### Justificación técnica:
 
 La abstracción permite que `Agenda` represente el concepto de agenda médica mediante una interfaz clara. Las demás clases conocen qué operaciones pueden realizar, pero no cómo están implementadas, reduciendo el acoplamiento y facilitando el mantenimiento del sistema.
 
@@ -30,6 +30,9 @@ La abstracción permite que `Agenda` represente el concepto de agenda médica me
 
 ```java
 public class Agenda {
+
+    private List<Turno> listaTurnos;
+    private GestorBloqueos gestorBloqueos;
 
     public List<Turno> consultarDisponibilidad(String matricula,
                                                Date semana) {
@@ -41,11 +44,14 @@ public class Agenda {
     public Turno registrarTurno(Map<String, Object> datos) {
 
         // Lógica para registrar un turno
-        return new Turno();
+        Turno turno = new Turno();
+        listaTurnos.add(turno);
+
+        return turno;
     }
 }
 ```
 
-**Justificación técnica del código:**
+### Justificación técnica del código:
 
-En este ejemplo, la clase `Agenda` expone únicamente los métodos necesarios para trabajar con los turnos médicos. Quien utilice esta clase puede consultar la disponibilidad o registrar un turno sin conocer cómo se realizan las validaciones, cómo se almacenan los datos o qué procesos internos intervienen. Esto demuestra el principio de abstracción, ya que la clase representa el concepto de agenda médica ocultando los detalles de implementación y mostrando únicamente las operaciones necesarias para el resto del sistema.
+El código representa la abstracción de la clase **Agenda** al incluir tanto sus atributos (`listaTurnos` y `gestorBloqueos`), que almacenan el estado de la clase, como los métodos `consultarDisponibilidad()` y `registrarTurno()`, que definen su comportamiento. De esta manera, la clase reúne la información y las operaciones necesarias para gestionar los turnos, ocultando la complejidad de su implementación y exponiendo únicamente las funcionalidades que necesitan utilizar otras clases del sistema.
