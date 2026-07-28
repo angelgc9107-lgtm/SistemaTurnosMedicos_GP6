@@ -5,4 +5,5 @@
 - [Anexo - Análisis Funcional por Caso de Uso](/anexos/analisis-funcional/analisis_casos_uso.md)
 - [Anexo - Patrones Diseño](/anexos/patrones-diseno/patrones_diseno.md)
 - [Anexo - Fundamentos del Diseño Orientado a Objetos - Mesa N° 645003 - Cuarteron Angel](/anexos/fundamentos-doo-mesa-645003-matricula-159438/fundamentos-doo.md)
+- [Anexo - Fundamentos del Diseño Orientado a Objetos - Mesa N° 645004 - Piastrellini Thiago](/anexos/fundamentos-doo-mesa-645004-matricula-158097/fundamentos-doo.md)
 - [Anexo - Fundamentos del Diseño Orientado a Objetos - Mesa N° 645004 - Diaz Alan](/anexos/fundamentos-doo-mesa-645004-matricula-152841/fundamentos-doo.md)
